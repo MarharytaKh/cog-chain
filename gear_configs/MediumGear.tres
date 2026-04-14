@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GearType" format=3 uid="uid://bxjqm3bkwil36"]
+
+[ext_resource type="PackedScene" uid="uid://pc73ialsbhro" path="res://gear_medium.tscn" id="1_3om1v"]
+[ext_resource type="Script" uid="uid://cfmif24gch57m" path="res://GearType.cs" id="1_kxbrb"]
+
+[resource]
+script = ExtResource("1_kxbrb")
+scenePrefab = ExtResource("1_3om1v")
+metadata/_custom_type_script = "uid://cfmif24gch57m"
