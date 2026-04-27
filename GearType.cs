@@ -1,45 +1,39 @@
 using Godot;
 
 /// <summary>
-/// Zasób konfiguracji typu koła zębatego.
-/// Definiuje wszystkie statyczne parametry koła: nazwę, właściwości fizyczne
-/// oraz referencję do sceny do instancjonowania.
-/// Tworzony jako zasób <c>.tres</c> i przypisywany przez inspektor Godot.
+/// Zasób konfiguracyjny opisujący jeden typ koła zębatego.
+/// Zapisywany jako plik <c>.tres</c>; może być współdzielony przez wiele poziomów.
 /// </summary>
 [GlobalClass]
 public partial class GearType : Resource
 {
-	/// <summary>
-	/// Wyświetlana nazwa typu koła zębatego (np. „Małe", „Duże").
-	/// Używana w przyciskach interfejsu użytkownika.
-	/// </summary>
+	/// <summary>Wyświetlana nazwa typu koła (np. „Małe", „Duże"). Widoczna na przyciskach UI.</summary>
 	[Export] public string gearName = "Standard";
 
 	/// <summary>
 	/// Promień wieńca zębatego w jednostkach sceny.
+	/// Musi odpowiadać promieniowi siatki 3D prefabu — używany przez
+	/// <see cref="PhysicsEngine.BuildGraph"/> do wykrywania zazębienia.
 	/// </summary>
 	[Export] public float Radius = 1.23f;
 
 	/// <summary>
-	/// Liczba zębów koła zębatego.
-	/// Określa przełożenie przy zazębieniu.
+	/// Liczba zębów koła. Wyznacza przełożenie:
+	/// <c>ratio = drivingToothCount / thisToothCount</c>.
 	/// </summary>
 	[Export] public int ToothCount = 20;
 
-	/// <summary>
-	/// Mnożnik prędkości dla tego typu koła zębatego.
-	/// Zarezerwowane na potrzeby rozbudowy mechaniki przełożeń.
-	/// </summary>
+	/// <summary>Mnożnik prędkości — zarezerwowany na przyszłe rozszerzenia; aktualnie nieużywany.</summary>
 	[Export] public float SpeedMultiplier = 1.0f;
 
 	/// <summary>
-	/// Dodatkowe przesunięcie kątowe (rad) stosowane przy przyciąganiu fazy.
-	/// Pozwala wizualnie wyrównać zęby niestandardowych modeli.
+	/// Korekcja kątowa (w radianach) dla wyrównania wizualnego zębów modelu 3D.
+	/// Dodawana do <c>phaseOffset</c> w <see cref="Gear.SnapPhaseWithMotor"/>.
 	/// </summary>
 	[Export] public float AngleOffset = 0f;
 
 	/// <summary>
-	/// Scena-prefab koła zębatego, instancjonowana przy umieszczaniu na osi.
+	/// Scena-prefab instancjonowana przy umieszczaniu koła na osi.
 	/// Węzeł główny musi być typu <see cref="Gear"/>.
 	/// </summary>
 	[Export] public PackedScene scenePrefab;

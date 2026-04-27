@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="CogChain"
-run/main_scene="uid://d18yqmnt2ohhq"
+run/main_scene="uid://ol6nvfs0jiy0"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+UIManager="*uid://j04s1d5nrfqh"
+GameManager="*uid://d3vrvvrsegw72"
 
 [dotnet]
 

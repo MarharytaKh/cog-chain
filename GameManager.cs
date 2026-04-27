@@ -2,37 +2,33 @@ using Godot;
 using System.Collections.Generic;
 
 /// <summary>
-/// Centralny menedżer gry. Zarządza ładowaniem poziomów, umieszczaniem kół zębatych,
-/// przyciskami interfejsu użytkownika do wyboru typu koła oraz przeliczaniem grafu przekładni.
-/// Istnieje jako węzeł-singleton w drzewie sceny (grupa <c>"GameManager"</c>).
+/// Centralny menedżer gry — koordynuje inicjalizację poziomów, UI, umieszczanie kół
+/// i przejścia między poziomami. Rejestruje się w grupie Godot <c>"GameManager"</c>,
+/// dzięki czemu inne węzły mogą go znaleźć przez <c>GetFirstNodeInGroup</c>.
 /// </summary>
 public partial class GameManager : Node
 {
 	/// <summary>
-	/// Oś wybrana przez gracza kliknięciem myszy.
-	/// <c>null</c>, jeśli żadna oś nie jest wybrana.
-	/// Ustawiana przez <see cref="Axis._Input"/>.
+	/// Oś aktualnie wybrana przez gracza. Ustawiana przez <see cref="Axis._Input"/>,
+	/// odczytywana przez <see cref="_on_button_pressed"/>.
 	/// </summary>
 	public static Axis SelectedAxis;
 
 	/// <summary>
-	/// Typ koła zębatego wybrany do umieszczenia.
-	/// Ustawiany po naciśnięciu przycisku interfejsu.
+	/// Typ koła wybrany do umieszczenia. Ustawiany przez <see cref="SetupGearButtons"/>
+	/// i przez obsługę przycisków UI.
 	/// </summary>
 	public static GearType SelectedGearConfig;
 
-	/// <summary>
-	/// Tablica wszystkich poziomów gry w kolejności przechodzenia.
-	/// Przypisywana przez inspektor Godot.
-	/// </summary>
+	/// <summary>Tablica wszystkich poziomów gry w kolejności przechodzenia. Przypisywana przez inspektor.</summary>
 	[Export] public Level[] levels;
 
 	private Level currentLevel;
 	private int currentLevelIndex = 0;
 
 	/// <summary>
-	/// Liczniki pozostałych kół zębatych dla każdego typu na bieżącym poziomie.
-	/// Indeksy odpowiadają <see cref="Level.availableGearTypes"/>.
+	/// Robocze liczniki pozostałych kół dla każdego typu.
+	/// Kopia <see cref="Level.availableGearCounts"/> — chroniona przed modyfikacją zasobu.
 	/// </summary>
 	private int[] remainingGearCounts;
 
@@ -41,33 +37,77 @@ public partial class GameManager : Node
 	private Node uiInstance;
 
 	/// <summary>
-	/// Inicjalizuje menedżera: ładuje bieżący poziom, wyszukuje silnik i cel,
-	/// tworzy instancję interfejsu użytkownika i wywołuje <see cref="SetupLevel"/>.
+	/// Rejestruje menedżera w grupie, wyszukuje węzły <c>Motor</c> i <c>Target</c>,
+	/// ładuje UI i odkłada inicjalizację poziomu przez <c>CallDeferred</c>
+	/// (aby UI było już w drzewie sceny).
 	/// </summary>
-	public override void _Ready()
+public override void _Ready()
+{
+	AddToGroup("GameManager");
+	GetTree().SceneChanged += OnSceneChanged;
+	CallDeferred(nameof(InitLevel)); // вернули
+}
+
+private void OnSceneChanged()
+{
+	CallDeferred(nameof(InitLevel));
+}
+
+private void InitLevel()
+{    // Удаляем все шестерёнки от прошлого уровня
+	foreach (Node node in GetChildren())
+		if (node is Gear)
+			node.QueueFree();
+
+	var scene = GetTree().CurrentScene;
+	if (scene == null) return;
+
+	motor = scene.GetNodeOrNull<Motor>("Motor");
+	target = scene.GetNodeOrNull<Target>("Target");
+
+	// не уровень (например главное меню) — пропускаем
+	if (motor == null || target == null) return;
+
+	if (levels == null || levels.Length == 0)
 	{
-		AddToGroup("GameManager");
-
-		if (levels == null || levels.Length == 0)
-		{
-			GD.PrintErr("Levels array is empty!");
-			return;
-		}
-
-		currentLevel = levels[currentLevelIndex];
-		motor = GetTree().CurrentScene.GetNode<Motor>("Motor");
-		target = GetTree().CurrentScene.GetNode<Target>("Target");
-
-		var uiScene = GD.Load<PackedScene>("res://UI/UILayer.tscn");
-		uiInstance = uiScene.Instantiate();
-		GetTree().Root.CallDeferred("add_child", uiInstance);
-
-		Callable.From(SetupLevel).CallDeferred();
+		GD.PrintErr("levels пустой!");
+		return;
 	}
 
+	currentLevel = levels[currentLevelIndex];
+
+	var uiManager = GetNodeOrNull<UIManager>("/root/UIManager");
+	if (uiManager == null) { GD.PrintErr("UIManager не найден!"); return; }
+
+	uiManager.Show("hud");
+	uiInstance = uiManager.GetCurrentScreen();
+
+	SetupLevel();
+}
+
+public void CompleteLevel()
+{
+	GD.Print($"LEVEL COMPLETE! levels={levels?.Length.ToString() ?? "NULL"}");
+	var uiManager = GetNodeOrNull<UIManager>("/root/UIManager");
+	if (uiManager == null) { GD.PrintErr("UIManager null!"); return; }
+	if (levels == null) { GD.PrintErr("levels null!"); return; }
+	uiManager.Show("level_complete");
+	var screen = uiManager.GetCurrentScreen();
+	if (screen is LevelCompleteScreen lcs)
+		lcs.Setup(currentLevelIndex, levels.Length);
+	else
+		GD.PrintErr($"screen type={screen?.GetType().Name}");
+}
+public void RestartLevel()
+{
+	var scene = levels[currentLevelIndex].levelScene;
+	if (scene != null)
+		GetTree().ChangeSceneToPacked(scene);
+}
+
 	/// <summary>
-	/// Inicjalizuje liczniki kół z danych bieżącego poziomu,
-	/// ustawia domyślny typ i tworzy przyciski interfejsu.
+	/// Kopiuje liczniki kół z konfiguracji poziomu, ustawia domyślny typ koła
+	/// i inicjuje przyciski UI przez <see cref="SetupGearButtons"/>.
 	/// </summary>
 	private void SetupLevel()
 	{
@@ -87,9 +127,9 @@ public partial class GameManager : Node
 	}
 
 	/// <summary>
-	/// Przypisuje procedury obsługi naciśnięcia do przycisków interfejsu wyboru kół.
-	/// Każdy przycisk wyświetla nazwę typu i pozostały licznik.
-	/// Naciśnięcie przy zerowym liczniku jest ignorowane.
+	/// Wiąże przyciski UI (<c>Button0</c>, <c>Button1</c>, …) z typami kół dostępnymi
+	/// na poziomie. Każdy przycisk ustawia <see cref="SelectedGearConfig"/> i wywołuje
+	/// <see cref="_on_button_pressed"/>.
 	/// </summary>
 	private void SetupGearButtons()
 	{
@@ -123,13 +163,59 @@ public partial class GameManager : Node
 			else
 				GD.PrintErr($"Button{i} not found at path UI/Panel/Button{i}");
 		}
+		 var removeBtn = uiInstance.GetNodeOrNull<Button>("UI/Panel/RemoveButton");
+		 if (removeBtn != null)
+		  removeBtn.Pressed += () => RemoveGearFromAxis(SelectedAxis);
+		 }
+public void RemoveGearFromAxis(Axis axis)
+{
+	if (axis == null || !axis.HasGear) return;
+
+	foreach (Node node in GetChildren())
+	{
+		if (node is Gear gear && gear.GlobalPosition.DistanceTo(axis.GlobalPosition) < 0.1f)
+		{
+			// Останавливаем мотор чтобы он не вызывал UpdateRotation
+			motor.SetProcess(false);
+
+			// Сбрасываем весь граф
+			motor.Children.Clear();
+			foreach (Node n in GetChildren())
+				if (n is Gear g)
+					g.Reset();
+
+			for (int i = 0; i < currentLevel.availableGearTypes.Length; i++)
+			{
+				if (currentLevel.availableGearTypes[i] == gear.config)
+				{
+					remainingGearCounts[i]++;
+					var btn = uiInstance.GetNodeOrNull<Button>($"UI/Panel/Button{i}");
+					if (btn != null) UpdateButtonText(btn, i);
+					break;
+				}
+			}
+
+			axis.HasGear = false;
+			gear.QueueFree();
+
+			// На следующем кадре пересчитываем и включаем мотор
+			CallDeferred(nameof(ReenableMotorAndRecalculate));
+			return;
+		}
 	}
+}
+
+private void ReenableMotorAndRecalculate()
+{
+	motor.SetProcess(true);
+	Recalculate();
+}
 
 	/// <summary>
-	/// Aktualizuje tekst przycisku: nazwę typu koła i pozostałą liczbę.
+	/// Aktualizuje tekst przycisku: <c>"{gearName}\n{remainingCount}"</c>.
 	/// </summary>
-	/// <param name="btn">Przycisk do aktualizacji.</param>
-	/// <param name="index">Indeks typu koła w tablicy poziomu.</param>
+	/// <param name="btn">Przycisk do zaktualizowania.</param>
+	/// <param name="index">Indeks typu koła w tablicach poziomu.</param>
 	private void UpdateButtonText(Button btn, int index)
 	{
 		var type = currentLevel.availableGearTypes[index];
@@ -137,11 +223,11 @@ public partial class GameManager : Node
 	}
 
 	/// <summary>
-	/// Obsługuje naciśnięcie przycisku interfejsu: sprawdza wybraną oś, dostępność konfiguracji,
-	/// kolizje z innymi kołami i silnikiem, następnie tworzy instancję koła,
-	/// synchronizuje fazę i wywołuje przeliczenie grafu.
+	/// Obsługuje naciśnięcie przycisku wyboru koła: waliduje oś i konfigurację,
+	/// sprawdza nakładanie z istniejącymi kołami i silnikiem, tworzy instancję koła,
+	/// synchronizuje fazę zazębienia i przebudowuje graf przez <see cref="Recalculate"/>.
 	/// </summary>
-	/// <param name="gearIndex">Indeks wybranego typu koła zębatego.</param>
+	/// <param name="gearIndex">Indeks wybranego typu koła w tablicy <see cref="Level.availableGearTypes"/>.</param>
 	private void _on_button_pressed(int gearIndex)
 	{
 		GD.Print($"Button pressed, axis={SelectedAxis}, config={SelectedGearConfig?.gearName}");
@@ -210,8 +296,7 @@ public partial class GameManager : Node
 	}
 
 	/// <summary>
-	/// Przebudowuje graf przekładni przez <see cref="PhysicsEngine.BuildGraph"/>
-	/// na podstawie bieżącej listy kół zębatych.
+	/// Pobiera listę aktywnych kół i zleca przebudowanie grafu przez <see cref="PhysicsEngine.BuildGraph"/>.
 	/// </summary>
 	private void Recalculate()
 	{
@@ -224,22 +309,16 @@ public partial class GameManager : Node
 		PhysicsEngine.BuildGraph(motor, gears, target);
 	}
 
-	/// <summary>
-	/// Kończy bieżący poziom: wypisuje komunikat i po 2 sekundach ładuje następny.
-	/// </summary>
-	public void CompleteLevel()
-	{
-		GD.Print("Level complete!");
-		GetTree().CreateTimer(2.0).Timeout += () => LoadNextLevel();
-	}
+
 
 	/// <summary>
-	/// Ładuje następny poziom według indeksu.
-	/// Jeśli poziomy się skończyły — wypisuje komunikat o końcu gry.
+	/// Ładuje następny poziom z tablicy <see cref="levels"/> lub loguje komunikat
+	/// o ukończeniu całej gry, gdy nie ma już więcej poziomów.
 	/// </summary>
 	public void LoadNextLevel()
 	{
 		currentLevelIndex++;
+		GD.Print($"Загружаем уровень {currentLevelIndex}, сцена={levels[currentLevelIndex].levelScene?.ResourcePath}");
 		if (currentLevelIndex < levels.Length)
 		{
 			var next = levels[currentLevelIndex];
@@ -251,9 +330,9 @@ public partial class GameManager : Node
 	}
 
 	/// <summary>
-	/// Zwraca listę wszystkich kół zębatych będących węzłami podrzędnymi GameManager.
+	/// Zwraca listę wszystkich węzłów <see cref="Gear"/> będących dziećmi tego menedżera.
 	/// </summary>
-	/// <returns>Lista aktywnych kół zębatych na poziomie.</returns>
+	/// <returns>Nowa lista aktywnych kół zębatych.</returns>
 	private List<Gear> GetAllGears()
 	{
 		var gears = new List<Gear>();

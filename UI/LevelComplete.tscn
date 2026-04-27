@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d0pqhup8e84da"]
+
+[ext_resource type="Script" uid="uid://dvt1w0y1hdibn" path="res://LevelCompleteScreen.cs" id="1_1efgk"]
+
+[node name="LevelComplete" type="CanvasLayer" unique_id=11083818]
+script = ExtResource("1_1efgk")
+
+[node name="Panel" type="Panel" parent="." unique_id=594031481]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1154.0
+offset_bottom = 651.0
+
+[node name="nextButton" type="Button" parent="Panel" unique_id=1189441207]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 283.0
+offset_right = 704.0
+offset_bottom = 359.0
+text = "nextButton
+"

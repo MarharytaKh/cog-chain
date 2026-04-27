@@ -3,59 +3,60 @@ using System.Collections.Generic;
 
 /// <summary>
 /// Koło zębate — główny obiekt gry umieszczany przez gracza na osiach.
-/// Odbiera obrót od silnika lub nadrzędnego koła zębatego i przekazuje go do podrzędnych.
-/// Przechowuje pozycję w grafie przekładni, bieżący kąt i przesunięcie fazy.
+/// Przechowuje pozycję w grafie przekładni, oblicza własny kąt obrotu
+/// i propaguje ruch do potomnych kół.
 /// </summary>
 public partial class Gear : Node3D
 {
 	/// <summary>
-	/// Konfiguracja koła zębatego (typ, promień, zęby, przesunięcie kąta).
-	/// Ustawiana przez inspektor Godot lub podczas tworzenia instancji.
+	/// Konfiguracja koła (typ, promień, liczba zębów, korekcja kąta).
+	/// Ustawiana przez <see cref="GameManager._on_button_pressed"/> przed dodaniem do sceny.
 	/// </summary>
 	[Export] public GearType config;
 
 	/// <summary>
 	/// Promień wieńca zębatego w jednostkach sceny.
-	/// Inicjalizowany z <see cref="config"/> w metodzie <see cref="_Ready"/>.
+	/// Inicjalizowany z <see cref="GearType.Radius"/> w <see cref="_Ready"/>.
+	/// Używany przez <see cref="PhysicsEngine.BuildGraph"/> i <see cref="UpdateRotation"/>.
 	/// </summary>
 	[Export] public float Radius = 1.23f;
 
 	/// <summary>
-	/// Liczba zębów koła zębatego.
-	/// Używana do obliczenia przełożenia.
+	/// Liczba zębów koła. Inicjalizowana z <see cref="GearType.ToothCount"/> w <see cref="_Ready"/>.
+	/// Wyznacza przełożenie: <c>ratio = parentToothCount / thisToothCount</c>.
 	/// </summary>
 	[Export] public int ToothCount = 20;
 
 	/// <summary>
-	/// Nadrzędne koło zębate w grafie przekładni.
-	/// <c>null</c>, jeśli koło jest połączone bezpośrednio z silnikiem.
+	/// Nadrzędne koło w grafie. Wzajemnie wyklucza się z <see cref="MotorParent"/>.
+	/// Ustawiane przez <see cref="SetParent"/>; zerowane przez <see cref="Reset"/>.
 	/// </summary>
 	public Gear Parent;
 
 	/// <summary>
-	/// Referencja do silnika przy bezpośrednim zazębieniu.
+	/// Silnik jako rodzic — ustawiany dla kół bezpośrednio zazębionych z silnikiem.
 	/// Wzajemnie wyklucza się z <see cref="Parent"/>.
 	/// </summary>
 	public Motor MotorParent;
 
 	/// <summary>
-	/// Lista podrzędnych kół zębatych odbierających obrót od tego koła.
+	/// Lista kół potomnych otrzymujących obrót od tego koła.
+	/// Wypełniana przez <see cref="PhysicsEngine.BuildGraph"/>; czyszczona przez <see cref="Reset"/>.
 	/// </summary>
 	public List<Gear> Children = new List<Gear>();
 
-	/// <summary>
-	/// Bieżący kąt obrotu w radianach.
-	/// </summary>
+	/// <summary>Bieżący kąt obrotu koła w radianach, obliczany w <see cref="UpdateRotation"/>.</summary>
 	public float angle = 0f;
 
 	/// <summary>
-	/// Przesunięcie fazy zapewniające prawidłowe zazębienie zębów.
-	/// Obliczane podczas przyciągania do silnika lub innego koła.
+	/// Przesunięcie fazy zapewniające wizualnie poprawne zazębienie zębów.
+	/// Obliczane jednorazowo przez <see cref="SnapPhaseWithMotor"/> lub <see cref="SnapPhaseWithGear"/>.
+	/// Zerowane przez <see cref="Reset"/>.
 	/// </summary>
 	public float phaseOffset = 0f;
 
 	/// <summary>
-	/// Inicjalizuje parametry z <see cref="config"/>, jeśli konfiguracja jest ustawiona.
+	/// Inicjalizuje <see cref="Radius"/> i <see cref="ToothCount"/> z przypisanego zasobu <see cref="config"/>.
 	/// </summary>
 	public override void _Ready()
 	{
@@ -67,8 +68,8 @@ public partial class Gear : Node3D
 	}
 
 	/// <summary>
-	/// Resetuje stan koła zębatego: czyści powiązania w grafie przekładni i przesunięcie fazy.
-	/// Wywoływana na początku każdego przeliczenia grafu.
+	/// Zeruje powiązania w grafie i <see cref="phaseOffset"/>.
+	/// Wywoływana przez <see cref="PhysicsEngine.BuildGraph"/> przed każdym przebudowaniem grafu.
 	/// </summary>
 	public void Reset()
 	{
@@ -79,12 +80,12 @@ public partial class Gear : Node3D
 	}
 
 	/// <summary>
-	/// Sprawdza, czy koło zębate może zazębić się z innym na podanej pozycji.
-	/// Kryterium: odległość między środkami równa sumie promieni (tolerancja 0.2).
+	/// Sprawdza, czy koło może zazębić się z <paramref name="other"/> gdyby znajdowało się na pozycji <paramref name="pos"/>.
+	/// Kryterium: <c>|dist − (R1 + R2)| &lt; 0.2</c>.
 	/// </summary>
-	/// <param name="pos">Sprawdzana pozycja tego koła.</param>
-	/// <param name="other">Inne koło zębate do sprawdzenia zazębienia.</param>
-	/// <returns><c>true</c>, jeśli zazębienie jest możliwe.</returns>
+	/// <param name="pos">Hipotetyczna pozycja środka tego koła.</param>
+	/// <param name="other">Koło do sprawdzenia.</param>
+	/// <returns><c>true</c> jeśli koła zazębią się w tej pozycji.</returns>
 	public bool CanMeshAtPos(Vector3 pos, Gear other)
 	{
 		float dist = pos.DistanceTo(other.GlobalPosition);
@@ -92,11 +93,12 @@ public partial class Gear : Node3D
 	}
 
 	/// <summary>
-	/// Sprawdza, czy koło zębate może zazębić się z silnikiem na podanej pozycji.
+	/// Sprawdza, czy koło może zazębić się z silnikiem gdyby znajdowało się na pozycji <paramref name="pos"/>.
+	/// Kryterium: <c>|dist − (R + Rmotor)| &lt; 0.2</c>.
 	/// </summary>
-	/// <param name="pos">Sprawdzana pozycja tego koła.</param>
-	/// <param name="motor">Silnik do sprawdzenia zazębienia.</param>
-	/// <returns><c>true</c>, jeśli zazębienie z silnikiem jest możliwe.</returns>
+	/// <param name="pos">Hipotetyczna pozycja środka tego koła.</param>
+	/// <param name="motor">Silnik do sprawdzenia.</param>
+	/// <returns><c>true</c> jeśli koło zazębi się z silnikiem.</returns>
 	public bool CanMeshMotorAtPos(Vector3 pos, Motor motor)
 	{
 		float dist = pos.DistanceTo(motor.GlobalPosition);
@@ -104,11 +106,12 @@ public partial class Gear : Node3D
 	}
 
 	/// <summary>
-	/// Sprawdza, czy koło zębate pokrywa się z innym na podanej pozycji (kolizja).
+	/// Sprawdza, czy koło nachodziłoby na <paramref name="other"/> gdyby znajdowało się na pozycji <paramref name="pos"/>.
+	/// Kryterium: <c>dist &lt; (R1 + R2) − 0.1</c>.
 	/// </summary>
-	/// <param name="pos">Sprawdzana pozycja tego koła.</param>
-	/// <param name="other">Inne koło zębate.</param>
-	/// <returns><c>true</c>, jeśli koła się przecinają.</returns>
+	/// <param name="pos">Hipotetyczna pozycja środka tego koła.</param>
+	/// <param name="other">Koło do sprawdzenia.</param>
+	/// <returns><c>true</c> jeśli koła nakładałyby się.</returns>
 	public bool OverlapsAtPos(Vector3 pos, Gear other)
 	{
 		float dist = pos.DistanceTo(other.GlobalPosition);
@@ -116,11 +119,12 @@ public partial class Gear : Node3D
 	}
 
 	/// <summary>
-	/// Sprawdza, czy koło zębate pokrywa się z silnikiem na podanej pozycji (kolizja).
+	/// Sprawdza, czy koło nachodziłoby na silnik gdyby znajdowało się na pozycji <paramref name="pos"/>.
+	/// Kryterium: <c>dist &lt; (R + Rmotor) − 0.1</c>.
 	/// </summary>
-	/// <param name="pos">Sprawdzana pozycja tego koła.</param>
-	/// <param name="motor">Silnik.</param>
-	/// <returns><c>true</c>, jeśli koło przecina się z silnikiem.</returns>
+	/// <param name="pos">Hipotetyczna pozycja środka tego koła.</param>
+	/// <param name="motor">Silnik do sprawdzenia.</param>
+	/// <returns><c>true</c> jeśli koło nakładałoby się z silnikiem.</returns>
 	public bool OverlapsMotorAtPos(Vector3 pos, Motor motor)
 	{
 		float dist = pos.DistanceTo(motor.GlobalPosition);
@@ -128,9 +132,10 @@ public partial class Gear : Node3D
 	}
 
 	/// <summary>
-	/// Ustawia nadrzędne koło zębate i dodaje bieżące do jego listy podrzędnych.
+	/// Ustawia <paramref name="parent"/> jako koło nadrzędne i rejestruje się w jego liście <see cref="Children"/>.
+	/// Wywoływana wyłącznie przez <see cref="PhysicsEngine.BuildGraph"/>.
 	/// </summary>
-	/// <param name="parent">Nadrzędne koło zębate w grafie przekładni.</param>
+	/// <param name="parent">Koło nadrzędne w grafie przekładni.</param>
 	public void SetParent(Gear parent)
 	{
 		Parent = parent;
@@ -138,32 +143,37 @@ public partial class Gear : Node3D
 	}
 
 	/// <summary>
-	/// Przelicza kąt obrotu na podstawie przełożenia do rodzica
-	/// i rekurencyjnie aktualizuje wszystkie podrzędne koła.
-	/// Wywoływana każdą klatkę przez <see cref="Motor._Process"/>.
+	/// Oblicza kąt obrotu tego koła na podstawie przełożenia i propaguje ruch do potomków.
+	/// Wzór: <c>angle = -parentAngle * (parentTeeth / thisTeeth) + phaseOffset</c>.
+	/// Wywoływana co klatkę przez <see cref="Motor._Process"/> lub koło nadrzędne.
 	/// </summary>
-	public void UpdateRotation()
+public void UpdateRotation()
+{
+	if (MotorParent != null)
 	{
-		if (MotorParent != null)
-		{
-			float ratio = (float)MotorParent.ToothCount / (float)ToothCount;
-			angle = (-MotorParent.angle * ratio) + phaseOffset;
-		}
-		else if (Parent != null)
-		{
-			float ratio = (float)Parent.ToothCount / (float)ToothCount;
-			angle = (-Parent.angle * ratio) + phaseOffset;
-		}
-		else return;
-		Rotation = new Vector3(0, angle, 0);
-		foreach (var c in Children)
-			c.UpdateRotation();
+		if (!IsInstanceValid(MotorParent)) return;
+		float ratio = (float)MotorParent.ToothCount / (float)ToothCount;
+		angle = (-MotorParent.angle * ratio) + phaseOffset;
 	}
+	else if (Parent != null)
+	{
+		if (!IsInstanceValid(Parent)) return;
+		float ratio = (float)Parent.ToothCount / (float)ToothCount;
+		angle = (-Parent.angle * ratio) + phaseOffset;
+	}
+	else return;
+
+	Rotation = new Vector3(0, angle, 0);
+
+	foreach (var c in Children)
+		if (IsInstanceValid(c))
+			c.UpdateRotation();
+}
 
 	/// <summary>
-	/// Oblicza i ustawia przesunięcie fazy dla prawidłowego zazębienia zębów z silnikiem.
-	/// Najbliższa szczelina zębów silnika w punkcie styku jest używana jako punkt odniesienia.
-	/// Uwzględnia <see cref="GearType.AngleOffset"/> z konfiguracji.
+	/// Oblicza <see cref="phaseOffset"/> tak, aby zęby tego koła trafiały w szczeliny
+	/// zębów silnika w punkcie styku. Wywoływana raz po umieszczeniu koła w scenie.
+	/// Uwzględnia korekcję <see cref="GearType.AngleOffset"/> z konfiguracji.
 	/// </summary>
 	/// <param name="motor">Silnik, z którym synchronizowana jest faza.</param>
 	public void SnapPhaseWithMotor(Motor motor)
@@ -185,9 +195,11 @@ public partial class Gear : Node3D
 	}
 
 	/// <summary>
-	/// Oblicza i ustawia przesunięcie fazy dla prawidłowego zazębienia z innym kołem zębatym.
+	/// Oblicza <see cref="phaseOffset"/> tak, aby zęby tego koła trafiały w szczeliny
+	/// zębów koła <paramref name="other"/> w punkcie styku.
+	/// Wywoływana gdy nowe koło nie zazębia się bezpośrednio z silnikiem.
 	/// </summary>
-	/// <param name="other">Koło zębate, z którym synchronizowana jest faza.</param>
+	/// <param name="other">Koło, z którym synchronizowana jest faza.</param>
 	public void SnapPhaseWithGear(Gear other)
 	{
 		Vector3 dir = (GlobalPosition - other.GlobalPosition).Normalized();
