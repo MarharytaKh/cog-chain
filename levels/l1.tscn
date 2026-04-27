@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dsyebj2qmpaua" path="res://3dModels/backgrounds/rectangle/defaultMat_Roughness_1001.png" id="4_6bc61"]
 [ext_resource type="Texture2D" uid="uid://cb6ut452q88f8" path="res://3dModels/backgrounds/bricks_brown/defaultMat_Roughness_1001.png" id="4_20c6m"]
 [ext_resource type="Texture2D" uid="uid://dpldsyocg0col" path="res://3dModels/backgrounds/rectangle/defaultMat_Normal_1001.png" id="4_ccpp8"]
+[ext_resource type="Script" uid="uid://b1a6ambat4bo" path="res://Background.cs" id="5_dm6yu"]
 [ext_resource type="ArrayMesh" uid="uid://damlgvtj23ggv" path="res://3dModels/axis/ax.obj" id="7_psvmm"]
 [ext_resource type="Texture2D" uid="uid://cyga5ovwc7e" path="res://3dModels/axis/DefaultMaterial_Base_color_1001.png" id="8_ksccg"]
 [ext_resource type="Texture2D" uid="uid://jty42wahvdy2" path="res://3dModels/axis/DefaultMaterial_Metallic_1001.png" id="9_usr37"]
@@ -37,6 +38,9 @@ roughness_texture = ExtResource("4_6bc61")
 normal_enabled = true
 normal_scale = 3.37
 normal_texture = ExtResource("4_ccpp8")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tdcul"]
+size = Vector3(2.6342468, 1.8070984, 0.6557617)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eq3oj"]
 albedo_texture = ExtResource("2_u72j1")
@@ -103,6 +107,13 @@ current = true
 transform = Transform3D(5, 0, 0, 0, -1.4066204e-07, 5, 0, -3.217972, -2.1855695e-07, -3.2011168, -0.25599146, -1.0708818)
 mesh = ExtResource("1_6bc61")
 surface_material_override/0 = SubResource("StandardMaterial3D_pqoe8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2" unique_id=1866474560]
+script = ExtResource("5_dm6yu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D" unique_id=1317570167]
+transform = Transform3D(1, 0, 0, 0, 1, 2.2737368e-13, 0, -3.5527137e-15, 1, 0.0013886094, -0.0009307265, -0.1721192)
+shape = SubResource("BoxShape3D_tdcul")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=803690116]
 transform = Transform3D(-4.0069675, -0.015217663, -8.7732155e-10, 0, -1.6570986e-07, 5, -0.016084721, 3.7909694, 2.1855519e-07, -3.341688, -0.14144301, -0.9990339)

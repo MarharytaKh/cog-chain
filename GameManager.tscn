@@ -2,10 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dopm5j0vuw2e8" path="res://GameManager.cs" id="1_au0an"]
 [ext_resource type="Resource" uid="uid://ct2t7620ietas" path="res://levels/Level1.tres" id="2_au0an"]
-[ext_resource type="Resource" uid="uid://gd1goubhrshr" path="res://levels/Level2.tres" id="3_au0an"]
-[ext_resource type="Resource" uid="uid://eeekv0qeorps" path="res://levels/Level3.tres" id="4_108xg"]
-[ext_resource type="Resource" uid="uid://bageum62aamyj" path="res://levels/Level4.tres" id="5_dxunw"]
+[ext_resource type="PackedScene" uid="uid://dib2atuvig8n0" path="res://axis_prefab.tscn" id="6_pdxvr"]
 
 [node name="GameManager" type="Node" unique_id=1250458066]
 script = ExtResource("1_au0an")
-levels = Array[Object]([ExtResource("2_au0an"), ExtResource("3_au0an"), ExtResource("4_108xg"), ExtResource("5_dxunw")])
+levels = Array[Object]([ExtResource("2_au0an")])
+axisPrefab = ExtResource("6_pdxvr")

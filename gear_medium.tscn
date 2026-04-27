@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://pc73ialsbhro"]
 
+[ext_resource type="Script" uid="uid://bi4ows8fskfi8" path="res://GearClickHandler.cs" id="1_slenb"]
 [ext_resource type="Script" uid="uid://b1avlg61bysbh" path="res://Gear.cs" id="1_u3nac"]
 [ext_resource type="Texture2D" uid="uid://cq3q02mmgd4x4" path="res://3dModels/gears/textures/default_Base_color_1001.png" id="2_kdcu1"]
 [ext_resource type="Texture2D" uid="uid://bs8ldquxfo6bc" path="res://3dModels/gears/textures/default_Metallic_1001.png" id="3_pd2n7"]
@@ -17,6 +18,10 @@ normal_enabled = true
 normal_scale = 1.47
 normal_texture = ExtResource("4_ai1uq")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_slenb"]
+height = 0.06776428
+radius = 0.3491211
+
 [node name="Gear" type="Node3D" unique_id=1627139179]
 script = ExtResource("1_u3nac")
 
@@ -24,3 +29,10 @@ script = ExtResource("1_u3nac")
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37707472, 0)
 material_override = SubResource("StandardMaterial3D_ai1uq")
 mesh = ExtResource("5_0hfvt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=274469700]
+script = ExtResource("1_slenb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=48221236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.008430481, 0)
+shape = SubResource("CylinderShape3D_slenb")
