@@ -1,59 +1,63 @@
 [gd_scene format=3 uid="uid://b5ocy7y42u3hf"]
 
-[ext_resource type="ArrayMesh" uid="uid://ca40rvewmsod0" path="res://3dModels/backgrounds/tlo.obj" id="1_e1q1x"]
-[ext_resource type="ArrayMesh" uid="uid://b74oasm0ek337" path="res://3dModels/gears/Pipe_sq.obj" id="1_v67tu"]
-[ext_resource type="Texture2D" uid="uid://c8q4y4g7tfu60" path="res://3dModels/backgrounds/bricks_blue/defaultMat_Base_color_1001.png" id="2_g6ibl"]
-[ext_resource type="Texture2D" uid="uid://dasd7bmtxn11s" path="res://3dModels/backgrounds/bricks_blue/defaultMat_Normal_1001.png" id="3_ouy24"]
-[ext_resource type="Texture2D" uid="uid://cb6ut452q88f8" path="res://3dModels/backgrounds/bricks_brown/defaultMat_Roughness_1001.png" id="4_ouy24"]
-[ext_resource type="ArrayMesh" uid="uid://canvpl0a7ral" path="res://3dModels/backgrounds/rectangle.obj" id="6_13kvd"]
-[ext_resource type="Texture2D" uid="uid://ranjrwx2fvml" path="res://3dModels/backgrounds/rectangle/defaultMat_Base_color_1001.png" id="6_e1q1x"]
-[ext_resource type="Texture2D" uid="uid://dpldsyocg0col" path="res://3dModels/backgrounds/rectangle/defaultMat_Normal_1001.png" id="7_v67tu"]
-[ext_resource type="Texture2D" uid="uid://dsyebj2qmpaua" path="res://3dModels/backgrounds/rectangle/defaultMat_Roughness_1001.png" id="8_jwyxw"]
-[ext_resource type="ArrayMesh" uid="uid://damlgvtj23ggv" path="res://3dModels/axis/ax.obj" id="10_xoktj"]
-[ext_resource type="Texture2D" uid="uid://cyga5ovwc7e" path="res://3dModels/axis/DefaultMaterial_Base_color_1001.png" id="11_fabid"]
-[ext_resource type="Texture2D" uid="uid://jty42wahvdy2" path="res://3dModels/axis/DefaultMaterial_Metallic_1001.png" id="12_6gtwt"]
-[ext_resource type="Texture2D" uid="uid://mk73yhl1hcq3" path="res://3dModels/axis/DefaultMaterial_Normal_1001.png" id="13_26vi8"]
-[ext_resource type="Texture2D" uid="uid://cd8nndo2rup1b" path="res://3dModels/axis/DefaultMaterial_Roughness_1001.png" id="14_kt3kd"]
-[ext_resource type="Script" uid="uid://cxh1jsv46nitn" path="res://Axis.cs" id="15_kgxsu"]
-[ext_resource type="Script" uid="uid://cbjf6ejbgq52x" path="res://Motor.cs" id="16_6ourm"]
-[ext_resource type="ArrayMesh" uid="uid://ecomklijoju8" path="res://3dModels/gears/cogzr.obj" id="17_8roro"]
-[ext_resource type="Texture2D" uid="uid://d04r1ytb6oxsl" path="res://3dModels/gears/textures/defaultMat_Base_color_1001.png" id="18_bo804"]
-[ext_resource type="Texture2D" uid="uid://sit8fd4et2y7" path="res://3dModels/gears/textures/defaultMat_Emissive_1001.png" id="19_gwi1w"]
-[ext_resource type="Texture2D" uid="uid://c816fyquc5ibg" path="res://3dModels/gears/textures/defaultMat.001_Height_1001.png" id="20_f1pxs"]
-[ext_resource type="Texture2D" uid="uid://dxu4431aw5m5h" path="res://3dModels/gears/textures/defaultMat_Metallic_1001.png" id="21_0rjpg"]
-[ext_resource type="Texture2D" uid="uid://bfv7m6x0d6bmj" path="res://3dModels/gears/textures/defaultMat.001_Normal_1001.png" id="22_osuyp"]
-[ext_resource type="Texture2D" uid="uid://vx7ols724f4" path="res://3dModels/gears/textures/defaultMat.001_Roughness_1001.png" id="23_xo8wj"]
-[ext_resource type="ArrayMesh" uid="uid://beev1r7eu6t7" path="res://3dModels/gears/op_dla_zr.obj" id="24_st6ww"]
-[ext_resource type="Texture2D" uid="uid://nvd25pdm331l" path="res://3dModels/gears/textures/target_base/defaultMat_Base_color_1001.png" id="25_88f2y"]
-[ext_resource type="Texture2D" uid="uid://c764iyws6l7et" path="res://3dModels/gears/textures/target_base/defaultMat_Height_1001.png" id="26_twgkp"]
-[ext_resource type="Texture2D" uid="uid://urkg7qo2fdyp" path="res://3dModels/gears/textures/target_base/defaultMat_Normal_OpenGL_1001.png" id="27_tj5l3"]
-[ext_resource type="Texture2D" uid="uid://itqsbqy2gxb3" path="res://3dModels/gears/textures/target_base/defaultMat_Roughness_1001.png" id="28_up3hp"]
-[ext_resource type="Script" uid="uid://cteymk6ew11fe" path="res://Target.cs" id="29_p2yhw"]
+[ext_resource type="ArrayMesh" uid="uid://ca40rvewmsod0" path="res://3dModels/backgrounds/tlo.obj" id="1_v67tu"]
+[ext_resource type="Texture2D" uid="uid://b6dci5u156gvj" path="res://3dModels/backgrounds/metal_lists/defaultMat_Base_color_1001.png" id="2_jwyxw"]
+[ext_resource type="Texture2D" uid="uid://eqhrsvgqpuyj" path="res://3dModels/backgrounds/green/defaultMat_Metallic_1001.png" id="3_gwpc8"]
+[ext_resource type="Texture2D" uid="uid://ct4ec5s1oe57i" path="res://3dModels/backgrounds/metal_lists/defaultMat_Normal_OpenGL_1001.png" id="4_8yh1r"]
+[ext_resource type="Texture2D" uid="uid://domr2elasulq1" path="res://3dModels/backgrounds/metal_lists/defaultMat_Roughness_1001.png" id="5_13kvd"]
+[ext_resource type="ArrayMesh" uid="uid://damlgvtj23ggv" path="res://3dModels/axis/ax.obj" id="11_6gtwt"]
+[ext_resource type="Texture2D" uid="uid://cyga5ovwc7e" path="res://3dModels/axis/DefaultMaterial_Base_color_1001.png" id="12_26vi8"]
+[ext_resource type="Texture2D" uid="uid://jty42wahvdy2" path="res://3dModels/axis/DefaultMaterial_Metallic_1001.png" id="13_kt3kd"]
+[ext_resource type="Texture2D" uid="uid://mk73yhl1hcq3" path="res://3dModels/axis/DefaultMaterial_Normal_1001.png" id="14_kgxsu"]
+[ext_resource type="Texture2D" uid="uid://cd8nndo2rup1b" path="res://3dModels/axis/DefaultMaterial_Roughness_1001.png" id="15_6ourm"]
+[ext_resource type="Script" uid="uid://cxh1jsv46nitn" path="res://Axis.cs" id="16_8roro"]
+[ext_resource type="Script" uid="uid://cbjf6ejbgq52x" path="res://Motor.cs" id="17_bo804"]
+[ext_resource type="ArrayMesh" uid="uid://ecomklijoju8" path="res://3dModels/gears/cogzr.obj" id="18_gwi1w"]
+[ext_resource type="Texture2D" uid="uid://d04r1ytb6oxsl" path="res://3dModels/gears/textures/defaultMat_Base_color_1001.png" id="19_f1pxs"]
+[ext_resource type="Texture2D" uid="uid://sit8fd4et2y7" path="res://3dModels/gears/textures/defaultMat_Emissive_1001.png" id="20_0rjpg"]
+[ext_resource type="Texture2D" uid="uid://c816fyquc5ibg" path="res://3dModels/gears/textures/defaultMat.001_Height_1001.png" id="21_osuyp"]
+[ext_resource type="Texture2D" uid="uid://dxu4431aw5m5h" path="res://3dModels/gears/textures/defaultMat_Metallic_1001.png" id="22_xo8wj"]
+[ext_resource type="Texture2D" uid="uid://bfv7m6x0d6bmj" path="res://3dModels/gears/textures/defaultMat.001_Normal_1001.png" id="23_st6ww"]
+[ext_resource type="Texture2D" uid="uid://vx7ols724f4" path="res://3dModels/gears/textures/defaultMat.001_Roughness_1001.png" id="24_88f2y"]
+[ext_resource type="ArrayMesh" uid="uid://beev1r7eu6t7" path="res://3dModels/gears/op_dla_zr.obj" id="25_twgkp"]
+[ext_resource type="Texture2D" uid="uid://nvd25pdm331l" path="res://3dModels/gears/textures/target_base/defaultMat_Base_color_1001.png" id="26_tj5l3"]
+[ext_resource type="Texture2D" uid="uid://c764iyws6l7et" path="res://3dModels/gears/textures/target_base/defaultMat_Height_1001.png" id="27_up3hp"]
+[ext_resource type="Texture2D" uid="uid://urkg7qo2fdyp" path="res://3dModels/gears/textures/target_base/defaultMat_Normal_OpenGL_1001.png" id="28_p2yhw"]
+[ext_resource type="Texture2D" uid="uid://itqsbqy2gxb3" path="res://3dModels/gears/textures/target_base/defaultMat_Roughness_1001.png" id="29_36lg8"]
+[ext_resource type="Script" uid="uid://cteymk6ew11fe" path="res://Target.cs" id="30_g7r4r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfy5k"]
-albedo_texture = ExtResource("11_fabid")
+albedo_texture = ExtResource("2_jwyxw")
 metallic = 1.0
-metallic_texture = ExtResource("12_6gtwt")
-roughness_texture = ExtResource("14_kt3kd")
+metallic_texture = ExtResource("3_gwpc8")
+roughness_texture = ExtResource("5_13kvd")
 normal_enabled = true
-normal_texture = ExtResource("13_26vi8")
+normal_texture = ExtResource("4_8yh1r")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_oxciv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ny2k4"]
+albedo_texture = ExtResource("12_26vi8")
+metallic = 1.0
+metallic_texture = ExtResource("13_kt3kd")
+roughness_texture = ExtResource("15_6ourm")
+normal_enabled = true
+normal_texture = ExtResource("14_kgxsu")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_iqigl"]
 height = 1.8549805
 radius = 0.3
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ouy24"]
-albedo_texture = ExtResource("18_bo804")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rjeq"]
+albedo_texture = ExtResource("19_f1pxs")
 metallic = 0.78
 metallic_specular = 0.0
-metallic_texture = ExtResource("21_0rjpg")
-roughness_texture = ExtResource("23_xo8wj")
+metallic_texture = ExtResource("22_xo8wj")
+roughness_texture = ExtResource("24_88f2y")
 emission_enabled = true
 emission_energy_multiplier = 3.23
-emission_texture = ExtResource("19_gwi1w")
+emission_texture = ExtResource("20_0rjpg")
 normal_enabled = true
 normal_scale = 16.0
-normal_texture = ExtResource("22_osuyp")
+normal_texture = ExtResource("23_st6ww")
 heightmap_enabled = true
 heightmap_scale = 0.15
 heightmap_deep_parallax = true
@@ -61,442 +65,256 @@ heightmap_min_layers = 24
 heightmap_max_layers = 19
 heightmap_flip_tangent = true
 heightmap_flip_binormal = true
-heightmap_texture = ExtResource("20_f1pxs")
+heightmap_texture = ExtResource("21_osuyp")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_e1q1x"]
-height = 0.2
-radius = 0.31640625
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v67tu"]
-albedo_texture = ExtResource("25_88f2y")
-metallic = 0.6
-metallic_specular = 0.63
-roughness_texture = ExtResource("28_up3hp")
-normal_enabled = true
-normal_texture = ExtResource("27_tj5l3")
-heightmap_enabled = true
-heightmap_scale = 0.005
-heightmap_texture = ExtResource("26_twgkp")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1q1x"]
-albedo_texture = ExtResource("2_g6ibl")
-roughness = 0.93
-roughness_texture = ExtResource("4_ouy24")
-normal_enabled = true
-normal_texture = ExtResource("3_ouy24")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwpc8"]
-albedo_texture = ExtResource("6_e1q1x")
-metallic = 0.69
-metallic_specular = 0.6
-roughness = 0.45
-roughness_texture = ExtResource("8_jwyxw")
-roughness_texture_channel = 3
-normal_enabled = true
-normal_scale = 3.37
-normal_texture = ExtResource("7_v67tu")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ny2k4"]
-albedo_texture = ExtResource("18_bo804")
-metallic = 0.78
-metallic_specular = 0.0
-metallic_texture = ExtResource("21_0rjpg")
-roughness_texture = ExtResource("23_xo8wj")
-emission_enabled = true
-emission_energy_multiplier = 3.23
-emission_texture = ExtResource("19_gwi1w")
-normal_enabled = true
-normal_scale = 16.0
-normal_texture = ExtResource("22_osuyp")
-heightmap_enabled = true
-heightmap_scale = 0.15
-heightmap_deep_parallax = true
-heightmap_min_layers = 24
-heightmap_max_layers = 19
-heightmap_flip_tangent = true
-heightmap_flip_binormal = true
-heightmap_texture = ExtResource("20_f1pxs")
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_iqigl"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ojmk4"]
 height = 0.2
 radius = 0.35
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rjeq"]
-albedo_texture = ExtResource("25_88f2y")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nu14h"]
+albedo_texture = ExtResource("26_tj5l3")
 metallic = 0.6
 metallic_specular = 0.63
-roughness_texture = ExtResource("28_up3hp")
+roughness_texture = ExtResource("29_36lg8")
 normal_enabled = true
-normal_texture = ExtResource("27_tj5l3")
+normal_texture = ExtResource("28_p2yhw")
 heightmap_enabled = true
 heightmap_scale = 0.005
-heightmap_texture = ExtResource("26_twgkp")
+heightmap_texture = ExtResource("27_up3hp")
 
 [node name="Main" type="Node3D" unique_id=800925855]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1352524469]
-transform = Transform3D(-2.0243938e-09, 0, -0.05, 0, 0.055039994, 0, 0.04631273, 0, -2.1855695e-09, 3.748281, 2.3262749, -7.0912137)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=617850904]
+transform = Transform3D(-5, 4.371139e-07, 1.9106854e-14, 0, -2.1855695e-07, 5, 4.371139e-07, 5, 2.1855695e-07, -3.7388468, -0.06042576, -2.0739603)
 mesh = ExtResource("1_v67tu")
-
-[node name="Axis18" type="Node3D" parent="." unique_id=1335616176]
-transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 3.7364566, 0.5560665, -3.631792)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis18" unique_id=1449501624]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
 surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis18" unique_id=719216780]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis18/StaticBody3D" unique_id=367153719]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Motor" type="Node3D" parent="." unique_id=868744692]
-transform = Transform3D(0.0017450869, -0.01659734, 0.99986064, 0.9999985, -4.3707413e-08, -0.0017453283, 2.9011515e-05, 0.9998623, 0.01659732, 3.7131176, 2.3050659, -5.235977)
-script = ExtResource("16_6ourm")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Motor" unique_id=518373602]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37799996, 0)
-mesh = ExtResource("17_8roro")
-surface_material_override/0 = SubResource("StandardMaterial3D_ouy24")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Motor" unique_id=730565326]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37799996, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Motor/StaticBody3D" unique_id=365778034]
-transform = Transform3D(1, 1.5832484e-08, -8.3701934e-11, -1.5832484e-08, 1, 3.092282e-11, -8.368772e-11, 1.2732926e-11, 1, 0, 0, 0)
-shape = SubResource("CylinderShape3D_e1q1x")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Motor" unique_id=757642750]
-transform = Transform3D(4, -7.275958e-12, 7.798917e-11, 0, 4, 0, 7.798917e-11, 0, 4, -1.21593475e-05, -0.041121483, -0.006896019)
-mesh = ExtResource("24_st6ww")
-surface_material_override/0 = SubResource("StandardMaterial3D_v67tu")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=262456064]
-transform = Transform3D(4.2200193, -0.10526025, -5.3436673e-09, -1.787782e-21, -1.8818464e-07, 5, -0.10320938, -4.303876, -2.1849162e-07, -2.9479132, -0.17406464, -0.8548908)
-mesh = ExtResource("1_e1q1x")
-surface_material_override/0 = SubResource("StandardMaterial3D_e1q1x")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1911184110]
-transform = Transform3D(5.623142, 0, 0, 0, -2.4322838e-07, 5, 0, -5.564417, -2.1855695e-07, -1.0750101, -0.32109213, -2.259321)
-mesh = ExtResource("6_13kvd")
-surface_material_override/0 = SubResource("StandardMaterial3D_gwpc8")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1084039348]
-transform = Transform3D(0.99999416, -0.003233745, 0.0011363165, -0.0011525084, -0.0050097224, 0.99998677, -0.0032280097, -0.99998224, -0.00501342, 0.32427377, 11.293682, -1.4636977)
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1379102823]
+transform = Transform3D(0.9999795, -0.00060513336, -0.00637991, 0.006390647, 0.019810708, 0.99978334, -0.0004786132, -0.9998035, 0.019814165, -1.108778, 9.894341, -1.9398699)
 current = true
-fov = 65.6
-far = 3905.5
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1326119031]
-transform = Transform3D(0.8542998, -0.4967381, -0.1530463, -0.07721265, -0.41245577, 0.9076994, -0.5140138, -0.7636304, -0.39071512, 3.8736992, 17.863546, -43.04919)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=258268425]
+transform = Transform3D(0.38996017, -0.8992943, 0.19799173, -0.25020584, 0.10344392, 0.9626508, -0.8861874, -0.42493412, -0.18466973, -92.60761, -64.8707, -72.84106)
 light_color = Color(1, 0.81673634, 0.6729181, 1)
-light_energy = 1.273
+light_energy = 0.962
 light_indirect_energy = 0.891
 light_angular_distance = 4.37
 light_specular = 0.306
 shadow_enabled = true
 shadow_blur = 2.55
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=557585332]
-transform = Transform3D(-0.029333876, -0.95943904, -0.28038594, 0.8859044, -0.15486798, 0.43725225, -0.46293965, -0.23556882, 0.85451406, 0.10019684, 4.172497, 59.84455)
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1481952060]
+transform = Transform3D(-0.52894706, -0.55447614, 0.6424728, -0.0973331, 0.7916891, 0.6031208, -0.84305483, 0.25648513, -0.47273046, 63.561195, 25.67463, -52.72672)
+visible = false
 light_color = Color(0.75461733, 0.87690353, 0.959662, 1)
-light_energy = 1.191
-light_indirect_energy = 1.982
-light_volumetric_fog_energy = 1.364
+light_energy = 0.1
+light_indirect_energy = 0.891
 light_angular_distance = 4.37
 light_specular = 0.306
 shadow_enabled = true
 shadow_blur = 2.55
 
-[node name="Axis20" type="Node3D" parent="." unique_id=476453074]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -5.29435, 0.5560665, -0.0031561852)
+[node name="Axis1" type="Node3D" parent="." unique_id=1917088879]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -0.537128, 0.5560665, -5.768368)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis20" unique_id=211904408]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis1" unique_id=92958870]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis20" unique_id=974099221]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis20/StaticBody3D" unique_id=139275093]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Axis17" type="Node3D" parent="." unique_id=244543591]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -6.0963063, 0.5560665, -1.9439863)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis17" unique_id=557134421]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis17" unique_id=691459218]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis17/StaticBody3D" unique_id=1969257568]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Axis22" type="Node3D" parent="." unique_id=568397778]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -5.708754, 0.5560665, -4.5201077)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis22" unique_id=574006536]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis22" unique_id=174268998]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis22/StaticBody3D" unique_id=2023280791]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Target" type="Node3D" parent="." unique_id=1541161079]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -7.1210876, 0.6187157, 1.0779608)
-script = ExtResource("29_p2yhw")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Target" unique_id=1708830525]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37799996, 0)
-mesh = ExtResource("17_8roro")
+mesh = ExtResource("11_6gtwt")
 surface_material_override/0 = SubResource("StandardMaterial3D_ny2k4")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Target" unique_id=1005025607]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37799996, 0)
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis1" unique_id=738147660]
+script = ExtResource("16_8roro")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Target/StaticBody3D" unique_id=1067322905]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis1/StaticBody3D" unique_id=1809075355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_iqigl")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Target" unique_id=1749155070]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37430233, 0)
-mesh = ExtResource("24_st6ww")
+[node name="Axis2" type="Node3D" parent="." unique_id=698777395]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -0.82563305, 0.5560665, -1.6192768)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis2" unique_id=1440254008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
+mesh = ExtResource("11_6gtwt")
+surface_material_override/0 = SubResource("StandardMaterial3D_ny2k4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis2" unique_id=747704294]
+script = ExtResource("16_8roro")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis2/StaticBody3D" unique_id=1032990389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
+shape = SubResource("CylinderShape3D_iqigl")
+
+[node name="Axis3" type="Node3D" parent="." unique_id=1482939064]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -2.053745, 0.5560665, 0.06281805)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis3" unique_id=568834983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
+mesh = ExtResource("11_6gtwt")
+surface_material_override/0 = SubResource("StandardMaterial3D_ny2k4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis3" unique_id=480876569]
+script = ExtResource("16_8roro")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis3/StaticBody3D" unique_id=1896339236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
+shape = SubResource("CylinderShape3D_iqigl")
+
+[node name="Axis4" type="Node3D" parent="." unique_id=28584340]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -3.8982353, 0.5560665, -0.834671)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis4" unique_id=357414132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
+mesh = ExtResource("11_6gtwt")
+surface_material_override/0 = SubResource("StandardMaterial3D_ny2k4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis4" unique_id=383385747]
+script = ExtResource("16_8roro")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis4/StaticBody3D" unique_id=1312727700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
+shape = SubResource("CylinderShape3D_iqigl")
+
+[node name="Axis5" type="Node3D" parent="." unique_id=419841573]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -6.747507, 0.5560665, -2.5272865)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis5" unique_id=107679251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
+mesh = ExtResource("11_6gtwt")
+surface_material_override/0 = SubResource("StandardMaterial3D_ny2k4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis5" unique_id=162386764]
+script = ExtResource("16_8roro")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis5/StaticBody3D" unique_id=748358393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
+shape = SubResource("CylinderShape3D_iqigl")
+
+[node name="Axis6" type="Node3D" parent="." unique_id=69897420]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -3.672487, 0.5560665, -2.3881164)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis6" unique_id=1320961614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
+mesh = ExtResource("11_6gtwt")
+surface_material_override/0 = SubResource("StandardMaterial3D_ny2k4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis6" unique_id=1248907062]
+script = ExtResource("16_8roro")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis6/StaticBody3D" unique_id=2010168247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
+shape = SubResource("CylinderShape3D_iqigl")
+
+[node name="Axis7" type="Node3D" parent="." unique_id=496993206]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -2.7083955, 0.5560665, -3.6871095)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis7" unique_id=157118924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
+mesh = ExtResource("11_6gtwt")
+surface_material_override/0 = SubResource("StandardMaterial3D_ny2k4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis7" unique_id=1559379978]
+script = ExtResource("16_8roro")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis7/StaticBody3D" unique_id=1188271996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
+shape = SubResource("CylinderShape3D_iqigl")
+
+[node name="Axis8" type="Node3D" parent="." unique_id=639581736]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -4.3748684, 0.5560665, -5.216049)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis8" unique_id=1632920722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
+mesh = ExtResource("11_6gtwt")
+surface_material_override/0 = SubResource("StandardMaterial3D_ny2k4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis8" unique_id=1392791676]
+script = ExtResource("16_8roro")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis8/StaticBody3D" unique_id=1093810402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
+shape = SubResource("CylinderShape3D_iqigl")
+
+[node name="Axis9" type="Node3D" parent="." unique_id=2047194567]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -2.5804234, 0.5560665, -6.3190413)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis9" unique_id=710213284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
+mesh = ExtResource("11_6gtwt")
+surface_material_override/0 = SubResource("StandardMaterial3D_ny2k4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis9" unique_id=585713261]
+script = ExtResource("16_8roro")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis9/StaticBody3D" unique_id=1530939654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
+shape = SubResource("CylinderShape3D_iqigl")
+
+[node name="Axis10" type="Node3D" parent="." unique_id=1914740544]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, 0.62208366, 0.5560665, -2.2840822)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis10" unique_id=415715809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
+mesh = ExtResource("11_6gtwt")
+surface_material_override/0 = SubResource("StandardMaterial3D_ny2k4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis10" unique_id=1524928109]
+script = ExtResource("16_8roro")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis10/StaticBody3D" unique_id=1115566996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
+shape = SubResource("CylinderShape3D_iqigl")
+
+[node name="Axis11" type="Node3D" parent="." unique_id=1793427858]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -5.5854635, 0.5560665, -3.5102541)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis11" unique_id=1041300508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
+mesh = ExtResource("11_6gtwt")
+surface_material_override/0 = SubResource("StandardMaterial3D_ny2k4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis11" unique_id=1014237785]
+script = ExtResource("16_8roro")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis11/StaticBody3D" unique_id=1015820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
+shape = SubResource("CylinderShape3D_iqigl")
+
+[node name="Motor" type="Node3D" parent="." unique_id=1766888568]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -5.99118, 0.5213284, -0.5632446)
+script = ExtResource("17_bo804")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Motor" unique_id=1353815802]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37799996, 0)
+mesh = ExtResource("18_gwi1w")
 surface_material_override/0 = SubResource("StandardMaterial3D_5rjeq")
 
-[node name="Axis19" type="Node3D" parent="." unique_id=636800569]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, 2.8592892, 0.5560665, -1.7351247)
+[node name="StaticBody3D" type="StaticBody3D" parent="Motor" unique_id=1109287011]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37799996, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis19" unique_id=993480674]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Motor/StaticBody3D" unique_id=437904518]
+shape = SubResource("CylinderShape3D_ojmk4")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis19" unique_id=1415766881]
-script = ExtResource("15_kgxsu")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Motor" unique_id=2000343372]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37430233, 0)
+mesh = ExtResource("25_twgkp")
+surface_material_override/0 = SubResource("StandardMaterial3D_nu14h")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis19/StaticBody3D" unique_id=1816752398]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
+[node name="Target" type="Node3D" parent="." unique_id=180599889]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, 1.5897615, 0.6187157, -4.2089567)
+script = ExtResource("30_g7r4r")
 
-[node name="Axis34" type="Node3D" parent="." unique_id=436639562]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, 3.9111629, 0.5560665, -2.0105314)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Target" unique_id=1377650033]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37799996, 0)
+mesh = ExtResource("18_gwi1w")
+surface_material_override/0 = SubResource("StandardMaterial3D_5rjeq")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis34" unique_id=751195295]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
+[node name="StaticBody3D" type="StaticBody3D" parent="Target" unique_id=1029746354]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37799996, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis34" unique_id=1284653041]
-script = ExtResource("15_kgxsu")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Target/StaticBody3D" unique_id=198007131]
+shape = SubResource("CylinderShape3D_ojmk4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis34/StaticBody3D" unique_id=866553832]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Axis35" type="Node3D" parent="." unique_id=1492735027]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -4.4936337, 0.5560665, -4.1685348)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis35" unique_id=541279529]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis35" unique_id=93728659]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis35/StaticBody3D" unique_id=1903264504]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Axis21" type="Node3D" parent="." unique_id=1550143587]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, 1.3388884, 0.5560665, -1.9499276)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis21" unique_id=1230793155]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis21" unique_id=194442934]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis21/StaticBody3D" unique_id=1425572871]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Axis23" type="Node3D" parent="." unique_id=1780258213]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, 0.85458684, 0.5560665, 0.104393005)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis23" unique_id=1250982618]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis23" unique_id=860011402]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis23/StaticBody3D" unique_id=2014367964]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Axis25" type="Node3D" parent="." unique_id=435264951]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -0.9289092, 0.5560665, 1.1903782)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis25" unique_id=1833052983]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis25" unique_id=581584273]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis25/StaticBody3D" unique_id=1531502961]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Axis26" type="Node3D" parent="." unique_id=1094741351]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -2.372847, 0.5560665, 1.8859298)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis26" unique_id=1257334919]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis26" unique_id=198552974]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis26/StaticBody3D" unique_id=1772016959]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Axis24" type="Node3D" parent="." unique_id=1076088500]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -4.4888887, 0.5560665, 2.194566)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis24" unique_id=1291519182]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis24" unique_id=124473441]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis24/StaticBody3D" unique_id=1616415539]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Axis27" type="Node3D" parent="." unique_id=204501700]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -1.9294654, 0.5560665, -0.036884785)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis27" unique_id=1413234769]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis27" unique_id=1848187986]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis27/StaticBody3D" unique_id=1594749055]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Axis28" type="Node3D" parent="." unique_id=822600877]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -2.512104, 0.5560665, -1.4530505)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis28" unique_id=1530327292]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis28" unique_id=168138696]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis28/StaticBody3D" unique_id=1812218418]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Axis29" type="Node3D" parent="." unique_id=1211929994]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -1.2824316, 0.5560665, -3.0956397)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis29" unique_id=1929934746]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis29" unique_id=874211722]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis29/StaticBody3D" unique_id=784727254]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Axis30" type="Node3D" parent="." unique_id=1668492477]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, 0.235394, 0.5560665, -5.250576)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis30" unique_id=530622093]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis30" unique_id=599039446]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis30/StaticBody3D" unique_id=869994066]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Axis31" type="Node3D" parent="." unique_id=832744942]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -1.4594561, 0.5560665, -6.569548)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis31" unique_id=9769679]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis31" unique_id=1701760616]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis31/StaticBody3D" unique_id=202949859]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Axis32" type="Node3D" parent="." unique_id=2026821224]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -2.989242, 0.5560665, -6.3072424)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis32" unique_id=1774126630]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis32" unique_id=2056846337]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis32/StaticBody3D" unique_id=1382876234]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
-
-[node name="Axis33" type="Node3D" parent="." unique_id=1512475571]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -3.6144967, 0.5560665, -4.883324)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis33" unique_id=1091496063]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("10_xoktj")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis33" unique_id=1721415415]
-script = ExtResource("15_kgxsu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis33/StaticBody3D" unique_id=1564386446]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_oxciv")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Target" unique_id=1812425365]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37430233, 0)
+mesh = ExtResource("25_twgkp")
+surface_material_override/0 = SubResource("StandardMaterial3D_nu14h")

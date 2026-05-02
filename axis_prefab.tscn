@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://dib2atuvig8n0"]
-
-[ext_resource type="ArrayMesh" uid="uid://damlgvtj23ggv" path="res://3dModels/axis/ax.obj" id="1_7kaj1"]
-
-[node name="Axis" type="Node3D" unique_id=421346443]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=965626015]
-mesh = ExtResource("1_7kaj1")
