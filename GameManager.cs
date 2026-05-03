@@ -296,8 +296,17 @@ private void ReenableMotorAndRecalculate()
 				}
 			}
 		}
-
 		SelectedAxis.HasGear = true;
+		for (int i = 0; i < currentLevel.availableGearTypes.Length; i++)
+		{
+		   if (currentLevel.availableGearTypes[i] == SelectedGearConfig)
+		{
+		   remainingGearCounts[i]--;
+		   var btn = uiInstance.GetNodeOrNull<Button>($"UI/Panel/Button{i}");
+		   if (btn != null) UpdateButtonText(btn, i);
+		  break;
+		}
+}
 		Recalculate();
 	}
 

@@ -5,7 +5,13 @@
 [ext_resource type="Resource" uid="uid://gd1goubhrshr" path="res://levels/Level2.tres" id="3_au0an"]
 [ext_resource type="Resource" uid="uid://eeekv0qeorps" path="res://levels/Level3.tres" id="4_108xg"]
 [ext_resource type="Resource" uid="uid://bageum62aamyj" path="res://levels/Level4.tres" id="5_dxunw"]
+[ext_resource type="Resource" uid="uid://c75csnw3vaxaa" path="res://levels/Level5.tres" id="6_5me18"]
+[ext_resource type="Resource" uid="uid://dk7m4xfd1dcvd" path="res://levels/Level6.tres" id="7_dm6qn"]
+[ext_resource type="Resource" uid="uid://bx0fh276645aq" path="res://levels/Level7.tres" id="8_lhkyk"]
+[ext_resource type="Resource" uid="uid://d1qfwytxto10i" path="res://levels/Level8.tres" id="9_lk78y"]
+[ext_resource type="Resource" uid="uid://bwp2es6k6ushq" path="res://levels/Level9.tres" id="10_3ky0o"]
+[ext_resource type="Resource" uid="uid://be1m13q4vgbtu" path="res://levels/Level10.tres" id="11_uyu88"]
 
 [node name="GameManager" type="Node" unique_id=1250458066]
 script = ExtResource("1_au0an")
-levels = Array[Object]([ExtResource("2_au0an"), ExtResource("3_au0an"), ExtResource("4_108xg"), ExtResource("5_dxunw")])
+levels = Array[Object]([ExtResource("2_au0an"), ExtResource("3_au0an"), ExtResource("4_108xg"), ExtResource("5_dxunw"), ExtResource("6_5me18"), ExtResource("7_dm6qn"), ExtResource("8_lhkyk"), ExtResource("9_lk78y"), ExtResource("10_3ky0o"), ExtResource("11_uyu88")])
