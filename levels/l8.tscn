@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://chq2l1ms633k"]
 
-[ext_resource type="ArrayMesh" uid="uid://b74oasm0ek337" path="res://3dModels/add_items/Pipe_sq.obj" id="1_hni8i"]
+[ext_resource type="ArrayMesh" uid="uid://ca40rvewmsod0" path="res://3dModels/backgrounds/tlo.obj" id="1_eltu6"]
+[ext_resource type="ArrayMesh" uid="uid://b74oasm0ek337" path="res://3dModels/gears/Pipe_sq.obj" id="1_hni8i"]
 [ext_resource type="Texture2D" uid="uid://q3lasdxa2cxs" path="res://3dModels/add_items/Pipes_Bundle_M_Pipes_BaseColor.png" id="2_eltu6"]
+[ext_resource type="Texture2D" uid="uid://dppdr1wmrn5ww" path="res://3dModels/backgrounds/blue/defaultMat_Base_color_1001.png" id="2_w6g8c"]
+[ext_resource type="Texture2D" uid="uid://63a30k2flsgv" path="res://3dModels/backgrounds/blue/defaultMat_Normal_OpenGL_1001.png" id="3_hrqcd"]
 [ext_resource type="Texture2D" uid="uid://bjajp7eo3jbs5" path="res://3dModels/add_items/Pipes_Bundle_M_Pipes_Normal.png" id="3_w6g8c"]
 [ext_resource type="Texture2D" uid="uid://bpa5hi0o34u0e" path="res://3dModels/add_items/Pipes_Bundle_M_Pipes_OcclusionRoughnessMet.png" id="4_hrqcd"]
 [ext_resource type="ArrayMesh" uid="uid://damlgvtj23ggv" path="res://3dModels/axis/ax.obj" id="5_hptvg"]
@@ -23,18 +26,21 @@
 [ext_resource type="Texture2D" uid="uid://c764iyws6l7et" path="res://3dModels/gears/textures/target_base/defaultMat_Height_1001.png" id="21_bxr8c"]
 [ext_resource type="Texture2D" uid="uid://urkg7qo2fdyp" path="res://3dModels/gears/textures/target_base/defaultMat_Normal_OpenGL_1001.png" id="22_whmwx"]
 [ext_resource type="Texture2D" uid="uid://itqsbqy2gxb3" path="res://3dModels/gears/textures/target_base/defaultMat_Roughness_1001.png" id="23_7c1o7"]
-[ext_resource type="ArrayMesh" uid="uid://ca40rvewmsod0" path="res://3dModels/backgrounds/tlo.obj" id="24_hya4n"]
-[ext_resource type="Texture2D" uid="uid://c8q4y4g7tfu60" path="res://3dModels/backgrounds/bricks_blue/defaultMat_Base_color_1001.png" id="25_jhf6k"]
-[ext_resource type="Texture2D" uid="uid://dasd7bmtxn11s" path="res://3dModels/backgrounds/bricks_blue/defaultMat_Normal_1001.png" id="26_ceqfi"]
-[ext_resource type="Texture2D" uid="uid://cb6ut452q88f8" path="res://3dModels/backgrounds/bricks_brown/defaultMat_Roughness_1001.png" id="27_4vxiu"]
-[ext_resource type="ArrayMesh" uid="uid://canvpl0a7ral" path="res://3dModels/backgrounds/rectangle.obj" id="28_q04st"]
-[ext_resource type="Texture2D" uid="uid://ranjrwx2fvml" path="res://3dModels/backgrounds/rectangle/defaultMat_Base_color_1001.png" id="29_8u31k"]
-[ext_resource type="Texture2D" uid="uid://dpldsyocg0col" path="res://3dModels/backgrounds/rectangle/defaultMat_Normal_1001.png" id="30_p62nb"]
-[ext_resource type="Texture2D" uid="uid://dsyebj2qmpaua" path="res://3dModels/backgrounds/rectangle/defaultMat_Roughness_1001.png" id="31_h3fhb"]
+[ext_resource type="ArrayMesh" uid="uid://cvuhwfw43fwvl" path="res://3dModels/mechanism/door_frame.obj" id="28_eltu6"]
+[ext_resource type="Texture2D" uid="uid://cpo3rtxhsh7di" path="res://3dModels/mechanism/door/defaultMat_Base_color_1001.png" id="29_w6g8c"]
+[ext_resource type="Texture2D" uid="uid://kxecwkk14vpo" path="res://3dModels/mechanism/door/defaultMat_Normal_OpenGL_1001.png" id="30_hrqcd"]
+[ext_resource type="ArrayMesh" uid="uid://b4c5sjxtewkeq" path="res://3dModels/mechanism/door_move.obj" id="31_hptvg"]
 [ext_resource type="Script" uid="uid://cteymk6ew11fe" path="res://Target.cs" id="32_8rphq"]
+[ext_resource type="ArrayMesh" uid="uid://bvsswg4xguwgs" path="res://3dModels/mechanism/handle4.obj" id="32_emurl"]
+[ext_resource type="Texture2D" uid="uid://3j3158cdd4uw" path="res://3dModels/gears/textures/defaultMat.001_Base_color_1001.png" id="33_qe6re"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w21xa"]
+albedo_texture = ExtResource("2_w6g8c")
+normal_enabled = true
+normal_texture = ExtResource("3_hrqcd")
+subsurf_scatter_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fl4sl"]
-albedo_color = Color(0.98039216, 0.8745098, 0.72156864, 1)
 albedo_texture = ExtResource("2_eltu6")
 metallic = 1.0
 roughness_texture = ExtResource("4_hrqcd")
@@ -90,24 +96,6 @@ heightmap_enabled = true
 heightmap_scale = 0.005
 heightmap_texture = ExtResource("21_bxr8c")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jm77n"]
-albedo_texture = ExtResource("25_jhf6k")
-roughness = 0.93
-roughness_texture = ExtResource("27_4vxiu")
-normal_enabled = true
-normal_texture = ExtResource("26_ceqfi")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_buv5c"]
-albedo_texture = ExtResource("29_8u31k")
-metallic = 0.69
-metallic_specular = 0.6
-roughness = 0.45
-roughness_texture = ExtResource("31_h3fhb")
-roughness_texture_channel = 3
-normal_enabled = true
-normal_scale = 3.37
-normal_texture = ExtResource("30_p62nb")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e50ox"]
 albedo_texture = ExtResource("13_bhisx")
 metallic = 0.78
@@ -144,7 +132,23 @@ heightmap_enabled = true
 heightmap_scale = 0.005
 heightmap_texture = ExtResource("21_bxr8c")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0evti"]
+albedo_texture = ExtResource("29_w6g8c")
+normal_enabled = true
+normal_texture = ExtResource("30_hrqcd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1u2m7"]
+albedo_color = Color(0.6125778, 0.61257786, 0.6125778, 1)
+albedo_texture = ExtResource("33_qe6re")
+metallic = 0.62
+roughness = 0.5
+
 [node name="Main" type="Node3D" unique_id=983305013]
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=195851974]
+transform = Transform3D(3, 0, 0, 0, -1.7585033e-07, 3, 0, -4.022987, -1.3113416e-07, 2.6203105, -0.20481205, -2.200978)
+mesh = ExtResource("1_eltu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_w21xa")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1208752425]
 transform = Transform3D(-2.4570126e-09, 0, -0.05, 0, 0.055039994, 0, 0.056209896, 0, -2.1855695e-09, 3.748281, 2.3262749, -6.403765)
@@ -187,18 +191,8 @@ transform = Transform3D(4, -7.275958e-12, 7.798917e-11, 0, 4, 0, 7.798917e-11, 0
 mesh = ExtResource("19_2g60g")
 surface_material_override/0 = SubResource("StandardMaterial3D_e45yr")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=287375136]
-transform = Transform3D(4.2200193, -0.10526025, -5.3436673e-09, -1.787782e-21, -1.8818464e-07, 5, -0.10320938, -4.303876, -2.1849162e-07, -2.9479132, -0.17406464, -0.8548908)
-mesh = ExtResource("24_hya4n")
-surface_material_override/0 = SubResource("StandardMaterial3D_jm77n")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=467482190]
-transform = Transform3D(5.623142, 0, 0, 0, -2.4322838e-07, 5, 0, -5.564417, -2.1855695e-07, -1.0750101, -0.32109213, -2.259321)
-mesh = ExtResource("28_q04st")
-surface_material_override/0 = SubResource("StandardMaterial3D_buv5c")
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1977987626]
-transform = Transform3D(0.99999416, -0.003233745, 0.0011363165, -0.0011525084, -0.0050097224, 0.99998677, -0.0032280097, -0.99998224, -0.00501342, 0.32427377, 11.293682, -1.4636977)
+transform = Transform3D(0.99999416, -0.003233745, 0.0011363165, -0.0011525084, -0.0050097224, 0.99998677, -0.0032280097, -0.99998224, -0.00501342, -0.721082, 11.176634, -2.2880974)
 current = true
 fov = 65.6
 far = 3905.5
@@ -518,3 +512,18 @@ script = ExtResource("10_1u2m7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Axis19/StaticBody3D" unique_id=212957789]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_k54cl")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2058792565]
+transform = Transform3D(0.6936583, 0, 0, 0, 0.5, 0, 0, 0, 0.5878314, -19.430391, -35.821045, 20.819319)
+mesh = ExtResource("28_eltu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_0evti")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=2070038641]
+transform = Transform3D(0.67830575, 0, 0, 0, 0.50261796, 0, 0, 0, 0.59090906, -19.367865, -36.064312, 21.272089)
+mesh = ExtResource("31_hptvg")
+surface_material_override/0 = SubResource("StandardMaterial3D_0evti")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D3" unique_id=1225620537]
+transform = Transform3D(1, 0, 0, 0, 0.9716786, 0, 0, 0, 1, -0.099357605, 2.0245438, -0.2016983)
+mesh = ExtResource("32_emurl")
+surface_material_override/0 = SubResource("StandardMaterial3D_1u2m7")

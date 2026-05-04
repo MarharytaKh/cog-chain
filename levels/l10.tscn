@@ -20,6 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://urkg7qo2fdyp" path="res://3dModels/gears/textures/target_base/defaultMat_Normal_OpenGL_1001.png" id="18_uimjo"]
 [ext_resource type="Texture2D" uid="uid://itqsbqy2gxb3" path="res://3dModels/gears/textures/target_base/defaultMat_Roughness_1001.png" id="19_nvrmo"]
 [ext_resource type="Script" uid="uid://cbjf6ejbgq52x" path="res://Motor.cs" id="20_3sd6h"]
+[ext_resource type="ArrayMesh" uid="uid://ca40rvewmsod0" path="res://3dModels/backgrounds/tlo.obj" id="21_6444f"]
+[ext_resource type="Texture2D" uid="uid://780tomehkoyf" path="res://3dModels/backgrounds/blue_rust/defaultMat_Base_color_1001.png" id="22_e0t0y"]
+[ext_resource type="Texture2D" uid="uid://bevfm752uwuxq" path="res://3dModels/backgrounds/blue_rust/defaultMat_Normal_OpenGL_1001.png" id="23_bsjp2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cosb"]
 albedo_texture = ExtResource("2_yklts")
@@ -104,6 +107,12 @@ normal_texture = ExtResource("18_uimjo")
 heightmap_enabled = true
 heightmap_scale = 0.005
 heightmap_texture = ExtResource("17_dr1as")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dka8d"]
+albedo_texture = ExtResource("22_e0t0y")
+normal_enabled = true
+normal_texture = ExtResource("23_bsjp2")
+subsurf_scatter_enabled = true
 
 [node name="Main" type="Node3D" unique_id=2066157996]
 
@@ -235,7 +244,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_mxy7u")
 
 [node name="Axis6" type="Node3D" parent="." unique_id=314853343]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, 3.7969146, 0.5560665, -0.20691645)
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, 3.7969146, 0.5560665, -0.27227163)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis6" unique_id=549034999]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -538,3 +547,8 @@ shape = SubResource("CylinderShape3D_vb57s")
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37430233, 0)
 mesh = ExtResource("15_yu572")
 surface_material_override/0 = SubResource("StandardMaterial3D_bxf08")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=40407526]
+transform = Transform3D(3.6171904, 0, 0, 0, -1.5291484e-07, 3, 0, -3.4982839, -1.3113416e-07, -1.4437743, -0.15450096, -2.0831661)
+mesh = ExtResource("21_6444f")
+surface_material_override/0 = SubResource("StandardMaterial3D_dka8d")

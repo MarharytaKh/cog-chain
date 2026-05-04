@@ -1,10 +1,5 @@
 [gd_scene format=3 uid="uid://b5ocy7y42u3hf"]
 
-[ext_resource type="ArrayMesh" uid="uid://ca40rvewmsod0" path="res://3dModels/backgrounds/tlo.obj" id="1_v67tu"]
-[ext_resource type="Texture2D" uid="uid://b6dci5u156gvj" path="res://3dModels/backgrounds/metal_lists/defaultMat_Base_color_1001.png" id="2_jwyxw"]
-[ext_resource type="Texture2D" uid="uid://eqhrsvgqpuyj" path="res://3dModels/backgrounds/green/defaultMat_Metallic_1001.png" id="3_gwpc8"]
-[ext_resource type="Texture2D" uid="uid://ct4ec5s1oe57i" path="res://3dModels/backgrounds/metal_lists/defaultMat_Normal_OpenGL_1001.png" id="4_8yh1r"]
-[ext_resource type="Texture2D" uid="uid://domr2elasulq1" path="res://3dModels/backgrounds/metal_lists/defaultMat_Roughness_1001.png" id="5_13kvd"]
 [ext_resource type="ArrayMesh" uid="uid://damlgvtj23ggv" path="res://3dModels/axis/ax.obj" id="11_6gtwt"]
 [ext_resource type="Texture2D" uid="uid://cyga5ovwc7e" path="res://3dModels/axis/DefaultMaterial_Base_color_1001.png" id="12_26vi8"]
 [ext_resource type="Texture2D" uid="uid://jty42wahvdy2" path="res://3dModels/axis/DefaultMaterial_Metallic_1001.png" id="13_kt3kd"]
@@ -16,23 +11,24 @@
 [ext_resource type="Texture2D" uid="uid://d04r1ytb6oxsl" path="res://3dModels/gears/textures/defaultMat_Base_color_1001.png" id="19_f1pxs"]
 [ext_resource type="Texture2D" uid="uid://sit8fd4et2y7" path="res://3dModels/gears/textures/defaultMat_Emissive_1001.png" id="20_0rjpg"]
 [ext_resource type="Texture2D" uid="uid://c816fyquc5ibg" path="res://3dModels/gears/textures/defaultMat.001_Height_1001.png" id="21_osuyp"]
+[ext_resource type="ArrayMesh" uid="uid://dd46fxxqqeayr" path="res://3dModels/mechanism/lamp.obj" id="21_v0awc"]
+[ext_resource type="Texture2D" uid="uid://qbsacgdqb2vw" path="res://3dModels/mechanism/lamp/defaultMat_Base_color_1001.png" id="22_g6ibl"]
+[ext_resource type="ArrayMesh" uid="uid://ca40rvewmsod0" path="res://3dModels/backgrounds/tlo.obj" id="22_j8cwi"]
 [ext_resource type="Texture2D" uid="uid://dxu4431aw5m5h" path="res://3dModels/gears/textures/defaultMat_Metallic_1001.png" id="22_xo8wj"]
+[ext_resource type="Texture2D" uid="uid://b04ufnc0vsh4c" path="res://3dModels/mechanism/lamp/defaultMat_Emissive_1001.png" id="23_e1q1x"]
+[ext_resource type="Texture2D" uid="uid://dppdr1wmrn5ww" path="res://3dModels/backgrounds/blue/defaultMat_Base_color_1001.png" id="23_i8k5b"]
+[ext_resource type="Texture2D" uid="uid://xpoltg0gfr4t" path="res://3dModels/mechanism/lamp/defaultMat_Normal_OpenGL_1001.png" id="23_ouy24"]
 [ext_resource type="Texture2D" uid="uid://bfv7m6x0d6bmj" path="res://3dModels/gears/textures/defaultMat.001_Normal_1001.png" id="23_st6ww"]
 [ext_resource type="Texture2D" uid="uid://vx7ols724f4" path="res://3dModels/gears/textures/defaultMat.001_Roughness_1001.png" id="24_88f2y"]
+[ext_resource type="Texture2D" uid="uid://ddobulsn6w5nd" path="res://3dModels/mechanism/lamp/defaultMat_Roughness_1001.png" id="24_e1q1x"]
+[ext_resource type="Texture2D" uid="uid://cfyuht8cjb34r" path="res://3dModels/mechanism/lamp/defaultMat_Metallic_1001.png" id="24_v67tu"]
+[ext_resource type="Texture2D" uid="uid://63a30k2flsgv" path="res://3dModels/backgrounds/blue/defaultMat_Normal_OpenGL_1001.png" id="24_vhrmj"]
 [ext_resource type="ArrayMesh" uid="uid://beev1r7eu6t7" path="res://3dModels/gears/op_dla_zr.obj" id="25_twgkp"]
 [ext_resource type="Texture2D" uid="uid://nvd25pdm331l" path="res://3dModels/gears/textures/target_base/defaultMat_Base_color_1001.png" id="26_tj5l3"]
 [ext_resource type="Texture2D" uid="uid://c764iyws6l7et" path="res://3dModels/gears/textures/target_base/defaultMat_Height_1001.png" id="27_up3hp"]
 [ext_resource type="Texture2D" uid="uid://urkg7qo2fdyp" path="res://3dModels/gears/textures/target_base/defaultMat_Normal_OpenGL_1001.png" id="28_p2yhw"]
 [ext_resource type="Texture2D" uid="uid://itqsbqy2gxb3" path="res://3dModels/gears/textures/target_base/defaultMat_Roughness_1001.png" id="29_36lg8"]
 [ext_resource type="Script" uid="uid://cteymk6ew11fe" path="res://Target.cs" id="30_g7r4r"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfy5k"]
-albedo_texture = ExtResource("2_jwyxw")
-metallic = 1.0
-metallic_texture = ExtResource("3_gwpc8")
-roughness_texture = ExtResource("5_13kvd")
-normal_enabled = true
-normal_texture = ExtResource("4_8yh1r")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ny2k4"]
 albedo_texture = ExtResource("12_26vi8")
@@ -82,21 +78,34 @@ heightmap_enabled = true
 heightmap_scale = 0.005
 heightmap_texture = ExtResource("27_up3hp")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v67tu"]
+albedo_texture = ExtResource("22_g6ibl")
+metallic = 0.4
+metallic_specular = 0.28
+metallic_texture = ExtResource("24_v67tu")
+roughness_texture = ExtResource("24_e1q1x")
+emission_enabled = true
+emission_energy_multiplier = 2.49
+emission_texture = ExtResource("23_e1q1x")
+normal_enabled = true
+normal_texture = ExtResource("23_ouy24")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6ibl"]
+albedo_texture = ExtResource("23_i8k5b")
+normal_enabled = true
+normal_texture = ExtResource("24_vhrmj")
+subsurf_scatter_enabled = true
+
 [node name="Main" type="Node3D" unique_id=800925855]
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=617850904]
-transform = Transform3D(-5, 4.371139e-07, 1.9106854e-14, 0, -2.1855695e-07, 5, 4.371139e-07, 5, 2.1855695e-07, -3.7388468, -0.06042576, -2.0739603)
-mesh = ExtResource("1_v67tu")
-surface_material_override/0 = SubResource("StandardMaterial3D_rfy5k")
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1379102823]
-transform = Transform3D(0.9999795, -0.00060513336, -0.00637991, 0.006390647, 0.019810708, 0.99978334, -0.0004786132, -0.9998035, 0.019814165, -1.108778, 9.894341, -1.9398699)
+transform = Transform3D(0.9999795, -0.0006051348, -0.0063799103, 0.006390647, 0.01981071, 0.99978334, -0.0004786132, -0.99980354, 0.019814173, -0.3242712, 6.838338, -2.6014833)
 current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=258268425]
 transform = Transform3D(0.38996017, -0.8992943, 0.19799173, -0.25020584, 0.10344392, 0.9626508, -0.8861874, -0.42493412, -0.18466973, -92.60761, -64.8707, -72.84106)
 light_color = Color(1, 0.81673634, 0.6729181, 1)
-light_energy = 0.962
+light_energy = 1.759
 light_indirect_energy = 0.891
 light_angular_distance = 4.37
 light_specular = 0.306
@@ -318,3 +327,13 @@ shape = SubResource("CylinderShape3D_ojmk4")
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37430233, 0)
 mesh = ExtResource("25_twgkp")
 surface_material_override/0 = SubResource("StandardMaterial3D_nu14h")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1029305306]
+transform = Transform3D(0.5997916, -0.0155496225, 0.0028523747, 0.014617296, 0.58670956, 0.124732316, -0.006021753, -0.12461949, 0.5868847, 1.9447055, -3.7931147, -1.1396834)
+mesh = ExtResource("21_v0awc")
+surface_material_override/0 = SubResource("StandardMaterial3D_v67tu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=999500581]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 3, 0, -3, -1.3113416e-07, -2.8702204, -0.20481205, -2.6613212)
+mesh = ExtResource("22_j8cwi")
+surface_material_override/0 = SubResource("StandardMaterial3D_g6ibl")

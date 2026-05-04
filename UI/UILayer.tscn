@@ -10,38 +10,38 @@
 anchors_preset = -1
 anchor_left = 1.005
 anchor_right = 1.005
-offset_left = -295.76
-offset_top = -9.0
-offset_right = 207.57324
-offset_bottom = 1121.0
+offset_left = -461.59998
+offset_top = -14.0
+offset_right = 321.73352
+offset_bottom = 1862.6666
 grow_horizontal = 0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_2tnra")
 
 [node name="Button1" type="Button" parent="UI/Panel" unique_id=1589166043]
 layout_mode = 0
-offset_left = 185.00002
-offset_top = 276.66666
-offset_right = 420.0
-offset_bottom = 348.3333
+offset_left = 266.6669
+offset_top = 431.66666
+offset_right = 595.00037
+offset_bottom = 546.6666
 text = "Gear small
 "
 
 [node name="Button0" type="Button" parent="UI/Panel" unique_id=1307942729]
 layout_mode = 0
-offset_left = 183.33336
-offset_top = 546.6666
-offset_right = 415.00012
-offset_bottom = 615.0
+offset_left = 278.33356
+offset_top = 738.3333
+offset_right = 605.00037
+offset_bottom = 840.0
 text = "Gear medium
 
 "
 
 [node name="RemoveButton" type="Button" parent="UI/Panel" unique_id=490604143]
 layout_mode = 0
-offset_left = 191.66658
-offset_top = 765.0
-offset_right = 411.66656
-offset_bottom = 841.66656
+offset_left = 290.00012
+offset_top = 1033.3334
+offset_right = 608.3334
+offset_bottom = 1155.0
 text = "Remove button
 "
