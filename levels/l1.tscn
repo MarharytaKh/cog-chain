@@ -78,6 +78,12 @@ normal_enabled = true
 normal_texture = ExtResource("23_u72j1")
 subsurf_scatter_enabled = true
 
+[sub_resource type="Environment" id="Environment_f06b3"]
+background_mode = 2
+background_energy_multiplier = 1.06
+ambient_light_color = Color(0.5335893, 0.3617767, 0.28228495, 1)
+ambient_light_energy = 0.4
+
 [node name="Main" type="Node3D" unique_id=450150078]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=493204641]
@@ -154,17 +160,17 @@ transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 3, 0, -3, -1.3113416e-07, -2
 mesh = ExtResource("6_t5omi")
 surface_material_override/0 = SubResource("StandardMaterial3D_v1guc")
 
-[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="." unique_id=493561795]
-transform = Transform3D(0.48616147, 0.35267726, 0.799541, -0.124228366, -0.87775904, 0.46271634, 0.8649939, -0.32428053, -0.38292012, 32.944077, 14.78207, -29.573025)
-light_color = Color(0.99007434, 0.84347105, 0.72499174, 1)
-light_energy = 2.956
-light_indirect_energy = 5.938
-light_volumetric_fog_energy = 3.2
-light_angular_distance = 7.38
-light_specular = 0.306
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1638524809]
+transform = Transform3D(0.90695477, 0.1985908, -0.37147656, 0.42114902, -0.44459435, 0.79055005, -0.008160402, -0.8734399, -0.48686343, -18.135223, 11.663827, -8.2856455)
+light_color = Color(0.8299822, 0.79828674, 0.7498097, 1)
+light_energy = 2.391
+light_angular_distance = 5.55
 shadow_enabled = true
 shadow_bias = 0.0
-shadow_normal_bias = 1.262
-shadow_transmittance_bias = 0.265
-shadow_opacity = 0.85
-shadow_blur = 0.723
+shadow_normal_bias = 2.035
+shadow_transmittance_bias = -6.136
+shadow_opacity = 0.42
+shadow_blur = 4.235
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1942075068]
+environment = SubResource("Environment_f06b3")

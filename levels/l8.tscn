@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://cpo3rtxhsh7di" path="res://3dModels/mechanism/door/defaultMat_Base_color_1001.png" id="29_w6g8c"]
 [ext_resource type="Texture2D" uid="uid://kxecwkk14vpo" path="res://3dModels/mechanism/door/defaultMat_Normal_OpenGL_1001.png" id="30_hrqcd"]
 [ext_resource type="ArrayMesh" uid="uid://b4c5sjxtewkeq" path="res://3dModels/mechanism/door_move.obj" id="31_hptvg"]
+[ext_resource type="Script" uid="uid://dh4qyv8haw6ta" path="res://LevelAnimation.cs" id="31_w6g8c"]
 [ext_resource type="Script" uid="uid://cteymk6ew11fe" path="res://Target.cs" id="32_8rphq"]
 [ext_resource type="ArrayMesh" uid="uid://bvsswg4xguwgs" path="res://3dModels/mechanism/handle4.obj" id="32_emurl"]
 [ext_resource type="Texture2D" uid="uid://3j3158cdd4uw" path="res://3dModels/gears/textures/defaultMat.001_Base_color_1001.png" id="33_qe6re"]
@@ -137,11 +138,22 @@ albedo_texture = ExtResource("29_w6g8c")
 normal_enabled = true
 normal_texture = ExtResource("30_hrqcd")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1u2m7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrqcd"]
 albedo_color = Color(0.6125778, 0.61257786, 0.6125778, 1)
 albedo_texture = ExtResource("33_qe6re")
 metallic = 0.62
 roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hptvg"]
+albedo_texture = ExtResource("29_w6g8c")
+normal_enabled = true
+normal_texture = ExtResource("30_hrqcd")
+
+[sub_resource type="Environment" id="Environment_w6g8c"]
+background_mode = 2
+background_energy_multiplier = 1.06
+ambient_light_color = Color(0.5335893, 0.3617767, 0.28228495, 1)
+ambient_light_energy = 0.4
 
 [node name="Main" type="Node3D" unique_id=983305013]
 
@@ -191,37 +203,31 @@ transform = Transform3D(4, -7.275958e-12, 7.798917e-11, 0, 4, 0, 7.798917e-11, 0
 mesh = ExtResource("19_2g60g")
 surface_material_override/0 = SubResource("StandardMaterial3D_e45yr")
 
+[node name="Target" type="Node3D" parent="." unique_id=1383357139]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -7.1210876, 0.6187157, 1.0779608)
+script = ExtResource("32_8rphq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Target" unique_id=493293905]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37799996, 0)
+mesh = ExtResource("12_615xh")
+surface_material_override/0 = SubResource("StandardMaterial3D_e50ox")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Target" unique_id=1728449628]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37799996, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Target/StaticBody3D" unique_id=580080265]
+shape = SubResource("CylinderShape3D_i3hde")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Target" unique_id=1821929903]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37430233, 0)
+mesh = ExtResource("19_2g60g")
+surface_material_override/0 = SubResource("StandardMaterial3D_syipj")
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1977987626]
 transform = Transform3D(0.99999416, -0.003233745, 0.0011363165, -0.0011525084, -0.0050097224, 0.99998677, -0.0032280097, -0.99998224, -0.00501342, -0.721082, 11.176634, -2.2880974)
 current = true
 fov = 65.6
 far = 3905.5
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1754689349]
-transform = Transform3D(0.8542998, -0.4967381, -0.1530463, -0.07721265, -0.41245577, 0.9076994, -0.5140138, -0.7636304, -0.39071512, 3.8736992, 17.863546, -43.04919)
-light_color = Color(1, 0.81673634, 0.6729181, 1)
-light_energy = 1.336
-light_indirect_energy = 1.079
-light_volumetric_fog_energy = 0.0
-light_specular = 0.388
-light_bake_mode = 1
-shadow_enabled = true
-shadow_bias = 0.14
-shadow_normal_bias = 0.056
-shadow_transmittance_bias = -8.839
-shadow_opacity = 0.8
-shadow_blur = 0.605
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1554042525]
-transform = Transform3D(-0.029333876, -0.95943904, -0.28038594, 0.8859044, -0.15486798, 0.43725225, -0.46293965, -0.23556882, 0.85451406, 0.10019684, 4.172497, 59.84455)
-light_color = Color(0.75461733, 0.87690353, 0.959662, 1)
-light_energy = 1.191
-light_indirect_energy = 1.982
-light_volumetric_fog_energy = 1.364
-light_angular_distance = 4.37
-light_specular = 0.306
-shadow_enabled = true
-shadow_blur = 2.55
 
 [node name="Axis2" type="Node3D" parent="." unique_id=1830910302]
 transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -5.29435, 0.5560665, -0.0031561852)
@@ -267,26 +273,6 @@ script = ExtResource("10_1u2m7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Axis4/StaticBody3D" unique_id=549455900]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_k54cl")
-
-[node name="Target" type="Node3D" parent="." unique_id=1383357139]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -7.1210876, 0.6187157, 1.0779608)
-script = ExtResource("32_8rphq")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Target" unique_id=493293905]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37799996, 0)
-mesh = ExtResource("12_615xh")
-surface_material_override/0 = SubResource("StandardMaterial3D_e50ox")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Target" unique_id=1728449628]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37799996, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Target/StaticBody3D" unique_id=580080265]
-shape = SubResource("CylinderShape3D_i3hde")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Target" unique_id=1821929903]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37430233, 0)
-mesh = ExtResource("19_2g60g")
-surface_material_override/0 = SubResource("StandardMaterial3D_syipj")
 
 [node name="Axis5" type="Node3D" parent="." unique_id=509155167]
 transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, 2.8592892, 0.5560665, -1.7351247)
@@ -518,12 +504,65 @@ transform = Transform3D(0.6936583, 0, 0, 0, 0.5, 0, 0, 0, 0.5878314, -19.430391,
 mesh = ExtResource("28_eltu6")
 surface_material_override/0 = SubResource("StandardMaterial3D_0evti")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=2070038641]
-transform = Transform3D(0.67830575, 0, 0, 0, 0.50261796, 0, 0, 0, 0.59090906, -19.367865, -36.064312, 21.272089)
-mesh = ExtResource("31_hptvg")
-surface_material_override/0 = SubResource("StandardMaterial3D_0evti")
+[node name="Node3D" type="Node3D" parent="." unique_id=994977296 groups=["LevelAnimation"]]
+transform = Transform3D(1.2243491, 0.0131093385, 0, -0.016006237, 1.0027596, 0, 0, 0, 1.2073189, -16.579071, -0.24614859, 0)
+script = ExtResource("31_w6g8c")
+Type = 0
+TargetAngle = 10.0
+RotateSpeed = 1.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D3" unique_id=1225620537]
-transform = Transform3D(1, 0, 0, 0, 0.9716786, 0, 0, 0, 1, -0.099357605, 2.0245438, -0.2016983)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=1674079826]
+transform = Transform3D(0.5432935, -1.8626451e-09, 0, 0, 0.58178824, 0, 0, 0, 0.49523658, -1.906188, -41.602814, 17.69495)
 mesh = ExtResource("32_emurl")
-surface_material_override/0 = SubResource("StandardMaterial3D_1u2m7")
+surface_material_override/0 = SubResource("StandardMaterial3D_hrqcd")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D" unique_id=763635038]
+transform = Transform3D(0.5529094, -6.9849193e-10, 0, 2.7939677e-09, 0.19616696, 0, 0, 0, 0.49523658, -2.2185192, -13.906934, 17.794838)
+mesh = ExtResource("31_hptvg")
+surface_material_override/0 = SubResource("StandardMaterial3D_hptvg")
+script = ExtResource("31_w6g8c")
+Type = 0
+TargetAngle = 4.0
+RotateSpeed = 1.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1842939302]
+transform = Transform3D(0.90695477, 0.1985908, -0.37147656, 0.42114902, -0.44459435, 0.79055005, -0.008160402, -0.8734399, -0.48686343, -18.135223, 11.663827, -8.2856455)
+light_color = Color(0.8299822, 0.79828674, 0.7498097, 1)
+light_energy = 0.625
+light_angular_distance = 5.55
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 2.035
+shadow_transmittance_bias = -6.136
+shadow_opacity = 0.42
+shadow_blur = 4.235
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1484549994]
+environment = SubResource("Environment_w6g8c")
+
+[node name="SpotLight3D" type="OmniLight3D" parent="." unique_id=1967277086]
+transform = Transform3D(0.5856745, -0.3988065, 0.7056478, -0.81050533, -0.27938527, 0.51480585, -0.008160347, -0.8734399, -0.4868636, -9.439541, 17.979887, -9.806208)
+light_color = Color(0.9096475, 0.7473422, 0.60706705, 1)
+light_energy = 16.0
+light_indirect_energy = 3.944
+light_volumetric_fog_energy = 5.22
+light_specular = 3.563
+shadow_enabled = true
+shadow_bias = 0.095
+shadow_transmittance_bias = 5.225
+shadow_blur = 3.417
+distance_fade_begin = 359.76
+distance_fade_shadow = 54.9
+distance_fade_length = 97.4
+omni_range = 23.1
+omni_attenuation = 0.777
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=959599996]
+transform = Transform3D(0.38882956, -0.91285884, 0.12449995, 0.6679971, 0.37240145, 0.64428025, -0.63450086, -0.16734962, 0.7545878, 0, 5.9391747, 9.118798)
+light_color = Color(0.78701323, 0.6742947, 0.6472745, 1)
+light_energy = 1.995
+light_volumetric_fog_energy = 1.446
+light_size = 0.385
+spot_range = 20.16
+spot_attenuation = 0.57
+spot_angle = 69.05

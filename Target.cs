@@ -90,6 +90,12 @@ public override void _Process(double delta)
 		if (!Activated)
 		{
 			Activated = true;
+			
+			var animations = GetTree().GetNodesInGroup("LevelAnimation");
+			foreach (Node node in animations)
+			if (node is LevelAnimation anim)
+				anim.Activate();
+			
 			var gm = GetTree().GetFirstNodeInGroup("GameManager") as GameManager;
 			gm.CompleteLevel();
 		}

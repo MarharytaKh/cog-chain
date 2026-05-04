@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://bpa5hi0o34u0e" path="res://3dModels/add_items/Pipes_Bundle_M_Pipes_OcclusionRoughnessMet.png" id="27_xv1ui"]
 [ext_resource type="Texture2D" uid="uid://dlwkcxjhchhli" path="res://3dModels/add_items/vive/M_Pipes_Base_color_1001.png" id="28_cne80"]
 [ext_resource type="ArrayMesh" uid="uid://q4gs1v6tblmd" path="res://3dModels/add_items/Pipe_6.obj" id="29_xb45n"]
+[ext_resource type="Script" uid="uid://dh4qyv8haw6ta" path="res://LevelAnimation.cs" id="29_xv1ui"]
 [ext_resource type="ArrayMesh" uid="uid://b74oasm0ek337" path="res://3dModels/gears/Pipe_sq.obj" id="30_c1deg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7omid"]
@@ -316,11 +317,14 @@ transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 3, 0, -3, -1.3113416e-07, -3
 mesh = ExtResource("1_go5y5")
 surface_material_override/0 = SubResource("StandardMaterial3D_go5y5")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=935391482]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=935391482 groups=["LevelAnimation"]]
 transform = Transform3D(-0.07545582, 2.9492848e-09, -3.5992076, -3.2717182e-08, 2.5129988, 4.911833e-09, 3.5992076, 2.2905258e-08, -0.07545582, -7.357111, 1.4228902, 1.6336191)
 mesh = ExtResource("24_ng23d")
 surface_material_override/0 = SubResource("StandardMaterial3D_ix7ac")
 surface_material_override/1 = SubResource("StandardMaterial3D_qsxvb")
+script = ExtResource("29_xv1ui")
+Type = 3
+RotateSpeed = 1.5
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=1383796588]
 transform = Transform3D(0.06181831, 0.0007118809, -4.499979e-05, 1.7884593e-05, 0.002151869, 0.04995389, 0.00087977096, -0.050064772, 0.0021464645, -6.2236133, 0.53125465, 1.5762253)

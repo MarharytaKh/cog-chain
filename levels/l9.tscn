@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://b04ufnc0vsh4c" path="res://3dModels/mechanism/lamp/defaultMat_Emissive_1001.png" id="23_4sdtx"]
 [ext_resource type="Texture2D" uid="uid://itqsbqy2gxb3" path="res://3dModels/gears/textures/target_base/defaultMat_Roughness_1001.png" id="23_8rw4o"]
 [ext_resource type="Texture2D" uid="uid://cfyuht8cjb34r" path="res://3dModels/mechanism/lamp/defaultMat_Metallic_1001.png" id="24_hqgq3"]
+[ext_resource type="Script" uid="uid://dh4qyv8haw6ta" path="res://LevelAnimation.cs" id="24_qrcfo"]
 [ext_resource type="Texture2D" uid="uid://xpoltg0gfr4t" path="res://3dModels/mechanism/lamp/defaultMat_Normal_OpenGL_1001.png" id="25_qrcfo"]
 [ext_resource type="Texture2D" uid="uid://ddobulsn6w5nd" path="res://3dModels/mechanism/lamp/defaultMat_Roughness_1001.png" id="26_a6rkx"]
 [ext_resource type="ArrayMesh" uid="uid://ca40rvewmsod0" path="res://3dModels/backgrounds/tlo.obj" id="27_hqgq3"]
@@ -114,23 +115,23 @@ heightmap_enabled = true
 heightmap_scale = 0.005
 heightmap_texture = ExtResource("21_4x5bo")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kj26q"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_datgl"]
+albedo_texture = ExtResource("28_qrcfo")
+normal_enabled = true
+normal_texture = ExtResource("29_a6rkx")
+subsurf_scatter_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6rkx"]
 albedo_texture = ExtResource("22_nmrlp")
 metallic = 0.4
 metallic_specular = 0.28
 metallic_texture = ExtResource("24_hqgq3")
 roughness_texture = ExtResource("26_a6rkx")
 emission_enabled = true
-emission_energy_multiplier = 2.49
+emission_energy_multiplier = 0.16
 emission_texture = ExtResource("23_4sdtx")
 normal_enabled = true
 normal_texture = ExtResource("25_qrcfo")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_datgl"]
-albedo_texture = ExtResource("28_qrcfo")
-normal_enabled = true
-normal_texture = ExtResource("29_a6rkx")
-subsurf_scatter_enabled = true
 
 [node name="Main" type="Node3D" unique_id=792257900]
 
@@ -521,17 +522,39 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37430233, 0)
 mesh = ExtResource("19_7abgu")
 surface_material_override/0 = SubResource("StandardMaterial3D_f0rwb")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1416077995]
-transform = Transform3D(0.5997916, -0.0155496225, 0.0028523747, 0.014617296, 0.58670956, 0.124732316, -0.006021753, -0.12461949, 0.5868847, -7.1110373, -3.7931147, 1.0442443)
-mesh = ExtResource("21_h5ubo")
-surface_material_override/0 = SubResource("StandardMaterial3D_kj26q")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=661803571]
-transform = Transform3D(0.5997916, -0.0155496225, 0.0028523747, 0.014617296, 0.58670956, 0.124732316, -0.006021753, -0.12461949, 0.5868847, 4.968361, -3.7931147, 1.0442443)
-mesh = ExtResource("21_h5ubo")
-surface_material_override/0 = SubResource("StandardMaterial3D_kj26q")
-
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=609617215]
 transform = Transform3D(3.1082473, 0, 0, 0, -1.3886857e-07, 3, 0, -3.1769428, -1.3113416e-07, -1.9550631, -0.20481205, -1.7149405)
 mesh = ExtResource("27_hqgq3")
 surface_material_override/0 = SubResource("StandardMaterial3D_datgl")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1744373230 groups=["LevelAnimation"]]
+transform = Transform3D(0.5997916, -0.0155496225, 0.0028523747, 0.014617296, 0.58670956, 0.124732316, -0.006021753, -0.12461949, 0.5868847, 4.073112, -3.7931147, 1.3144045)
+script = ExtResource("24_qrcfo")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Node3D" unique_id=721674443]
+transform = Transform3D(1.6660883, -0.032914173, 0.029070703, -0.043193407, -1.4273285, 0.8594452, 0.007923286, -0.8599002, -1.4276862, 0.115059614, 8.603565, 4.0161657)
+light_color = Color(0.9658126, 0.7418539, 0.55248696, 1)
+light_energy = 7.752
+omni_range = 7.98
+omni_attenuation = 0.905
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=437253537]
+transform = Transform3D(1, -2.3283064e-09, 0, -2.561137e-09, 0.99999994, -1.4901161e-08, -9.313226e-10, 0, 1, 0, 0, 0)
+mesh = ExtResource("21_h5ubo")
+surface_material_override/0 = SubResource("StandardMaterial3D_a6rkx")
+
+[node name="Node3D2" type="Node3D" parent="." unique_id=96372335 groups=["LevelAnimation"]]
+transform = Transform3D(0.5997916, -0.0155496225, 0.0028523747, 0.014617296, 0.58670956, 0.124732316, -0.006021753, -0.12461949, 0.5868847, -7.1237035, -3.7931147, 1.3144045)
+script = ExtResource("24_qrcfo")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Node3D2" unique_id=1063242370]
+transform = Transform3D(1.6660883, -0.032914173, 0.029070703, -0.043193407, -1.4273285, 0.8594452, 0.007923286, -0.8599002, -1.4276862, 0.115059614, 8.603565, 4.0161657)
+light_color = Color(0.9658126, 0.7418539, 0.55248696, 1)
+light_energy = 7.752
+omni_range = 7.98
+omni_attenuation = 0.905
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2" unique_id=417654252]
+transform = Transform3D(1, -2.3283064e-09, 0, -2.561137e-09, 0.99999994, -1.4901161e-08, -9.313226e-10, 0, 1, 0, 0, 0)
+mesh = ExtResource("21_h5ubo")
+surface_material_override/0 = SubResource("StandardMaterial3D_a6rkx")

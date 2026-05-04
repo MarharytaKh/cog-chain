@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://b0pjsscfjxrtn" path="res://3dModels/mechanism/counter/defaultMat_Normal_OpenGL_1001.png" id="26_6auik"]
 [ext_resource type="Texture2D" uid="uid://bv67ldnxmbc3d" path="res://3dModels/mechanism/counter/defaultMat_Roughness_1001.png" id="27_ptb4e"]
 [ext_resource type="ArrayMesh" uid="uid://d0sii3vlsh01c" path="res://3dModels/mechanism/arrow_counter.obj" id="28_yfxij"]
+[ext_resource type="Script" uid="uid://dh4qyv8haw6ta" path="res://LevelAnimation.cs" id="29_me2j5"]
 [ext_resource type="ArrayMesh" uid="uid://q4gs1v6tblmd" path="res://3dModels/add_items/Pipe_6.obj" id="29_yfxij"]
 [ext_resource type="Texture2D" uid="uid://q3lasdxa2cxs" path="res://3dModels/add_items/Pipes_Bundle_M_Pipes_BaseColor.png" id="30_me2j5"]
 [ext_resource type="Texture2D" uid="uid://bjajp7eo3jbs5" path="res://3dModels/add_items/Pipes_Bundle_M_Pipes_Normal.png" id="31_20x7l"]
@@ -129,21 +130,6 @@ light_angular_distance = 4.37
 light_specular = 0.306
 shadow_enabled = true
 shadow_blur = 2.55
-
-[node name="Axis1" type="Node3D" parent="." unique_id=1141492892]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0439711, 0.556, -2.4072719)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis1" unique_id=1328527102]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("2_uioqc")
-surface_material_override/0 = SubResource("StandardMaterial3D_lty88")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis1" unique_id=1715127984]
-script = ExtResource("7_sfjt7")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis1/StaticBody3D" unique_id=1871399361]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_mnoc6")
 
 [node name="Axis2" type="Node3D" parent="." unique_id=1472403914]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1158442, 0.556, -2.8137612)
@@ -255,9 +241,14 @@ transform = Transform3D(0.97359884, 0, 0.22826591, 0, 1, 0, -0.22826591, 0, 0.97
 mesh = ExtResource("24_62i2h")
 surface_material_override/0 = SubResource("StandardMaterial3D_me2j5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D2" unique_id=779124194]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D2" unique_id=779124194 groups=["LevelAnimation"]]
 mesh = ExtResource("28_yfxij")
 surface_material_override/0 = SubResource("StandardMaterial3D_20x7l")
+script = ExtResource("29_me2j5")
+Type = 1
+Duration = 2.0
+TargetAngle = -260.0
+RotateSpeed = 2.4
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1427726196]
 transform = Transform3D(-9.2483027e-10, -0.009999999, 4.3711387e-10, 0, -4.3711385e-10, -0.01, 0.02115765, -4.3711385e-10, 1.9106855e-17, 0.5435636, 0.5868645, 3.014922)
