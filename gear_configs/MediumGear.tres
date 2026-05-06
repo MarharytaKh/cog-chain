@@ -5,5 +5,8 @@
 
 [resource]
 script = ExtResource("1_kxbrb")
+gearName = "Medium"
+Radius = 1.23
 scenePrefab = ExtResource("1_3om1v")
+compatibleWith = PackedStringArray("Universal", "Small", "Medium")
 metadata/_custom_type_script = "uid://cfmif24gch57m"

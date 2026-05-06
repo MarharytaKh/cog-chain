@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c7x8hlhl07cj5"]
+
+[ext_resource type="Script" uid="uid://b1avlg61bysbh" path="res://Gear.cs" id="1_1llx3"]
+[ext_resource type="ArrayMesh" uid="uid://oh53f6henfw4" path="res://3dModels/gears/uni.obj" id="1_ouvaq"]
+
+[node name="GearUniversal" type="Node3D" unique_id=326941229]
+script = ExtResource("1_1llx3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=785745846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.377, 0)
+mesh = ExtResource("1_ouvaq")

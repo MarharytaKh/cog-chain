@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Level" format=3 uid="uid://dmb3bofd0i3q0"]
+
+[ext_resource type="Script" uid="uid://d4lgy5r1bvqrp" path="res://Level.cs" id="1_wp1xy"]
+
+[resource]
+script = ExtResource("1_wp1xy")
+availableGearTypes = null
+metadata/_custom_type_script = "uid://d4lgy5r1bvqrp"

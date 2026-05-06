@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GearType" format=3 uid="uid://brxb7k44s8wxa"]
+
+[ext_resource type="Script" uid="uid://cfmif24gch57m" path="res://GearType.cs" id="1_kfxq1"]
+[ext_resource type="PackedScene" uid="uid://cmtaxv2i2hgu7" path="res://gear_big.tscn" id="2_f6ce2"]
+
+[resource]
+script = ExtResource("1_kfxq1")
+gearName = "Big"
+Radius = 1.7
+ToothCount = 27
+scenePrefab = ExtResource("2_f6ce2")
+compatibleWith = PackedStringArray("Universal", "Big", "Small")
+metadata/_custom_type_script = "uid://cfmif24gch57m"

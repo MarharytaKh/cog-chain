@@ -39,9 +39,25 @@ text = "Gear medium
 
 [node name="RemoveButton" type="Button" parent="UI/Panel" unique_id=490604143]
 layout_mode = 0
-offset_left = 290.00012
-offset_top = 1033.3334
-offset_right = 608.3334
-offset_bottom = 1155.0
+offset_left = 293.33325
+offset_top = 1496.6665
+offset_right = 611.6665
+offset_bottom = 1618.3331
 text = "Remove button
 "
+
+[node name="Button2" type="Button" parent="UI/Panel" unique_id=1498437791]
+layout_mode = 0
+offset_left = 293.33334
+offset_top = 1196.6666
+offset_right = 601.6666
+offset_bottom = 1308.3334
+text = "Gear universal"
+
+[node name="Button3" type="Button" parent="UI/Panel" unique_id=301272406]
+layout_mode = 0
+offset_left = 288.3333
+offset_top = 990.0
+offset_right = 601.6665
+offset_bottom = 1098.3334
+text = "Gear big"
