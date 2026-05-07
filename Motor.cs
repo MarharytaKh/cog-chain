@@ -18,19 +18,19 @@ public partial class Motor : Node3D
 	public List<Gear> Children = new List<Gear>();
 
 	public override void _Process(double delta)
+{
+	angle += (float)delta * Speed;
+	// убрали: angle = angle % (2f * Mathf.Pi);
+
+	Transform = new Transform3D(
+		_initialBasis.Rotated(_initialBasis.Column1.Normalized(), angle),
+		Transform.Origin
+	);
+
+	foreach (var g in Children)
 	{
-	  angle += (float)delta * Speed;
-	  angle = angle % (2f * Mathf.Pi);
-
-	  Transform = new Transform3D(
-		  _initialBasis.Rotated(_initialBasis.Column1.Normalized(), angle),
-		  Transform.Origin
-	  );
-
-	  foreach (var g in Children)
-	  {
-		  if (IsInstanceValid(g))
-		  g.UpdateRotation();
+		if (IsInstanceValid(g))
+			g.UpdateRotation();
 	}
 }
 }
