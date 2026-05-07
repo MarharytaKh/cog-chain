@@ -1,3 +1,4 @@
 [gd_scene format=3 uid="uid://be8xei25e72cs"]
 
 [node name="PauseMenu" type="Node2D" unique_id=900998502]
+position = Vector2(0, 2)

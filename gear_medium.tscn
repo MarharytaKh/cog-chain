@@ -21,6 +21,6 @@ normal_texture = ExtResource("4_ai1uq")
 script = ExtResource("1_u3nac")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=866295561]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37707472, 0)
+transform = Transform3D(4, 0, 0, 0, 2.931447, 0, 0, 0, 4, 0, 0.44052458, 0)
 material_override = SubResource("StandardMaterial3D_ai1uq")
 mesh = ExtResource("5_0hfvt")

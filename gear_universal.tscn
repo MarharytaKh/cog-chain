@@ -4,12 +4,12 @@
 [ext_resource type="ArrayMesh" uid="uid://oh53f6henfw4" path="res://3dModels/gears/uni.obj" id="1_ouvaq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1llx3"]
-albedo_color = Color(0.26012936, 0.17860201, 0.106164314, 1)
+albedo_color = Color(0.38885432, 0.28078496, 0.17586803, 1)
 
 [node name="GearUniversal" type="Node3D" unique_id=326941229]
 script = ExtResource("1_1llx3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=785745846]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.377, 0)
+transform = Transform3D(1, 0, 0, 0, 1.767918, 0, 0, 0, 1, 0, 0.5683323, 0)
 mesh = ExtResource("1_ouvaq")
 surface_material_override/0 = SubResource("StandardMaterial3D_1llx3")
