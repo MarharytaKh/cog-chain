@@ -9,5 +9,5 @@ gearName = "Small"
 Radius = 0.8
 ToothCount = 12
 scenePrefab = ExtResource("1_l42fx")
-compatibleWith = PackedStringArray("Universal", "Medium", "Small", "Big")
+compatibleWith = PackedStringArray("Universal", "Medium", "Small")
 metadata/_custom_type_script = "uid://cfmif24gch57m"

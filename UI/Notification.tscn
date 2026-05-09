@@ -1,3 +1,23 @@
 [gd_scene format=3 uid="uid://8ep0uxeu8d0r"]
 
-[node name="Notification" type="Node2D" unique_id=1165967002]
+[ext_resource type="Script" uid="uid://ck2mlb4xyxe2n" path="res://NotificationManager.cs" id="1_wmasj"]
+
+[node name="Notification" type="CanvasLayer" unique_id=1676695824]
+script = ExtResource("1_wmasj")
+
+[node name="Panel" type="Panel" parent="." unique_id=49218558]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -356.0
+offset_top = 19.0
+offset_right = 356.0
+offset_bottom = 104.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=1459140021]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 19.0
+offset_right = 640.0
+offset_bottom = 70.0

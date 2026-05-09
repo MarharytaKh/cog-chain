@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_kfxq1")
 gearName = "Big"
-Radius = 1.6
+Radius = 1.5
 ToothCount = 30
 scenePrefab = ExtResource("2_f6ce2")
-compatibleWith = PackedStringArray("Universal", "Big", "Small")
+compatibleWith = PackedStringArray("Universal", "Big")
 metadata/_custom_type_script = "uid://cfmif24gch57m"

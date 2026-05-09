@@ -7,7 +7,7 @@
 script = ExtResource("1_i8mkq")
 gearName = "Universal"
 Radius = 0.8
-ToothCount = 15
+ToothCount = 12
 scenePrefab = ExtResource("3_cls4o")
 compatibleWith = PackedStringArray("Small", "Medium", "Big", "Universal")
 metadata/_custom_type_script = "uid://cfmif24gch57m"

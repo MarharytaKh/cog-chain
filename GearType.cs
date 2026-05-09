@@ -14,4 +14,5 @@ public partial class GearType : Resource
 	
 	
 	[Export] public string[] compatibleWith;
+	[Export] public bool InvertDirection = false;
 }

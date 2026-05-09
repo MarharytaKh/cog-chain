@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://q3lasdxa2cxs" path="res://3dModels/add_items/Pipes_Bundle_M_Pipes_BaseColor.png" id="30_me2j5"]
 [ext_resource type="Texture2D" uid="uid://bjajp7eo3jbs5" path="res://3dModels/add_items/Pipes_Bundle_M_Pipes_Normal.png" id="31_20x7l"]
 [ext_resource type="Texture2D" uid="uid://bpa5hi0o34u0e" path="res://3dModels/add_items/Pipes_Bundle_M_Pipes_OcclusionRoughnessMet.png" id="32_mqnv8"]
+[ext_resource type="PackedScene" uid="uid://8ep0uxeu8d0r" path="res://UI/Notification.tscn" id="34_20x7l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lty88"]
 albedo_texture = ExtResource("3_e5c8c")
@@ -105,7 +106,7 @@ roughness_texture = ExtResource("32_mqnv8")
 normal_enabled = true
 normal_texture = ExtResource("31_20x7l")
 
-[node name="Main" type="Node3D" unique_id=1531705955]
+[node name="Main" type="Node3D" unique_id=1531705955 groups=["LevelAnimation"]]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=248633883]
 transform = Transform3D(0.99996716, 0.0044289813, -0.006791342, 0.0066229193, 0.036993317, 0.99929357, 0.004677087, -0.9993057, 0.03696277, -1.9935911, 7.075796, -1.9442663)
@@ -254,3 +255,5 @@ RotateSpeed = 2.4
 transform = Transform3D(-9.2483027e-10, -0.009999999, 4.3711387e-10, 0, -4.3711385e-10, -0.01, 0.02115765, -4.3711385e-10, 1.9106855e-17, 0.5435636, 0.5868645, 3.014922)
 mesh = ExtResource("29_yfxij")
 surface_material_override/0 = SubResource("StandardMaterial3D_mnoc6")
+
+[node name="Notification" parent="." unique_id=1676695824 instance=ExtResource("34_20x7l")]
