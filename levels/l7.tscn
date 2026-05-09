@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://itqsbqy2gxb3" path="res://3dModels/gears/textures/target_base/defaultMat_Roughness_1001.png" id="23_0rikr"]
 [ext_resource type="Script" uid="uid://dh4qyv8haw6ta" path="res://LevelAnimation.cs" id="31_85qxg"]
 [ext_resource type="ArrayMesh" uid="uid://dyhtb43h7h0v6" path="res://3dModels/add_items/valve.obj" id="32_oyrdt"]
+[ext_resource type="PackedScene" uid="uid://8ep0uxeu8d0r" path="res://UI/Notification.tscn" id="32_yhedb"]
 [ext_resource type="Texture2D" uid="uid://dlwkcxjhchhli" path="res://3dModels/add_items/vive/M_Pipes_Base_color_1001.png" id="33_ssdsp"]
 [ext_resource type="ArrayMesh" uid="uid://q4gs1v6tblmd" path="res://3dModels/add_items/Pipe_6.obj" id="34_brrcl"]
 [ext_resource type="Script" uid="uid://cteymk6ew11fe" path="res://Target.cs" id="35_2hoqs"]
@@ -38,14 +39,6 @@ albedo_texture = ExtResource("2_85qxg")
 normal_enabled = true
 normal_texture = ExtResource("3_yhedb")
 subsurf_scatter_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4552"]
-albedo_color = Color(0.98039216, 0.8745098, 0.72156864, 1)
-albedo_texture = ExtResource("2_t5wx2")
-metallic = 0.78
-roughness_texture = ExtResource("4_4q38w")
-normal_enabled = true
-normal_texture = ExtResource("3_owi21")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhdnp"]
 albedo_texture = ExtResource("6_e7m6h")
@@ -95,6 +88,14 @@ normal_texture = ExtResource("22_4vdrr")
 heightmap_enabled = true
 heightmap_scale = 0.005
 heightmap_texture = ExtResource("21_rw62a")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4552"]
+albedo_color = Color(0.98039216, 0.8745098, 0.72156864, 1)
+albedo_texture = ExtResource("2_t5wx2")
+metallic = 0.78
+roughness_texture = ExtResource("4_4q38w")
+normal_enabled = true
+normal_texture = ExtResource("3_owi21")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxcnt"]
 albedo_texture = ExtResource("13_15dkj")
@@ -157,11 +158,6 @@ current = true
 fov = 65.6
 far = 3905.5
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1855534781]
-transform = Transform3D(-2.4570126e-09, 0, -0.05, 0, 0.055039994, 0, 0.056209896, 0, -2.1855695e-09, 3.748281, 2.3262749, -6.403765)
-mesh = ExtResource("1_mpmu1")
-surface_material_override/0 = SubResource("StandardMaterial3D_c4552")
-
 [node name="Axis1" type="Node3D" parent="." unique_id=1873934597]
 transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 3.7364566, 0.5560665, -3.631792)
 
@@ -178,7 +174,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_o4t1k")
 
 [node name="Motor" type="Node3D" parent="." unique_id=1952429923]
-transform = Transform3D(0.0017450869, -0.01659734, 0.99986064, 0.9999985, -4.3707413e-08, -0.0017453283, 2.9011515e-05, 0.9998623, 0.01659732, 3.7131176, 2.3050659, -5.235977)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 5.2544026, 0.62808657, -5.6898603)
 script = ExtResource("11_kgyui")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Motor" unique_id=1084222447]
@@ -543,3 +539,5 @@ surface_material_override/1 = SubResource("StandardMaterial3D_62n6d")
 script = ExtResource("31_85qxg")
 Type = 3
 RotateSpeed = 1.5
+
+[node name="Notification" parent="." unique_id=1676695824 instance=ExtResource("32_yhedb")]

@@ -30,6 +30,7 @@
 [ext_resource type="Script" uid="uid://dh4qyv8haw6ta" path="res://LevelAnimation.cs" id="28_qtw1f"]
 [ext_resource type="Script" uid="uid://cteymk6ew11fe" path="res://Target.cs" id="28_xlbpk"]
 [ext_resource type="Texture2D" uid="uid://3j3158cdd4uw" path="res://3dModels/gears/textures/defaultMat.001_Base_color_1001.png" id="29_741b6"]
+[ext_resource type="PackedScene" uid="uid://8ep0uxeu8d0r" path="res://UI/Notification.tscn" id="31_es3br"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80qop"]
 albedo_texture = ExtResource("8_ksccg")
@@ -294,3 +295,5 @@ spot_range = 20.16
 spot_attenuation = 0.35
 spot_angle = 72.73
 spot_angle_attenuation = 0.23325916
+
+[node name="Notification" parent="." unique_id=1676695824 instance=ExtResource("31_es3br")]

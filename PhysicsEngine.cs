@@ -12,30 +12,21 @@ public static class PhysicsEngine
 		return false;
 	}
 
-	private static float GetTolerance(Basis b1, Basis b2)
-	{
-		float dot = Mathf.Abs(b1.Column1.Normalized().Dot(b2.Column1.Normalized()));
-		if (dot < 0.1f) return 1.2f;
-		return 0.2f;
-	}
-
 	private static bool CanConnect(float dist, float r1, float r2, Basis b1, Basis b2)
 	{
 		float expected = r1 + r2;
 		float dot = Mathf.Abs(b1.Column1.Normalized().Dot(b2.Column1.Normalized()));
-
-		if (dot < 0.1f)
+ 
+		if (dot < 0.05f)
 		{
-			// Перпендикулярные шестерёнки: всегда ближе R1+R2
-			// Допустимый диапазон: 50%-98% от R1+R2
-			if (dist < expected * 0.5f) return false;
-			if (dist > expected * 0.8f) return false;
+			if (dist < expected * 0.3f) return false;
+			if (dist > expected * 0.6f) return false;
 			return true;
 		}
 		else
 		{
-			// Параллельные: стандартная проверка
-			if (dist < expected * 0.5f) return false;
+			if (dot < 0.7f) return false;
+			if (dist < expected * 0.6f) return false;
 			return Mathf.Abs(dist - expected) < 0.2f;
 		}
 	}
@@ -44,7 +35,11 @@ public static class PhysicsEngine
 	{
 		foreach (var g in gears) g.Reset();
 		motor.Children.Clear();
-		foreach (var t in targets) t.ParentGear = null;
+		foreach (var t in targets)
+		{
+			t.ParentGear = null;
+			t.Children.Clear();
+		}
 
 		HashSet<Gear> visited = new HashSet<Gear>();
 		Queue<Gear> queue = new Queue<Gear>();
@@ -68,13 +63,32 @@ public static class PhysicsEngine
 			// Шестерёнка + таргет
 			foreach (var target in targets)
 			{
-				if (target.ParentGear != null) continue;
 				float dist = current.GlobalPosition.DistanceTo(target.GlobalPosition);
 				if (!CanConnect(dist, current.Radius, target.Radius, current.initialBasis, target._initialBasis)) continue;
 				if (current.config == null || current.config.gearName != "Big")
 				{
-					target.ParentGear = current;
-					target.Activate();
+					// Таргет ещё не получал родителя — назначаем
+					if (target.ParentGear == null)
+					{
+						target.ParentGear = current;
+					}
+// После target.Activate() в цикле adj:
+GD.Print($"Ищу шестерёнки рядом с таргетом...");
+foreach (var adj in gears)
+{
+	if (visited.Contains(adj)) continue;
+	float adjDist = adj.GlobalPosition.DistanceTo(target.GlobalPosition);
+	float adjExp = adj.Radius + target.Radius;
+	GD.Print($"  adj dist={adjDist:F2} exp={adjExp:F2} can={CanConnect(adjDist, adj.Radius, target.Radius, adj.initialBasis, target._initialBasis)}");
+	if (CanConnect(adjDist, adj.Radius, target.Radius, adj.initialBasis, target._initialBasis))
+	{
+		adj.TargetParent = target;
+		target.Children.Add(adj);
+		visited.Add(adj);
+		queue.Enqueue(adj);
+		GD.Print($"  → подключена к таргету!");
+	}
+}
 				}
 			}
 

@@ -9,6 +9,7 @@ public partial class Gear : Node3D
 
 	public Gear Parent;
 	public Motor MotorParent;
+	public Target TargetParent;
 	public List<Gear> Children = new List<Gear>();
 	public float angle = 0f;
 	public float phaseOffset = 0f;
@@ -29,6 +30,7 @@ public partial class Gear : Node3D
 	{
 		Parent = null;
 		MotorParent = null;
+		TargetParent = null;
 		Children.Clear();
 		phaseOffset = 0f;
 	}
@@ -65,6 +67,13 @@ public partial class Gear : Node3D
 			float sign = GetMeshSign(GlobalPosition, Parent.GlobalPosition, initialBasis, Parent.initialBasis);
 			angle = (Parent.angle * ratio * sign) + phaseOffset;
 		}
+		else if (TargetParent != null)
+		{
+			if (!IsInstanceValid(TargetParent)) return;
+			float ratio = (float)TargetParent.ToothCount / (float)ToothCount;
+			float sign = GetMeshSign(GlobalPosition, TargetParent.GlobalPosition, initialBasis, TargetParent._initialBasis);
+			angle = (TargetParent.angle * ratio * sign) + phaseOffset;
+		}
 		else return;
 
 		Transform = new Transform3D(
@@ -72,7 +81,6 @@ public partial class Gear : Node3D
 			Transform.Origin
 		);
 
-		// Рекурсивно обновляем детей — после того как наш угол посчитан
 		foreach (var c in Children)
 			if (IsInstanceValid(c))
 				c.UpdateRotation();

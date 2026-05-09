@@ -34,6 +34,7 @@
 [ext_resource type="Script" uid="uid://cteymk6ew11fe" path="res://Target.cs" id="32_8rphq"]
 [ext_resource type="ArrayMesh" uid="uid://bvsswg4xguwgs" path="res://3dModels/mechanism/handle4.obj" id="32_emurl"]
 [ext_resource type="Texture2D" uid="uid://3j3158cdd4uw" path="res://3dModels/gears/textures/defaultMat.001_Base_color_1001.png" id="33_qe6re"]
+[ext_resource type="PackedScene" uid="uid://8ep0uxeu8d0r" path="res://UI/Notification.tscn" id="35_hrqcd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w21xa"]
 albedo_texture = ExtResource("2_w6g8c")
@@ -566,3 +567,5 @@ light_size = 0.385
 spot_range = 20.16
 spot_attenuation = 0.57
 spot_angle = 69.05
+
+[node name="Notification" parent="." unique_id=1676695824 instance=ExtResource("35_hrqcd")]

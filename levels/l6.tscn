@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://q3lasdxa2cxs" path="res://3dModels/add_items/Pipes_Bundle_M_Pipes_BaseColor.png" id="30_vxfpk"]
 [ext_resource type="Texture2D" uid="uid://bjajp7eo3jbs5" path="res://3dModels/add_items/Pipes_Bundle_M_Pipes_Normal.png" id="31_nrvs5"]
 [ext_resource type="Texture2D" uid="uid://bpa5hi0o34u0e" path="res://3dModels/add_items/Pipes_Bundle_M_Pipes_OcclusionRoughnessMet.png" id="32_f3l31"]
+[ext_resource type="PackedScene" uid="uid://8ep0uxeu8d0r" path="res://UI/Notification.tscn" id="34_tt6jb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20rex"]
 albedo_color = Color(0.7983568, 0.8425035, 0.92417145, 1)
@@ -440,3 +441,5 @@ RotateSpeed = 2.4
 transform = Transform3D(0.021136483, -0.00044717884, 1.9546843e-11, 3.2856571e-24, -4.3711382e-10, -0.01, 0.0009461254, 0.009989995, -4.3667656e-10, 4.889503, 0.5868645, -4.7601542)
 mesh = ExtResource("29_4l6lc")
 surface_material_override/0 = SubResource("StandardMaterial3D_dmrtr")
+
+[node name="Notification" parent="." unique_id=1676695824 instance=ExtResource("34_tt6jb")]

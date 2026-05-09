@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://vx7ols724f4" path="res://3dModels/gears/textures/defaultMat.001_Roughness_1001.png" id="23_bxlfr"]
 [ext_resource type="Texture2D" uid="uid://63a30k2flsgv" path="res://3dModels/backgrounds/blue/defaultMat_Normal_OpenGL_1001.png" id="23_u72j1"]
 [ext_resource type="ArrayMesh" uid="uid://beev1r7eu6t7" path="res://3dModels/gears/op_dla_zr.obj" id="24_1xblf"]
+[ext_resource type="PackedScene" uid="uid://8ep0uxeu8d0r" path="res://UI/Notification.tscn" id="24_u72j1"]
 [ext_resource type="Texture2D" uid="uid://nvd25pdm331l" path="res://3dModels/gears/textures/target_base/defaultMat_Base_color_1001.png" id="25_dhl3v"]
 [ext_resource type="Texture2D" uid="uid://c764iyws6l7et" path="res://3dModels/gears/textures/target_base/defaultMat_Height_1001.png" id="26_28kfj"]
 [ext_resource type="Texture2D" uid="uid://urkg7qo2fdyp" path="res://3dModels/gears/textures/target_base/defaultMat_Normal_OpenGL_1001.png" id="27_ullie"]
@@ -174,3 +175,5 @@ shadow_blur = 4.235
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1942075068]
 environment = SubResource("Environment_f06b3")
+
+[node name="Notification" parent="." unique_id=1676695824 instance=ExtResource("24_u72j1")]

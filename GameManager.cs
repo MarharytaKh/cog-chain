@@ -272,25 +272,30 @@ public partial class GameManager : Node
 		}
 
 		// Проверка совместимости
-		foreach (var g in GetAllGears())
+foreach (var g in GetAllGears())
+{
+	float dist = targetPos.DistanceTo(g.GlobalPosition);
+	var checkAxisParent = SelectedAxis.GetParent<Node3D>();
+	if (checkAxisParent == null) continue;
+
+	float dot = Mathf.Abs(checkAxisParent.GlobalBasis.Column1.Normalized().Dot(g.initialBasis.Column1.Normalized()));
+	float expected = newRadius + g.Radius;
+	bool wouldConnect;
+
+	if (dot < 0.05f) // перпендикулярные
+		wouldConnect = dist >= expected * 0.5f && dist <= expected * 0.7f;
+	else // параллельные
+		wouldConnect = dist >= expected * 0.5f && Mathf.Abs(dist - expected) < 0.2f;
+
+	if (wouldConnect)
+	{
+		if (!AreCompatible(SelectedGearConfig, g.config) || !AreCompatible(g.config, SelectedGearConfig))
 		{
-			float dist = targetPos.DistanceTo(g.GlobalPosition);
-			var checkAxisParent = SelectedAxis.GetParent<Node3D>();
-			float tol = 0.2f;
-			if (checkAxisParent != null)
-			{
-				float dot = Mathf.Abs(checkAxisParent.GlobalBasis.Column1.Normalized().Dot(g.initialBasis.Column1.Normalized()));
-				tol = dot < 0.1f ? 1.2f : 0.2f;
-			}
-			if (Mathf.Abs(dist - (newRadius + g.Radius)) < tol)
-			{
-				if (!AreCompatible(SelectedGearConfig, g.config) || !AreCompatible(g.config, SelectedGearConfig))
-				{
-					ShowNotification("Шестерёнки несовместимы!");
-					return;
-				}
-			}
+			ShowNotification("Шестерёнки несовместимы!");
+			return;
 		}
+	}
+}
 
 		var gear = SelectedGearConfig.scenePrefab.Instantiate<Gear>();
 		gear.config = SelectedGearConfig;
