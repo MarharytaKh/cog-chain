@@ -21,7 +21,14 @@ public partial class GameManager : Node
 	{
 		return new Vector2(a.X - b.X, a.Z - b.Z).Length();
 	}
-
+public void LoadLevelByIndex(int index)
+{
+	if (levels == null || index < 0 || index >= levels.Length) return;
+	currentLevelIndex = index;
+	var scene = levels[index].levelScene;
+	if (scene != null)
+		GetTree().ChangeSceneToPacked(scene);
+}
 	public override void _Ready()
 	{
 		AddToGroup("GameManager");

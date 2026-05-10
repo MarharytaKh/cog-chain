@@ -21,8 +21,8 @@ public partial class LevelCompleteScreen : CanvasLayer
 			};
 		}
 		var levelsBtn = GetNodeOrNull<Button>("Panel/LevelsButton");
-		if (levelsBtn != null)
-			levelsBtn.Pressed += () => GetTree().ChangeSceneToFile("res://UI/main.tscn");
+if (levelsBtn != null)
+	levelsBtn.Pressed += () => GetTree().ChangeSceneToFile("res://UI/LevelSelect.tscn");
 		var restartBtn = GetNodeOrNull<Button>("Panel/RestartButton");
 		if (restartBtn != null)
 			restartBtn.Pressed += () => {
