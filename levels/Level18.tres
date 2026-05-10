@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Level" format=3 uid="uid://c285yf4wyeqaq"]
+
+[ext_resource type="Script" uid="uid://d4lgy5r1bvqrp" path="res://Level.cs" id="1_bplcr"]
+[ext_resource type="PackedScene" uid="uid://bfp7cxgo1idw" path="res://levels/l18.tscn" id="1_ekmpl"]
+
+[resource]
+script = ExtResource("1_bplcr")
+levelScene = ExtResource("1_ekmpl")
+availableGearTypes = null
+metadata/_custom_type_script = "uid://d4lgy5r1bvqrp"

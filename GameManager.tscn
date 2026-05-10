@@ -15,7 +15,10 @@
 [ext_resource type="Resource" uid="uid://cekktpga8h88d" path="res://levels/Level13.tres" id="12_dm6qn"]
 [ext_resource type="Resource" uid="uid://dmb3bofd0i3q0" path="res://levels/Level11.tres" id="12_l3fct"]
 [ext_resource type="Resource" uid="uid://ceqyucrkuubcx" path="res://levels/Level14.tres" id="15_ow34n"]
+[ext_resource type="Resource" uid="uid://or5r511y1mrt" path="res://levels/Level15.tres" id="16_ow34n"]
+[ext_resource type="Resource" uid="uid://856xc0gk831q" path="res://levels/Level16.tres" id="17_jjrwh"]
+[ext_resource type="Resource" uid="uid://6w5f0t67p5mp" path="res://levels/Level17.tres" id="18_u176x"]
 
 [node name="GameManager" type="Node" unique_id=1250458066]
 script = ExtResource("1_au0an")
-levels = Array[Object]([ExtResource("2_au0an"), ExtResource("3_au0an"), ExtResource("4_108xg"), ExtResource("5_dxunw"), ExtResource("6_5me18"), ExtResource("7_dm6qn"), ExtResource("8_lhkyk"), ExtResource("9_lk78y"), ExtResource("10_uyu88"), ExtResource("10_3ky0o"), ExtResource("12_l3fct"), ExtResource("11_5me18"), ExtResource("12_dm6qn"), ExtResource("15_ow34n")])
+levels = Array[Object]([ExtResource("2_au0an"), ExtResource("3_au0an"), ExtResource("4_108xg"), ExtResource("5_dxunw"), ExtResource("6_5me18"), ExtResource("7_dm6qn"), ExtResource("8_lhkyk"), ExtResource("9_lk78y"), ExtResource("10_uyu88"), ExtResource("10_3ky0o"), ExtResource("12_l3fct"), ExtResource("11_5me18"), ExtResource("12_dm6qn"), ExtResource("15_ow34n"), ExtResource("16_ow34n"), ExtResource("17_jjrwh"), ExtResource("18_u176x")])
