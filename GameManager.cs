@@ -283,7 +283,7 @@ foreach (var g in GetAllGears())
 	bool wouldConnect;
 
 	if (dot < 0.05f) // перпендикулярные
-		wouldConnect = dist >= expected * 0.5f && dist <= expected * 0.7f;
+		wouldConnect = dist >= expected * 0.1f && dist <= expected * 0.7f;
 	else // параллельные
 		wouldConnect = dist >= expected * 0.5f && Mathf.Abs(dist - expected) < 0.2f;
 

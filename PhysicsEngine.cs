@@ -39,6 +39,7 @@ public static class PhysicsEngine
 		{
 			t.ParentGear = null;
 			t.Children.Clear();
+			t.Activated = false;
 		}
 
 		HashSet<Gear> visited = new HashSet<Gear>();

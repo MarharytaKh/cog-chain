@@ -117,21 +117,6 @@ subsurf_scatter_enabled = true
 
 [node name="Main" type="Node3D" unique_id=490015857]
 
-[node name="Axis1" type="Node3D" parent="." unique_id=844534607]
-transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 2.9711072, 0.5560665, -4.635666)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis1" unique_id=792282630]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("1_oyu5w")
-surface_material_override/0 = SubResource("StandardMaterial3D_usbd2")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis1" unique_id=1197523457]
-script = ExtResource("6_5iych")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis1/StaticBody3D" unique_id=640375530]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_bm1r8")
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=689563668]
 transform = Transform3D(0.99999416, -0.003233745, 0.0011363165, -0.0011525084, -0.0050097224, 0.99998677, -0.0032280097, -0.99998224, -0.00501342, 0.4986906, 10.13614, -1.9305761)
 current = true
@@ -163,6 +148,21 @@ light_angular_distance = 4.37
 light_specular = 0.306
 shadow_enabled = true
 shadow_blur = 2.55
+
+[node name="Axis1" type="Node3D" parent="." unique_id=844534607]
+transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 2.9711072, 0.5560665, -4.635666)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis1" unique_id=792282630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
+mesh = ExtResource("1_oyu5w")
+surface_material_override/0 = SubResource("StandardMaterial3D_usbd2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis1" unique_id=1197523457]
+script = ExtResource("6_5iych")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis1/StaticBody3D" unique_id=640375530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
+shape = SubResource("CylinderShape3D_bm1r8")
 
 [node name="Axis2" type="Node3D" parent="." unique_id=258065600]
 transform = Transform3D(-0.9316595, 0, 0.36333257, 0, 1, 0, -0.36333257, 0, -0.9316595, 5.0976977, 0.5560665, -0.4364053)

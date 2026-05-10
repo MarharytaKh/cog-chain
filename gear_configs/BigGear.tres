@@ -9,5 +9,5 @@ gearName = "Big"
 Radius = 1.5
 ToothCount = 30
 scenePrefab = ExtResource("2_f6ce2")
-compatibleWith = PackedStringArray("Universal", "Big")
+compatibleWith = PackedStringArray("Universal")
 metadata/_custom_type_script = "uid://cfmif24gch57m"
