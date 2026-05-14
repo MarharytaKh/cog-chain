@@ -24,6 +24,11 @@
 [ext_resource type="Script" uid="uid://cxh1jsv46nitn" path="res://Axis.cs" id="22_n76qc"]
 [ext_resource type="Script" uid="uid://cbjf6ejbgq52x" path="res://Motor.cs" id="23_nimsv"]
 [ext_resource type="PackedScene" uid="uid://8ep0uxeu8d0r" path="res://UI/Notification.tscn" id="24_25t7d"]
+[ext_resource type="ArrayMesh" uid="uid://devxemrqp7ry4" path="res://3dModels/mechanism/elevator.obj" id="25_35fda"]
+[ext_resource type="Texture2D" uid="uid://bws6bq44x1e5d" path="res://3dModels/mechanism/elevator/defaultMat_Base_color_1001.png" id="26_dhar7"]
+[ext_resource type="Texture2D" uid="uid://bhbsr87qduuad" path="res://3dModels/mechanism/elevator/defaultMat_Metallic_1001.png" id="27_4jgy2"]
+[ext_resource type="Texture2D" uid="uid://b5x8pkqxd1wf6" path="res://3dModels/mechanism/elevator/defaultMat_Normal_OpenGL_1001.png" id="28_fuumt"]
+[ext_resource type="Texture2D" uid="uid://c4gqh80eg8neh" path="res://3dModels/mechanism/elevator/defaultMat_Roughness_1001.png" id="29_kes65"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_djykw"]
 
@@ -118,6 +123,14 @@ normal_texture = ExtResource("15_w7ol2")
 heightmap_enabled = true
 heightmap_scale = 0.005
 heightmap_texture = ExtResource("14_5x7jp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jb1uj"]
+albedo_texture = ExtResource("26_dhar7")
+metallic = 1.0
+metallic_texture = ExtResource("27_4jgy2")
+roughness_texture = ExtResource("29_kes65")
+normal_enabled = true
+normal_texture = ExtResource("28_fuumt")
 
 [node name="Main" type="Node3D" unique_id=544855660]
 
@@ -681,3 +694,8 @@ mesh = ExtResource("12_jb1uj")
 surface_material_override/0 = SubResource("StandardMaterial3D_lnfat")
 
 [node name="Notification" parent="." unique_id=1676695824 instance=ExtResource("24_25t7d")]
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=151172205]
+transform = Transform3D(4.2358446, 0, 0, 0, 4.8, 0, 0, 0, 3.9743164, 0, -7.4796076, 6.8968973)
+mesh = ExtResource("25_35fda")
+surface_material_override/0 = SubResource("StandardMaterial3D_jb1uj")
