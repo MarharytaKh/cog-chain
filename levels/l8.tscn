@@ -1,12 +1,8 @@
 [gd_scene format=3 uid="uid://chq2l1ms633k"]
 
 [ext_resource type="ArrayMesh" uid="uid://ca40rvewmsod0" path="res://3dModels/backgrounds/tlo.obj" id="1_eltu6"]
-[ext_resource type="ArrayMesh" uid="uid://b74oasm0ek337" path="res://3dModels/gears/Pipe_sq.obj" id="1_hni8i"]
-[ext_resource type="Texture2D" uid="uid://q3lasdxa2cxs" path="res://3dModels/add_items/Pipes_Bundle_M_Pipes_BaseColor.png" id="2_eltu6"]
 [ext_resource type="Texture2D" uid="uid://dppdr1wmrn5ww" path="res://3dModels/backgrounds/blue/defaultMat_Base_color_1001.png" id="2_w6g8c"]
 [ext_resource type="Texture2D" uid="uid://63a30k2flsgv" path="res://3dModels/backgrounds/blue/defaultMat_Normal_OpenGL_1001.png" id="3_hrqcd"]
-[ext_resource type="Texture2D" uid="uid://bjajp7eo3jbs5" path="res://3dModels/add_items/Pipes_Bundle_M_Pipes_Normal.png" id="3_w6g8c"]
-[ext_resource type="Texture2D" uid="uid://bpa5hi0o34u0e" path="res://3dModels/add_items/Pipes_Bundle_M_Pipes_OcclusionRoughnessMet.png" id="4_hrqcd"]
 [ext_resource type="ArrayMesh" uid="uid://damlgvtj23ggv" path="res://3dModels/axis/ax.obj" id="5_hptvg"]
 [ext_resource type="Texture2D" uid="uid://cyga5ovwc7e" path="res://3dModels/axis/DefaultMaterial_Base_color_1001.png" id="6_emurl"]
 [ext_resource type="Texture2D" uid="uid://jty42wahvdy2" path="res://3dModels/axis/DefaultMaterial_Metallic_1001.png" id="7_qe6re"]
@@ -41,13 +37,6 @@ albedo_texture = ExtResource("2_w6g8c")
 normal_enabled = true
 normal_texture = ExtResource("3_hrqcd")
 subsurf_scatter_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fl4sl"]
-albedo_texture = ExtResource("2_eltu6")
-metallic = 1.0
-roughness_texture = ExtResource("4_hrqcd")
-normal_enabled = true
-normal_texture = ExtResource("3_w6g8c")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4sjib"]
 albedo_texture = ExtResource("13_bhisx")
@@ -163,13 +152,8 @@ transform = Transform3D(3, 0, 0, 0, -1.7585033e-07, 3, 0, -4.022987, -1.3113416e
 mesh = ExtResource("1_eltu6")
 surface_material_override/0 = SubResource("StandardMaterial3D_w21xa")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1208752425]
-transform = Transform3D(-2.4570126e-09, 0, -0.05, 0, 0.055039994, 0, 0.056209896, 0, -2.1855695e-09, 3.748281, 2.3262749, -6.403765)
-mesh = ExtResource("1_hni8i")
-surface_material_override/0 = SubResource("StandardMaterial3D_fl4sl")
-
 [node name="Motor" type="Node3D" parent="." unique_id=1311644947]
-transform = Transform3D(0.0017450869, -0.01659734, 0.99986064, 0.9999985, -4.3707413e-08, -0.0017453283, 2.9011515e-05, 0.9998623, 0.01659732, 3.7131176, 2.3050659, -5.235977)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 3.7469635, 0.5761378, -6.238151)
 script = ExtResource("11_hk1un")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Motor" unique_id=788588465]
@@ -185,7 +169,7 @@ transform = Transform3D(1, 1.5832484e-08, -8.3701934e-11, -1.5832484e-08, 1, 3.0
 shape = SubResource("CylinderShape3D_f5xxj")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Motor" unique_id=2078035314]
-transform = Transform3D(4, -7.275958e-12, 7.798917e-11, 0, 4, 0, 7.798917e-11, 0, 4, -1.21593475e-05, -0.041121483, -0.006896019)
+transform = Transform3D(4, -7.275958e-12, 7.798917e-11, 0, 4, 0, 7.798917e-11, 0, 4, -1.21593475e-05, 0.16788626, -0.006896019)
 mesh = ExtResource("19_2g60g")
 surface_material_override/0 = SubResource("StandardMaterial3D_e45yr")
 
@@ -210,9 +194,9 @@ mesh = ExtResource("19_2g60g")
 surface_material_override/0 = SubResource("StandardMaterial3D_syipj")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1977987626]
-transform = Transform3D(0.99999416, -0.003233745, 0.0011363165, -0.0011525084, -0.0050097224, 0.99998677, -0.0032280097, -0.99998224, -0.00501342, -0.721082, 11.176634, -2.2880974)
+transform = Transform3D(0.99999416, -0.003233745, 0.0011363165, -0.0011525084, -0.0050097224, 0.99998677, -0.0032280097, -0.99998224, -0.00501342, -0.721082, 19.49181, -2.2880974)
 current = true
-fov = 65.6
+fov = 38.8
 far = 3905.5
 
 [node name="Axis1" type="Node3D" parent="." unique_id=216761819]

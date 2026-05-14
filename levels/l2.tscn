@@ -106,25 +106,10 @@ ambient_light_energy = 0.4
 
 [node name="Main" type="Node3D" unique_id=1215633834]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=991972725]
-transform = Transform3D(0.5017457, 0.56818414, 0.65224075, 0.006060072, -0.7563127, 0.65418214, 0.86499393, -0.3242805, -0.38292, 46.771004, 14.78207, -12.035759)
-visible = false
-light_color = Color(0.9907153, 0.85209686, 0.7429475, 1)
-light_energy = 2.72
-light_indirect_energy = 5.938
-light_volumetric_fog_energy = 3.2
-light_angular_distance = 7.38
-light_specular = 0.306
-shadow_enabled = true
-shadow_bias = 0.0
-shadow_normal_bias = 5.229
-shadow_transmittance_bias = 0.265
-shadow_opacity = 0.85
-shadow_blur = 0.723
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1639089799]
-transform = Transform3D(0.99994284, 0.008143936, -0.0069287308, 0.006838406, 0.011066927, 0.9999155, 0.008219927, -0.99990565, 0.011010604, -2.954823, 7.2105064, -1.0096426)
+transform = Transform3D(0.99994284, 0.008143936, -0.0069287308, 0.006838406, 0.011066927, 0.9999155, 0.008219927, -0.99990565, 0.011010604, -3.467873, 14.938366, -1.2199202)
 current = true
+fov = 38.8
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=814551339]
 transform = Transform3D(0.84198207, -0.25760722, 0.4740303, -0.09733309, 0.7916891, 0.6031208, -0.5306528, -0.5539558, 0.6415143, 45.893894, 25.67463, 65.49536)

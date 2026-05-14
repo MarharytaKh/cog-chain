@@ -19,3 +19,17 @@ offset_right = 1740.0
 offset_bottom = 909.0
 text = "nextButton
 "
+
+[node name="TimeLabel" type="Label" parent="Panel" unique_id=952538343]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 608.0
+offset_right = 744.0
+offset_bottom = 695.0
+
+[node name="MovesLabel" type="Label" parent="Panel" unique_id=1080571153]
+layout_mode = 0
+offset_left = 1067.0
+offset_top = 239.0
+offset_right = 1451.0
+offset_bottom = 348.0

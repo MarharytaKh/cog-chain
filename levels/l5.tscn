@@ -98,32 +98,18 @@ emission_texture = ExtResource("23_e1q1x")
 normal_enabled = true
 normal_texture = ExtResource("23_ouy24")
 
+[sub_resource type="Environment" id="Environment_jwyxw"]
+background_mode = 2
+background_energy_multiplier = 1.06
+ambient_light_color = Color(0.5335893, 0.3617767, 0.28228495, 1)
+ambient_light_energy = 0.4
+
 [node name="Main" type="Node3D" unique_id=800925855]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1379102823]
-transform = Transform3D(0.9999795, -0.0006051348, -0.0063799103, 0.006390647, 0.01981071, 0.99978334, -0.0004786132, -0.99980354, 0.019814173, -0.3242712, 6.838338, -2.6014833)
+transform = Transform3D(0.9999795, -0.0006051348, -0.0063799103, 0.006390647, 0.01981071, 0.99978334, -0.0004786132, -0.99980354, 0.019814173, -0.3242712, 13.654023, -2.6014833)
 current = true
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=258268425]
-transform = Transform3D(0.38996017, -0.8992943, 0.19799173, -0.25020584, 0.10344392, 0.9626508, -0.8861874, -0.42493412, -0.18466973, -92.60761, -64.8707, -72.84106)
-light_color = Color(1, 0.81673634, 0.6729181, 1)
-light_energy = 0.867
-light_indirect_energy = 0.891
-light_angular_distance = 4.37
-light_specular = 0.306
-shadow_enabled = true
-shadow_blur = 2.55
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1481952060]
-transform = Transform3D(-0.52894706, -0.55447614, 0.6424728, -0.0973331, 0.7916891, 0.6031208, -0.84305483, 0.25648513, -0.47273046, 63.561195, 25.67463, -52.72672)
-visible = false
-light_color = Color(0.75461733, 0.87690353, 0.959662, 1)
-light_energy = 0.1
-light_indirect_energy = 0.891
-light_angular_distance = 4.37
-light_specular = 0.306
-shadow_enabled = true
-shadow_blur = 2.55
+fov = 38.8
 
 [node name="Axis1" type="Node3D" parent="." unique_id=1917088879]
 transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -0.537128, 0.5560665, -5.768368)
@@ -331,7 +317,7 @@ mesh = ExtResource("25_twgkp")
 surface_material_override/0 = SubResource("StandardMaterial3D_nu14h")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=999500581]
-transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 3, 0, -3, -1.3113416e-07, -2.8702204, -0.20481205, -2.6613212)
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 3, 0, -3, -1.3113416e-07, -2.8702204, -0.10396576, -2.6613212)
 mesh = ExtResource("22_j8cwi")
 surface_material_override/0 = SubResource("StandardMaterial3D_g6ibl")
 
@@ -352,3 +338,46 @@ mesh = ExtResource("21_v0awc")
 surface_material_override/0 = SubResource("StandardMaterial3D_v67tu")
 
 [node name="Notification" parent="." unique_id=1676695824 instance=ExtResource("31_jwyxw")]
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="." unique_id=1069390523]
+transform = Transform3D(0.95474184, 0.2350525, -0.1822591, 0.14664748, 0.16111581, 0.9759796, 0.25877127, -0.9585364, 0.11935416, -16.183357, 11.663827, -8.2856455)
+light_color = Color(0.8692503, 0.7211458, 0.7125641, 1)
+light_energy = 0.845
+light_angular_distance = 5.55
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 2.035
+shadow_transmittance_bias = -6.136
+shadow_opacity = 0.42
+shadow_blur = 4.235
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1285382339]
+environment = SubResource("Environment_jwyxw")
+
+[node name="SpotLight3D" type="OmniLight3D" parent="." unique_id=1973713045]
+transform = Transform3D(0.5856745, -0.3988065, 0.7056478, -0.81050533, -0.27938527, 0.51480585, -0.008160347, -0.8734399, -0.4868636, -5.518976, 3.811511, -11.17101)
+light_color = Color(0.9096475, 0.7473422, 0.60706705, 1)
+light_energy = 16.0
+light_indirect_energy = 3.944
+light_volumetric_fog_energy = 5.22
+light_specular = 3.563
+shadow_enabled = true
+shadow_bias = 0.095
+shadow_transmittance_bias = 5.225
+shadow_blur = 3.417
+distance_fade_begin = 359.76
+distance_fade_shadow = 54.9
+distance_fade_length = 97.4
+omni_range = 14.166
+omni_attenuation = 1.788
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=465713097]
+transform = Transform3D(0.3888296, -0.9128589, 0.12449998, 0.6679972, 0.3724014, 0.64428025, -0.6345009, -0.16734958, 0.7545878, -0.06700921, 5.9391747, 9.118798)
+light_color = Color(0.59380585, 0.68058807, 0.6988075, 1)
+light_energy = 1.894
+light_volumetric_fog_energy = 1.446
+light_size = 0.385
+spot_range = 20.16
+spot_attenuation = 0.35
+spot_angle = 72.73
+spot_angle_attenuation = 0.23325916

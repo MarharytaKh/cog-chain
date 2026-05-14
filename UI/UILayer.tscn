@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bgfopr7yvxgxe"]
 
 [ext_resource type="Texture2D" uid="uid://dgublbak7bk5b" path="res://UI/shk.png" id="1_2tnra"]
+[ext_resource type="Script" uid="uid://csclmugaq0d0a" path="res://UI/UILayer.cs" id="1_qqi7y"]
 
 [node name="Node2D" type="CanvasLayer" unique_id=1623673965]
+script = ExtResource("1_qqi7y")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1133570263]
 
@@ -61,3 +63,24 @@ offset_top = 990.0
 offset_right = 601.6665
 offset_bottom = 1098.3334
 text = "Gear big"
+
+[node name="MovesLabel" type="Label" parent="UI/Panel" unique_id=1499943556]
+layout_mode = 0
+offset_left = -566.6666
+offset_top = 109.99999
+offset_right = -320.00012
+offset_bottom = 176.66666
+
+[node name="TimeLabel" type="Label" parent="UI/Panel" unique_id=2114641859]
+layout_mode = 0
+offset_left = -241.66666
+offset_top = 101.66666
+offset_right = 63.333344
+offset_bottom = 164.99998
+
+[node name="PauseButton" type="Button" parent="UI/Panel" unique_id=633855965]
+layout_mode = 0
+offset_left = -2374.9998
+offset_top = 71.666626
+offset_right = -1993.333
+offset_bottom = 208.33325

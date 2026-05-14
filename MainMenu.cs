@@ -6,5 +6,8 @@ public partial class MainMenu : Control
 	{
 		GetNode<Button>("Button").Pressed += () =>
 			GetTree().ChangeSceneToFile("res://UI/LevelSelect.tscn");
+			GetNode<Button>("LoadButton").Pressed += () =>
+	GetTree().ChangeSceneToFile("res://account/SavesScreen.tscn");
 	}
+	
 }

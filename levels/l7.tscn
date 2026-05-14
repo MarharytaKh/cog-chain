@@ -145,6 +145,12 @@ normal_texture = ExtResource("3_owi21")
 albedo_texture = ExtResource("33_ssdsp")
 roughness = 0.45
 
+[sub_resource type="Environment" id="Environment_yhedb"]
+background_mode = 2
+background_energy_multiplier = 1.06
+ambient_light_color = Color(0.5335893, 0.3617767, 0.28228495, 1)
+ambient_light_energy = 0.4
+
 [node name="Main" type="Node3D" unique_id=1285281417]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2126898338]
@@ -153,9 +159,9 @@ mesh = ExtResource("1_svm73")
 surface_material_override/0 = SubResource("StandardMaterial3D_dwtxn")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=932293426]
-transform = Transform3D(0.99999416, -0.003233745, 0.0011363165, -0.0011525084, -0.0050097224, 0.99998677, -0.0032280097, -0.99998224, -0.00501342, 0.5587396, 9.902626, -2.4787765)
+transform = Transform3D(0.99999416, -0.003233745, 0.0011363165, -0.0011525084, -0.0050097224, 0.99998677, -0.0032280097, -0.99998224, -0.00501342, 1.3669524, 17.172258, -2.4787765)
 current = true
-fov = 65.6
+fov = 38.8
 far = 3905.5
 
 [node name="Motor" type="Node3D" parent="." unique_id=1952429923]
@@ -178,48 +184,6 @@ shape = SubResource("CylinderShape3D_nox4r")
 transform = Transform3D(4, -7.275958e-12, 7.798917e-11, 0, 4, 0, 7.798917e-11, 0, 4, -1.21593475e-05, -0.041121483, -0.006896019)
 mesh = ExtResource("19_ree8g")
 surface_material_override/0 = SubResource("StandardMaterial3D_q7qha")
-
-[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="." unique_id=450088062]
-transform = Transform3D(0.49594778, 0.6685441, 0.5541522, 0.07629811, -0.6692465, 0.73911285, 0.86499393, -0.32428056, -0.3829199, 23.6837, 14.78207, -12.035759)
-light_color = Color(0.9907153, 0.85209686, 0.7429475, 1)
-light_energy = 2.929
-light_indirect_energy = 5.938
-light_volumetric_fog_energy = 3.2
-light_angular_distance = 7.38
-light_specular = 0.306
-shadow_enabled = true
-shadow_bias = 0.0
-shadow_normal_bias = 2.332
-shadow_transmittance_bias = 0.265
-shadow_opacity = 0.85
-shadow_blur = 0.498
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1895005258]
-transform = Transform3D(0.8542998, -0.4967381, -0.1530463, -0.07721265, -0.41245577, 0.9076994, -0.5140138, -0.7636304, -0.39071512, 3.8736992, 17.863546, -43.04919)
-visible = false
-light_color = Color(1, 0.81673634, 0.6729181, 1)
-light_energy = 1.336
-light_indirect_energy = 1.079
-light_volumetric_fog_energy = 0.0
-light_specular = 0.388
-light_bake_mode = 1
-shadow_enabled = true
-shadow_bias = 0.14
-shadow_normal_bias = 0.056
-shadow_transmittance_bias = -8.839
-shadow_opacity = 0.8
-shadow_blur = 0.605
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=840802128]
-transform = Transform3D(-0.029333876, -0.95943904, -0.28038594, 0.8859044, -0.15486798, 0.43725225, -0.46293965, -0.23556882, 0.85451406, 0.10019684, 4.172497, 59.84455)
-light_color = Color(0.75461733, 0.87690353, 0.959662, 1)
-light_energy = 1.191
-light_indirect_energy = 1.982
-light_volumetric_fog_energy = 1.364
-light_angular_distance = 4.37
-light_specular = 0.306
-shadow_enabled = true
-shadow_blur = 2.55
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1050166778]
 transform = Transform3D(-3.496911e-09, -0.059, 2.578972e-09, 0, -2.578972e-09, -0.059, 0.08, -2.578972e-09, 1.1273044e-16, -8.453004, 0.5868645, 5.450915)
@@ -541,3 +505,46 @@ Type = 3
 RotateSpeed = 1.5
 
 [node name="Notification" parent="." unique_id=1676695824 instance=ExtResource("32_yhedb")]
+
+[node name="DirectionalLight3D4" type="DirectionalLight3D" parent="." unique_id=1599537231]
+transform = Transform3D(0.95474184, 0.2350525, -0.1822591, 0.14664748, 0.16111581, 0.9759796, 0.25877127, -0.9585364, 0.11935416, -16.183357, 11.663827, -8.2856455)
+light_color = Color(0.8692503, 0.7211458, 0.7125641, 1)
+light_energy = 1.243
+light_angular_distance = 5.55
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 2.035
+shadow_transmittance_bias = -6.136
+shadow_opacity = 0.42
+shadow_blur = 4.235
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1296810343]
+environment = SubResource("Environment_yhedb")
+
+[node name="SpotLight3D" type="OmniLight3D" parent="." unique_id=628445867]
+transform = Transform3D(0.5856745, -0.3988065, 0.7056478, -0.81050533, -0.27938527, 0.51480585, -0.008160347, -0.8734399, -0.4868636, 1.3264475, 3.811511, -11.17101)
+light_color = Color(0.9096475, 0.7473422, 0.60706705, 1)
+light_energy = 16.0
+light_indirect_energy = 3.944
+light_volumetric_fog_energy = 5.22
+light_specular = 3.563
+shadow_enabled = true
+shadow_bias = 0.095
+shadow_transmittance_bias = 5.225
+shadow_blur = 3.417
+distance_fade_begin = 359.76
+distance_fade_shadow = 54.9
+distance_fade_length = 97.4
+omni_range = 14.166
+omni_attenuation = 1.788
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1841939732]
+transform = Transform3D(0.3888296, -0.9128589, 0.12449999, 0.6679972, 0.37240142, 0.64428025, -0.6345009, -0.16734959, 0.7545878, -0.06700921, 5.9391747, 9.421414)
+light_color = Color(0.59380585, 0.68058807, 0.6988075, 1)
+light_energy = 1.894
+light_volumetric_fog_energy = 1.446
+light_size = 0.385
+spot_range = 20.16
+spot_attenuation = 0.35
+spot_angle = 72.73
+spot_angle_attenuation = 0.23325916

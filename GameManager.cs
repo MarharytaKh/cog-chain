@@ -5,6 +5,9 @@ public partial class GameManager : Node
 {
 	public static Axis SelectedAxis;
 	public static GearType SelectedGearConfig;
+public float GetTime() => _time;
+public int GetMoves() => _moves;
+
 
 	[Export] public Level[] levels;
 
@@ -16,6 +19,10 @@ public partial class GameManager : Node
 	private List<Target> targets = new List<Target>();
 	private Node uiInstance;
 	private NotificationManager _notify;
+	
+	
+	private float _time = 0f;
+private int _moves = 0;
 
 	private float DistXZ(Vector3 a, Vector3 b)
 	{
@@ -28,6 +35,11 @@ public void LoadLevelByIndex(int index)
 	var scene = levels[index].levelScene;
 	if (scene != null)
 		GetTree().ChangeSceneToPacked(scene);
+}
+public override void _Process(double delta)
+{
+	if (motor != null && motor.IsInsideTree())
+		_time += (float)delta;
 }
 	public override void _Ready()
 	{
@@ -43,6 +55,8 @@ public void LoadLevelByIndex(int index)
 
 	private void InitLevel()
 	{
+		_time = 0f;
+		_moves = 0;
 		foreach (Node node in GetChildren())
 			if (node is Gear)
 				node.QueueFree();
@@ -94,12 +108,14 @@ public void LoadLevelByIndex(int index)
 		var uiManager = GetNodeOrNull<UIManager>("/root/UIManager");
 		if (uiManager == null) { GD.PrintErr("UIManager null!"); return; }
 		if (levels == null) { GD.PrintErr("levels null!"); return; }
+		SaveSystem.SaveLevelResult(currentLevelIndex, _time, _moves);
 		uiManager.Show("level_complete");
 		var screen = uiManager.GetCurrentScreen();
 		if (screen is LevelCompleteScreen lcs)
-			lcs.Setup(currentLevelIndex, levels.Length);
+			lcs.Setup(currentLevelIndex, levels.Length, _time, _moves);
 		else
 			GD.PrintErr($"screen type={screen?.GetType().Name}");
+		
 	}
 
 	public void RestartLevel()
@@ -203,6 +219,7 @@ public void LoadLevelByIndex(int index)
 				// Убираем из дерева сразу — чтобы не попала в Recalculate
 				RemoveChild(gear);
 				gear.QueueFree();
+				_moves++;
 				CallDeferred(nameof(ReenableMotorAndRecalculate));
 				return;
 			}
@@ -349,7 +366,7 @@ foreach (var g in GetAllGears())
 				break;
 			}
 		}
-
+_moves++;
 		Recalculate();
 	}
 

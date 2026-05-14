@@ -7,7 +7,7 @@ public partial class LevelCompleteScreen : CanvasLayer
 		GD.Print("LevelCompleteScreen Ready");
 	}
 
-	public void Setup(int currentIndex, int totalLevels)
+	public void Setup(int currentIndex, int totalLevels, float time, int moves)
 	{
 		GD.Print("Setup вызван");
 		var nextBtn = GetNodeOrNull<Button>("Panel/nextButton");
@@ -29,5 +29,12 @@ if (levelsBtn != null)
 				var gm = GetTree().GetFirstNodeInGroup("GameManager") as GameManager;
 				gm?.RestartLevel();
 			};
+			 var timeLabel = GetNodeOrNull<Label>("Panel/TimeLabel");
+	var movesLabel = GetNodeOrNull<Label>("Panel/MovesLabel");
+	
+	if (timeLabel != null)
+		timeLabel.Text = $"Время: {(int)time / 60}:{(time % 60):00}";
+	if (movesLabel != null)
+		movesLabel.Text = $"Ходов: {moves}";
 	}
 }

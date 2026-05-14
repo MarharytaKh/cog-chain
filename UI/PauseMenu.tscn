@@ -1,4 +1,30 @@
 [gd_scene format=3 uid="uid://be8xei25e72cs"]
 
-[node name="PauseMenu" type="Node2D" unique_id=900998502]
-position = Vector2(0, 2)
+[ext_resource type="Script" uid="uid://dfyycqssqc1ev" path="res://UI/PauseMenu.cs" id="1_05bun"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1472800500]
+script = ExtResource("1_05bun")
+
+[node name="Panel" type="Panel" parent="." unique_id=1826818184]
+offset_left = 199.0
+offset_top = 98.0
+offset_right = 1721.0
+offset_bottom = 961.0
+
+[node name="ResumeButton" type="Button" parent="Panel" unique_id=1637596857]
+layout_mode = 0
+offset_left = 595.0
+offset_top = 289.0
+offset_right = 927.0
+offset_bottom = 382.0
+text = "Resume
+"
+
+[node name="MenuButton" type="Button" parent="Panel" unique_id=1479122458]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 477.0
+offset_right = 924.0
+offset_bottom = 564.0
+text = "Menu
+"
