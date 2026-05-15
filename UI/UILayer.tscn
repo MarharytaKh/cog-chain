@@ -12,9 +12,9 @@ script = ExtResource("1_qqi7y")
 anchors_preset = -1
 anchor_left = 1.005
 anchor_right = 1.005
-offset_left = -461.59998
+offset_left = -560.09985
 offset_top = -14.0
-offset_right = 321.73352
+offset_right = 387.40002
 offset_bottom = 1862.6666
 grow_horizontal = 0
 scale = Vector2(0.6, 0.6)
@@ -22,46 +22,46 @@ texture = ExtResource("1_2tnra")
 
 [node name="Button1" type="Button" parent="UI/Panel" unique_id=1589166043]
 layout_mode = 0
-offset_left = 266.6669
-offset_top = 431.66666
-offset_right = 595.00037
-offset_bottom = 546.6666
+offset_left = 373.33316
+offset_top = 436.66663
+offset_right = 701.6666
+offset_bottom = 551.6666
 text = "Gear small
 "
 
 [node name="Button0" type="Button" parent="UI/Panel" unique_id=1307942729]
 layout_mode = 0
-offset_left = 278.33356
-offset_top = 738.3333
-offset_right = 605.00037
-offset_bottom = 840.0
+offset_left = 373.33313
+offset_top = 740.0
+offset_right = 699.99994
+offset_bottom = 841.6667
 text = "Gear medium
 
 "
 
 [node name="RemoveButton" type="Button" parent="UI/Panel" unique_id=490604143]
 layout_mode = 0
-offset_left = 293.33325
-offset_top = 1496.6665
-offset_right = 611.6665
-offset_bottom = 1618.3331
+offset_left = 359.9997
+offset_top = 1498.3333
+offset_right = 678.33295
+offset_bottom = 1619.9999
 text = "Remove button
 "
 
 [node name="Button2" type="Button" parent="UI/Panel" unique_id=1498437791]
 layout_mode = 0
-offset_left = 293.33334
-offset_top = 1196.6666
-offset_right = 601.6666
-offset_bottom = 1308.3334
+offset_left = 368.33313
+offset_top = 1255.0
+offset_right = 676.6664
+offset_bottom = 1366.6667
 text = "Gear universal"
 
 [node name="Button3" type="Button" parent="UI/Panel" unique_id=301272406]
 layout_mode = 0
-offset_left = 288.3333
-offset_top = 990.0
-offset_right = 601.6665
-offset_bottom = 1098.3334
+offset_left = 371.66644
+offset_top = 1008.3333
+offset_right = 684.99963
+offset_bottom = 1116.6667
 text = "Gear big"
 
 [node name="MovesLabel" type="Label" parent="UI/Panel" unique_id=1499943556]

@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://bfp7cxgo1idw"]
 
 [ext_resource type="Script" uid="uid://ctgyvbptek7sc" path="res://OrbitCamera.cs" id="1_oo21c"]
-[ext_resource type="ArrayMesh" uid="uid://ca40rvewmsod0" path="res://3dModels/backgrounds/tlo.obj" id="2_j5asj"]
-[ext_resource type="Texture2D" uid="uid://780tomehkoyf" path="res://3dModels/backgrounds/blue_rust/defaultMat_Base_color_1001.png" id="3_clodc"]
-[ext_resource type="Texture2D" uid="uid://bevfm752uwuxq" path="res://3dModels/backgrounds/blue_rust/defaultMat_Normal_OpenGL_1001.png" id="4_5mm0e"]
 [ext_resource type="Script" uid="uid://cbjf6ejbgq52x" path="res://Motor.cs" id="5_8a2gd"]
 [ext_resource type="ArrayMesh" uid="uid://ecomklijoju8" path="res://3dModels/gears/cogzr.obj" id="6_up1iu"]
 [ext_resource type="Texture2D" uid="uid://d04r1ytb6oxsl" path="res://3dModels/gears/textures/defaultMat_Base_color_1001.png" id="7_lr0ba"]
@@ -23,14 +20,14 @@
 [ext_resource type="Texture2D" uid="uid://cyga5ovwc7e" path="res://3dModels/axis/DefaultMaterial_Base_color_1001.png" id="21_uougg"]
 [ext_resource type="Texture2D" uid="uid://jty42wahvdy2" path="res://3dModels/axis/DefaultMaterial_Metallic_1001.png" id="22_n2gln"]
 [ext_resource type="Texture2D" uid="uid://mk73yhl1hcq3" path="res://3dModels/axis/DefaultMaterial_Normal_1001.png" id="23_bhb31"]
+[ext_resource type="ArrayMesh" uid="uid://b408560j6kf33" path="res://3dModels/backgrounds/tlo_box.obj" id="23_n2gln"]
+[ext_resource type="Texture2D" uid="uid://d2pqpjrfmceeh" path="res://3dModels/backgrounds/tlo_box/default_Base_color_1001.png" id="24_bhb31"]
 [ext_resource type="Texture2D" uid="uid://cd8nndo2rup1b" path="res://3dModels/axis/DefaultMaterial_Roughness_1001.png" id="24_sh4yi"]
 [ext_resource type="Script" uid="uid://cxh1jsv46nitn" path="res://Axis.cs" id="25_c8v7m"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yvfgh"]
-albedo_texture = ExtResource("3_clodc")
-normal_enabled = true
-normal_texture = ExtResource("4_5mm0e")
-subsurf_scatter_enabled = true
+[ext_resource type="Texture2D" uid="uid://effyk06fotjo" path="res://3dModels/backgrounds/tlo_box/default_Emissive_1001.png" id="25_sh4yi"]
+[ext_resource type="Texture2D" uid="uid://b1rxtvtyufsf6" path="res://3dModels/backgrounds/tlo_box/default_Normal_OpenGL_1001.png" id="26_c8v7m"]
+[ext_resource type="Texture2D" uid="uid://blulmoja0dn13" path="res://3dModels/backgrounds/tlo_box/default_Roughness_1001.png" id="27_jss0b"]
+[ext_resource type="ArrayMesh" uid="uid://dl4yav5bq2rq" path="res://3dModels/mechanism/ChainLink.obj" id="28_bhb31"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hw74"]
 albedo_texture = ExtResource("7_lr0ba")
@@ -107,6 +104,28 @@ normal_texture = ExtResource("23_bhb31")
 height = 1.8549805
 radius = 0.3
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfnik"]
+albedo_texture = ExtResource("24_bhb31")
+metallic = 0.35
+metallic_specular = 0.65
+roughness_texture = ExtResource("27_jss0b")
+emission_texture = ExtResource("25_sh4yi")
+normal_enabled = true
+normal_texture = ExtResource("26_c8v7m")
+subsurf_scatter_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh4yi"]
+albedo_color = Color(0.89492244, 0.89492244, 0.8949224, 1)
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.33
+
+[sub_resource type="Environment" id="Environment_bhb31"]
+background_mode = 2
+background_energy_multiplier = 1.06
+ambient_light_color = Color(0.5335893, 0.3617767, 0.28228495, 1)
+ambient_light_energy = 0.4
+
 [node name="Main" type="Node3D" unique_id=508978450]
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=567452471]
@@ -122,37 +141,6 @@ h_offset = 2.0
 current = true
 fov = 65.6
 far = 3905.5
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=329663905]
-transform = Transform3D(0.8542998, -0.4967381, -0.1530463, -0.07721265, -0.41245577, 0.9076994, -0.5140138, -0.7636304, -0.39071512, 3.8736992, 17.863546, -43.04919)
-light_color = Color(1, 0.81673634, 0.6729181, 1)
-light_energy = 1.336
-light_indirect_energy = 1.079
-light_volumetric_fog_energy = 0.0
-light_specular = 0.388
-light_bake_mode = 1
-shadow_enabled = true
-shadow_bias = 0.14
-shadow_normal_bias = 0.056
-shadow_transmittance_bias = -8.839
-shadow_opacity = 0.8
-shadow_blur = 0.605
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1470128437]
-transform = Transform3D(-0.029333876, -0.95943904, -0.28038594, 0.8859044, -0.15486798, 0.43725225, -0.46293965, -0.23556882, 0.85451406, 0.10019684, 4.172497, 59.84455)
-light_color = Color(0.75461733, 0.87690353, 0.959662, 1)
-light_energy = 1.191
-light_indirect_energy = 1.982
-light_volumetric_fog_energy = 1.364
-light_angular_distance = 4.37
-light_specular = 0.306
-shadow_enabled = true
-shadow_blur = 2.55
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=647968533]
-transform = Transform3D(6.276383, 0, 0, 0, -1.9457755e-07, 3, 0, -4.4514155, -1.3113416e-07, -1.4437743, -0.15450096, -0.11076617)
-mesh = ExtResource("2_j5asj")
-surface_material_override/0 = SubResource("StandardMaterial3D_yvfgh")
 
 [node name="Motor" type="Node3D" parent="." unique_id=1656922670]
 transform = Transform3D(0.0017453285, 4.3635097e-08, 0.99999857, 0.99999857, -4.371132e-08, -0.0017453285, 4.36351e-08, 1, -4.3711324e-08, 0, 7.1867504, 1.3469963)
@@ -794,3 +782,69 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_rfnik")
 
 [node name="Notification" parent="." unique_id=1676695824 instance=ExtResource("19_1d2af")]
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1261340973]
+transform = Transform3D(3.2228339, 0, 0, 0, 3.3708906, 0, 0, 0, 3.5449579, 0.5579014, -9.473841, 13.832504)
+mesh = ExtResource("23_n2gln")
+surface_material_override/0 = SubResource("StandardMaterial3D_rfnik")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=377573453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54483056, 0)
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Node3D" unique_id=821481475]
+transform = Transform3D(-0.09445303, 0, -5.9992566, 0, 6, 0, 5.9992566, 0, -0.09445303, -6.9155865, 14.655144, -6.975333)
+mesh = ExtResource("28_bhb31")
+surface_material_override/0 = SubResource("StandardMaterial3D_sh4yi")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Node3D" unique_id=540581182]
+transform = Transform3D(-0.09445303, 0, -5.9992566, 0, 6, 0, 5.9992566, 0, -0.09445303, 7.055092, 14.655144, -6.975333)
+mesh = ExtResource("28_bhb31")
+surface_material_override/0 = SubResource("StandardMaterial3D_sh4yi")
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="." unique_id=508718275]
+transform = Transform3D(-0.9960041, -0.04219584, -0.078710586, 0.0023494503, -0.89341766, 0.44922096, -0.08927664, 0.447241, 0.88994676, -5.3272843, 10.408398, 33.58087)
+light_color = Color(0.9689881, 0.89571905, 0.8233551, 1)
+light_energy = 1.07
+light_angular_distance = 5.55
+light_specular = 0.421
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 2.035
+shadow_transmittance_bias = -6.136
+shadow_opacity = 0.42
+shadow_blur = 4.235
+
+[node name="DirectionalLight3D4" type="SpotLight3D" parent="." unique_id=559327085]
+transform = Transform3D(0.67695475, -0.12843552, 0.72473216, 0.34211636, 0.9267304, -0.1553293, -0.65168154, 0.3530936, 0.6712944, 19.899021, -2.6049166, 14.538588)
+light_color = Color(0.87285364, 0.9197749, 0.8898488, 1)
+light_energy = 10.126
+light_indirect_energy = 4.845
+light_size = 5.55
+light_specular = 9.509
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 2.035
+shadow_transmittance_bias = -6.136
+shadow_opacity = 0.42
+shadow_blur = 4.235
+spot_range = 35.090313
+spot_angle = 57.894054
+
+[node name="DirectionalLight3D5" type="SpotLight3D" parent="." unique_id=1518654488]
+transform = Transform3D(0.9209021, -0.37267774, 0.11423953, 0.37896708, 0.78741336, -0.48617285, 0.09123208, 0.49101064, 0.8663632, -0.910223, 2.7295666, 18.017403)
+light_color = Color(0.87285364, 0.9197749, 0.8898488, 1)
+light_energy = 6.392
+light_indirect_energy = 4.845
+light_size = 5.55
+light_specular = 7.047
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 2.035
+shadow_transmittance_bias = -6.136
+shadow_opacity = 0.42
+shadow_blur = 4.235
+spot_range = 41.37681
+spot_angle = 66.07505
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=62161633]
+environment = SubResource("Environment_bhb31")
