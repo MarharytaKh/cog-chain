@@ -2,16 +2,16 @@
 
 [ext_resource type="ArrayMesh" uid="uid://blll100y02rx6" path="res://3dModels/gears/gear_small.obj" id="1_5vp4j"]
 [ext_resource type="Script" uid="uid://b1avlg61bysbh" path="res://Gear.cs" id="1_mmqv7"]
-[ext_resource type="Texture2D" uid="uid://d04r1ytb6oxsl" path="res://3dModels/gears/textures/defaultMat_Base_color_1001.png" id="3_uv633"]
+[ext_resource type="Texture2D" uid="uid://drqtu0al8ptnr" path="res://3dModels/gears/small/defaultMat_Base_color_1001.png" id="3_7558n"]
 [ext_resource type="Texture2D" uid="uid://d35rsuhu0fd4g" path="res://3dModels/gears/textures/DefaultMaterial_Height_1001.png" id="4_7558n"]
 [ext_resource type="Texture2D" uid="uid://ba5yo786ygajv" path="res://3dModels/gears/textures/DefaultMaterial_Normal_1001.png" id="6_ddgpo"]
-[ext_resource type="Texture2D" uid="uid://k7ssfx7tcput" path="res://3dModels/gears/textures/defaultMat_Roughness_1001.png" id="7_qrbwj"]
+[ext_resource type="Texture2D" uid="uid://d1qeq0qofhvar" path="res://3dModels/gears/small/defaultMat_Roughness_1001.png" id="6_g1f7t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7558n"]
-albedo_texture = ExtResource("3_uv633")
+albedo_texture = ExtResource("3_7558n")
 metallic = 0.56
 metallic_specular = 0.25
-roughness_texture = ExtResource("7_qrbwj")
+roughness_texture = ExtResource("6_g1f7t")
 normal_enabled = true
 normal_texture = ExtResource("6_ddgpo")
 heightmap_scale = -5.526

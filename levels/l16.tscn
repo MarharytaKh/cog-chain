@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://effyk06fotjo" path="res://3dModels/backgrounds/tlo_box/default_Emissive_1001.png" id="30_dd1td"]
 [ext_resource type="Texture2D" uid="uid://b1rxtvtyufsf6" path="res://3dModels/backgrounds/tlo_box/default_Normal_OpenGL_1001.png" id="31_d6hnw"]
 [ext_resource type="Texture2D" uid="uid://blulmoja0dn13" path="res://3dModels/backgrounds/tlo_box/default_Roughness_1001.png" id="32_amas5"]
+[ext_resource type="PackedScene" uid="uid://8ep0uxeu8d0r" path="res://UI/Notification.tscn" id="33_iapub"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_byma0"]
 albedo_texture = ExtResource("6_0235r")
@@ -808,3 +809,5 @@ spot_angle_attenuation = 0.23325916
 transform = Transform3D(3.2228339, 0, 0, 0, 3.3708906, 0, 0, 0, 4.96573, 0.5579014, -12.511911, 26.335922)
 mesh = ExtResource("28_pqvqh")
 surface_material_override/0 = SubResource("StandardMaterial3D_6yhxv")
+
+[node name="Notification" parent="." unique_id=1676695824 instance=ExtResource("33_iapub")]

@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://b1avlg61bysbh" path="res://Gear.cs" id="1_1llx3"]
 [ext_resource type="ArrayMesh" uid="uid://oh53f6henfw4" path="res://3dModels/gears/uni.obj" id="1_ouvaq"]
+[ext_resource type="Texture2D" uid="uid://bdt4dtkm8caae" path="res://3dModels/gears/uni/default_Base_color_1001.png" id="3_qsvix"]
+[ext_resource type="Texture2D" uid="uid://cogeuymoaselx" path="res://3dModels/gears/uni/default_Normal_OpenGL_1001.png" id="4_hifst"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1llx3"]
-albedo_color = Color(0.38885432, 0.28078496, 0.17586803, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnoyq"]
+albedo_texture = ExtResource("3_qsvix")
+metallic = 0.8
+metallic_specular = 0.68
+roughness = 0.8
+normal_enabled = true
+normal_texture = ExtResource("4_hifst")
 
 [node name="GearUniversal" type="Node3D" unique_id=326941229]
 script = ExtResource("1_1llx3")
@@ -12,4 +19,4 @@ script = ExtResource("1_1llx3")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1504774229]
 transform = Transform3D(0.99999994, 0, 0, 0, 1.767918, 0, 0, 0, 0.99999994, 0, 0.45191735, 0)
 mesh = ExtResource("1_ouvaq")
-surface_material_override/0 = SubResource("StandardMaterial3D_1llx3")
+surface_material_override/0 = SubResource("StandardMaterial3D_dnoyq")

@@ -2,6 +2,15 @@ using Godot;
 
 public partial class UILayer : Node
 {
+	public override void _Ready()
+	{
+		GetNodeOrNull<TextureButton>("UI/Panel/PauseButton")?.Connect("pressed", Callable.From(() =>
+		{
+			var pause = GD.Load<PackedScene>("res://UI/PauseMenu.tscn").Instantiate();
+			GetTree().Root.AddChild(pause);
+		}));
+	}
+
 	public override void _Process(double delta)
 	{
 		var gm = GetNodeOrNull<GameManager>("/root/GameManager");
@@ -13,18 +22,10 @@ public partial class UILayer : Node
 		if (timeLabel != null)
 		{
 			float t = gm.GetTime();
-			timeLabel.Text = $"{(int)t / 60}:{(t % 60):00}";
+			timeLabel.Text = $"Time: {(int)t / 60}:{(t % 60):00}";
 		}
 
 		if (movesLabel != null)
-			movesLabel.Text = $"Ходов: {gm.GetMoves()}";
+			movesLabel.Text = $"Moves: {gm.GetMoves()}";
 	}
-	public override void _Ready()
-{
-	GetNode<Button>("UI/Panel/PauseButton").Pressed += () =>
-	{
-		var pause = GD.Load<PackedScene>("res://UI/PauseMenu.tscn").Instantiate();
-		GetTree().Root.AddChild(pause);
-	};
-}
 }

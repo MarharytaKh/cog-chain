@@ -2,14 +2,16 @@ using Godot;
 
 public partial class OrbitCamera : Node3D
 {
-	[Export] public Vector3 Target = Vector3.Zero; // точка вращения
-	[Export] public float Distance = 8f;           // расстояние от центра
-	[Export] public float RotateSpeed = 0.3f;      // скорость вращения
-	[Export] public float MinPitch = -10f;         // лимит вниз в градусах
-	[Export] public float MaxPitch = 60f;          // лимит вверх в градусах
+	[Export] public Vector3 Target = Vector3.Zero;
+	[Export] public float Distance = 8f;
+	[Export] public float RotateSpeed = 0.3f;
+	[Export] public float MinPitch = -10f;
+	[Export] public float MaxPitch = 60f;
+	[Export] public float MinYaw = -60f;  // лимит влево в градусах
+	[Export] public float MaxYaw = 60f;   // лимит вправо в градусах
 
-	private float _yaw = 0f;    // горизонтальный угол
-	private float _pitch = 20f; // вертикальный угол
+	private float _yaw = 0f;
+	private float _pitch = 20f;
 	private Vector2 _lastTouch = Vector2.Zero;
 	private bool _touching = false;
 
@@ -20,7 +22,6 @@ public partial class OrbitCamera : Node3D
 
 	public override void _Input(InputEvent @event)
 	{
-		// Мобилка — один палец
 		if (@event is InputEventScreenTouch touch)
 		{
 			_touching = touch.Pressed;
@@ -34,13 +35,13 @@ public partial class OrbitCamera : Node3D
 			_lastTouch = drag.Position;
 
 			_yaw -= delta.X * RotateSpeed;
+			_yaw = Mathf.Clamp(_yaw, MinYaw, MaxYaw); // ← добавили
 			_pitch -= delta.Y * RotateSpeed;
 			_pitch = Mathf.Clamp(_pitch, MinPitch, MaxPitch);
 
 			UpdateCamera();
 		}
 
-		// Десктоп — правая кнопка мыши
 		if (@event is InputEventMouseButton mb && mb.ButtonIndex == MouseButton.Right)
 		{
 			_touching = mb.Pressed;
@@ -51,6 +52,7 @@ public partial class OrbitCamera : Node3D
 		if (@event is InputEventMouseMotion mm && _touching)
 		{
 			_yaw -= mm.Relative.X * RotateSpeed;
+			_yaw = Mathf.Clamp(_yaw, MinYaw, MaxYaw); // ← добавили
 			_pitch += mm.Relative.Y * RotateSpeed;
 			_pitch = Mathf.Clamp(_pitch, MinPitch, MaxPitch);
 

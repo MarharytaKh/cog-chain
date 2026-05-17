@@ -2,6 +2,37 @@
 
 [ext_resource type="Texture2D" uid="uid://dgublbak7bk5b" path="res://UI/shk.png" id="1_2tnra"]
 [ext_resource type="Script" uid="uid://csclmugaq0d0a" path="res://UI/UILayer.cs" id="1_qqi7y"]
+[ext_resource type="Texture2D" uid="uid://daaoavwpolh6j" path="res://UI/button.png" id="3_8gqnd"]
+[ext_resource type="Texture2D" uid="uid://b6stfaa36jas5" path="res://UI/small.png" id="3_mxh71"]
+[ext_resource type="Texture2D" uid="uid://bujxb2xufnvh8" path="res://UI/small_pressed.png" id="4_hann7"]
+[ext_resource type="Texture2D" uid="uid://dfwhpber6u67a" path="res://UI/med.png" id="4_oi31v"]
+[ext_resource type="Texture2D" uid="uid://dtlupnjm5pksp" path="res://UI/deleter.png" id="5_02cut"]
+[ext_resource type="Texture2D" uid="uid://634qjxw3at45" path="res://UI/button_pressed.png" id="5_35u8r"]
+[ext_resource type="Texture2D" uid="uid://ctaahdsnjm4k0" path="res://UI/big.png" id="5_aebop"]
+[ext_resource type="Texture2D" uid="uid://drm4onbub8pmv" path="res://UI/uni.png" id="6_02cut"]
+[ext_resource type="Texture2D" uid="uid://c5sfncntroyfr" path="res://UI/med_pressed.png" id="6_w33fx"]
+[ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="6_xg5xq"]
+[ext_resource type="Texture2D" uid="uid://drsd5onl5swfp" path="res://UI/deleter_pressed.png" id="8_a35w0"]
+[ext_resource type="Texture2D" uid="uid://dxn5srrgryacy" path="res://UI/uni_pressed.png" id="10_6fxsv"]
+[ext_resource type="Texture2D" uid="uid://bkccymqa78ryb" path="res://UI/big_pressed.png" id="12_u0dfn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a35w0"]
+font = ExtResource("6_xg5xq")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_hann7"]
+font = ExtResource("6_xg5xq")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_w33fx"]
+font = ExtResource("6_xg5xq")
+font_size = 50
+font_color = Color(0.9914978, 0.8035994, 0.5051937, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oi31v"]
+font = ExtResource("6_xg5xq")
+font_size = 80
+font_color = Color(0.93756247, 0.9142811, 0.7310875, 1)
 
 [node name="Node2D" type="CanvasLayer" unique_id=1623673965]
 script = ExtResource("1_qqi7y")
@@ -20,67 +51,149 @@ grow_horizontal = 0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_2tnra")
 
-[node name="Button1" type="Button" parent="UI/Panel" unique_id=1589166043]
+[node name="Button1" type="TextureButton" parent="UI/Panel" unique_id=1620879427]
 layout_mode = 0
-offset_left = 373.33316
-offset_top = 436.66663
-offset_right = 701.6666
-offset_bottom = 551.6666
-text = "Gear small
-"
+offset_left = 364.9997
+offset_top = 421.66666
+offset_right = 714.99963
+offset_bottom = 798.3333
+texture_normal = ExtResource("3_mxh71")
+texture_pressed = ExtResource("4_hann7")
+texture_hover = ExtResource("4_hann7")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Button0" type="Button" parent="UI/Panel" unique_id=1307942729]
+[node name="Label" type="Label" parent="UI/Panel/Button1" unique_id=1212614870]
 layout_mode = 0
-offset_left = 373.33313
-offset_top = 740.0
-offset_right = 699.99994
-offset_bottom = 841.6667
-text = "Gear medium
+offset_left = 25.0
+offset_top = 256.66666
+offset_right = 315.0
+offset_bottom = 340.0
+label_settings = SubResource("LabelSettings_a35w0")
 
-"
-
-[node name="RemoveButton" type="Button" parent="UI/Panel" unique_id=490604143]
+[node name="Button0" type="TextureButton" parent="UI/Panel" unique_id=1857412876]
 layout_mode = 0
-offset_left = 359.9997
-offset_top = 1498.3333
-offset_right = 678.33295
-offset_bottom = 1619.9999
-text = "Remove button
-"
+offset_left = 364.99982
+offset_top = 766.6666
+offset_right = 716.6665
+offset_bottom = 1140.0
+texture_normal = ExtResource("4_oi31v")
+texture_pressed = ExtResource("6_w33fx")
+texture_hover = ExtResource("6_w33fx")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Button2" type="Button" parent="UI/Panel" unique_id=1498437791]
+[node name="Label" type="Label" parent="UI/Panel/Button0" unique_id=1204941913]
 layout_mode = 0
-offset_left = 368.33313
-offset_top = 1255.0
-offset_right = 676.6664
-offset_bottom = 1366.6667
-text = "Gear universal"
+offset_left = 23.333252
+offset_top = 256.66666
+offset_right = 321.6665
+offset_bottom = 340.0
+label_settings = SubResource("LabelSettings_a35w0")
 
-[node name="Button3" type="Button" parent="UI/Panel" unique_id=301272406]
+[node name="RemoveButton" type="TextureButton" parent="UI/Panel" unique_id=1411971508]
 layout_mode = 0
-offset_left = 371.66644
-offset_top = 1008.3333
-offset_right = 684.99963
-offset_bottom = 1116.6667
-text = "Gear big"
+offset_left = 363.33325
+offset_top = 1376.6665
+offset_right = 716.6665
+offset_bottom = 1844.9999
+texture_normal = ExtResource("5_02cut")
+texture_pressed = ExtResource("8_a35w0")
+texture_hover = ExtResource("8_a35w0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/Panel/RemoveButton" unique_id=749685752]
+layout_mode = 0
+offset_left = 28.333212
+offset_top = 311.66675
+offset_right = 321.66647
+offset_bottom = 361.66675
+text = "Remove"
+label_settings = SubResource("LabelSettings_a35w0")
+
+[node name="Button2" type="TextureButton" parent="UI/Panel" unique_id=1793808396]
+layout_mode = 0
+offset_left = 363.3332
+offset_top = 78.33333
+offset_right = 714.9999
+offset_bottom = 451.66663
+texture_normal = ExtResource("5_aebop")
+texture_pressed = ExtResource("12_u0dfn")
+texture_hover = ExtResource("12_u0dfn")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/Panel/Button2" unique_id=1532016151]
+layout_mode = 0
+offset_left = 26.666748
+offset_top = 253.33331
+offset_right = 325.0
+offset_bottom = 336.6667
+label_settings = SubResource("LabelSettings_a35w0")
+
+[node name="Button3" type="TextureButton" parent="UI/Panel" unique_id=362526667]
+layout_mode = 0
+offset_left = 366.66638
+offset_top = 1108.3333
+offset_right = 716.66626
+offset_bottom = 1478.9211
+texture_normal = ExtResource("6_02cut")
+texture_pressed = ExtResource("10_6fxsv")
+texture_hover = ExtResource("10_6fxsv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/Panel/Button3" unique_id=1971431664]
+layout_mode = 0
+offset_left = 21.666748
+offset_top = 256.66666
+offset_right = 315.0
+offset_bottom = 340.0
+label_settings = SubResource("LabelSettings_a35w0")
+
+[node name="TextureRect" type="TextureRect" parent="UI/Panel" unique_id=1996498593]
+layout_mode = 0
+offset_left = -968.3335
+offset_top = -143.33333
+offset_right = 81.666504
+offset_bottom = 298.3333
+texture = ExtResource("3_8gqnd")
 
 [node name="MovesLabel" type="Label" parent="UI/Panel" unique_id=1499943556]
 layout_mode = 0
-offset_left = -566.6666
-offset_top = 109.99999
-offset_right = -320.00012
-offset_bottom = 176.66666
+offset_left = -830.0001
+offset_top = 168.33333
+offset_right = -561.66675
+offset_bottom = 250.0
+label_settings = SubResource("LabelSettings_hann7")
 
 [node name="TimeLabel" type="Label" parent="UI/Panel" unique_id=2114641859]
 layout_mode = 0
-offset_left = -241.66666
-offset_top = 101.66666
-offset_right = 63.333344
-offset_bottom = 164.99998
+offset_left = -376.6669
+offset_top = 166.66666
+offset_right = -71.6669
+offset_bottom = 254.99997
+label_settings = SubResource("LabelSettings_w33fx")
 
-[node name="PauseButton" type="Button" parent="UI/Panel" unique_id=633855965]
+[node name="PauseButton" type="TextureButton" parent="UI/Panel" unique_id=1108090380]
 layout_mode = 0
-offset_left = -2374.9998
-offset_top = 71.666626
-offset_right = -1993.333
-offset_bottom = 208.33325
+offset_left = -2406.667
+offset_top = -146.66666
+offset_right = -1536.667
+offset_bottom = 293.3334
+texture_normal = ExtResource("3_8gqnd")
+texture_pressed = ExtResource("5_35u8r")
+texture_hover = ExtResource("5_35u8r")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button2Label" type="Label" parent="UI/Panel" unique_id=1276157727]
+layout_mode = 0
+offset_left = -2110.0002
+offset_top = 148.33333
+offset_right = -1778.0002
+offset_bottom = 271.3333
+text = "Pause
+"
+label_settings = SubResource("LabelSettings_oi31v")

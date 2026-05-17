@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://urkg7qo2fdyp" path="res://3dModels/gears/textures/target_base/defaultMat_Normal_OpenGL_1001.png" id="26_6sb7n"]
 [ext_resource type="Texture2D" uid="uid://cpo3rtxhsh7di" path="res://3dModels/mechanism/door/defaultMat_Base_color_1001.png" id="26_jpsn1"]
 [ext_resource type="Texture2D" uid="uid://kxecwkk14vpo" path="res://3dModels/mechanism/door/defaultMat_Normal_OpenGL_1001.png" id="27_741b6"]
+[ext_resource type="Texture2D" uid="uid://b5olkku4pq4mo" path="res://3dModels/mechanism/door/defaultMat_Roughness_1001.png" id="27_mntxe"]
 [ext_resource type="Texture2D" uid="uid://itqsbqy2gxb3" path="res://3dModels/gears/textures/target_base/defaultMat_Roughness_1001.png" id="27_yg6rg"]
 [ext_resource type="ArrayMesh" uid="uid://bvsswg4xguwgs" path="res://3dModels/mechanism/handle4.obj" id="28_jpsn1"]
 [ext_resource type="Script" uid="uid://dh4qyv8haw6ta" path="res://LevelAnimation.cs" id="28_qtw1f"]
@@ -89,6 +90,7 @@ subsurf_scatter_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qtw1f"]
 albedo_texture = ExtResource("26_jpsn1")
+roughness_texture = ExtResource("27_mntxe")
 normal_enabled = true
 normal_texture = ExtResource("27_741b6")
 

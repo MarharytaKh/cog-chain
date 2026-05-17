@@ -1,30 +1,64 @@
 [gd_scene format=3 uid="uid://be8xei25e72cs"]
 
 [ext_resource type="Script" uid="uid://dfyycqssqc1ev" path="res://UI/PauseMenu.cs" id="1_05bun"]
+[ext_resource type="Texture2D" uid="uid://daaoavwpolh6j" path="res://UI/button.png" id="2_73kip"]
+[ext_resource type="Texture2D" uid="uid://634qjxw3at45" path="res://UI/button_pressed.png" id="3_kuww5"]
+[ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="4_kuww5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wf1sp"]
+font = ExtResource("4_kuww5")
+font_size = 60
+font_color = Color(0.93756247, 0.9142811, 0.7310875, 1)
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1472800500]
 script = ExtResource("1_05bun")
 
 [node name="Panel" type="Panel" parent="." unique_id=1826818184]
-offset_left = 199.0
-offset_top = 98.0
-offset_right = 1721.0
-offset_bottom = 961.0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 2022.0
+offset_bottom = 1080.0
 
-[node name="ResumeButton" type="Button" parent="Panel" unique_id=1637596857]
+[node name="MenuButton" type="TextureButton" parent="Panel" unique_id=959076681]
 layout_mode = 0
-offset_left = 595.0
-offset_top = 289.0
-offset_right = 927.0
-offset_bottom = 382.0
+offset_left = 548.0
+offset_top = 372.0
+offset_right = 1397.0
+offset_bottom = 780.0
+texture_normal = ExtResource("2_73kip")
+texture_pressed = ExtResource("3_kuww5")
+texture_hover = ExtResource("3_kuww5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ResumeButton" type="TextureButton" parent="Panel" unique_id=245010852]
+layout_mode = 0
+offset_left = 545.0
+offset_top = -24.0
+offset_right = 1403.0
+offset_bottom = 417.0
+texture_normal = ExtResource("2_73kip")
+texture_pressed = ExtResource("3_kuww5")
+texture_hover = ExtResource("3_kuww5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button2Label" type="Label" parent="Panel" unique_id=1078631528]
+layout_mode = 0
+offset_left = 777.0
+offset_top = 660.0
+offset_right = 1191.0
+offset_bottom = 783.0
+text = "Back to menu
+"
+label_settings = SubResource("LabelSettings_wf1sp")
+
+[node name="Button2Label2" type="Label" parent="Panel" unique_id=544944279]
+layout_mode = 0
+offset_left = 857.0
+offset_top = 281.0
+offset_right = 1271.0
+offset_bottom = 404.0
 text = "Resume
 "
-
-[node name="MenuButton" type="Button" parent="Panel" unique_id=1479122458]
-layout_mode = 0
-offset_left = 590.0
-offset_top = 477.0
-offset_right = 924.0
-offset_bottom = 564.0
-text = "Menu
-"
+label_settings = SubResource("LabelSettings_wf1sp")

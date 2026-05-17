@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://d0pqhup8e84da"]
 
 [ext_resource type="Script" uid="uid://dvt1w0y1hdibn" path="res://LevelCompleteScreen.cs" id="1_1efgk"]
+[ext_resource type="Texture2D" uid="uid://daaoavwpolh6j" path="res://UI/button.png" id="2_6ybmo"]
+[ext_resource type="Texture2D" uid="uid://634qjxw3at45" path="res://UI/button_pressed.png" id="3_rtpda"]
+[ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="4_rtpda"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nfslp"]
+font = ExtResource("4_rtpda")
+font_size = 60
+font_color = Color(0.93756247, 0.9142811, 0.7310875, 1)
 
 [node name="LevelComplete" type="CanvasLayer" unique_id=11083818]
 script = ExtResource("1_1efgk")
@@ -8,28 +16,59 @@ script = ExtResource("1_1efgk")
 [node name="Panel" type="Panel" parent="." unique_id=594031481]
 offset_left = 1.0
 offset_top = -1.0
-offset_right = 679.0
-offset_bottom = 353.0
+offset_right = 2028.0
+offset_bottom = 1090.0
 
-[node name="nextButton" type="Button" parent="Panel" unique_id=1189441207]
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=85137609]
 layout_mode = 0
-offset_left = 1229.0
-offset_top = 783.0
-offset_right = 1740.0
-offset_bottom = 909.0
-text = "nextButton
-"
+offset_left = 699.0
+offset_top = 557.0
+offset_right = 1258.0
+offset_bottom = 826.0
+texture = ExtResource("2_6ybmo")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Panel" unique_id=799046687]
+layout_mode = 0
+offset_left = 698.0
+offset_top = 301.0
+offset_right = 1257.0
+offset_bottom = 570.0
+texture = ExtResource("2_6ybmo")
+expand_mode = 1
 
 [node name="TimeLabel" type="Label" parent="Panel" unique_id=952538343]
 layout_mode = 0
-offset_left = 410.0
-offset_top = 608.0
-offset_right = 744.0
-offset_bottom = 695.0
+offset_left = 815.0
+offset_top = 462.0
+offset_right = 1149.0
+offset_bottom = 549.0
 
 [node name="MovesLabel" type="Label" parent="Panel" unique_id=1080571153]
 layout_mode = 0
-offset_left = 1067.0
-offset_top = 239.0
-offset_right = 1451.0
-offset_bottom = 348.0
+offset_left = 778.0
+offset_top = 708.0
+offset_right = 1162.0
+offset_bottom = 817.0
+
+[node name="nextButton" type="TextureButton" parent="Panel" unique_id=362106545]
+layout_mode = 0
+offset_left = 615.0
+offset_top = -16.0
+offset_right = 1344.9429
+offset_bottom = 325.0
+texture_normal = ExtResource("2_6ybmo")
+texture_pressed = ExtResource("3_rtpda")
+texture_hover = ExtResource("3_rtpda")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button2Label" type="Label" parent="Panel" unique_id=1418907553]
+layout_mode = 0
+offset_left = 789.0
+offset_top = 220.0
+offset_right = 1179.0
+offset_bottom = 343.0
+text = "Choose level
+"
+label_settings = SubResource("LabelSettings_nfslp")

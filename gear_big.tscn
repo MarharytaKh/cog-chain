@@ -8,6 +8,9 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7ho2"]
 albedo_texture = ExtResource("3_vmp8i")
+metallic = 0.15
+metallic_specular = 0.07
+roughness = 0.86
 roughness_texture = ExtResource("5_23y2h")
 normal_enabled = true
 normal_texture = ExtResource("4_s6lue")

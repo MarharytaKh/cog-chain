@@ -1,27 +1,51 @@
 [gd_scene format=3 uid="uid://lw3gsygjhele"]
 
 [ext_resource type="Script" uid="uid://1fhinqkqxrut" path="res://UI/LevelSelect.cs" id="1_4tclt"]
+[ext_resource type="Texture2D" uid="uid://daaoavwpolh6j" path="res://UI/button.png" id="2_deyjv"]
+[ext_resource type="Texture2D" uid="uid://634qjxw3at45" path="res://UI/button_pressed.png" id="3_fjtf3"]
+[ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="4_fjtf3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pjb2w"]
+font = ExtResource("4_fjtf3")
+font_size = 60
+font_color = Color(0.93756247, 0.9142811, 0.7310875, 1)
 
 [node name="LevelSelect" type="CanvasLayer" unique_id=1417067228]
 script = ExtResource("1_4tclt")
 
 [node name="Panel" type="Panel" parent="." unique_id=464918426]
 
-[node name="BackButton" type="Button" parent="Panel" unique_id=1565329626]
+[node name="BackButton" type="TextureButton" parent="Panel" unique_id=756790682]
 layout_mode = 0
-offset_left = 55.0
-offset_top = 950.0
-offset_right = 524.0
-offset_bottom = 1036.0
+offset_left = 707.0
+offset_top = 1153.9999
+offset_right = 1381.1257
+offset_bottom = 1485.0409
+rotation = -3.1513636
+texture_normal = ExtResource("2_deyjv")
+texture_pressed = ExtResource("3_fjtf3")
+texture_hover = ExtResource("3_fjtf3")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1036674509]
 layout_mode = 0
-offset_left = 1273.0
+offset_left = 917.0
 offset_top = 30.0
-offset_right = 1802.0
+offset_right = 1929.0
 offset_bottom = 1054.0
 horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer" unique_id=1346116190]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Button2Label" type="Label" parent="Panel" unique_id=2053124983]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 873.0
+offset_right = 566.0
+offset_bottom = 996.0
+text = "Back to menu
+"
+label_settings = SubResource("LabelSettings_pjb2w")

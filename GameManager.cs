@@ -5,9 +5,8 @@ public partial class GameManager : Node
 {
 	public static Axis SelectedAxis;
 	public static GearType SelectedGearConfig;
-public float GetTime() => _time;
-public int GetMoves() => _moves;
-
+	public float GetTime() => _time;
+	public int GetMoves() => _moves;
 
 	[Export] public Level[] levels;
 
@@ -19,28 +18,30 @@ public int GetMoves() => _moves;
 	private List<Target> targets = new List<Target>();
 	private Node uiInstance;
 	private NotificationManager _notify;
-	
-	
+
 	private float _time = 0f;
-private int _moves = 0;
+	private int _moves = 0;
 
 	private float DistXZ(Vector3 a, Vector3 b)
 	{
 		return new Vector2(a.X - b.X, a.Z - b.Z).Length();
 	}
-public void LoadLevelByIndex(int index)
-{
-	if (levels == null || index < 0 || index >= levels.Length) return;
-	currentLevelIndex = index;
-	var scene = levels[index].levelScene;
-	if (scene != null)
-		GetTree().ChangeSceneToPacked(scene);
-}
-public override void _Process(double delta)
-{
-	if (motor != null && motor.IsInsideTree())
-		_time += (float)delta;
-}
+
+	public void LoadLevelByIndex(int index)
+	{
+		if (levels == null || index < 0 || index >= levels.Length) return;
+		currentLevelIndex = index;
+		var scene = levels[index].levelScene;
+		if (scene != null)
+			GetTree().ChangeSceneToPacked(scene);
+	}
+
+	public override void _Process(double delta)
+	{
+		if (motor != null && motor.IsInsideTree())
+			_time += (float)delta;
+	}
+
 	public override void _Ready()
 	{
 		AddToGroup("GameManager");
@@ -115,7 +116,6 @@ public override void _Process(double delta)
 			lcs.Setup(currentLevelIndex, levels.Length, _time, _moves);
 		else
 			GD.PrintErr($"screen type={screen?.GetType().Name}");
-		
 	}
 
 	public void RestartLevel()
@@ -164,16 +164,16 @@ public override void _Process(double delta)
 		for (int i = 0; i < currentLevel.availableGearTypes.Length; i++)
 		{
 			int index = i;
-			var btn = uiInstance.GetNodeOrNull<Button>($"UI/Panel/Button{i}");
+			var btn = uiInstance.GetNodeOrNull<TextureButton>($"UI/Panel/Button{i}");
 			if (btn != null)
 			{
 				GD.Print($"Button{i} found!");
-				UpdateButtonText(btn, index);
+				UpdateButtonLabel(btn, index);
 				btn.Pressed += () =>
 				{
 					if (remainingGearCounts[index] <= 0)
 					{
-						ShowNotification("Шестерёнок не осталось!");
+						ShowNotification("There are no gears left!");
 						return;
 					}
 					SelectedGearConfig = currentLevel.availableGearTypes[index];
@@ -184,7 +184,7 @@ public override void _Process(double delta)
 				GD.PrintErr($"Button{i} not found at path UI/Panel/Button{i}");
 		}
 
-		var removeBtn = uiInstance.GetNodeOrNull<Button>("UI/Panel/RemoveButton");
+		var removeBtn = uiInstance.GetNodeOrNull<TextureButton>("UI/Panel/RemoveButton");
 		if (removeBtn != null)
 			removeBtn.Pressed += () => RemoveGearFromAxis(SelectedAxis);
 	}
@@ -208,15 +208,14 @@ public override void _Process(double delta)
 					if (currentLevel.availableGearTypes[i] == gear.config)
 					{
 						remainingGearCounts[i]++;
-						var btn = uiInstance.GetNodeOrNull<Button>($"UI/Panel/Button{i}");
-						if (btn != null) UpdateButtonText(btn, i);
+						var btn = uiInstance.GetNodeOrNull<TextureButton>($"UI/Panel/Button{i}");
+						if (btn != null) UpdateButtonLabel(btn, i);
 						break;
 					}
 				}
 
 				axis.HasGear = false;
 				gear.PlacedOnAxis = null;
-				// Убираем из дерева сразу — чтобы не попала в Recalculate
 				RemoveChild(gear);
 				gear.QueueFree();
 				_moves++;
@@ -233,10 +232,14 @@ public override void _Process(double delta)
 		Recalculate();
 	}
 
-	private void UpdateButtonText(Button btn, int index)
+	private void UpdateButtonLabel(TextureButton btn, int index)
 	{
-		var type = currentLevel.availableGearTypes[index];
-		btn.Text = $"{type.gearName}\n{remainingGearCounts[index]}";
+		var label = btn.GetNodeOrNull<Label>("Label");
+		if (label != null)
+		{
+			var type = currentLevel.availableGearTypes[index];
+			label.Text = $"{type.gearName}\n{remainingGearCounts[index]}";
+		}
 	}
 
 	private void _on_button_pressed(int gearIndex)
@@ -258,7 +261,6 @@ public override void _Process(double delta)
 		Vector3 targetPos = SelectedAxis.GlobalPosition;
 		float newRadius = SelectedGearConfig.Radius;
 
-		// Проверка оверлапа с другими шестерёнками
 		foreach (var g in GetAllGears())
 		{
 			float dist = targetPos.DistanceTo(g.GlobalPosition);
@@ -273,7 +275,7 @@ public override void _Process(double delta)
 
 			if (dist < minDist)
 			{
-				ShowNotification("Место занято другой шестерёнкой!");
+				ShowNotification("There is no space for another gear here!");
 				return;
 			}
 		}
@@ -281,7 +283,7 @@ public override void _Process(double delta)
 		float distMotor = targetPos.DistanceTo(motor.GlobalPosition);
 		if (distMotor < (newRadius + motor.Radius) - 0.1f)
 		{
-			ShowNotification("Место занято мотором!");
+			ShowNotification("The space is occupied by motor!");
 			return;
 		}
 
@@ -290,36 +292,35 @@ public override void _Process(double delta)
 			float distT = targetPos.DistanceTo(t.GlobalPosition);
 			if (distT < (newRadius + t.Radius) - 0.1f)
 			{
-				ShowNotification("Место занято целевой шестерёнкой!");
+				ShowNotification("The space is occupied by target!");
 				return;
 			}
 		}
 
-		// Проверка совместимости
-foreach (var g in GetAllGears())
-{
-	float dist = targetPos.DistanceTo(g.GlobalPosition);
-	var checkAxisParent = SelectedAxis.GetParent<Node3D>();
-	if (checkAxisParent == null) continue;
-
-	float dot = Mathf.Abs(checkAxisParent.GlobalBasis.Column1.Normalized().Dot(g.initialBasis.Column1.Normalized()));
-	float expected = newRadius + g.Radius;
-	bool wouldConnect;
-
-	if (dot < 0.05f) // перпендикулярные
-		wouldConnect = dist >= expected * 0.1f && dist <= expected * 0.7f;
-	else // параллельные
-		wouldConnect = dist >= expected * 0.5f && Mathf.Abs(dist - expected) < 0.2f;
-
-	if (wouldConnect)
-	{
-		if (!AreCompatible(SelectedGearConfig, g.config) || !AreCompatible(g.config, SelectedGearConfig))
+		foreach (var g in GetAllGears())
 		{
-			ShowNotification("Шестерёнки несовместимы!");
-			return;
+			float dist = targetPos.DistanceTo(g.GlobalPosition);
+			var checkAxisParent = SelectedAxis.GetParent<Node3D>();
+			if (checkAxisParent == null) continue;
+
+			float dot = Mathf.Abs(checkAxisParent.GlobalBasis.Column1.Normalized().Dot(g.initialBasis.Column1.Normalized()));
+			float expected = newRadius + g.Radius;
+			bool wouldConnect;
+
+			if (dot < 0.05f)
+				wouldConnect = dist >= expected * 0.1f && dist <= expected * 0.7f;
+			else
+				wouldConnect = dist >= expected * 0.5f && Mathf.Abs(dist - expected) < 0.2f;
+
+			if (wouldConnect)
+			{
+				if (!AreCompatible(SelectedGearConfig, g.config) || !AreCompatible(g.config, SelectedGearConfig))
+				{
+					ShowNotification("These gears are incompatible!");
+					return;
+				}
+			}
 		}
-	}
-}
 
 		var gear = SelectedGearConfig.scenePrefab.Instantiate<Gear>();
 		gear.config = SelectedGearConfig;
@@ -361,12 +362,12 @@ foreach (var g in GetAllGears())
 			if (currentLevel.availableGearTypes[i] == SelectedGearConfig)
 			{
 				remainingGearCounts[i]--;
-				var btn = uiInstance.GetNodeOrNull<Button>($"UI/Panel/Button{i}");
-				if (btn != null) UpdateButtonText(btn, i);
+				var btn = uiInstance.GetNodeOrNull<TextureButton>($"UI/Panel/Button{i}");
+				if (btn != null) UpdateButtonLabel(btn, i);
 				break;
 			}
 		}
-_moves++;
+		_moves++;
 		Recalculate();
 	}
 

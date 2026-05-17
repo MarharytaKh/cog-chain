@@ -4,9 +4,9 @@ public partial class MainMenu : Control
 {
 	public override void _Ready()
 	{
-		GetNode<Button>("Button").Pressed += () =>
+		GetNode<TextureButton>("Button").Pressed += () =>
 			GetTree().ChangeSceneToFile("res://UI/LevelSelect.tscn");
-			GetNode<Button>("LoadButton").Pressed += () =>
+			GetNode<TextureButton>("LoadButton").Pressed += () =>
 	GetTree().ChangeSceneToFile("res://account/SavesScreen.tscn");
 	}
 	

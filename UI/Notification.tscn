@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://8ep0uxeu8d0r"]
 
 [ext_resource type="Script" uid="uid://ck2mlb4xyxe2n" path="res://NotificationManager.cs" id="1_wmasj"]
+[ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="2_wb0ci"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wb0ci"]
+font = ExtResource("2_wb0ci")
+font_size = 28
 
 [node name="Notification" type="CanvasLayer" unique_id=1676695824]
 script = ExtResource("1_wmasj")
@@ -9,15 +14,17 @@ script = ExtResource("1_wmasj")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -356.0
-offset_top = 19.0
-offset_right = 356.0
-offset_bottom = 104.0
+offset_left = -533.0
+offset_top = 891.0
+offset_right = 254.0
+offset_bottom = 990.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="Panel" unique_id=1459140021]
+[node name="Label" type="Label" parent="Panel" unique_id=861409772]
 layout_mode = 0
-offset_left = 85.0
+offset_left = 28.0
 offset_top = 19.0
-offset_right = 640.0
-offset_bottom = 70.0
+offset_right = 757.0
+offset_bottom = 81.0
+label_settings = SubResource("LabelSettings_wb0ci")
+horizontal_alignment = 1
