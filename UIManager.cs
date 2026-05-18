@@ -23,10 +23,11 @@ public partial class UIManager : CanvasLayer
 			GD.PrintErr($"UIManager: не найден экран {path}");
 	}
 
-  public void Show(string key)
-  {
-	  currentScreen?.QueueFree();
-	  currentScreen = null;
+public void Show(string key)
+{
+	if (currentScreen != null && IsInstanceValid(currentScreen))
+		currentScreen.QueueFree();
+	currentScreen = null;
 
 	  if (!screens.ContainsKey(key))
 	  {

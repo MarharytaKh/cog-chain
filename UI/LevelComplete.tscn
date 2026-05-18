@@ -5,6 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://634qjxw3at45" path="res://UI/button_pressed.png" id="3_rtpda"]
 [ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="4_rtpda"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_rtpda"]
+font = ExtResource("4_rtpda")
+font_size = 50
+font_color = Color(0.9914978, 0.8035994, 0.5051937, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_02xaq"]
+font = ExtResource("4_rtpda")
+font_size = 50
+font_color = Color(0.9914978, 0.8035994, 0.5051937, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_nfslp"]
 font = ExtResource("4_rtpda")
 font_size = 60
@@ -43,6 +53,7 @@ offset_left = 815.0
 offset_top = 462.0
 offset_right = 1149.0
 offset_bottom = 549.0
+label_settings = SubResource("LabelSettings_rtpda")
 
 [node name="MovesLabel" type="Label" parent="Panel" unique_id=1080571153]
 layout_mode = 0
@@ -50,6 +61,7 @@ offset_left = 778.0
 offset_top = 708.0
 offset_right = 1162.0
 offset_bottom = 817.0
+label_settings = SubResource("LabelSettings_02xaq")
 
 [node name="nextButton" type="TextureButton" parent="Panel" unique_id=362106545]
 layout_mode = 0

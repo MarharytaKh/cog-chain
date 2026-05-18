@@ -15,10 +15,13 @@ public partial class LevelCompleteScreen : CanvasLayer
 		if (nextBtn != null)
 		{
 			nextBtn.Visible = currentIndex + 1 < totalLevels;
-			nextBtn.Pressed += () => {
-				var gm = GetTree().GetFirstNodeInGroup("GameManager") as GameManager;
-				gm?.LoadNextLevel();
-			};
+			nextBtn.Pressed += () =>
+{
+	QueueFree();
+	GetTree().ChangeSceneToFile("res://UI/LevelSelect.tscn");
+};
+
+
 		}
 
 		var levelsBtn = GetNodeOrNull<TextureButton>("Panel/LevelsButton");

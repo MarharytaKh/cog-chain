@@ -12,6 +12,9 @@ font_color = Color(0.93756247, 0.9142811, 0.7310875, 1)
 
 [node name="LevelSelect" type="CanvasLayer" unique_id=1417067228]
 script = ExtResource("1_4tclt")
+ButtonFont = ExtResource("4_fjtf3")
+ButtonFontSize = 40
+ButtonSize = Vector2(400, 120)
 
 [node name="Panel" type="Panel" parent="." unique_id=464918426]
 
@@ -38,7 +41,8 @@ horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer" unique_id=1346116190]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
+size_flags_vertical = 4
 
 [node name="Button2Label" type="Label" parent="Panel" unique_id=2053124983]
 layout_mode = 0

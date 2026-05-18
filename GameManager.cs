@@ -105,18 +105,23 @@ public partial class GameManager : Node
 	}
 
 	public void CompleteLevel()
+{
+	SaveSystem.SaveLevelResult(currentLevelIndex, _time, _moves);
+	
+	var timer = GetTree().CreateTimer(2.0f);
+	timer.Timeout += () =>
 	{
 		var uiManager = GetNodeOrNull<UIManager>("/root/UIManager");
-		if (uiManager == null) { GD.PrintErr("UIManager null!"); return; }
-		if (levels == null) { GD.PrintErr("levels null!"); return; }
-		SaveSystem.SaveLevelResult(currentLevelIndex, _time, _moves);
+		if (uiManager == null) return;
+		if (levels == null) return;
 		uiManager.Show("level_complete");
 		var screen = uiManager.GetCurrentScreen();
 		if (screen is LevelCompleteScreen lcs)
 			lcs.Setup(currentLevelIndex, levels.Length, _time, _moves);
 		else
 			GD.PrintErr($"screen type={screen?.GetType().Name}");
-	}
+	};
+}
 
 	public void RestartLevel()
 	{

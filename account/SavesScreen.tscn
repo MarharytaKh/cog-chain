@@ -6,7 +6,7 @@
 script = ExtResource("1_odvge")
 
 [node name="Panel" type="Panel" parent="." unique_id=365676834]
-offset_right = 1916.0
+offset_right = 2019.0
 offset_bottom = 1085.0
 
 [node name="Title" type="Label" parent="Panel" unique_id=1401838509]
@@ -25,10 +25,10 @@ offset_bottom = 1010.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1612538035]
 layout_mode = 0
-offset_left = 577.0
-offset_top = 329.0
-offset_right = 1202.0
-offset_bottom = 786.0
+offset_left = 833.0
+offset_top = 284.0
+offset_right = 1458.0
+offset_bottom = 741.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=1663303952]
 layout_mode = 2
