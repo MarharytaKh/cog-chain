@@ -178,6 +178,8 @@ Target = Vector3(0, 2, 2)
 Distance = 15.0
 MinPitch = -15.0
 MaxPitch = -2.0
+MinYaw = -70.0
+MaxYaw = 70.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=1514381461]
 transform = Transform3D(0.9999703, -0.007631871, 0.0011142557, 0.0070446744, 0.9625832, 0.2708949, -0.0031399988, -0.270879, 0.96260834, -0.42078495, 3.359962, 3.4230099)

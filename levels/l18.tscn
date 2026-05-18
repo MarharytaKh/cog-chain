@@ -147,7 +147,7 @@ MinPitch = 0.0
 MaxPitch = 0.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=1930434619]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3630478, 0, 10.890259, 14.425764)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3630478, 1.8976583, 12.483408, 14.425764)
 h_offset = 2.0
 current = true
 fov = 65.6

@@ -9,5 +9,5 @@
 script = ExtResource("1_oakep")
 levelScene = ExtResource("1_t7aeq")
 availableGearTypes = Array[Object]([ExtResource("1_ibaox"), ExtResource("2_2fv5t")])
-availableGearCounts = PackedInt32Array(10, 10)
+availableGearCounts = PackedInt32Array(4, 10)
 metadata/_custom_type_script = "uid://d4lgy5r1bvqrp"

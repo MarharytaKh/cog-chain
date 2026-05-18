@@ -143,7 +143,7 @@ normal_texture = ExtResource("30_5sua6")
 [node name="Main" type="Node3D" unique_id=490015857]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=689563668]
-transform = Transform3D(0.99999416, -0.003233745, 0.0011363165, -0.0011525084, -0.0050097224, 0.99998677, -0.0032280097, -0.99998224, -0.00501342, 0.41891193, 17.25146, -2.197219)
+transform = Transform3D(0.99999416, -0.003233745, 0.0011363165, -0.0011525084, -0.0050097224, 0.99998677, -0.0032280097, -0.99998224, -0.00501342, 0.49474192, 17.25146, -2.0099897)
 current = true
 fov = 38.8
 far = 3905.5
@@ -614,7 +614,7 @@ spot_angle = 72.73
 spot_angle_attenuation = 0.23325916
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1060592498 groups=["LevelAnimation"]]
-transform = Transform3D(0.5997916, -0.0155496225, 0.0028523747, 0.014617296, 0.58670956, 0.124732316, -0.006021753, -0.12461949, 0.5868847, 4.555387, -3.7931147, -5.993929)
+transform = Transform3D(0.5997916, -0.0155496225, 0.0028523747, 0.014617296, 0.58670956, 0.124732316, -0.006021753, -0.12461949, 0.5868847, 3.9182048, -3.7931147, 1.7769394)
 script = ExtResource("25_xi31i")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Node3D" unique_id=1192291944]

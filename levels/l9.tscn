@@ -143,7 +143,7 @@ ambient_light_energy = 0.4
 [node name="Main" type="Node3D" unique_id=792257900]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=131586229]
-transform = Transform3D(1, 0, 0, 0, 0.006894014, 0.9999763, 0, -0.9999763, 0.006894014, 1.0362096, 17.33316, -2.1055062)
+transform = Transform3D(1, 0, 0, 0, 0.006894014, 0.9999763, 0, -0.9999763, 0.006894014, 1.2132354, 17.33316, -2.3902085)
 h_offset = -0.635
 current = true
 fov = 38.8

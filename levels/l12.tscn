@@ -151,6 +151,8 @@ script = ExtResource("1_3r41m")
 Target = Vector3(0, 0.5, 0)
 Distance = 7.0
 MinPitch = -6.0
+MinYaw = -80.0
+MaxYaw = 80.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=346002137]
 transform = Transform3D(0.9999703, -0.007631871, 0.0011142555, 0.0070446744, 0.9625832, 0.2708949, -0.0031399988, -0.270879, 0.96260834, 1.0781546, 2.8698306, 5.6778183)

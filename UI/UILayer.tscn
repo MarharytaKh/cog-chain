@@ -51,6 +51,26 @@ grow_horizontal = 0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_2tnra")
 
+[node name="Button0" type="TextureButton" parent="UI/Panel" unique_id=1857412876]
+layout_mode = 0
+offset_left = 364.99976
+offset_top = 766.6666
+offset_right = 716.66644
+offset_bottom = 1140.0
+texture_normal = ExtResource("4_oi31v")
+texture_pressed = ExtResource("6_w33fx")
+texture_hover = ExtResource("6_w33fx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/Panel/Button0" unique_id=1204941913]
+layout_mode = 0
+offset_left = 23.333252
+offset_top = 256.66666
+offset_right = 321.6665
+offset_bottom = 340.0
+label_settings = SubResource("LabelSettings_a35w0")
+
 [node name="Button1" type="TextureButton" parent="UI/Panel" unique_id=1620879427]
 layout_mode = 0
 offset_left = 364.9997
@@ -71,23 +91,43 @@ offset_right = 315.0
 offset_bottom = 340.0
 label_settings = SubResource("LabelSettings_a35w0")
 
-[node name="Button0" type="TextureButton" parent="UI/Panel" unique_id=1857412876]
+[node name="Button2" type="TextureButton" parent="UI/Panel" unique_id=1793808396]
 layout_mode = 0
-offset_left = 364.99982
-offset_top = 766.6666
-offset_right = 716.6665
-offset_bottom = 1140.0
-texture_normal = ExtResource("4_oi31v")
-texture_pressed = ExtResource("6_w33fx")
-texture_hover = ExtResource("6_w33fx")
+offset_left = 363.333
+offset_top = 78.33333
+offset_right = 714.9997
+offset_bottom = 451.66663
+texture_normal = ExtResource("5_aebop")
+texture_pressed = ExtResource("12_u0dfn")
+texture_hover = ExtResource("12_u0dfn")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="UI/Panel/Button0" unique_id=1204941913]
+[node name="Label" type="Label" parent="UI/Panel/Button2" unique_id=1532016151]
 layout_mode = 0
-offset_left = 23.333252
+offset_left = 26.666748
+offset_top = 253.33331
+offset_right = 325.0
+offset_bottom = 336.6667
+label_settings = SubResource("LabelSettings_a35w0")
+
+[node name="Button3" type="TextureButton" parent="UI/Panel" unique_id=362526667]
+layout_mode = 0
+offset_left = 366.66626
+offset_top = 1108.3334
+offset_right = 716.66614
+offset_bottom = 1478.9213
+texture_normal = ExtResource("6_02cut")
+texture_pressed = ExtResource("10_6fxsv")
+texture_hover = ExtResource("10_6fxsv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/Panel/Button3" unique_id=1971431664]
+layout_mode = 0
+offset_left = 21.666748
 offset_top = 256.66666
-offset_right = 321.6665
+offset_right = 315.0
 offset_bottom = 340.0
 label_settings = SubResource("LabelSettings_a35w0")
 
@@ -110,46 +150,6 @@ offset_top = 311.66675
 offset_right = 321.66647
 offset_bottom = 361.66675
 text = "Remove"
-label_settings = SubResource("LabelSettings_a35w0")
-
-[node name="Button2" type="TextureButton" parent="UI/Panel" unique_id=1793808396]
-layout_mode = 0
-offset_left = 363.3332
-offset_top = 78.33333
-offset_right = 714.9999
-offset_bottom = 451.66663
-texture_normal = ExtResource("5_aebop")
-texture_pressed = ExtResource("12_u0dfn")
-texture_hover = ExtResource("12_u0dfn")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="UI/Panel/Button2" unique_id=1532016151]
-layout_mode = 0
-offset_left = 26.666748
-offset_top = 253.33331
-offset_right = 325.0
-offset_bottom = 336.6667
-label_settings = SubResource("LabelSettings_a35w0")
-
-[node name="Button3" type="TextureButton" parent="UI/Panel" unique_id=362526667]
-layout_mode = 0
-offset_left = 366.66638
-offset_top = 1108.3333
-offset_right = 716.66626
-offset_bottom = 1478.9211
-texture_normal = ExtResource("6_02cut")
-texture_pressed = ExtResource("10_6fxsv")
-texture_hover = ExtResource("10_6fxsv")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="UI/Panel/Button3" unique_id=1971431664]
-layout_mode = 0
-offset_left = 21.666748
-offset_top = 256.66666
-offset_right = 315.0
-offset_bottom = 340.0
 label_settings = SubResource("LabelSettings_a35w0")
 
 [node name="TextureRect" type="TextureRect" parent="UI/Panel" unique_id=1996498593]

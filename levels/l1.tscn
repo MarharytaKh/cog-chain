@@ -175,7 +175,7 @@ light_color = Color(0.9096475, 0.7473422, 0.60706705, 1)
 light_energy = 16.0
 light_indirect_energy = 3.944
 light_volumetric_fog_energy = 5.22
-light_specular = 3.563
+light_specular = 3.13
 shadow_enabled = true
 shadow_bias = 0.095
 shadow_transmittance_bias = 5.225
@@ -189,7 +189,7 @@ omni_attenuation = 1.788
 [node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=99501361]
 transform = Transform3D(0.38882956, -0.91285884, 0.12449995, 0.6679971, 0.37240145, 0.64428025, -0.63450086, -0.16734962, 0.7545878, 0, 5.9391747, 9.118798)
 light_color = Color(0.59380585, 0.68058807, 0.6988075, 1)
-light_energy = 1.894
+light_energy = 3.251
 light_volumetric_fog_energy = 1.446
 light_size = 0.385
 spot_range = 20.16

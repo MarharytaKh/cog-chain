@@ -2,9 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://frbk1wenw08u" path="res://levels/l14.tscn" id="1_2uusx"]
 [ext_resource type="Script" uid="uid://d4lgy5r1bvqrp" path="res://Level.cs" id="1_beads"]
+[ext_resource type="Resource" uid="uid://brxb7k44s8wxa" path="res://gear_configs/BigGear.tres" id="1_rp3gq"]
+[ext_resource type="Resource" uid="uid://bnv5edwilpr2w" path="res://gear_configs/SmallGear.tres" id="2_pn06v"]
+[ext_resource type="Resource" uid="uid://bxjqm3bkwil36" path="res://gear_configs/MediumGear.tres" id="3_5c8p0"]
+[ext_resource type="Resource" uid="uid://cx6jlfmycf034" path="res://gear_configs/UniversalGear.tres" id="4_gxy2v"]
 
 [resource]
 script = ExtResource("1_beads")
 levelScene = ExtResource("1_2uusx")
-availableGearTypes = null
+availableGearTypes = Array[Object]([ExtResource("3_5c8p0"), ExtResource("2_pn06v"), ExtResource("1_rp3gq"), ExtResource("4_gxy2v")])
+availableGearCounts = PackedInt32Array(7, 14, 4, 10)
 metadata/_custom_type_script = "uid://d4lgy5r1bvqrp"
