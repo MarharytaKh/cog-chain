@@ -150,6 +150,8 @@ script = ExtResource("1_acsgt")
 Target = Vector3(1, 1, 0)
 Distance = 9.3
 MinPitch = -15.0
+MinYaw = -70.0
+MaxYaw = 70.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=1672089577]
 transform = Transform3D(0.9999703, -0.007631871, 0.0011142555, 0.0070446744, 0.9625832, 0.2708949, -0.0031399988, -0.270879, 0.96260834, -0.42078495, 2.8698306, 5.6778183)

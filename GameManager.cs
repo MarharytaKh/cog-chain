@@ -15,7 +15,7 @@ public partial class GameManager : Node
 	private int[] remainingGearCounts;
 
 	private Motor motor;
-	private List<Target> targets = new List<Target>();
+	public List<Target> targets = new List<Target>();
 	private Node uiInstance;
 	private NotificationManager _notify;
 
@@ -101,27 +101,34 @@ public partial class GameManager : Node
 	{
 		foreach (var t in targets)
 			if (!t.Activated) return;
+
+		// Все таргеты активированы — запускаем анимации
+		var animations = GetTree().GetNodesInGroup("LevelAnimation");
+		foreach (Node node in animations)
+			if (node is LevelAnimation anim)
+				anim.Activate();
+
 		CompleteLevel();
 	}
 
 	public void CompleteLevel()
-{
-	SaveSystem.SaveLevelResult(currentLevelIndex, _time, _moves);
-	
-	var timer = GetTree().CreateTimer(2.0f);
-	timer.Timeout += () =>
 	{
-		var uiManager = GetNodeOrNull<UIManager>("/root/UIManager");
-		if (uiManager == null) return;
-		if (levels == null) return;
-		uiManager.Show("level_complete");
-		var screen = uiManager.GetCurrentScreen();
-		if (screen is LevelCompleteScreen lcs)
-			lcs.Setup(currentLevelIndex, levels.Length, _time, _moves);
-		else
-			GD.PrintErr($"screen type={screen?.GetType().Name}");
-	};
-}
+		SaveSystem.SaveLevelResult(currentLevelIndex, _time, _moves);
+
+		var timer = GetTree().CreateTimer(2.0f);
+		timer.Timeout += () =>
+		{
+			var uiManager = GetNodeOrNull<UIManager>("/root/UIManager");
+			if (uiManager == null) return;
+			if (levels == null) return;
+			uiManager.Show("level_complete");
+			var screen = uiManager.GetCurrentScreen();
+			if (screen is LevelCompleteScreen lcs)
+				lcs.Setup(currentLevelIndex, levels.Length, _time, _moves);
+			else
+				GD.PrintErr($"screen type={screen?.GetType().Name}");
+		};
+	}
 
 	public void RestartLevel()
 	{
@@ -302,6 +309,27 @@ public partial class GameManager : Node
 			}
 		}
 
+		if (SelectedGearConfig.gearName == "Big")
+		{
+			float distToMotor = targetPos.DistanceTo(motor.GlobalPosition);
+			float expectedMotor = SelectedGearConfig.Radius + motor.Radius;
+			if (Mathf.Abs(distToMotor - expectedMotor) < 0.3f)
+			{
+				ShowNotification("Big gear can't connect to motor!");
+				return;
+			}
+			foreach (var t in targets)
+			{
+				float distToTarget = targetPos.DistanceTo(t.GlobalPosition);
+				float expectedTarget = SelectedGearConfig.Radius + t.Radius;
+				if (Mathf.Abs(distToTarget - expectedTarget) < 0.3f)
+				{
+					ShowNotification("Big gear can't connect to target!");
+					return;
+				}
+			}
+		}
+
 		foreach (var g in GetAllGears())
 		{
 			float dist = targetPos.DistanceTo(g.GlobalPosition);
@@ -342,8 +370,8 @@ public partial class GameManager : Node
 			gear.initialBasis = gear.GlobalBasis;
 		}
 
-		float distToMotor = targetPos.DistanceTo(motor.GlobalPosition);
-		if (Mathf.Abs(distToMotor - (newRadius + motor.Radius)) < 0.2f)
+		float distToMotor2 = targetPos.DistanceTo(motor.GlobalPosition);
+		if (Mathf.Abs(distToMotor2 - (newRadius + motor.Radius)) < 0.2f)
 			gear.SnapPhaseWithMotor(motor);
 		else
 		{

@@ -6,18 +6,27 @@ public partial class LevelAnimation : Node3D
 		Door,
 		Arrow,
 		Lamp,
-		Rotate
+		Rotate,
+		Lift,
+		ClockHand
 	}
+
 	[Export] public AnimationType Type = AnimationType.Lamp;
 	[Export] public float Duration = 1.0f;
 	[Export] public float TargetAngle = 45.0f;
 	[Export] public float RotateSpeed = 2.0f;
 	[Export] public float EmissionTarget = 5.0f;
 	[Export] public string MeshNodeName = "MeshInstance3D";
+	[Export] public int TotalSteps = 1; // для Door: сколько таргетов открывают
+	[Export] public float LiftHeight = 3.0f; // для Lift: высота подъёма
+	[Export] public float ClockSpeed = 1.0f; // для ClockHand: скорость вращения
 
+	private int _currentStep = 0;
+	private float _currentTargetAngle = 0f;
 	private bool _activated = false;
 	private float _timer = 0f;
 	private Vector3 _startRotation;
+	private Vector3 _startPosition;
 	private MeshInstance3D _mesh;
 	private StandardMaterial3D _material;
 	private OmniLight3D _light;
@@ -25,14 +34,14 @@ public partial class LevelAnimation : Node3D
 	public override void _Ready()
 	{
 		_startRotation = RotationDegrees;
+		_startPosition = Position;
+
 		if (Type == AnimationType.Lamp)
 		{
 			_mesh = GetNodeOrNull<MeshInstance3D>(MeshNodeName);
-			GD.Print("Lamp mesh найден: " + (_mesh != null));
 			if (_mesh != null)
 			{
 				var mat = _mesh.GetActiveMaterial(0)?.Duplicate() as StandardMaterial3D;
-				GD.Print("Material найден: " + (mat != null));
 				if (mat != null)
 				{
 					_mesh.SetSurfaceOverrideMaterial(0, mat);
@@ -46,45 +55,80 @@ public partial class LevelAnimation : Node3D
 		}
 	}
 
-	public void Activate()
-	{
-		_activated = true;
-		_timer = 0f;
-	}
+public void Activate()
+{
+	if (_currentStep >= TotalSteps) return; // уже полностью активирован
+	_currentStep++;
+	_activated = true;
+	_timer = 0f;
+
+	if (Type == AnimationType.Door)
+		_currentTargetAngle = TargetAngle * ((float)_currentStep / TotalSteps);
+}
 
 	public override void _Process(double delta)
 	{
 		if (!_activated) return;
-		_timer += (float)delta;
-		float t = Mathf.Clamp(_timer / Duration, 0f, 1f);
-		float ease = 1f - Mathf.Pow(1f - t, 3f);
+
 		switch (Type)
 		{
 			case AnimationType.Door:
+				_timer += (float)delta;
+				float tDoor = Mathf.Clamp(_timer / Duration, 0f, 1f);
+				float easeDoor = 1f - Mathf.Pow(1f - tDoor, 3f);
 				RotationDegrees = new Vector3(
 					_startRotation.X,
 					_startRotation.Y,
-					_startRotation.Z + TargetAngle * ease
+					_startRotation.Z + _currentTargetAngle * easeDoor
 				);
 				break;
+
 			case AnimationType.Arrow:
+				_timer += (float)delta;
+				float tArrow = Mathf.Clamp(_timer / Duration, 0f, 1f);
 				RotationDegrees = new Vector3(
 					_startRotation.X,
-					_startRotation.Y + TargetAngle * t,
+					_startRotation.Y + TargetAngle * tArrow,
 					_startRotation.Z
 				);
 				break;
+
 			case AnimationType.Lamp:
+				_timer += (float)delta;
+				float tLamp = Mathf.Clamp(_timer / Duration, 0f, 1f);
+				float easeLamp = 1f - Mathf.Pow(1f - tLamp, 3f);
 				if (_material != null)
-					_material.EmissionEnergyMultiplier = EmissionTarget * ease;
-				if (_light != null && !_light.Visible && ease > 0.1f)
+					_material.EmissionEnergyMultiplier = EmissionTarget * easeLamp;
+				if (_light != null && !_light.Visible && easeLamp > 0.1f)
 					_light.Visible = true;
 				break;
+
 			case AnimationType.Rotate:
+				_timer += (float)delta;
 				RotationDegrees = new Vector3(
 					_startRotation.X,
 					_startRotation.Y + RotateSpeed * _timer * Mathf.RadToDeg(1f),
 					_startRotation.Z
+				);
+				break;
+
+			case AnimationType.Lift:
+				_timer += (float)delta;
+				float tLift = Mathf.Clamp(_timer / Duration, 0f, 1f);
+				float easeLift = 1f - Mathf.Pow(1f - tLift, 3f);
+				Position = new Vector3(
+					_startPosition.X,
+					_startPosition.Y + LiftHeight * easeLift,
+					_startPosition.Z
+				);
+				break;
+
+			case AnimationType.ClockHand:
+				_timer += (float)delta;
+				RotationDegrees = new Vector3(
+					_startRotation.X,
+					_startRotation.Y,
+					_startRotation.Z + ClockSpeed * _timer * Mathf.RadToDeg(1f)
 				);
 				break;
 		}

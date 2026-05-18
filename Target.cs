@@ -5,9 +5,8 @@ public partial class Target : Node3D
 {
 	[Export] public float Radius = 1.23f;
 	[Export] public int ToothCount = 20;
-	[Export] public int RequiredDirection = 0; // 0 = любое, 1 = положительное, -1 = отрицательное
-	
-	
+	[Export] public int RequiredDirection = 0;
+
 	public float angle = 0f;
 	public Gear ParentGear = null;
 	public List<Gear> Children = new List<Gear>();
@@ -35,28 +34,27 @@ public partial class Target : Node3D
 		if (material != null)
 			material.EmissionEnergyMultiplier = emissionCurrent;
 
-if (ParentGear == null) return;
+		if (ParentGear == null) return;
 
-float ratio = (float)ParentGear.ToothCount / (float)ToothCount;
-angle = (-ParentGear.angle * ratio);
-Transform = new Transform3D(
-	_initialBasis.Rotated(_initialBasis.Column1.Normalized(), angle),
-	Transform.Origin
-);
+		float ratio = (float)ParentGear.ToothCount / (float)ToothCount;
+		angle = (-ParentGear.angle * ratio);
+		Transform = new Transform3D(
+			_initialBasis.Rotated(_initialBasis.Column1.Normalized(), angle),
+			Transform.Origin
+		);
 
-foreach (var c in Children)
-	if (IsInstanceValid(c))
-		c.UpdateRotation();
+		foreach (var c in Children)
+			if (IsInstanceValid(c))
+				c.UpdateRotation();
 
-// Проверяем направление перед активацией
-if (!Activated)
-{
-	bool dirOk = RequiredDirection == 0
-		|| (RequiredDirection > 0 && angle > 0.1f)
-		|| (RequiredDirection < 0 && angle < -0.1f);
-	if (dirOk) Activate();
-}
-}
+		if (!Activated)
+		{
+			bool dirOk = RequiredDirection == 0
+				|| (RequiredDirection > 0 && angle > 0.1f)
+				|| (RequiredDirection < 0 && angle < -0.1f);
+			if (dirOk) Activate();
+		}
+	}
 
 	public bool CanMeshGear(Gear gear)
 	{
@@ -69,12 +67,6 @@ if (!Activated)
 		if (!Activated)
 		{
 			Activated = true;
-
-			var animations = GetTree().GetNodesInGroup("LevelAnimation");
-			foreach (Node node in animations)
-				if (node is LevelAnimation anim)
-					anim.Activate();
-
 			var gm = GetTree().GetFirstNodeInGroup("GameManager") as GameManager;
 			gm?.OnTargetActivated();
 		}

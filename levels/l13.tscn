@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://mk73yhl1hcq3" path="res://3dModels/axis/DefaultMaterial_Normal_1001.png" id="20_kemlk"]
 [ext_resource type="Texture2D" uid="uid://cd8nndo2rup1b" path="res://3dModels/axis/DefaultMaterial_Roughness_1001.png" id="21_veivs"]
 [ext_resource type="Script" uid="uid://cxh1jsv46nitn" path="res://Axis.cs" id="22_n76qc"]
+[ext_resource type="Script" uid="uid://dh4qyv8haw6ta" path="res://LevelAnimation.cs" id="23_emx4i"]
 [ext_resource type="Script" uid="uid://cbjf6ejbgq52x" path="res://Motor.cs" id="23_nimsv"]
 [ext_resource type="PackedScene" uid="uid://8ep0uxeu8d0r" path="res://UI/Notification.tscn" id="24_25t7d"]
 [ext_resource type="ArrayMesh" uid="uid://devxemrqp7ry4" path="res://3dModels/mechanism/elevator.obj" id="25_35fda"]
@@ -124,6 +125,12 @@ heightmap_enabled = true
 heightmap_scale = 0.005
 heightmap_texture = ExtResource("14_5x7jp")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jgy2"]
+albedo_color = Color(0.89492244, 0.89492244, 0.8949224, 1)
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.33
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jb1uj"]
 albedo_color = Color(0.7216528, 0.79990566, 0.84319204, 1)
 albedo_texture = ExtResource("26_dhar7")
@@ -142,12 +149,6 @@ roughness = 0.85
 roughness_texture = ExtResource("30_kemlk")
 normal_enabled = true
 normal_texture = ExtResource("29_1g4ei")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jgy2"]
-albedo_color = Color(0.89492244, 0.89492244, 0.8949224, 1)
-metallic = 1.0
-metallic_specular = 1.0
-roughness = 0.33
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5x7jp"]
 albedo_texture = ExtResource("30_4jgy2")
@@ -685,18 +686,12 @@ surface_material_override/0 = SubResource("StandardMaterial3D_lnfat")
 
 [node name="Notification" parent="." unique_id=1676695824 instance=ExtResource("24_25t7d")]
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=151172205]
-transform = Transform3D(4.2358446, 0, 0, 0, 4.8, 0, 0, 0, 3.9743164, 0, -6.9347773, 6.8968973)
-mesh = ExtResource("25_35fda")
-surface_material_override/0 = SubResource("StandardMaterial3D_jb1uj")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D6" unique_id=1722717791]
-transform = Transform3D(-0.0060789883, -0.00022004057, -0.016276795, 0.00027172675, -0.014031833, 0.00019121959, -0.016515236, -0.00014987361, 0.005994368, 0, 0.9365958, -0.5949385)
-mesh = ExtResource("27_8r1ee")
-surface_material_override/0 = SubResource("StandardMaterial3D_veivs")
-
-[node name="Node3D" type="Node3D" parent="." unique_id=580821087]
+[node name="Node3D" type="Node3D" parent="." unique_id=580821087 groups=["LevelAnimation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54483056, 0)
+script = ExtResource("23_emx4i")
+Type = 4
+Duration = 2.0
+LiftHeight = 8.0
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="Node3D" unique_id=1636781123]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9.073629, -5.687895, 6.7373133)
@@ -717,6 +712,16 @@ surface_material_override/0 = SubResource("StandardMaterial3D_4jgy2")
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 1.5140743, -5.687895, 0.6201904)
 mesh = ExtResource("30_dhar7")
 surface_material_override/0 = SubResource("StandardMaterial3D_4jgy2")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Node3D" unique_id=151172205]
+transform = Transform3D(4.2358446, 0, 0, 0, 4.8, 0, 0, 0, 3.9743164, 0, -7.4796076, 6.8968973)
+mesh = ExtResource("25_35fda")
+surface_material_override/0 = SubResource("StandardMaterial3D_jb1uj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/MeshInstance3D6" unique_id=1722717791]
+transform = Transform3D(-0.0060789883, -0.00022004057, -0.016276795, 0.00027172675, -0.014031833, 0.00019121959, -0.016515236, -0.00014987361, 0.005994368, 0, 0.9365958, -0.5949385)
+mesh = ExtResource("27_8r1ee")
+surface_material_override/0 = SubResource("StandardMaterial3D_veivs")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1380518102]
 transform = Transform3D(4.3674955, 0, 0, 0, 4.2111025, 0, 0, 0, 3.630099, -0.09585285, -7.526989, 6.547124)
