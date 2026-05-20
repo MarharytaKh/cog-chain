@@ -8,7 +8,8 @@ public partial class LevelAnimation : Node3D
 		Lamp,
 		Rotate,
 		Lift,
-		ClockHand
+		ClockHand,
+		Key
 	}
 
 	[Export] public AnimationType Type = AnimationType.Lamp;
@@ -131,6 +132,16 @@ public void Activate()
 					_startRotation.Z + ClockSpeed * _timer * Mathf.RadToDeg(1f)
 				);
 				break;
+			case AnimationType.Key:
+	_timer += (float)delta;
+	float tKey = Mathf.Clamp(_timer / Duration, 0f, 1f);
+	float easeKey = 1f - Mathf.Pow(1f - tKey, 3f);
+	RotationDegrees = new Vector3(
+		_startRotation.X + TargetAngle * easeKey,
+		_startRotation.Y,
+		_startRotation.Z
+	);
+	break;
 		}
 	}
 }

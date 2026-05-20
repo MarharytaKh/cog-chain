@@ -1,54 +1,120 @@
 [gd_scene format=3 uid="uid://bknc8og6t775q"]
 
 [ext_resource type="Script" uid="uid://bts1piog7b68y" path="res://account/LoginScreen.cs" id="1_3ktrt"]
+[ext_resource type="Texture2D" uid="uid://dma2q5x8e4ltd" path="res://UI/tbrender_002_login.png" id="2_x328a"]
+[ext_resource type="Texture2D" uid="uid://b8keircnjeny8" path="res://UI/button_2.png" id="3_hhv1g"]
+[ext_resource type="Texture2D" uid="uid://d2j637wam76or" path="res://UI/button_pressed2.png" id="4_qo35x"]
+[ext_resource type="Texture2D" uid="uid://by6wp10oty6yo" path="res://UI/frame.png" id="5_h6lc6"]
+[ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="6_hhv1g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qo35x"]
+font = ExtResource("6_hhv1g")
+font_size = 38
+font_color = Color(0.1608606, 0.10467211, 0.12364931, 1)
 
 [node name="LoginScreen" type="CanvasLayer" unique_id=1979570736]
 script = ExtResource("1_3ktrt")
 
-[node name="Panel" type="Panel" parent="." unique_id=1488763490]
-offset_right = 1916.0
-offset_bottom = 1084.0
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1826283442]
+offset_right = 3365.0
+offset_bottom = 1825.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_x328a")
 
-[node name="Title" type="Label" parent="Panel" unique_id=706432391]
-layout_mode = 0
-offset_left = 672.0
-offset_top = 245.0
-offset_right = 1135.0
-offset_bottom = 293.0
+[node name="Title" type="Label" parent="." unique_id=706432391]
+offset_left = 971.0
+offset_top = 375.0
+offset_right = 1434.0
+offset_bottom = 423.0
 
-[node name="UsernameInput" type="LineEdit" parent="Panel" unique_id=1673005449]
-layout_mode = 0
-offset_left = 653.0
-offset_top = 428.0
-offset_right = 1157.0
-offset_bottom = 497.0
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=494850026]
+offset_left = 768.0
+offset_top = 401.0
+offset_right = 1302.0
+offset_bottom = 486.0
+texture = ExtResource("5_h6lc6")
+expand_mode = 1
 
-[node name="PasswordInput" type="LineEdit" parent="Panel" unique_id=585228073]
-layout_mode = 0
-offset_left = 653.0
-offset_top = 568.0
-offset_right = 1154.0
-offset_bottom = 631.0
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1132910059]
+offset_left = 769.0
+offset_top = 541.0
+offset_right = 1302.0
+offset_bottom = 625.0
+texture = ExtResource("5_h6lc6")
+expand_mode = 1
+
+[node name="UsernameInput" type="LineEdit" parent="." unique_id=1673005449]
+offset_left = 781.0
+offset_top = 403.0
+offset_right = 1291.0
+offset_bottom = 484.0
+alignment = 1
+
+[node name="PasswordInput" type="LineEdit" parent="." unique_id=585228073]
+offset_left = 782.0
+offset_top = 543.0
+offset_right = 1292.0
+offset_bottom = 624.0
+alignment = 1
 max_length = 10
 secret = true
 
-[node name="LoginButton" type="Button" parent="Panel" unique_id=2019625966]
-layout_mode = 0
-offset_left = 794.0
-offset_top = 734.0
-offset_right = 983.0
-offset_bottom = 805.0
+[node name="LoginButton" type="TextureButton" parent="." unique_id=748921291]
+offset_left = 866.0
+offset_top = 668.0
+offset_right = 1206.0
+offset_bottom = 746.0
+texture_normal = ExtResource("3_hhv1g")
+texture_pressed = ExtResource("4_qo35x")
+texture_hover = ExtResource("4_qo35x")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="RegisterButton" type="Button" parent="Panel" unique_id=449931025]
-layout_mode = 0
-offset_left = 800.0
-offset_top = 855.0
-offset_right = 974.0
-offset_bottom = 933.0
+[node name="RegisterButton" type="TextureButton" parent="." unique_id=1188954522]
+offset_left = 1227.0
+offset_top = 781.0
+offset_right = 1507.0
+offset_bottom = 853.0
+texture_normal = ExtResource("3_hhv1g")
+texture_pressed = ExtResource("4_qo35x")
+texture_hover = ExtResource("4_qo35x")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="ErrorLabel" type="Label" parent="Panel" unique_id=482350645]
-layout_mode = 0
-offset_left = 619.0
-offset_top = 968.0
-offset_right = 1165.0
-offset_bottom = 1008.0
+[node name="ErrorLabel" type="Label" parent="." unique_id=482350645]
+offset_left = 918.0
+offset_top = 1098.0
+offset_right = 1464.0
+offset_bottom = 1138.0
+
+[node name="Label" type="Label" parent="." unique_id=573039536]
+offset_left = 777.0
+offset_top = 362.0
+offset_right = 1160.0
+offset_bottom = 413.0
+text = "Your nickname"
+label_settings = SubResource("LabelSettings_qo35x")
+
+[node name="Label2" type="Label" parent="." unique_id=62516464]
+offset_left = 778.0
+offset_top = 498.0
+offset_right = 1161.0
+offset_bottom = 549.0
+text = "password"
+label_settings = SubResource("LabelSettings_qo35x")
+
+[node name="Label3" type="Label" parent="." unique_id=952438972]
+offset_left = 976.0
+offset_top = 687.0
+offset_right = 1101.0
+offset_bottom = 731.0
+text = "Login"
+label_settings = SubResource("LabelSettings_qo35x")
+
+[node name="Label4" type="Label" parent="." unique_id=1512749301]
+offset_left = 1288.0
+offset_top = 797.0
+offset_right = 1443.0
+offset_bottom = 841.0
+text = "Register"
+label_settings = SubResource("LabelSettings_qo35x")

@@ -625,7 +625,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_djykw")
 
 [node name="Target1" type="Node3D" parent="." unique_id=411645849]
-transform = Transform3D(4.371139e-08, 0.99999994, -8.742277e-08, 1, -4.3711385e-08, 0, -3.821371e-15, -8.742277e-08, -0.99999994, 7.7035923, -2.2057228, 1.6564016)
+transform = Transform3D(4.371139e-08, 0.99999994, -8.742277e-08, 1, -4.3711385e-08, 0, -3.821371e-15, -8.742277e-08, -0.99999994, 7.5884123, -2.2057228, 1.6564016)
 script = ExtResource("4_2ihp7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Target1" unique_id=1130083385]
@@ -645,7 +645,7 @@ mesh = ExtResource("12_jb1uj")
 surface_material_override/0 = SubResource("StandardMaterial3D_dhar7")
 
 [node name="Target2" type="Node3D" parent="." unique_id=1624210727]
-transform = Transform3D(-4.371139e-08, -0.9999998, 0, 1, -4.371138e-08, 0, 0, 0, 0.9999998, -7.6521506, -3.9814558, 1.8153238)
+transform = Transform3D(-4.371139e-08, -0.9999998, 0, 1, -4.371138e-08, 0, 0, 0, 0.9999998, -7.521199, -3.9814558, 1.8153238)
 script = ExtResource("4_2ihp7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Target2" unique_id=502946610]
@@ -690,7 +690,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_lnfat")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54483056, 0)
 script = ExtResource("23_emx4i")
 Type = 4
-Duration = 2.0
+Duration = 5.0
 LiftHeight = 8.0
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="Node3D" unique_id=1636781123]

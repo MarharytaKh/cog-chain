@@ -10,14 +10,14 @@ public partial class LoginScreen : CanvasLayer
 	{
 		SaveSystem.Load();
 
-		_usernameInput = GetNode<LineEdit>("Panel/UsernameInput");
-		_passwordInput = GetNode<LineEdit>("Panel/PasswordInput");
-		_errorLabel = GetNode<Label>("Panel/ErrorLabel");
+		_usernameInput = GetNode<LineEdit>("UsernameInput");
+		_passwordInput = GetNode<LineEdit>("PasswordInput");
+		_errorLabel = GetNode<Label>("ErrorLabel");
 
 		_errorLabel.Text = "";
 
-		GetNode<Button>("Panel/LoginButton").Pressed += OnLogin;
-		GetNode<Button>("Panel/RegisterButton").Pressed += OnRegister;
+		GetNode<TextureButton>("LoginButton").Pressed += OnLogin;
+		GetNode<TextureButton>("RegisterButton").Pressed += OnRegister;
 	}
 
 	private void OnLogin()

@@ -33,6 +33,10 @@
 [ext_resource type="Texture2D" uid="uid://itqsbqy2gxb3" path="res://3dModels/gears/textures/target_base/defaultMat_Roughness_1001.png" id="19_32rso"]
 [ext_resource type="Script" uid="uid://cbjf6ejbgq52x" path="res://Motor.cs" id="20_n7kv7"]
 [ext_resource type="PackedScene" uid="uid://8ep0uxeu8d0r" path="res://UI/Notification.tscn" id="24_3r41m"]
+[ext_resource type="ArrayMesh" uid="uid://db4kts2ka8q1x" path="res://3dModels/mechanism/rusted_key.obj" id="34_fsfl6"]
+[ext_resource type="Texture2D" uid="uid://imc2foh1im20" path="res://3dModels/mechanism/key/defaultMat_Base_color_1001.png" id="35_bujkk"]
+[ext_resource type="Texture2D" uid="uid://cmto3guwgedmg" path="res://3dModels/mechanism/key/defaultMat_Normal_OpenGL_1001.png" id="36_2y3hv"]
+[ext_resource type="Script" uid="uid://dh4qyv8haw6ta" path="res://LevelAnimation.cs" id="37_8ogao"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_loamh"]
 albedo_texture = ExtResource("3_jlcsr")
@@ -142,6 +146,13 @@ background_mode = 2
 background_energy_multiplier = 1.06
 ambient_light_color = Color(0.5335893, 0.3617767, 0.28228495, 1)
 ambient_light_energy = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32rso"]
+albedo_texture = ExtResource("35_bujkk")
+metallic = 0.45
+roughness = 0.46
+normal_enabled = true
+normal_texture = ExtResource("36_2y3hv")
 
 [node name="Main" type="Node3D" unique_id=1686085716]
 
@@ -392,7 +403,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 3.5527137e-15, 0, 0.99999994,
 shape = SubResource("CylinderShape3D_3r41m")
 
 [node name="Axis14" type="Node3D" parent="." unique_id=938591025]
-transform = Transform3D(1.9106855e-15, 4.3711378e-08, 0.99999976, 1, -4.3711378e-08, 0, 4.371139e-08, 0.99999976, -4.3711378e-08, 4.5121, 3.863631, 3.8604035)
+transform = Transform3D(1.9106855e-15, 4.3711378e-08, 0.99999976, 1, -4.3711378e-08, 0, 4.371139e-08, 0.99999976, -4.3711378e-08, 6.115153, 1.5300667, 3.8604035)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis14" unique_id=1889846999]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -542,7 +553,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 3.5527137e-15, 0, 0.99999994,
 shape = SubResource("CylinderShape3D_3r41m")
 
 [node name="Axis24" type="Node3D" parent="." unique_id=1538073555]
-transform = Transform3D(1.9106855e-15, 4.3711378e-08, 0.99999976, 1, -4.3711378e-08, 0, 4.371139e-08, 0.99999976, -4.3711378e-08, 4.737779, 2.3179033, 3.8604035)
+transform = Transform3D(1.9106855e-15, 4.3711378e-08, 0.99999976, 1, -4.3711378e-08, 0, 4.371139e-08, 0.99999976, -4.3711378e-08, 4.2891836, 3.3560784, 3.8604035)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis24" unique_id=580903918]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -719,3 +730,12 @@ spot_range = 7.6192746
 spot_attenuation = 0.35
 spot_angle = 72.73
 spot_angle_attenuation = 0.23325916
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=52200215 groups=["LevelAnimation"]]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.0752726, -1.6566532, 4.292613)
+mesh = ExtResource("34_fsfl6")
+surface_material_override/0 = SubResource("StandardMaterial3D_32rso")
+script = ExtResource("37_8ogao")
+Type = 6
+Duration = 3.0
+TargetAngle = 180.0

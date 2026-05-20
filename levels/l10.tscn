@@ -151,7 +151,7 @@ normal_texture = ExtResource("33_pj7qp")
 [node name="Main" type="Node3D" unique_id=2066157996]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1887648971]
-transform = Transform3D(0.9950903, -0.0027162088, -0.09893458, 0.09891921, -0.005308168, 0.9950813, -0.00322801, -0.99998224, -0.0050134207, -2.2275043, 16.491745, -1.0131669)
+transform = Transform3D(0.9950903, -0.0027162086, -0.09893458, 0.09891921, -0.005308168, 0.9950813, -0.00322801, -0.99998224, -0.0050134207, -1.7037225, 16.491745, -1.6393929)
 current = true
 fov = 38.8
 far = 3905.5
@@ -172,7 +172,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_mxy7u")
 
 [node name="Axis2" type="Node3D" parent="." unique_id=2084573338]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -5.7150164, 0.5560665, -0.17912388)
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -5.714066, 0.5560665, -0.26172757)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis2" unique_id=1468604321]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -187,7 +187,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_mxy7u")
 
 [node name="Axis3" type="Node3D" parent="." unique_id=1874497112]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -5.6718206, 0.5560665, -2.3304234)
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -8.825796, 0.5560665, -3.0667071)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis3" unique_id=48230588]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -237,7 +237,7 @@ mesh = ExtResource("15_yu572")
 surface_material_override/0 = SubResource("StandardMaterial3D_uwdg2")
 
 [node name="Axis5" type="Node3D" parent="." unique_id=185815920]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -7.11433, 0.5560665, -3.866541)
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -5.667346, 0.5560665, -3.1322849)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis5" unique_id=852327391]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -251,78 +251,78 @@ script = ExtResource("6_bsjp2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_mxy7u")
 
-[node name="Axis6" type="Node3D" parent="." unique_id=314853343]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, 3.7969146, 0.5560665, -0.27227163)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis6" unique_id=549034999]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("1_jxcly")
-surface_material_override/0 = SubResource("StandardMaterial3D_4cosb")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis6" unique_id=942788515]
-script = ExtResource("6_bsjp2")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis6/StaticBody3D" unique_id=773469997]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_mxy7u")
-
-[node name="Axis7" type="Node3D" parent="." unique_id=1653709923]
+[node name="Axis6" type="Node3D" parent="." unique_id=1653709923]
 transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -4.1415253, 0.5560665, -2.5260658)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis7" unique_id=873456885]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis6" unique_id=873456885]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
 mesh = ExtResource("1_jxcly")
 surface_material_override/0 = SubResource("StandardMaterial3D_4cosb")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis7" unique_id=1795039582]
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis6" unique_id=1795039582]
 script = ExtResource("6_bsjp2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis7/StaticBody3D" unique_id=1198025634]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis6/StaticBody3D" unique_id=1198025634]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_mxy7u")
 
-[node name="Axis8" type="Node3D" parent="." unique_id=1563453636]
+[node name="Axis7" type="Node3D" parent="." unique_id=1563453636]
 transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, 0.8989036, 0.5560665, -0.30462658)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis8" unique_id=1703184229]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis7" unique_id=1703184229]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
 mesh = ExtResource("1_jxcly")
 surface_material_override/0 = SubResource("StandardMaterial3D_4cosb")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis8" unique_id=1386874403]
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis7" unique_id=1386874403]
 script = ExtResource("6_bsjp2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis8/StaticBody3D" unique_id=1642469387]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis7/StaticBody3D" unique_id=1642469387]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_mxy7u")
 
-[node name="Axis9" type="Node3D" parent="." unique_id=1895935618]
+[node name="Axis8" type="Node3D" parent="." unique_id=1895935618]
 transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, 2.2737594, 0.5560665, 1.2409)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis9" unique_id=2034967424]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis8" unique_id=2034967424]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
 mesh = ExtResource("1_jxcly")
 surface_material_override/0 = SubResource("StandardMaterial3D_4cosb")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis9" unique_id=271019354]
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis8" unique_id=271019354]
 script = ExtResource("6_bsjp2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis9/StaticBody3D" unique_id=700196749]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis8/StaticBody3D" unique_id=700196749]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_mxy7u")
 
-[node name="Axis10" type="Node3D" parent="." unique_id=1469336653]
+[node name="Axis9" type="Node3D" parent="." unique_id=1469336653]
 transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -0.051505208, 0.5560665, 0.9202051)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis10" unique_id=1353664007]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis9" unique_id=1353664007]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
 mesh = ExtResource("1_jxcly")
 surface_material_override/0 = SubResource("StandardMaterial3D_4cosb")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis10" unique_id=1941608830]
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis9" unique_id=1941608830]
 script = ExtResource("6_bsjp2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis10/StaticBody3D" unique_id=1154311730]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis9/StaticBody3D" unique_id=1154311730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
+shape = SubResource("CylinderShape3D_mxy7u")
+
+[node name="Axis10" type="Node3D" parent="." unique_id=1407991142]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -7.1960206, 0.5560665, -0.8910276)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis10" unique_id=188821342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
+mesh = ExtResource("1_jxcly")
+surface_material_override/0 = SubResource("StandardMaterial3D_4cosb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis10" unique_id=1291811470]
+script = ExtResource("6_bsjp2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis10/StaticBody3D" unique_id=671520088]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_mxy7u")
 
@@ -491,48 +491,33 @@ script = ExtResource("6_bsjp2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_mxy7u")
 
-[node name="Axis22" type="Node3D" parent="." unique_id=1407991142]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -7.172812, 0.5560665, -0.81142795)
+[node name="Axis22" type="Node3D" parent="." unique_id=834770600]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -8.621948, 0.5560665, -1.5184116)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis22" unique_id=188821342]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis22" unique_id=1254117910]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
 mesh = ExtResource("1_jxcly")
 surface_material_override/0 = SubResource("StandardMaterial3D_4cosb")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis22" unique_id=1291811470]
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis22" unique_id=656409389]
 script = ExtResource("6_bsjp2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis22/StaticBody3D" unique_id=671520088]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis22/StaticBody3D" unique_id=722873163]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_mxy7u")
 
-[node name="Axis23" type="Node3D" parent="." unique_id=834770600]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -8.661362, 0.5560665, -1.4557136)
+[node name="Axis23" type="Node3D" parent="." unique_id=1412475381]
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -7.233475, 0.5560665, -3.294001)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis23" unique_id=1254117910]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis23" unique_id=671350804]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
 mesh = ExtResource("1_jxcly")
 surface_material_override/0 = SubResource("StandardMaterial3D_4cosb")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis23" unique_id=656409389]
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis23" unique_id=1745417772]
 script = ExtResource("6_bsjp2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis23/StaticBody3D" unique_id=722873163]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_mxy7u")
-
-[node name="Axis24" type="Node3D" parent="." unique_id=1412475381]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -9.229937, 0.5560665, -2.9074485)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis24" unique_id=671350804]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("1_jxcly")
-surface_material_override/0 = SubResource("StandardMaterial3D_4cosb")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis24" unique_id=1745417772]
-script = ExtResource("6_bsjp2")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis24/StaticBody3D" unique_id=1692249243]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis23/StaticBody3D" unique_id=1692249243]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_mxy7u")
 

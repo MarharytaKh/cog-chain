@@ -722,8 +722,9 @@ shape = SubResource("CylinderShape3D_axis")
 transform = Transform3D(0.70225453, 0.0064459327, 0, -0.009180756, 0.49306232, 0, 0, 0, 0.86136836, -2.3511434, 0.4166441, 4.3921046)
 script = ExtResource("25_ja2cg")
 Type = 0
-TargetAngle = 10.0
+TargetAngle = 60.0
 RotateSpeed = 1.0
+TotalSteps = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=1666689563]
 transform = Transform3D(0.5432935, -1.8626451e-09, 0, 0, 0.58178824, 0, 0, 0, 0.49523658, -1.906188, -41.602814, 17.69495)

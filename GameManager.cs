@@ -108,7 +108,7 @@ public partial class GameManager : Node
 			if (node is LevelAnimation anim)
 				anim.Activate();
 
-		CompleteLevel();
+		//CompleteLevel();
 	}
 
 	public void CompleteLevel()
@@ -330,18 +330,19 @@ public partial class GameManager : Node
 			}
 		}
 
-		foreach (var g in GetAllGears())
-		{
-			float dist = targetPos.DistanceTo(g.GlobalPosition);
-			var checkAxisParent = SelectedAxis.GetParent<Node3D>();
-			if (checkAxisParent == null) continue;
+foreach (var g in GetAllGears())
+{
+	float dist = targetPos.DistanceTo(g.GlobalPosition);
+	var checkAxisParent = SelectedAxis.GetParent<Node3D>();
+	if (checkAxisParent == null) continue;
 
-			float dot = Mathf.Abs(checkAxisParent.GlobalBasis.Column1.Normalized().Dot(g.initialBasis.Column1.Normalized()));
-			float expected = newRadius + g.Radius;
+	float dot = Mathf.Abs(checkAxisParent.GlobalBasis.Column1.Normalized().Dot(g.initialBasis.Column1.Normalized()));
+	GD.Print($"dot={dot:F3} dist={dist:F2}");float expected = newRadius + g.Radius;
+	GD.Print($"dot={dot:F3} dist={dist:F2} expected={expected:F2} lower={expected * 0.5f:F2} upper={expected * 0.7f:F2}");
 			bool wouldConnect;
 
 			if (dot < 0.05f)
-				wouldConnect = dist >= expected * 0.1f && dist <= expected * 0.7f;
+				wouldConnect = dist >= expected * 0.6f && dist <= expected * 0.7f;//////////
 			else
 				wouldConnect = dist >= expected * 0.5f && Mathf.Abs(dist - expected) < 0.2f;
 

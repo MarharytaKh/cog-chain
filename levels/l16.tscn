@@ -33,6 +33,10 @@
 [ext_resource type="Texture2D" uid="uid://b1rxtvtyufsf6" path="res://3dModels/backgrounds/tlo_box/default_Normal_OpenGL_1001.png" id="31_d6hnw"]
 [ext_resource type="Texture2D" uid="uid://blulmoja0dn13" path="res://3dModels/backgrounds/tlo_box/default_Roughness_1001.png" id="32_amas5"]
 [ext_resource type="PackedScene" uid="uid://8ep0uxeu8d0r" path="res://UI/Notification.tscn" id="33_iapub"]
+[ext_resource type="ArrayMesh" uid="uid://db4kts2ka8q1x" path="res://3dModels/mechanism/rusted_key.obj" id="34_kh2wa"]
+[ext_resource type="Texture2D" uid="uid://imc2foh1im20" path="res://3dModels/mechanism/key/defaultMat_Base_color_1001.png" id="35_e2u0b"]
+[ext_resource type="Texture2D" uid="uid://cmto3guwgedmg" path="res://3dModels/mechanism/key/defaultMat_Normal_OpenGL_1001.png" id="36_glxaa"]
+[ext_resource type="Script" uid="uid://dh4qyv8haw6ta" path="res://LevelAnimation.cs" id="37_glxaa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_byma0"]
 albedo_texture = ExtResource("6_0235r")
@@ -141,6 +145,13 @@ emission_texture = ExtResource("30_dd1td")
 normal_enabled = true
 normal_texture = ExtResource("31_d6hnw")
 subsurf_scatter_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pqvqh"]
+albedo_texture = ExtResource("35_e2u0b")
+metallic = 0.45
+roughness = 0.46
+normal_enabled = true
+normal_texture = ExtResource("36_glxaa")
 
 [node name="Main" type="Node3D" unique_id=1137625014]
 
@@ -813,3 +824,12 @@ mesh = ExtResource("28_pqvqh")
 surface_material_override/0 = SubResource("StandardMaterial3D_6yhxv")
 
 [node name="Notification" parent="." unique_id=1676695824 instance=ExtResource("33_iapub")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1133039552 groups=["LevelAnimation"]]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.034986973, 3.534492)
+mesh = ExtResource("34_kh2wa")
+surface_material_override/0 = SubResource("StandardMaterial3D_pqvqh")
+script = ExtResource("37_glxaa")
+Type = 6
+Duration = 3.0
+TargetAngle = 180.0

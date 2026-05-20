@@ -215,7 +215,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_k54cl")
 
 [node name="Axis2" type="Node3D" parent="." unique_id=1830910302]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -5.29435, 0.5560665, -0.0031561852)
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -5.4054527, 0.5560665, 0.012311578)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis2" unique_id=2136865042]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)

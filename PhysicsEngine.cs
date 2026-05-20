@@ -19,7 +19,7 @@ public static class PhysicsEngine
  
 		if (dot < 0.05f)
 		{
-			if (dist < expected * 0.3f) return false;
+			if (dist < expected * 0.3f) return false;//////////////////////////
 			if (dist > expected * 0.6f) return false;
 			return true;
 		}
