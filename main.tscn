@@ -24,12 +24,22 @@ offset_bottom = 1825.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_0xm2m")
 
+[node name="AchievementButton" type="TextureButton" parent="." unique_id=1651149641]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 675.0
+offset_right = 846.0
+offset_bottom = 1021.0
+texture_normal = ExtResource("3_1bvp3")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="LoadButton" type="TextureButton" parent="." unique_id=1611918752]
 layout_mode = 0
-offset_left = 130.0
-offset_top = 503.0
-offset_right = 859.9429
-offset_bottom = 844.0
+offset_left = 118.0
+offset_top = 469.0
+offset_right = 847.9429
+offset_bottom = 810.0
 texture_normal = ExtResource("3_1bvp3")
 texture_pressed = ExtResource("4_7mycd")
 texture_hover = ExtResource("4_7mycd")
@@ -59,10 +69,10 @@ expand_mode = 1
 
 [node name="LoadButton2Label" type="Label" parent="." unique_id=2058375428]
 layout_mode = 0
-offset_left = 328.0
-offset_top = 736.0
-offset_right = 652.0
-offset_bottom = 799.0
+offset_left = 324.0
+offset_top = 696.0
+offset_right = 648.0
+offset_bottom = 759.0
 text = "Load save"
 label_settings = SubResource("LabelSettings_7mycd")
 

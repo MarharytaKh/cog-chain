@@ -21,6 +21,7 @@ public partial class GameManager : Node
 
 	private float _time = 0f;
 	private int _moves = 0;
+	private bool _removedGear = false;
 
 	public void LoadLevelByIndex(int index)
 	{
@@ -50,55 +51,56 @@ public partial class GameManager : Node
 	}
 
 	private void InitLevel()
-{
-	_time = 0f;
-	_moves = 0;
-	foreach (Node node in GetChildren())
-		if (node is Gear)
-			node.QueueFree();
-
-	var scene = GetTree().CurrentScene;
-	if (scene == null) return;
-
-	motor = scene.GetNodeOrNull<Motor>("Motor");
-	_notify = scene.GetNodeOrNull<NotificationManager>("Notification");
-
-	targets.Clear();
-	foreach (Node node in scene.GetChildren())
-		if (node is Target t)
-			targets.Add(t);
-
-	if (motor == null || targets.Count == 0) return;
-
-	if (levels == null || levels.Length == 0)
 	{
-		GD.PrintErr("levels пустой!");
-		return;
-	}
+		_time = 0f;
+		_moves = 0;
+		_removedGear = false;
+		foreach (Node node in GetChildren())
+			if (node is Gear)
+				node.QueueFree();
 
-	// Восстанавливаем разблокировку из сохранения
-	if (SaveSystem.CurrentUser != null)
-	{
-		for (int i = 0; i < levels.Length; i++)
+		var scene = GetTree().CurrentScene;
+		if (scene == null) return;
+
+		motor  = scene.GetNodeOrNull<Motor>("Motor");
+		_notify = scene.GetNodeOrNull<NotificationManager>("Notification");
+
+		targets.Clear();
+		foreach (Node node in scene.GetChildren())
+			if (node is Target t)
+				targets.Add(t);
+
+		if (motor == null || targets.Count == 0) return;
+
+		if (levels == null || levels.Length == 0)
 		{
-			if (i == 0) { levels[i].isUnlocked = true; continue; }
-			if (SaveSystem.CurrentUser.LevelResults.ContainsKey(i - 1))
-				levels[i].isUnlocked = SaveSystem.CurrentUser.LevelResults[i - 1].BestStars >= 1;
-			else
-				levels[i].isUnlocked = false;
+			GD.PrintErr("levels пустой!");
+			return;
 		}
+
+		// Восстанавливаем разблокировку из сохранения
+		if (SaveSystem.CurrentUser != null)
+		{
+			for (int i = 0; i < levels.Length; i++)
+			{
+				if (i == 0) { levels[i].isUnlocked = true; continue; }
+				if (SaveSystem.CurrentUser.LevelResults.ContainsKey(i - 1))
+					levels[i].isUnlocked = SaveSystem.CurrentUser.LevelResults[i - 1].BestStars >= 1;
+				else
+					levels[i].isUnlocked = false;
+			}
+		}
+
+		currentLevel = levels[currentLevelIndex];
+
+		var uiManager = GetNodeOrNull<UIManager>("/root/UIManager");
+		if (uiManager == null) { GD.PrintErr("UIManager не найден!"); return; }
+
+		uiManager.Show("hud");
+		uiInstance = uiManager.GetCurrentScreen();
+
+		SetupLevel();
 	}
-
-	currentLevel = levels[currentLevelIndex];
-
-	var uiManager = GetNodeOrNull<UIManager>("/root/UIManager");
-	if (uiManager == null) { GD.PrintErr("UIManager не найден!"); return; }
-
-	uiManager.Show("hud");
-	uiInstance = uiManager.GetCurrentScreen();
-
-	SetupLevel();
-}
 
 	public void ShowNotification(string msg) => _notify?.Show(msg);
 
@@ -135,6 +137,29 @@ public partial class GameManager : Node
 		// Разблокировать следующий уровень если хотя бы 1 звезда
 		if (stars >= 1 && currentLevelIndex + 1 < levels.Length)
 			levels[currentLevelIndex + 1].isUnlocked = true;
+
+		// Ачивка 1 — первый уровень
+		if (currentLevelIndex == 0)
+			SaveSystem.UnlockAchievement("first_level");
+
+		// Ачивка 3 — без удалений
+		if (!_removedGear)
+			SaveSystem.UnlockAchievement("no_remove");
+
+		// Ачивка 4 — быстрее 15 секунд
+		if (_time < 15f)
+			SaveSystem.UnlockAchievement("speed_run");
+
+		// Ачивка 5 — все уровни пройдены
+		if (SaveSystem.CurrentUser != null)
+		{
+			bool allDone = true;
+			for (int i = 0; i < levels.Length; i++)
+				if (!SaveSystem.CurrentUser.LevelResults.ContainsKey(i))
+					{ allDone = false; break; }
+			if (allDone)
+				SaveSystem.UnlockAchievement("game_complete");
+		}
 
 		float capturedTime  = _time;
 		int   capturedMoves = _moves;
@@ -239,8 +264,9 @@ public partial class GameManager : Node
 					}
 				}
 
-				axis.HasGear    = false;
+				axis.HasGear      = false;
 				gear.PlacedOnAxis = null;
+				_removedGear      = true;
 				RemoveChild(gear);
 				gear.QueueFree();
 				_moves++;
@@ -275,7 +301,6 @@ public partial class GameManager : Node
 		Vector3 targetPos = SelectedAxis.GlobalPosition;
 		float newRadius   = SelectedGearConfig.Radius;
 
-		// Проверка оверлапа
 		foreach (var g in GetAllGears())
 		{
 			float dist    = targetPos.DistanceTo(g.GlobalPosition);
@@ -313,7 +338,6 @@ public partial class GameManager : Node
 			}
 		}
 
-		// Big gear restrictions
 		if (SelectedGearConfig.gearName == "Big")
 		{
 			float distToMotor   = targetPos.DistanceTo(motor.GlobalPosition);
@@ -335,7 +359,6 @@ public partial class GameManager : Node
 			}
 		}
 
-		// Проверка совместимости
 		foreach (var g in GetAllGears())
 		{
 			float dist = targetPos.DistanceTo(g.GlobalPosition);
@@ -363,8 +386,8 @@ public partial class GameManager : Node
 		}
 
 		var gear = SelectedGearConfig.scenePrefab.Instantiate<Gear>();
-		gear.config    = SelectedGearConfig;
-		gear.Radius    = SelectedGearConfig.Radius;
+		gear.config     = SelectedGearConfig;
+		gear.Radius     = SelectedGearConfig.Radius;
 		gear.ToothCount = SelectedGearConfig.ToothCount;
 
 		AddChild(gear);
@@ -411,11 +434,34 @@ public partial class GameManager : Node
 		Recalculate();
 	}
 
+	// Ачивка 2 — одна шестерёнка запускает 4+ других
+	public void CheckChainAchievement(List<Gear> gears)
+	{
+		foreach (var g in gears)
+		{
+			int count = CountChildren(g);
+			if (count >= 4)
+			{
+				SaveSystem.UnlockAchievement("chain_master");
+				return;
+			}
+		}
+	}
+
+	private int CountChildren(Gear g)
+	{
+		int count = g.Children.Count;
+		foreach (var child in g.Children)
+			count += CountChildren(child);
+		return count;
+	}
+
 	private void Recalculate()
 	{
 		var gears = GetAllGears();
 		if (targets.Count == 0) return;
 		PhysicsEngine.BuildGraph(motor, gears, targets, this);
+		CheckChainAchievement(gears);
 	}
 
 	public void LoadNextLevel()
@@ -437,16 +483,17 @@ public partial class GameManager : Node
 				gears.Add(g);
 		return gears;
 	}
+
 	public void RestoreUnlocks()
-{
-	if (SaveSystem.CurrentUser == null || levels == null) return;
-	for (int i = 0; i < levels.Length; i++)
 	{
-		if (i == 0) { levels[i].isUnlocked = true; continue; }
-		if (SaveSystem.CurrentUser.LevelResults.ContainsKey(i - 1))
-			levels[i].isUnlocked = SaveSystem.CurrentUser.LevelResults[i - 1].BestStars >= 1;
-		else
-			levels[i].isUnlocked = false;
+		if (SaveSystem.CurrentUser == null || levels == null) return;
+		for (int i = 0; i < levels.Length; i++)
+		{
+			if (i == 0) { levels[i].isUnlocked = true; continue; }
+			if (SaveSystem.CurrentUser.LevelResults.ContainsKey(i - 1))
+				levels[i].isUnlocked = SaveSystem.CurrentUser.LevelResults[i - 1].BestStars >= 1;
+			else
+				levels[i].isUnlocked = false;
+		}
 	}
-}
 }

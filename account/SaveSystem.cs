@@ -33,11 +33,12 @@ public static class SaveSystem
 					["bestStars"] = lvl.Value.BestStars
 				};
 			}
-			data[user.Key] = new Godot.Collections.Dictionary
-			{
-				["passwordHash"] = user.Value.PasswordHash,
-				["levels"]       = levels
-			};
+data[user.Key] = new Godot.Collections.Dictionary
+{
+	["passwordHash"] = user.Value.PasswordHash,
+	["levels"]       = levels,
+	["achievements"] = string.Join(",", user.Value.Achievements)
+};
 		}
 
 		using var file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Write);
@@ -62,7 +63,13 @@ public static class SaveSystem
 				Username     = key.ToString(),
 				PasswordHash = userData["passwordHash"].ToString()
 			};
-
+if (userData.ContainsKey("achievements"))
+{
+	string achStr = userData["achievements"].ToString();
+	if (!string.IsNullOrEmpty(achStr))
+		foreach (var a in achStr.Split(','))
+			user.Achievements.Add(a);
+}
 			var levels = userData["levels"].AsGodotDictionary();
 			foreach (var lvlKey in levels.Keys)
 			{
@@ -138,6 +145,19 @@ public static class SaveSystem
 		if (!CurrentUser.LevelResults.ContainsKey(levelIndex)) return 0;
 		return CurrentUser.LevelResults[levelIndex].BestStars;
 	}
+	public static bool UnlockAchievement(string key)
+{
+	if (CurrentUser == null) return false;
+	if (CurrentUser.Achievements.Contains(key)) return false;
+	CurrentUser.Achievements.Add(key);
+	Save();
+	return true; // true = только что разблокировано
+}
+
+public static bool HasAchievement(string key)
+{
+	return CurrentUser?.Achievements.Contains(key) ?? false;
+}
 }
 
 public class UserData
@@ -145,7 +165,9 @@ public class UserData
 	public string Username;
 	public string PasswordHash;
 	public Dictionary<int, LevelResult> LevelResults = new();
+	public HashSet<string> Achievements = new(); // ключи разблокированных ачивок
 }
+
 
 public class LevelResult
 {
