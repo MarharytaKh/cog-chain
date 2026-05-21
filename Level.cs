@@ -43,6 +43,8 @@ public partial class Level : Resource
 	/// co <see cref="availableGearTypes"/>.
 	/// </summary>
 	[Export] public int[] availableGearCounts;
+	[Export] public float[] StarTimeLimits = { 150f, 90f, 60f, 45f, 30f };
+[Export] public int[] StarMoveLimits = { 35, 20, 15, 10, 5 };
 
 	/// <summary>Odblokowuje poziom. Wywoływana przez zewnętrzny system postępu.</summary>
 	public void Unlock()

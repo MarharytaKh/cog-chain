@@ -31,8 +31,11 @@ public partial class LoginScreen : CanvasLayer
 			return;
 		}
 
-		if (SaveSystem.Login(username, password))
+		if (SaveSystem.Login(username, password)){
+			var gm = GetNode<GameManager>("/root/GameManager");
+	gm?.RestoreUnlocks();
 			GetTree().ChangeSceneToFile("res://main.tscn");
+			}
 		else
 			_errorLabel.Text = "Неверный логин или пароль!";
 	}

@@ -7,7 +7,10 @@
 
 [resource]
 script = ExtResource("1_52wsw")
+isUnlocked = false
 levelScene = ExtResource("1_d7fs6")
 availableGearTypes = Array[Object]([ExtResource("1_r6dqv"), ExtResource("2_c2b2h")])
 availableGearCounts = PackedInt32Array(4, 6)
+StarTimeLimits = PackedFloat32Array(15, 11, 10, 8, 7)
+StarMoveLimits = PackedInt32Array(10, 9, 8, 7, 6)
 metadata/_custom_type_script = "uid://d4lgy5r1bvqrp"

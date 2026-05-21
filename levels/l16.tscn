@@ -161,8 +161,8 @@ script = ExtResource("1_acsgt")
 Target = Vector3(1, 1, 0)
 Distance = 9.3
 MinPitch = -15.0
-MinYaw = -90.0
-MaxYaw = 90.0
+MinYaw = -100.0
+MaxYaw = 100.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=1672089577]
 transform = Transform3D(0.9999703, -0.007631871, 0.0011142555, 0.0070446744, 0.9625832, 0.2708949, -0.0031399988, -0.270879, 0.96260834, -0.42078495, 2.8698306, 5.6778183)
@@ -192,7 +192,7 @@ mesh = ExtResource("12_kh2wa")
 surface_material_override/0 = SubResource("StandardMaterial3D_2icnq")
 
 [node name="Target2" type="Node3D" parent="." unique_id=1759300319]
-transform = Transform3D(0.007993549, -4.3710003e-08, -0.9999682, -3.5527137e-15, 0.99999976, -4.3711378e-08, 0.999968, 3.4940228e-10, 0.007993579, -3.9698997, 2.563344, -1.0664058)
+transform = Transform3D(0.007993549, -4.3710003e-08, -0.9999682, -3.5527137e-15, 0.99999976, -4.3711378e-08, 0.999968, 3.4940228e-10, 0.007993579, -4.115007, 2.563344, -1.2095864)
 script = ExtResource("4_km3ul")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Target2" unique_id=778725516]
@@ -241,8 +241,23 @@ script = ExtResource("22_w3gvj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_5a0vw")
 
+[node name="Axis3" type="Node3D" parent="." unique_id=49251447]
+transform = Transform3D(4.3711392e-08, 0.9999996, 8.742276e-08, 1.0000001, -4.371137e-08, 0, 3.8213714e-15, 8.742274e-08, -0.9999998, 7.9983244, 2.2904935, -2.5632193)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis3" unique_id=2071433515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
+mesh = ExtResource("17_e16tk")
+surface_material_override/0 = SubResource("StandardMaterial3D_h3vxj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Axis3" unique_id=1198701914]
+script = ExtResource("22_w3gvj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis3/StaticBody3D" unique_id=1997932356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
+shape = SubResource("CylinderShape3D_5a0vw")
+
 [node name="Axis4" type="Node3D" parent="." unique_id=906935774]
-transform = Transform3D(-0.9999682, -5.0792703e-15, -0.007993547, 2.7870327e-16, 0.9999995, 3.5527137e-15, 0.007993579, -7.1054274e-15, -0.99996775, -3.1596842, 2.4917865, 2.6744652)
+transform = Transform3D(-0.9999682, -5.0792703e-15, -0.007993547, 2.7870327e-16, 0.9999995, 3.5527137e-15, 0.007993579, -7.1054274e-15, -0.99996775, -3.3082275, 2.4917865, -3.7034583)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis4" unique_id=1073950434]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -362,7 +377,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_5a0vw")
 
 [node name="Axis12" type="Node3D" parent="." unique_id=339003921]
-transform = Transform3D(-0.9999682, 0.007993546, 3.4940395e-10, 2.7870327e-16, -4.3711367e-08, 0.99999946, 0.007993579, 0.9999677, 4.3709967e-08, -6.6719265, 2.1426792, 3.370161)
+transform = Transform3D(-0.9999682, 0.007993546, 3.4940395e-10, 2.7870327e-16, -4.3711367e-08, 0.99999946, 0.007993579, 0.9999677, 4.3709967e-08, -6.76675, 1.7005401, 3.370161)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis12" unique_id=1252858815]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -527,7 +542,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_5a0vw")
 
 [node name="Axis23" type="Node3D" parent="." unique_id=620202641]
-transform = Transform3D(-0.9999682, -5.0792703e-15, -0.007993547, 2.7870327e-16, 0.9999995, 3.5527137e-15, 0.007993579, -7.1054274e-15, -0.99996775, -5.051589, 2.4917865, 1.8101625)
+transform = Transform3D(-0.9999682, -5.0792703e-15, -0.007993547, 2.7870327e-16, 0.9999995, 3.5527137e-15, 0.007993579, -7.1054274e-15, -0.99996775, -5.211039, 2.592524, -4.616595)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis23" unique_id=185562922]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -542,7 +557,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_5a0vw")
 
 [node name="Axis24" type="Node3D" parent="." unique_id=1386150784]
-transform = Transform3D(-0.9999682, -5.0792703e-15, -0.007993547, 2.7870327e-16, 0.9999995, 3.5527137e-15, 0.007993579, -7.1054274e-15, -0.99996775, -6.9809055, 2.4917865, 1.8177283)
+transform = Transform3D(-0.9999682, -5.0792703e-15, -0.007993547, 2.7870327e-16, 0.9999995, 3.5527137e-15, 0.007993579, -7.1054274e-15, -0.99996775, -6.8022194, 2.4917865, 2.5094233)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis24" unique_id=527465684]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -557,7 +572,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_5a0vw")
 
 [node name="Axis25" type="Node3D" parent="." unique_id=1582870223]
-transform = Transform3D(4.3360593e-08, -0.99996793, -0.0079935035, -0.99999976, -4.3711363e-08, 4.3711374e-08, -4.405939e-08, 0.007993533, -0.99996775, -7.7481303, 2.126845, 2.092803)
+transform = Transform3D(4.3360593e-08, -0.99996793, -0.0079935035, -0.99999976, -4.3711363e-08, 4.3711374e-08, -4.405939e-08, 0.007993533, -0.99996775, -7.7481303, 2.1217659, 2.03997)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis25" unique_id=955051068]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -572,7 +587,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_5a0vw")
 
 [node name="Axis26" type="Node3D" parent="." unique_id=2023114251]
-transform = Transform3D(4.3360593e-08, -0.99996793, -0.0079935035, -0.99999976, -4.3711363e-08, 4.3711374e-08, -4.405939e-08, 0.007993533, -0.99996775, -7.7579293, 1.2591763, 0.86696625)
+transform = Transform3D(4.3360593e-08, -0.99996793, -0.0079935035, -0.99999976, -4.3711363e-08, 4.3711374e-08, -4.405939e-08, 0.007993533, -0.99996775, -7.7579293, 1.1525989, 0.83666015)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis26" unique_id=2031454306]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -587,7 +602,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_5a0vw")
 
 [node name="Axis27" type="Node3D" parent="." unique_id=1192948188]
-transform = Transform3D(4.3360593e-08, -0.99996793, -0.0079935035, -0.99999976, -4.3711363e-08, 4.3711374e-08, -4.405939e-08, 0.007993533, -0.99996775, -7.768084, 2.1133213, -0.40332794)
+transform = Transform3D(4.3360593e-08, -0.99996793, -0.0079935035, -0.99999976, -4.3711363e-08, 4.3711374e-08, -4.405939e-08, 0.007993533, -0.99996775, -7.768084, -0.22913885, -0.695675)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis27" unique_id=272933180]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -602,7 +617,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_5a0vw")
 
 [node name="Axis28" type="Node3D" parent="." unique_id=1959348376]
-transform = Transform3D(-0.9999682, -5.0792703e-15, -0.007993547, 2.7870327e-16, 0.9999995, 3.5527137e-15, 0.007993579, -7.1054274e-15, -0.99996775, -7.450695, 2.4917865, -0.5592966)
+transform = Transform3D(4.3711392e-08, -0.9999995, -8.742276e-08, -1.0000001, -4.3711367e-08, 0, -3.8213714e-15, 8.7422734e-08, -0.9999998, -7.759527, -0.15506482, -2.7705872)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis28" unique_id=634715751]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -617,7 +632,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_5a0vw")
 
 [node name="Axis29" type="Node3D" parent="." unique_id=1526319669]
-transform = Transform3D(-0.9999682, -5.0792703e-15, -0.007993547, 2.7870327e-16, 0.9999995, 3.5527137e-15, 0.007993579, -7.1054274e-15, -0.99996775, -6.3074956, 2.4917865, -2.228466)
+transform = Transform3D(4.3711392e-08, -0.99999964, 8.742276e-08, -1.0000001, -4.3711374e-08, 0, 3.8213714e-15, -8.742275e-08, -0.9999998, -7.7911015, 1.8940117, -3.037956)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis29" unique_id=1931855185]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -632,7 +647,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_5a0vw")
 
 [node name="Axis30" type="Node3D" parent="." unique_id=785461640]
-transform = Transform3D(-0.9999682, -5.0792703e-15, -0.007993547, 2.7870327e-16, 0.9999995, 3.5527137e-15, 0.007993579, -7.1054274e-15, -0.99996775, -4.8968287, 2.4917865, -2.9050465)
+transform = Transform3D(-0.9999682, -5.0792703e-15, -0.007993547, 2.7870327e-16, 0.9999995, 3.5527137e-15, 0.007993579, -7.1054274e-15, -0.99996775, -6.9352026, 2.6526856, -3.451883)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis30" unique_id=2135880450]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -673,21 +688,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_h3vxj")
 script = ExtResource("22_w3gvj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Axis32/StaticBody3D" unique_id=582714032]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_5a0vw")
-
-[node name="Axis33" type="Node3D" parent="." unique_id=49251447]
-transform = Transform3D(4.3711392e-08, 0.9999996, 8.742276e-08, 1.0000001, -4.371137e-08, 0, 3.8213714e-15, 8.742274e-08, -0.9999998, 7.9983244, 2.2904935, -2.5632193)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis33" unique_id=2071433515]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("17_e16tk")
-surface_material_override/0 = SubResource("StandardMaterial3D_h3vxj")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis33" unique_id=1198701914]
-script = ExtResource("22_w3gvj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis33/StaticBody3D" unique_id=1997932356]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_5a0vw")
 

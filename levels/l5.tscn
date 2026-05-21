@@ -338,7 +338,7 @@ mesh = ExtResource("22_j8cwi")
 surface_material_override/0 = SubResource("StandardMaterial3D_g6ibl")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=98954331 groups=["LevelAnimation"]]
-transform = Transform3D(0.5997916, -0.0155496225, 0.0028523747, 0.014617296, 0.58670956, 0.124732316, -0.006021753, -0.12461949, 0.5868847, 1.9447055, -3.7931147, 2.6770802)
+transform = Transform3D(0.5997916, -0.0155496225, 0.0028523747, 0.014617296, 0.58670956, 0.124732316, -0.006021753, -0.12461949, 0.5868847, -2.0143328, -3.7931147, -3.1580632)
 script = ExtResource("27_v67tu")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Node3D" unique_id=2026253587]

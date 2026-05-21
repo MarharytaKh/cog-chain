@@ -660,21 +660,6 @@ script = ExtResource("22_007q1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_a3vgf")
 
-[node name="Axis31" type="Node3D" parent="." unique_id=110641970]
-transform = Transform3D(1, 0, 0, 0, -4.3711378e-08, -0.99999976, 0, 0.99999976, -4.3711378e-08, -2.08518, -0.2963252, 6.491788)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Axis31" unique_id=1668941056]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
-mesh = ExtResource("17_71ao7")
-surface_material_override/0 = SubResource("StandardMaterial3D_xs304")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Axis31" unique_id=398753928]
-script = ExtResource("22_007q1")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Axis31/StaticBody3D" unique_id=1209666828]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
-shape = SubResource("CylinderShape3D_a3vgf")
-
 [node name="Motor" type="Node3D" parent="." unique_id=911223121]
 transform = Transform3D(1.9106859e-15, 4.371139e-08, 1.0000001, 1.0000002, -4.371139e-08, 0, 4.37114e-08, 1, -4.3711392e-08, -0.112, -0.69658357, 6.23393)
 script = ExtResource("23_fbj8d")
@@ -810,7 +795,7 @@ mesh = ExtResource("29_olaim")
 surface_material_override/0 = SubResource("StandardMaterial3D_cjlqq")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=139394578 groups=["LevelAnimation"]]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.928726, 0.31282353, 7.080542)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.3444941, 0.31282353, 7.080542)
 mesh = ExtResource("34_i2y62")
 surface_material_override/0 = SubResource("StandardMaterial3D_xli7p")
 script = ExtResource("37_71ao7")

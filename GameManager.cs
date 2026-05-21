@@ -22,11 +22,6 @@ public partial class GameManager : Node
 	private float _time = 0f;
 	private int _moves = 0;
 
-	private float DistXZ(Vector3 a, Vector3 b)
-	{
-		return new Vector2(a.X - b.X, a.Z - b.Z).Length();
-	}
-
 	public void LoadLevelByIndex(int index)
 	{
 		if (levels == null || index < 0 || index >= levels.Length) return;
@@ -55,65 +50,94 @@ public partial class GameManager : Node
 	}
 
 	private void InitLevel()
+{
+	_time = 0f;
+	_moves = 0;
+	foreach (Node node in GetChildren())
+		if (node is Gear)
+			node.QueueFree();
+
+	var scene = GetTree().CurrentScene;
+	if (scene == null) return;
+
+	motor = scene.GetNodeOrNull<Motor>("Motor");
+	_notify = scene.GetNodeOrNull<NotificationManager>("Notification");
+
+	targets.Clear();
+	foreach (Node node in scene.GetChildren())
+		if (node is Target t)
+			targets.Add(t);
+
+	if (motor == null || targets.Count == 0) return;
+
+	if (levels == null || levels.Length == 0)
 	{
-		_time = 0f;
-		_moves = 0;
-		foreach (Node node in GetChildren())
-			if (node is Gear)
-				node.QueueFree();
+		GD.PrintErr("levels пустой!");
+		return;
+	}
 
-		var scene = GetTree().CurrentScene;
-		if (scene == null) return;
-
-		motor = scene.GetNodeOrNull<Motor>("Motor");
-		_notify = scene.GetNodeOrNull<NotificationManager>("Notification");
-
-		targets.Clear();
-		foreach (Node node in scene.GetChildren())
-			if (node is Target t)
-				targets.Add(t);
-
-		if (motor == null || targets.Count == 0) return;
-
-		if (levels == null || levels.Length == 0)
+	// Восстанавливаем разблокировку из сохранения
+	if (SaveSystem.CurrentUser != null)
+	{
+		for (int i = 0; i < levels.Length; i++)
 		{
-			GD.PrintErr("levels пустой!");
-			return;
+			if (i == 0) { levels[i].isUnlocked = true; continue; }
+			if (SaveSystem.CurrentUser.LevelResults.ContainsKey(i - 1))
+				levels[i].isUnlocked = SaveSystem.CurrentUser.LevelResults[i - 1].BestStars >= 1;
+			else
+				levels[i].isUnlocked = false;
 		}
-
-		currentLevel = levels[currentLevelIndex];
-
-		var uiManager = GetNodeOrNull<UIManager>("/root/UIManager");
-		if (uiManager == null) { GD.PrintErr("UIManager не найден!"); return; }
-
-		uiManager.Show("hud");
-		uiInstance = uiManager.GetCurrentScreen();
-
-		SetupLevel();
 	}
 
-	public void ShowNotification(string msg)
-	{
-		_notify?.Show(msg);
-	}
+	currentLevel = levels[currentLevelIndex];
+
+	var uiManager = GetNodeOrNull<UIManager>("/root/UIManager");
+	if (uiManager == null) { GD.PrintErr("UIManager не найден!"); return; }
+
+	uiManager.Show("hud");
+	uiInstance = uiManager.GetCurrentScreen();
+
+	SetupLevel();
+}
+
+	public void ShowNotification(string msg) => _notify?.Show(msg);
 
 	public void OnTargetActivated()
 	{
 		foreach (var t in targets)
 			if (!t.Activated) return;
 
-		// Все таргеты активированы — запускаем анимации
 		var animations = GetTree().GetNodesInGroup("LevelAnimation");
 		foreach (Node node in animations)
 			if (node is LevelAnimation anim)
 				anim.Activate();
 
-		//CompleteLevel();
+		CompleteLevel();
+	}
+
+	public int CalculateStars(float time, int moves)
+	{
+		var timeLimits = currentLevel.StarTimeLimits;
+		var moveLimits = currentLevel.StarMoveLimits;
+
+		for (int i = 4; i >= 0; i--)
+			if (time <= timeLimits[i] && moves <= moveLimits[i])
+				return i + 1;
+
+		return 0;
 	}
 
 	public void CompleteLevel()
 	{
-		SaveSystem.SaveLevelResult(currentLevelIndex, _time, _moves);
+		int stars = CalculateStars(_time, _moves);
+		SaveSystem.SaveLevelResult(currentLevelIndex, _time, _moves, stars);
+
+		// Разблокировать следующий уровень если хотя бы 1 звезда
+		if (stars >= 1 && currentLevelIndex + 1 < levels.Length)
+			levels[currentLevelIndex + 1].isUnlocked = true;
+
+		float capturedTime  = _time;
+		int   capturedMoves = _moves;
 
 		var timer = GetTree().CreateTimer(2.0f);
 		timer.Timeout += () =>
@@ -124,7 +148,7 @@ public partial class GameManager : Node
 			uiManager.Show("level_complete");
 			var screen = uiManager.GetCurrentScreen();
 			if (screen is LevelCompleteScreen lcs)
-				lcs.Setup(currentLevelIndex, levels.Length, _time, _moves);
+				lcs.Setup(currentLevelIndex, levels.Length, capturedTime, capturedMoves, stars);
 			else
 				GD.PrintErr($"screen type={screen?.GetType().Name}");
 		};
@@ -139,8 +163,6 @@ public partial class GameManager : Node
 
 	private void SetupLevel()
 	{
-		GD.Print($"SetupLevel called, types={currentLevel.availableGearTypes?.Length ?? 0}, counts={currentLevel.availableGearCounts?.Length ?? 0}");
-
 		if (currentLevel.availableGearCounts != null)
 		{
 			remainingGearCounts = new int[currentLevel.availableGearCounts.Length];
@@ -165,13 +187,7 @@ public partial class GameManager : Node
 
 	private void SetupGearButtons()
 	{
-		GD.Print($"SetupGearButtons, uiInstance={uiInstance?.Name}");
-
-		if (currentLevel.availableGearTypes == null)
-		{
-			GD.PrintErr("availableGearTypes is null!");
-			return;
-		}
+		if (currentLevel.availableGearTypes == null) return;
 
 		for (int i = 0; i < currentLevel.availableGearTypes.Length; i++)
 		{
@@ -179,7 +195,6 @@ public partial class GameManager : Node
 			var btn = uiInstance.GetNodeOrNull<TextureButton>($"UI/Panel/Button{i}");
 			if (btn != null)
 			{
-				GD.Print($"Button{i} found!");
 				UpdateButtonLabel(btn, index);
 				btn.Pressed += () =>
 				{
@@ -192,8 +207,6 @@ public partial class GameManager : Node
 					_on_button_pressed(index);
 				};
 			}
-			else
-				GD.PrintErr($"Button{i} not found at path UI/Panel/Button{i}");
 		}
 
 		var removeBtn = uiInstance.GetNodeOrNull<TextureButton>("UI/Panel/RemoveButton");
@@ -226,7 +239,7 @@ public partial class GameManager : Node
 					}
 				}
 
-				axis.HasGear = false;
+				axis.HasGear    = false;
 				gear.PlacedOnAxis = null;
 				RemoveChild(gear);
 				gear.QueueFree();
@@ -235,7 +248,6 @@ public partial class GameManager : Node
 				return;
 			}
 		}
-		GD.PrintErr("Шестерёнка на оси не найдена!");
 	}
 
 	private void ReenableMotorAndRecalculate()
@@ -257,31 +269,23 @@ public partial class GameManager : Node
 	private void _on_button_pressed(int gearIndex)
 	{
 		if (SelectedAxis == null || SelectedAxis.HasGear) return;
-
-		if (SelectedGearConfig == null)
-		{
-			GD.PrintErr("SelectedGearConfig is null!");
-			return;
-		}
-
-		if (SelectedGearConfig.scenePrefab == null)
-		{
-			GD.PrintErr($"scenePrefab not assigned in {SelectedGearConfig.gearName}!");
-			return;
-		}
+		if (SelectedGearConfig == null) return;
+		if (SelectedGearConfig.scenePrefab == null) return;
 
 		Vector3 targetPos = SelectedAxis.GlobalPosition;
-		float newRadius = SelectedGearConfig.Radius;
+		float newRadius   = SelectedGearConfig.Radius;
 
+		// Проверка оверлапа
 		foreach (var g in GetAllGears())
 		{
-			float dist = targetPos.DistanceTo(g.GlobalPosition);
+			float dist    = targetPos.DistanceTo(g.GlobalPosition);
 			float minDist = (newRadius + g.Radius) - 0.1f;
 
 			var checkAxisParent = SelectedAxis.GetParent<Node3D>();
 			if (checkAxisParent != null)
 			{
-				float dot = Mathf.Abs(checkAxisParent.GlobalBasis.Column1.Normalized().Dot(g.initialBasis.Column1.Normalized()));
+				float dot = Mathf.Abs(checkAxisParent.GlobalBasis.Column1.Normalized()
+					.Dot(g.initialBasis.Column1.Normalized()));
 				minDist *= Mathf.Lerp(0.00001f, 1.0f, dot);
 			}
 
@@ -309,9 +313,10 @@ public partial class GameManager : Node
 			}
 		}
 
+		// Big gear restrictions
 		if (SelectedGearConfig.gearName == "Big")
 		{
-			float distToMotor = targetPos.DistanceTo(motor.GlobalPosition);
+			float distToMotor   = targetPos.DistanceTo(motor.GlobalPosition);
 			float expectedMotor = SelectedGearConfig.Radius + motor.Radius;
 			if (Mathf.Abs(distToMotor - expectedMotor) < 0.3f)
 			{
@@ -320,7 +325,7 @@ public partial class GameManager : Node
 			}
 			foreach (var t in targets)
 			{
-				float distToTarget = targetPos.DistanceTo(t.GlobalPosition);
+				float distToTarget   = targetPos.DistanceTo(t.GlobalPosition);
 				float expectedTarget = SelectedGearConfig.Radius + t.Radius;
 				if (Mathf.Abs(distToTarget - expectedTarget) < 0.3f)
 				{
@@ -330,19 +335,20 @@ public partial class GameManager : Node
 			}
 		}
 
-foreach (var g in GetAllGears())
-{
-	float dist = targetPos.DistanceTo(g.GlobalPosition);
-	var checkAxisParent = SelectedAxis.GetParent<Node3D>();
-	if (checkAxisParent == null) continue;
+		// Проверка совместимости
+		foreach (var g in GetAllGears())
+		{
+			float dist = targetPos.DistanceTo(g.GlobalPosition);
+			var checkAxisParent = SelectedAxis.GetParent<Node3D>();
+			if (checkAxisParent == null) continue;
 
-	float dot = Mathf.Abs(checkAxisParent.GlobalBasis.Column1.Normalized().Dot(g.initialBasis.Column1.Normalized()));
-	GD.Print($"dot={dot:F3} dist={dist:F2}");float expected = newRadius + g.Radius;
-	GD.Print($"dot={dot:F3} dist={dist:F2} expected={expected:F2} lower={expected * 0.5f:F2} upper={expected * 0.7f:F2}");
+			float dot      = Mathf.Abs(checkAxisParent.GlobalBasis.Column1.Normalized()
+				.Dot(g.initialBasis.Column1.Normalized()));
+			float expected = newRadius + g.Radius;
 			bool wouldConnect;
 
 			if (dot < 0.05f)
-				wouldConnect = dist >= expected * 0.6f && dist <= expected * 0.7f;//////////
+				wouldConnect = dist >= expected * 0.3f && dist <= expected * 0.7f;
 			else
 				wouldConnect = dist >= expected * 0.5f && Mathf.Abs(dist - expected) < 0.2f;
 
@@ -357,8 +363,8 @@ foreach (var g in GetAllGears())
 		}
 
 		var gear = SelectedGearConfig.scenePrefab.Instantiate<Gear>();
-		gear.config = SelectedGearConfig;
-		gear.Radius = SelectedGearConfig.Radius;
+		gear.config    = SelectedGearConfig;
+		gear.Radius    = SelectedGearConfig.Radius;
 		gear.ToothCount = SelectedGearConfig.ToothCount;
 
 		AddChild(gear);
@@ -367,7 +373,7 @@ foreach (var g in GetAllGears())
 		var axisParent = SelectedAxis.GetParent<Node3D>();
 		if (axisParent != null)
 		{
-			gear.GlobalBasis = axisParent.GlobalBasis;
+			gear.GlobalBasis  = axisParent.GlobalBasis;
 			gear.initialBasis = gear.GlobalBasis;
 		}
 
@@ -388,8 +394,8 @@ foreach (var g in GetAllGears())
 			}
 		}
 
-		SelectedAxis.HasGear = true;
-		gear.PlacedOnAxis = SelectedAxis;
+		SelectedAxis.HasGear  = true;
+		gear.PlacedOnAxis     = SelectedAxis;
 
 		for (int i = 0; i < currentLevel.availableGearTypes.Length; i++)
 		{
@@ -408,26 +414,19 @@ foreach (var g in GetAllGears())
 	private void Recalculate()
 	{
 		var gears = GetAllGears();
-		if (targets.Count == 0)
-		{
-			GD.PrintErr("No targets found!");
-			return;
-		}
+		if (targets.Count == 0) return;
 		PhysicsEngine.BuildGraph(motor, gears, targets, this);
 	}
 
 	public void LoadNextLevel()
 	{
 		currentLevelIndex++;
-		GD.Print($"Загружаем уровень {currentLevelIndex}");
 		if (currentLevelIndex < levels.Length)
 		{
 			var next = levels[currentLevelIndex];
 			if (next.levelScene != null)
 				GetTree().ChangeSceneToPacked(next.levelScene);
 		}
-		else
-			GD.Print("Last level reached!");
 	}
 
 	private List<Gear> GetAllGears()
@@ -438,4 +437,16 @@ foreach (var g in GetAllGears())
 				gears.Add(g);
 		return gears;
 	}
+	public void RestoreUnlocks()
+{
+	if (SaveSystem.CurrentUser == null || levels == null) return;
+	for (int i = 0; i < levels.Length; i++)
+	{
+		if (i == 0) { levels[i].isUnlocked = true; continue; }
+		if (SaveSystem.CurrentUser.LevelResults.ContainsKey(i - 1))
+			levels[i].isUnlocked = SaveSystem.CurrentUser.LevelResults[i - 1].BestStars >= 1;
+		else
+			levels[i].isUnlocked = false;
+	}
+}
 }
