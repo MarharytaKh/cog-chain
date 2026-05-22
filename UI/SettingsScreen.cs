@@ -13,11 +13,13 @@ public partial class SettingsScreen : CanvasLayer
 
 		_musicSlider   = GetNode<HSlider>("MusicSlider");
 		_sfxSlider     = GetNode<HSlider>("SFXSlider");
-		_languageBtn   = GetNode<TextureButton>("LanguageButton");
-		_languageLabel = GetNode<Label>("LanguageLabel");
+		_languageBtn   = FindChild("LanguageButton") as TextureButton;
+		_languageLabel = FindChild("LanguageLabel") as Label;
 
 		_musicSlider.Value = SettingsManager.MusicVolume;
 		_sfxSlider.Value   = SettingsManager.SfxVolume;
+
+		RefreshLabels();
 		UpdateLanguageLabel();
 
 		_musicSlider.ValueChanged += v =>
@@ -40,6 +42,7 @@ public partial class SettingsScreen : CanvasLayer
 			SettingsManager.ToggleLanguage();
 			SettingsManager.Save();
 			UpdateLanguageLabel();
+			RefreshLabels();
 		};
 
 		GetNode<TextureButton>("BackButton").Pressed += () =>
@@ -52,5 +55,17 @@ public partial class SettingsScreen : CanvasLayer
 	private void UpdateLanguageLabel()
 	{
 		_languageLabel.Text = SettingsManager.Language == "en" ? "English" : "Polski";
+	}
+
+	private void RefreshLabels()
+	{
+		var backLabel = GetNodeOrNull<Label>("Button2Label");
+		if (backLabel != null) backLabel.Text = Tr("BACK");
+
+		var musicLabel = GetNodeOrNull<Label>("Music");
+		if (musicLabel != null) musicLabel.Text = Tr("MUSIC");
+
+		var sfxLabel = GetNodeOrNull<Label>("SFX");
+		if (sfxLabel != null) sfxLabel.Text = Tr("SFX");
 	}
 }

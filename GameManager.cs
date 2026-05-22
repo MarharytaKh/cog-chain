@@ -142,15 +142,15 @@ public partial class GameManager : Node
 
 		if (currentLevelIndex == 0)
 			if (SaveSystem.UnlockAchievement("first_level"))
-				ShowNotification("🏆 Первый шаг!");
+				ShowNotification(Tr("ACH_FIRST_LEVEL"));
 
 		if (!_removedGear)
 			if (SaveSystem.UnlockAchievement("no_remove"))
-				ShowNotification("🏆 Чистая работа!");
+				ShowNotification(Tr("ACH_NO_REMOVE"));
 
 		if (_time < 15f)
 			if (SaveSystem.UnlockAchievement("speed_run"))
-				ShowNotification("🏆 Молния!");
+				ShowNotification(Tr("ACH_SPEED_RUN"));
 
 		if (SaveSystem.CurrentUser != null)
 		{
@@ -160,7 +160,7 @@ public partial class GameManager : Node
 					{ allDone = false; break; }
 			if (allDone)
 				if (SaveSystem.UnlockAchievement("game_complete"))
-					ShowNotification("🏆 Покоритель!");
+					ShowNotification(Tr("ACH_GAME_COMPLETE"));
 		}
 
 		bool allUsed = true;
@@ -168,11 +168,11 @@ public partial class GameManager : Node
 			if (remainingGearCounts[i] > 0) { allUsed = false; break; }
 		if (allUsed)
 			if (SaveSystem.UnlockAchievement("all_gears"))
-				ShowNotification("🏆 Без остатка!");
+				ShowNotification(Tr("ACH_ALL_GEARS"));
 
 		if (stars == 5)
 			if (SaveSystem.UnlockAchievement("five_stars"))
-				ShowNotification("🏆 Перфекционист!");
+				ShowNotification(Tr("ACH_FIVE_STARS"));
 
 		if (SaveSystem.CurrentUser != null)
 		{
@@ -185,7 +185,7 @@ public partial class GameManager : Node
 			}
 			if (allMax)
 				if (SaveSystem.UnlockAchievement("all_stars"))
-					ShowNotification("🏆 Абсолют!");
+					ShowNotification(Tr("ACH_ALL_STARS"));
 		}
 
 		float capturedTime  = _time;
@@ -216,7 +216,7 @@ public partial class GameManager : Node
 		_restartCount++;
 		if (_restartCount >= 3)
 			if (SaveSystem.UnlockAchievement("persistent"))
-				ShowNotification("🏆 Настойчивость!");
+				ShowNotification(Tr("ACH_PERSISTENT"));
 
 		var scene = levels[currentLevelIndex].levelScene;
 		if (scene != null)
@@ -262,7 +262,7 @@ public partial class GameManager : Node
 				{
 					if (remainingGearCounts[index] <= 0)
 					{
-						ShowNotification("There are no gears left!");
+						ShowNotification(Tr("NO_GEARS_LEFT"));
 						return;
 					}
 					SelectedGearConfig = currentLevel.availableGearTypes[index];
@@ -354,7 +354,7 @@ public partial class GameManager : Node
 
 			if (dist < minDist)
 			{
-				ShowNotification("There is no space for another gear here!");
+				ShowNotification(Tr("NO_SPACE"));
 				return;
 			}
 		}
@@ -362,7 +362,7 @@ public partial class GameManager : Node
 		float distMotor = targetPos.DistanceTo(motor.GlobalPosition);
 		if (distMotor < (newRadius + motor.Radius) - 0.1f)
 		{
-			ShowNotification("The space is occupied by motor!");
+			ShowNotification(Tr("OCCUPIED_MOTOR"));
 			return;
 		}
 
@@ -371,7 +371,7 @@ public partial class GameManager : Node
 			float distT = targetPos.DistanceTo(t.GlobalPosition);
 			if (distT < (newRadius + t.Radius) - 0.1f)
 			{
-				ShowNotification("The space is occupied by target!");
+				ShowNotification(Tr("OCCUPIED_TARGET"));
 				return;
 			}
 		}
@@ -382,7 +382,7 @@ public partial class GameManager : Node
 			float expectedMotor = SelectedGearConfig.Radius + motor.Radius;
 			if (Mathf.Abs(distToMotor - expectedMotor) < 0.3f)
 			{
-				ShowNotification("Big gear can't connect to motor!");
+				ShowNotification(Tr("BIG_NO_MOTOR"));
 				return;
 			}
 			foreach (var t in targets)
@@ -391,7 +391,7 @@ public partial class GameManager : Node
 				float expectedTarget = SelectedGearConfig.Radius + t.Radius;
 				if (Mathf.Abs(distToTarget - expectedTarget) < 0.3f)
 				{
-					ShowNotification("Big gear can't connect to target!");
+					ShowNotification(Tr("BIG_NO_TARGET"));
 					return;
 				}
 			}
@@ -417,7 +417,7 @@ public partial class GameManager : Node
 			{
 				if (!AreCompatible(SelectedGearConfig, g.config) || !AreCompatible(g.config, SelectedGearConfig))
 				{
-					ShowNotification("These gears are incompatible!");
+					ShowNotification(Tr("INCOMPATIBLE"));
 					return;
 				}
 			}
@@ -481,7 +481,7 @@ public partial class GameManager : Node
 			if (count >= 4)
 			{
 				if (SaveSystem.UnlockAchievement("chain_master"))
-					ShowNotification("🏆 Мастер цепи!");
+					ShowNotification(Tr("ACH_CHAIN_MASTER"));
 				return;
 			}
 		}

@@ -50,17 +50,17 @@ expand_mode = 1
 [node name="TimeLabel" type="Label" parent="Panel" unique_id=952538343]
 layout_mode = 0
 offset_left = 815.0
-offset_top = 462.0
+offset_top = 481.0
 offset_right = 1149.0
-offset_bottom = 549.0
+offset_bottom = 568.0
 label_settings = SubResource("LabelSettings_rtpda")
 
 [node name="MovesLabel" type="Label" parent="Panel" unique_id=1080571153]
 layout_mode = 0
-offset_left = 778.0
-offset_top = 708.0
-offset_right = 1162.0
-offset_bottom = 817.0
+offset_left = 783.0
+offset_top = 727.0
+offset_right = 1167.0
+offset_bottom = 836.0
 label_settings = SubResource("LabelSettings_02xaq")
 
 [node name="nextButton" type="TextureButton" parent="Panel" unique_id=362106545]
@@ -77,10 +77,10 @@ stretch_mode = 0
 
 [node name="Button2Label" type="Label" parent="Panel" unique_id=1418907553]
 layout_mode = 0
-offset_left = 789.0
-offset_top = 220.0
-offset_right = 1179.0
-offset_bottom = 343.0
+offset_left = 787.0
+offset_top = 217.0
+offset_right = 1364.0
+offset_bottom = 340.0
 text = "Choose level
 "
 label_settings = SubResource("LabelSettings_nfslp")

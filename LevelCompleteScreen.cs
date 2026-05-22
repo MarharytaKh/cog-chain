@@ -42,8 +42,12 @@ public partial class LevelCompleteScreen : CanvasLayer
 		var movesLabel = GetNodeOrNull<Label>("Panel/MovesLabel");
 		var starsLabel = GetNodeOrNull<Label>("Panel/StarsLabel");
 
-		if (timeLabel  != null) timeLabel.Text  = $"Время: {(int)time / 60}:{(time % 60):00}";
-		if (movesLabel != null) movesLabel.Text = $"Ходов: {moves}";
+		if (timeLabel  != null) timeLabel.Text  = $"{Tr("TIME_LABEL")} {(int)time / 60}:{(time % 60):00}";
+		if (movesLabel != null) movesLabel.Text = $"{Tr("MOVES_LABEL")} {moves}";
 		if (starsLabel != null) starsLabel.Text = new string('★', stars) + new string('☆', 5 - stars);
+	
+	var nextLabel    = GetNodeOrNull<Label>("Panel/Button2Label");
+
+if (nextLabel    != null) nextLabel.Text    = Tr("CH_LEVEL");
 	}
 }

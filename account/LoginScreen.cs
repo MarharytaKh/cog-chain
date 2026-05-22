@@ -12,8 +12,7 @@ public partial class LoginScreen : CanvasLayer
 
 		_usernameInput = GetNode<LineEdit>("UsernameInput");
 		_passwordInput = GetNode<LineEdit>("PasswordInput");
-		_errorLabel = GetNode<Label>("ErrorLabel");
-
+		_errorLabel    = GetNode<Label>("ErrorLabel");
 		_errorLabel.Text = "";
 
 		GetNode<TextureButton>("LoginButton").Pressed += OnLogin;
@@ -27,17 +26,18 @@ public partial class LoginScreen : CanvasLayer
 
 		if (username == "" || password == "")
 		{
-			_errorLabel.Text = "Заполни все поля!";
+			_errorLabel.Text = Tr("FILL_FIELDS");
 			return;
 		}
 
-		if (SaveSystem.Login(username, password)){
+		if (SaveSystem.Login(username, password))
+		{
 			var gm = GetNode<GameManager>("/root/GameManager");
-	gm?.RestoreUnlocks();
+			gm?.RestoreUnlocks();
 			GetTree().ChangeSceneToFile("res://main.tscn");
-			}
+		}
 		else
-			_errorLabel.Text = "Неверный логин или пароль!";
+			_errorLabel.Text = Tr("WRONG_PASSWORD");
 	}
 
 	private void OnRegister()
@@ -47,7 +47,7 @@ public partial class LoginScreen : CanvasLayer
 
 		if (username == "" || password == "")
 		{
-			_errorLabel.Text = "Заполни все поля!";
+			_errorLabel.Text = Tr("FILL_FIELDS");
 			return;
 		}
 
@@ -57,6 +57,6 @@ public partial class LoginScreen : CanvasLayer
 			GetTree().ChangeSceneToFile("res://main.tscn");
 		}
 		else
-			_errorLabel.Text = "Такой пользователь уже существует!";
+			_errorLabel.Text = Tr("USER_EXISTS");
 	}
 }

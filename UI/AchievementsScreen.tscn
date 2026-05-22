@@ -26,6 +26,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Button2Label" type="Label" parent="." unique_id=966542693]
+auto_translate_mode = 1
 offset_left = 153.0
 offset_top = 873.0
 offset_right = 566.0

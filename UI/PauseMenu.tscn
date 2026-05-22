@@ -7,7 +7,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_wf1sp"]
 font = ExtResource("4_kuww5")
-font_size = 60
+font_size = 70
 font_color = Color(0.93756247, 0.9142811, 0.7310875, 1)
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1472800500]
@@ -44,21 +44,33 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Button2Label" type="Label" parent="Panel" unique_id=1078631528]
-layout_mode = 0
-offset_left = 777.0
-offset_top = 660.0
-offset_right = 1191.0
-offset_bottom = 783.0
-text = "Back to menu
-"
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.37500003
+anchor_top = 0.61
+anchor_right = 0.614
+anchor_bottom = 0.67200005
+offset_left = -0.62506104
+offset_top = -5.580017
+offset_right = -0.21008301
+offset_bottom = -0.41607666
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back to menu"
 label_settings = SubResource("LabelSettings_wf1sp")
 
 [node name="Button2Label2" type="Label" parent="Panel" unique_id=544944279]
-layout_mode = 0
-offset_left = 857.0
-offset_top = 281.0
-offset_right = 1271.0
-offset_bottom = 404.0
-text = "Resume
-"
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41400003
+anchor_top = 0.26200002
+anchor_right = 0.554
+anchor_bottom = 0.324
+offset_left = 0.789917
+offset_top = -4.436035
+offset_right = 0.6899414
+offset_bottom = -0.27200317
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"
 label_settings = SubResource("LabelSettings_wf1sp")

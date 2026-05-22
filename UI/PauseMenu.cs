@@ -5,6 +5,13 @@ public partial class PauseMenu : CanvasLayer
 	public override void _Ready()
 	{
 		Layer = 30;
+		
+		var backLabel = GetNodeOrNull<Label>("Panel/Button2Label");
+if (backLabel != null) backLabel.Text = Tr("BACK");
+		
+				var resumeLabel = GetNodeOrNull<Label>("Panel/Button2Label2");
+if (resumeLabel != null) resumeLabel.Text = Tr("RESUME");
+		
 		ProcessMode = ProcessModeEnum.Always;
 		GetTree().Paused = true;
 

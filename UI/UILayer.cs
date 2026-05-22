@@ -12,6 +12,8 @@ public partial class UILayer : Node
 				var pause = GD.Load<PackedScene>("res://UI/PauseMenu.tscn").Instantiate();
 				GetTree().Root.AddChild(pause);
 			};
+			var pauseLabel = GetNodeOrNull<Label>("UI/Panel/Button2Label");
+if (pauseLabel != null) pauseLabel.Text = Tr("PAUSE");
 	}
 
 	public override void _Process(double delta)
@@ -22,13 +24,13 @@ public partial class UILayer : Node
 		var timeLabel  = GetNodeOrNull<Label>("UI/Panel/TimeLabel");
 		var movesLabel = GetNodeOrNull<Label>("UI/Panel/MovesLabel");
 
-		if (timeLabel != null)
-		{
-			float t = gm.GetTime();
-			timeLabel.Text = $"Time: {(int)t / 60}:{(t % 60):00}";
-		}
+if (timeLabel != null)
+{
+	float t = gm.GetTime();
+	timeLabel.Text = $"{Tr("TIME_LABEL")} {(int)t / 60}:{(t % 60):00}";
+}
 
-		if (movesLabel != null)
-			movesLabel.Text = $"Moves: {gm.GetMoves()}";
+if (movesLabel != null)
+	movesLabel.Text = $"{Tr("MOVES_LABEL")} {gm.GetMoves()}";
 	}
 }

@@ -11,6 +11,10 @@ public partial class LevelSelect : CanvasLayer
 	{
 		Layer = 15;
 
+var backLabel = GetNodeOrNull<Label>("Panel/Button2Label");
+if (backLabel != null) backLabel.Text = Tr("BACK");
+
+
 		var backBtn = GetNodeOrNull<TextureButton>("Panel/BackButton");
 		if (backBtn != null)
 			backBtn.Pressed += () =>
@@ -39,7 +43,7 @@ public partial class LevelSelect : CanvasLayer
 				btn.TextureNormal = ButtonTexture;
 
 			var label = new Label();
-			label.Text = $"Level {i + 1}";
+			label.Text = $"{Tr("LEVEL_NUM")} {i + 1}";
 			label.HorizontalAlignment = HorizontalAlignment.Center;
 			label.VerticalAlignment = VerticalAlignment.Center;
 			label.SetAnchorsPreset(Control.LayoutPreset.FullRect);
@@ -51,7 +55,7 @@ public partial class LevelSelect : CanvasLayer
 			if (!level.isUnlocked)
 			{
 				btn.Disabled = true;
-				label.Text += "\n🔒";
+				label.Text += "  🔒";
 			}
 
 			btn.AddChild(label);

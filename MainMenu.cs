@@ -27,5 +27,18 @@ public partial class MainMenu : Control
 			SoundManager.Instance?.PlayClick();
 			GetTree().ChangeSceneToFile("res://UI/SettingsScreen.tscn");
 		};
+		
+		
+				var newLabel = GetNodeOrNull<Label>("Button/Button2Label");
+if (newLabel != null) newLabel.Text = Tr("CH_LEVEL");
+
+		var loadLabel = GetNodeOrNull<Label>("LoadButton/LoadButton2Label");
+if (loadLabel != null) loadLabel.Text = Tr("L_SAVE");
+
+var achLabel = GetNodeOrNull<Label>("AchievementButton/LoadButtonAchievements");
+if (achLabel != null) achLabel.Text = Tr("ACHIEVEMENTS");
+
+var btnLabel = GetNodeOrNull<Label>("SettingsButton/LabelSettings");
+if (btnLabel != null) btnLabel.Text = Tr("SETTINGS");
 	}
 }

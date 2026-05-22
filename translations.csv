@@ -1,0 +1,54 @@
+keys,en,pl
+NO_GEARS_LEFT,No gears left!,Brak kół zębatych!
+NO_SPACE,No space for a gear here!,Brak miejsca na koło tutaj!
+OCCUPIED_MOTOR,Space occupied by motor!,Miejsce zajęte przez silnik!
+OCCUPIED_TARGET,Space occupied by target!,Miejsce zajęte przez cel!
+BIG_NO_MOTOR,Big gear can't connect to motor!,Duże koło nie może połączyć się z silnikiem!
+BIG_NO_TARGET,Big gear can't connect to target!,Duże koło nie może połączyć się z celem!
+INCOMPATIBLE,These gears are incompatible!,Te koła są niekompatybilne!
+ACH_FIRST_LEVEL,First Step,Pierwszy Krok
+ACH_NO_REMOVE,Clean Work,Czysta Robota
+ACH_SPEED_RUN,Lightning,Błyskawica
+ACH_GAME_COMPLETE,Conqueror,Zdobywca
+ACH_ALL_GEARS,No Leftovers,Bez Reszty
+ACH_FIVE_STARS,Perfectionist,Perfekcjonista
+ACH_ALL_STARS,Absolute,Absolut
+ACH_PERSISTENT,Persistence,Wytrwałość
+ACH_CHAIN_MASTER,Chain Master,Mistrz Łańcucha
+TIME_LABEL,Time:,Czas:
+MOVES_LABEL,Moves:,Ruchy:
+FILL_FIELDS,Fill in all fields!,Wypełnij wszystkie pola!
+WRONG_PASSWORD,Wrong login or password!,Nieprawidłowy login lub hasło!
+USER_EXISTS,This user already exists!,Ten użytkownik już istnieje!
+LEVEL_SELECT,Level Select,Wybór Poziomu
+SETTINGS,Settings,Ustawienia
+ACHIEVEMENTS,Achievements,Osiągnięcia
+CH_LEVEL,Choose Level,Wybór poziomu
+PAUSE,Pause,Pauza
+BACK,Back,Wróć
+MUSIC,Music,Muzyka
+SFX,Sound Effects,Efekty Dźwiękowe
+LANGUAGE,Language,Język
+RESUME,Resume,Wznów
+MENU,Menu,Menu
+RESTART,Restart,Restart
+L_SAVE,Load save,Wczytaj grę
+LEVEL_NUM,Level,Poziom
+ACH_NAME_FIRST_LEVEL,First Step,Pierwszy Krok
+ACH_DESC_FIRST_LEVEL,Complete the first level,Ukończ pierwszy poziom
+ACH_NAME_CHAIN_MASTER,Chain Master,Mistrz Łańcucha
+ACH_DESC_CHAIN_MASTER,One gear drives 4+ others,Jedno koło napędza 4+ innych
+ACH_NAME_NO_REMOVE,Clean Work,Czysta Robota
+ACH_DESC_NO_REMOVE,Complete a level without removing gears,Ukończ poziom bez usuwania kół
+ACH_NAME_SPEED_RUN,Lightning,Błyskawica
+ACH_DESC_SPEED_RUN,Complete a level in under 15 seconds,Ukończ poziom w czasie krótszym niż 15 sekund
+ACH_NAME_GAME_COMPLETE,Conqueror,Zdobywca
+ACH_DESC_GAME_COMPLETE,Complete the game,Ukończ grę
+ACH_NAME_ALL_GEARS,No Leftovers,Bez Reszty
+ACH_DESC_ALL_GEARS,Use all available gears,Użyj wszystkich dostępnych kół
+ACH_NAME_FIVE_STARS,Perfectionist,Perfekcjonista
+ACH_DESC_FIVE_STARS,Get 5 stars on any level,Zdobądź 5 gwiazdek na dowolnym poziomie
+ACH_NAME_ALL_STARS,Absolute,Absolut
+ACH_DESC_ALL_STARS,Collect all stars on all levels,Zbierz wszystkie gwiazdki na wszystkich poziomach
+ACH_NAME_PERSISTENT,Persistence,Wytrwałość
+ACH_DESC_PERSISTENT,Restart a level 3 times in a row,Uruchom poziom ponownie 3 razy z rzędu

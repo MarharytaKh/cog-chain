@@ -35,6 +35,7 @@ public static class SettingsManager
 
 	public static void Apply()
 {
+	TranslationServer.SetLocale(Language);
 	int musicBus = AudioServer.GetBusIndex("Music");
 	int sfxBus   = AudioServer.GetBusIndex("SFX");
 
@@ -47,5 +48,6 @@ public static class SettingsManager
 	public static void ToggleLanguage()
 	{
 		Language = Language == "en" ? "pl" : "en";
+		TranslationServer.SetLocale(Language);
 	}
 }
