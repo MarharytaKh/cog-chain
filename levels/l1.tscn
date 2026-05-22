@@ -20,6 +20,7 @@
 [ext_resource type="ArrayMesh" uid="uid://beev1r7eu6t7" path="res://3dModels/gears/op_dla_zr.obj" id="24_1xblf"]
 [ext_resource type="PackedScene" uid="uid://8ep0uxeu8d0r" path="res://UI/Notification.tscn" id="24_u72j1"]
 [ext_resource type="Texture2D" uid="uid://nvd25pdm331l" path="res://3dModels/gears/textures/target_base/defaultMat_Base_color_1001.png" id="25_dhl3v"]
+[ext_resource type="PackedScene" uid="uid://lcoc67urydaw" path="res://Tutorial.tscn" id="25_v1guc"]
 [ext_resource type="Texture2D" uid="uid://c764iyws6l7et" path="res://3dModels/gears/textures/target_base/defaultMat_Height_1001.png" id="26_28kfj"]
 [ext_resource type="Texture2D" uid="uid://urkg7qo2fdyp" path="res://3dModels/gears/textures/target_base/defaultMat_Normal_OpenGL_1001.png" id="27_ullie"]
 [ext_resource type="Texture2D" uid="uid://itqsbqy2gxb3" path="res://3dModels/gears/textures/target_base/defaultMat_Roughness_1001.png" id="28_47ock"]
@@ -196,3 +197,5 @@ spot_range = 20.16
 spot_attenuation = 0.35
 spot_angle = 72.73
 spot_angle_attenuation = 0.23325916
+
+[node name="Tutorial" parent="." unique_id=356969773 instance=ExtResource("25_v1guc")]

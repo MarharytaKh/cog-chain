@@ -519,7 +519,7 @@ public partial class GameManager : Node
 		}
 	}
 
-	private List<Gear> GetAllGears()
+	public List<Gear> GetAllGears()
 	{
 		var gears = new List<Gear>();
 		foreach (Node node in GetChildren())

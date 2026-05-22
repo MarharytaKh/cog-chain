@@ -52,3 +52,11 @@ ACH_NAME_ALL_STARS,Absolute,Absolut
 ACH_DESC_ALL_STARS,Collect all stars on all levels,Zbierz wszystkie gwiazdki na wszystkich poziomach
 ACH_NAME_PERSISTENT,Persistence,Wytrwałość
 ACH_DESC_PERSISTENT,Restart a level 3 times in a row,Uruchom poziom ponownie 3 razy z rzędu
+TUT_SELECT_GEAR,Select a gear from the panel,Wybierz koło zębate z panelu
+TUT_SELECT_AXIS,Click on an axis to select it,Kliknij na oś aby ją wybrać
+TUT_PLACE_GEAR,Place the gear on the axis,Umieść koło na osi
+TUT_CONNECT_MOTOR,Connect the gear to the motor,Połącz koło z silnikiem
+TUT_ACTIVATE_TARGET,Make the target rotate to complete the level,Wpraw cel w ruch aby ukończyć
+TUT_TIMER_MOVES,This is the timer and move counter. Complete the level faster and with fewer moves for more stars,To jest timer i licznik ruchów. Ukończ poziom szybciej i z mniejszą liczbą ruchów aby zdobyć więcej gwiazdek
+TUT_MOTOR,This is the motor. It drives the gears,To jest silnik. Napędza koła zębate
+TUT_TARGET,This is the target. Make it rotate to complete the level,To jest cel. Wpraw go w ruch aby ukończyć poziom

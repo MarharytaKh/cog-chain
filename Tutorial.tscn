@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://lcoc67urydaw"]
+
+[ext_resource type="Script" uid="uid://d0ycwhdgm8rc1" path="res://TutorialManager.cs" id="1_5s8la"]
+[ext_resource type="Texture2D" uid="uid://duvt5jpntssxt" path="res://UI/time_black.png" id="2_73or5"]
+[ext_resource type="Texture2D" uid="uid://ckuv8641dtlk6" path="res://UI/panel.png" id="2_fr6qw"]
+[ext_resource type="Texture2D" uid="uid://dh8fvdt8y5mcu" path="res://UI/axis_black.png" id="3_jldhp"]
+[ext_resource type="Texture2D" uid="uid://be0310acbxr8n" path="res://UI/motor_black.png" id="4_tyy4w"]
+[ext_resource type="Texture2D" uid="uid://dbsnssir3utn4" path="res://UI/target_black.png" id="5_swigd"]
+[ext_resource type="Texture2D" uid="uid://w5s3qnb21c2w" path="res://UI/gear_black.png" id="6_swigd"]
+[ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="7_hp7xp"]
+[ext_resource type="Texture2D" uid="uid://b8keircnjeny8" path="res://UI/button_2.png" id="8_tyy4w"]
+[ext_resource type="Texture2D" uid="uid://d2j637wam76or" path="res://UI/button_pressed2.png" id="9_swigd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tpsgm"]
+font = ExtResource("7_hp7xp")
+font_size = 40
+font_color = Color(0.93756247, 0.9142811, 0.7310875, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tyy4w"]
+font = ExtResource("7_hp7xp")
+font_size = 50
+font_color = Color(0.93756247, 0.9142811, 0.7310875, 1)
+
+[node name="Tutorial" type="CanvasLayer" unique_id=356969773]
+script = ExtResource("1_5s8la")
+StepTextures = Array[Texture2D]([ExtResource("2_73or5"), ExtResource("4_tyy4w"), ExtResource("5_swigd"), ExtResource("3_jldhp"), ExtResource("6_swigd")])
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1965890830]
+offset_left = -1.0
+offset_top = -7.0
+offset_right = 2024.0
+offset_bottom = 1078.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1465665944]
+offset_left = 143.0
+offset_top = 620.0
+offset_right = 795.0
+offset_bottom = 1031.0
+mouse_filter = 2
+texture = ExtResource("2_fr6qw")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=1810056908]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 57.0
+offset_right = 606.0
+offset_bottom = 353.0
+label_settings = SubResource("LabelSettings_tpsgm")
+autowrap_mode = 2
+clip_text = true
+
+[node name="OkButton" type="TextureButton" parent="." unique_id=1562742281]
+offset_left = 1225.0
+offset_top = 938.0
+offset_right = 1650.8334
+offset_bottom = 1030.0
+texture_normal = ExtResource("8_tyy4w")
+texture_pressed = ExtResource("9_swigd")
+texture_hover = ExtResource("9_swigd")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="OkButton" unique_id=659550441]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35200003
+anchor_top = 0.21700001
+anchor_right = 0.66200006
+anchor_bottom = 0.79300004
+offset_left = 0.10664368
+offset_top = 2.0359993
+offset_right = 0.0982666
+offset_bottom = 0.04399872
+grow_horizontal = 2
+grow_vertical = 2
+text = "Next"
+label_settings = SubResource("LabelSettings_tyy4w")
