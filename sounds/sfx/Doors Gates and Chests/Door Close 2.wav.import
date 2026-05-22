@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://vjglvhpawkrp"
+path="res://.godot/imported/Door Close 2.wav-df786b432e631b142b7a0a8a3633adad.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/Doors Gates and Chests/Door Close 2.wav"
+dest_files=["res://.godot/imported/Door Close 2.wav-df786b432e631b142b7a0a8a3633adad.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

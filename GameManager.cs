@@ -22,6 +22,8 @@ public partial class GameManager : Node
 	private float _time = 0f;
 	private int _moves = 0;
 	private bool _removedGear = false;
+	private int _restartCount = 0;
+	private int _lastRestartedLevel = -1;
 
 	public void LoadLevelByIndex(int index)
 	{
@@ -78,7 +80,6 @@ public partial class GameManager : Node
 			return;
 		}
 
-		// Восстанавливаем разблокировку из сохранения
 		if (SaveSystem.CurrentUser != null)
 		{
 			for (int i = 0; i < levels.Length; i++)
@@ -131,26 +132,26 @@ public partial class GameManager : Node
 
 	public void CompleteLevel()
 	{
+		SoundManager.Instance?.StopSpin();
+
 		int stars = CalculateStars(_time, _moves);
 		SaveSystem.SaveLevelResult(currentLevelIndex, _time, _moves, stars);
 
-		// Разблокировать следующий уровень если хотя бы 1 звезда
 		if (stars >= 1 && currentLevelIndex + 1 < levels.Length)
 			levels[currentLevelIndex + 1].isUnlocked = true;
 
-		// Ачивка 1 — первый уровень
 		if (currentLevelIndex == 0)
-			SaveSystem.UnlockAchievement("first_level");
+			if (SaveSystem.UnlockAchievement("first_level"))
+				ShowNotification("🏆 Первый шаг!");
 
-		// Ачивка 3 — без удалений
 		if (!_removedGear)
-			SaveSystem.UnlockAchievement("no_remove");
+			if (SaveSystem.UnlockAchievement("no_remove"))
+				ShowNotification("🏆 Чистая работа!");
 
-		// Ачивка 4 — быстрее 15 секунд
 		if (_time < 15f)
-			SaveSystem.UnlockAchievement("speed_run");
+			if (SaveSystem.UnlockAchievement("speed_run"))
+				ShowNotification("🏆 Молния!");
 
-		// Ачивка 5 — все уровни пройдены
 		if (SaveSystem.CurrentUser != null)
 		{
 			bool allDone = true;
@@ -158,7 +159,33 @@ public partial class GameManager : Node
 				if (!SaveSystem.CurrentUser.LevelResults.ContainsKey(i))
 					{ allDone = false; break; }
 			if (allDone)
-				SaveSystem.UnlockAchievement("game_complete");
+				if (SaveSystem.UnlockAchievement("game_complete"))
+					ShowNotification("🏆 Покоритель!");
+		}
+
+		bool allUsed = true;
+		for (int i = 0; i < remainingGearCounts.Length; i++)
+			if (remainingGearCounts[i] > 0) { allUsed = false; break; }
+		if (allUsed)
+			if (SaveSystem.UnlockAchievement("all_gears"))
+				ShowNotification("🏆 Без остатка!");
+
+		if (stars == 5)
+			if (SaveSystem.UnlockAchievement("five_stars"))
+				ShowNotification("🏆 Перфекционист!");
+
+		if (SaveSystem.CurrentUser != null)
+		{
+			bool allMax = true;
+			for (int i = 0; i < levels.Length; i++)
+			{
+				if (!SaveSystem.CurrentUser.LevelResults.ContainsKey(i) ||
+					SaveSystem.CurrentUser.LevelResults[i].BestStars < 5)
+					{ allMax = false; break; }
+			}
+			if (allMax)
+				if (SaveSystem.UnlockAchievement("all_stars"))
+					ShowNotification("🏆 Абсолют!");
 		}
 
 		float capturedTime  = _time;
@@ -181,6 +208,16 @@ public partial class GameManager : Node
 
 	public void RestartLevel()
 	{
+		if (_lastRestartedLevel != currentLevelIndex)
+		{
+			_restartCount = 0;
+			_lastRestartedLevel = currentLevelIndex;
+		}
+		_restartCount++;
+		if (_restartCount >= 3)
+			if (SaveSystem.UnlockAchievement("persistent"))
+				ShowNotification("🏆 Настойчивость!");
+
 		var scene = levels[currentLevelIndex].levelScene;
 		if (scene != null)
 			GetTree().ChangeSceneToPacked(scene);
@@ -270,6 +307,7 @@ public partial class GameManager : Node
 				RemoveChild(gear);
 				gear.QueueFree();
 				_moves++;
+				SoundManager.Instance?.PlayGearRemove();
 				CallDeferred(nameof(ReenableMotorAndRecalculate));
 				return;
 			}
@@ -431,10 +469,10 @@ public partial class GameManager : Node
 			}
 		}
 		_moves++;
+		SoundManager.Instance?.PlayGearPlace();
 		Recalculate();
 	}
 
-	// Ачивка 2 — одна шестерёнка запускает 4+ других
 	public void CheckChainAchievement(List<Gear> gears)
 	{
 		foreach (var g in gears)
@@ -442,7 +480,8 @@ public partial class GameManager : Node
 			int count = CountChildren(g);
 			if (count >= 4)
 			{
-				SaveSystem.UnlockAchievement("chain_master");
+				if (SaveSystem.UnlockAchievement("chain_master"))
+					ShowNotification("🏆 Мастер цепи!");
 				return;
 			}
 		}
@@ -462,6 +501,11 @@ public partial class GameManager : Node
 		if (targets.Count == 0) return;
 		PhysicsEngine.BuildGraph(motor, gears, targets, this);
 		CheckChainAchievement(gears);
+
+		if (motor.Children.Count > 0)
+			SoundManager.Instance?.StartSpin();
+		else
+			SoundManager.Instance?.StopSpin();
 	}
 
 	public void LoadNextLevel()

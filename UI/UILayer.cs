@@ -4,11 +4,14 @@ public partial class UILayer : Node
 {
 	public override void _Ready()
 	{
-		GetNodeOrNull<TextureButton>("UI/Panel/PauseButton")?.Connect("pressed", Callable.From(() =>
-		{
-			var pause = GD.Load<PackedScene>("res://UI/PauseMenu.tscn").Instantiate();
-			GetTree().Root.AddChild(pause);
-		}));
+		var pauseBtn = GetNodeOrNull<TextureButton>("UI/Panel/PauseButton");
+		if (pauseBtn != null)
+			pauseBtn.Pressed += () =>
+			{
+				SoundManager.Instance?.PlayClick();
+				var pause = GD.Load<PackedScene>("res://UI/PauseMenu.tscn").Instantiate();
+				GetTree().Root.AddChild(pause);
+			};
 	}
 
 	public override void _Process(double delta)
@@ -16,7 +19,7 @@ public partial class UILayer : Node
 		var gm = GetNodeOrNull<GameManager>("/root/GameManager");
 		if (gm == null) return;
 
-		var timeLabel = GetNodeOrNull<Label>("UI/Panel/TimeLabel");
+		var timeLabel  = GetNodeOrNull<Label>("UI/Panel/TimeLabel");
 		var movesLabel = GetNodeOrNull<Label>("UI/Panel/MovesLabel");
 
 		if (timeLabel != null)

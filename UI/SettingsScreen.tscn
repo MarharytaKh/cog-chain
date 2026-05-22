@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://c0el3ltuhy5fn"]
+
+[ext_resource type="Script" uid="uid://cbd6nhjcuudb4" path="res://UI/SettingsScreen.cs" id="1_mu00t"]
+[ext_resource type="Texture2D" uid="uid://daaoavwpolh6j" path="res://UI/button.png" id="2_tfm82"]
+[ext_resource type="Texture2D" uid="uid://634qjxw3at45" path="res://UI/button_pressed.png" id="3_ujqhx"]
+[ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="4_r04t6"]
+[ext_resource type="Texture2D" uid="uid://b8keircnjeny8" path="res://UI/button_2.png" id="5_e5w42"]
+[ext_resource type="Texture2D" uid="uid://d2j637wam76or" path="res://UI/button_pressed2.png" id="6_u685u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k2bpc"]
+font = ExtResource("4_r04t6")
+font_size = 60
+font_color = Color(0.93756247, 0.9142811, 0.7310875, 1)
+
+[node name="SettingsScreen" type="CanvasLayer" unique_id=1206782945]
+script = ExtResource("1_mu00t")
+
+[node name="BackButton" type="TextureButton" parent="." unique_id=1838302004]
+offset_left = 707.0
+offset_top = 1153.9999
+offset_right = 1381.1257
+offset_bottom = 1485.0409
+rotation = -3.1513636
+texture_normal = ExtResource("2_tfm82")
+texture_pressed = ExtResource("3_ujqhx")
+texture_hover = ExtResource("3_ujqhx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button2Label" type="Label" parent="." unique_id=818945738]
+offset_left = 153.0
+offset_top = 873.0
+offset_right = 566.0
+offset_bottom = 996.0
+text = "Back to menu
+"
+label_settings = SubResource("LabelSettings_k2bpc")
+
+[node name="MusicSlider" type="HSlider" parent="." unique_id=1079919134]
+offset_left = 1029.0
+offset_top = 206.0
+offset_right = 1495.0
+offset_bottom = 266.0
+value = 80.0
+
+[node name="SFXSlider" type="HSlider" parent="." unique_id=1714452703]
+offset_left = 1035.0
+offset_top = 374.0
+offset_right = 1501.0
+offset_bottom = 445.0
+value = 80.0
+
+[node name="LanguageButton" type="TextureButton" parent="." unique_id=959060241]
+offset_left = 1020.0
+offset_top = 602.0
+offset_right = 1510.8334
+offset_bottom = 697.0
+texture_normal = ExtResource("5_e5w42")
+texture_pressed = ExtResource("6_u685u")
+texture_hover = ExtResource("6_u685u")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LanguageLabel" type="Label" parent="." unique_id=403200475]
+offset_right = 40.0
+offset_bottom = 23.0

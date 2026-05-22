@@ -8,17 +8,20 @@ public partial class PauseMenu : CanvasLayer
 		ProcessMode = ProcessModeEnum.Always;
 		GetTree().Paused = true;
 
-		GetNode<TextureButton>("Panel/ResumeButton").ProcessMode = ProcessModeEnum.Always;
-		GetNode<TextureButton>("Panel/MenuButton").ProcessMode = ProcessModeEnum.Always;
-
-		GetNode<TextureButton>("Panel/ResumeButton").Pressed += () =>
+		var resumeBtn = GetNode<TextureButton>("Panel/ResumeButton");
+		resumeBtn.ProcessMode = ProcessModeEnum.Always;
+		resumeBtn.Pressed += () =>
 		{
+			SoundManager.Instance?.PlayClick();
 			GetTree().Paused = false;
 			QueueFree();
 		};
 
-		GetNode<TextureButton>("Panel/MenuButton").Pressed += () =>
+		var menuBtn = GetNode<TextureButton>("Panel/MenuButton");
+		menuBtn.ProcessMode = ProcessModeEnum.Always;
+		menuBtn.Pressed += () =>
 		{
+			SoundManager.Instance?.PlayClick();
 			GetTree().Paused = false;
 			QueueFree();
 			var uiManager = GetNode<UIManager>("/root/UIManager");

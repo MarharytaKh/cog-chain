@@ -13,7 +13,11 @@ public partial class LevelSelect : CanvasLayer
 
 		var backBtn = GetNodeOrNull<TextureButton>("Panel/BackButton");
 		if (backBtn != null)
-			backBtn.Pressed += () => GetTree().ChangeSceneToFile("res://main.tscn");
+			backBtn.Pressed += () =>
+			{
+				SoundManager.Instance?.PlayClick();
+				GetTree().ChangeSceneToFile("res://main.tscn");
+			};
 
 		var grid = GetNodeOrNull<GridContainer>("Panel/ScrollContainer/GridContainer");
 		if (grid == null) return;
@@ -51,7 +55,11 @@ public partial class LevelSelect : CanvasLayer
 			}
 
 			btn.AddChild(label);
-			btn.Pressed += () => gm.LoadLevelByIndex(index);
+			btn.Pressed += () =>
+			{
+				SoundManager.Instance?.PlayClick();
+				gm.LoadLevelByIndex(index);
+			};
 			grid.AddChild(btn);
 		}
 	}

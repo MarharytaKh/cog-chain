@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dhji3aac3wojd"
+path="res://.godot/imported/Wave Attack 2.wav-1960b58b70ea29db56f5f4085c2f4af7.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/Spells/Wave Attack 2.wav"
+dest_files=["res://.godot/imported/Wave Attack 2.wav-1960b58b70ea29db56f5f4085c2f4af7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -9,13 +9,13 @@ public partial class LevelCompleteScreen : CanvasLayer
 
 	public void Setup(int currentIndex, int totalLevels, float time, int moves, int stars)
 	{
-		// Кнопка следующего уровня → выбор уровней
 		var nextBtn = GetNodeOrNull<TextureButton>("Panel/nextButton");
 		if (nextBtn != null)
 		{
 			nextBtn.Visible = currentIndex + 1 < totalLevels;
 			nextBtn.Pressed += () =>
 			{
+				SoundManager.Instance?.PlayClick();
 				QueueFree();
 				GetTree().ChangeSceneToFile("res://UI/LevelSelect.tscn");
 			};
@@ -23,17 +23,21 @@ public partial class LevelCompleteScreen : CanvasLayer
 
 		var levelsBtn = GetNodeOrNull<TextureButton>("Panel/LevelsButton");
 		if (levelsBtn != null)
-			levelsBtn.Pressed += () => GetTree().ChangeSceneToFile("res://UI/LevelSelect.tscn");
+			levelsBtn.Pressed += () =>
+			{
+				SoundManager.Instance?.PlayClick();
+				GetTree().ChangeSceneToFile("res://UI/LevelSelect.tscn");
+			};
 
 		var restartBtn = GetNodeOrNull<TextureButton>("Panel/RestartButton");
 		if (restartBtn != null)
 			restartBtn.Pressed += () =>
 			{
+				SoundManager.Instance?.PlayClick();
 				var gm = GetTree().GetFirstNodeInGroup("GameManager") as GameManager;
 				gm?.RestartLevel();
 			};
 
-		// Время и ходы
 		var timeLabel  = GetNodeOrNull<Label>("Panel/TimeLabel");
 		var movesLabel = GetNodeOrNull<Label>("Panel/MovesLabel");
 		var starsLabel = GetNodeOrNull<Label>("Panel/StarsLabel");

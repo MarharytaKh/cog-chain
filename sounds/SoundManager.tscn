@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://rttc0h3vyvt1"]
+
+[ext_resource type="Script" uid="uid://c0g2imjjkas2j" path="res://sounds/SoundManager.cs" id="1_bhhab"]
+[ext_resource type="AudioStream" uid="uid://chupifj456ysn" path="res://sounds/sfx/Chopping and Mining/mine 5.wav" id="2_oou6t"]
+[ext_resource type="AudioStream" uid="uid://c4jke73otk41a" path="res://sounds/music/Night Ambient 5 (Loop).mp3" id="3_oou6t"]
+[ext_resource type="AudioStream" uid="uid://din8xctoiajw8" path="res://sounds/sfx/Attacks/Sword Attacks Hits and Blocks/Sword Parry 3.wav" id="4_5k6c8"]
+[ext_resource type="AudioStream" uid="uid://b3u5trmp2a2sh" path="res://sounds/sfx/Attacks/Sword Attacks Hits and Blocks/Sword Parry 2.wav" id="5_eq2cf"]
+[ext_resource type="AudioStream" uid="uid://cum83nsldl7jn" path="res://sounds/sfx/freesound_community-running-gear-6403.ogg" id="6_5k6c8"]
+
+[node name="SoundManager" type="Node2D" unique_id=32109600]
+script = ExtResource("1_bhhab")
+ButtonClick = ExtResource("2_oou6t")
+BackgroundMusic = ExtResource("3_oou6t")
+GearPlace = ExtResource("4_5k6c8")
+GearRemove = ExtResource("5_eq2cf")
+GearSpin = ExtResource("6_5k6c8")
