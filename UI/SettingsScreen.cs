@@ -70,5 +70,8 @@ public partial class SettingsScreen : CanvasLayer
 		
 				var name = GetNodeOrNull<Label>("Name");
 		if (name != null) name.Text = Tr("SETTINGS");
+		
+						var languageLabel = GetNodeOrNull<Label>("LanguageLab2");
+		if (languageLabel != null) languageLabel.Text = Tr("LANGUAGE");
 	}
 }

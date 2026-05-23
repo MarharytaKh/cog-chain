@@ -88,14 +88,14 @@ label_settings = SubResource("LabelSettings_cf84u")
 
 [node name="LabelT" type="Label" parent="." unique_id=715801490]
 anchors_preset = -1
-anchor_left = 0.094000004
+anchor_left = 0.078
 anchor_top = 0.29000002
-anchor_right = 0.40100002
+anchor_right = 0.446
 anchor_bottom = 0.41700003
-offset_left = -0.8800049
+offset_left = 31.440002
 offset_top = -0.2000122
-offset_right = 0.97998047
-offset_bottom = -0.36001587
+offset_right = -43.920044
+offset_bottom = 52.639984
 grow_horizontal = 2
 grow_vertical = 2
 text = "your results are stored here"
@@ -104,9 +104,17 @@ autowrap_mode = 2
 clip_text = true
 
 [node name="Name" type="Label" parent="." unique_id=1799781698]
-offset_left = 305.0
-offset_top = 175.0
-offset_right = 667.0
-offset_bottom = 269.0
+anchors_preset = -1
+anchor_left = 0.046000004
+anchor_top = 0.148
+anchor_right = 0.416
+anchor_bottom = 0.23500001
+offset_left = -0.9200058
+offset_top = 0.16000366
+offset_right = -0.32000732
+offset_bottom = 0.19998169
+grow_horizontal = 2
+grow_vertical = 2
 text = "Savings"
 label_settings = SubResource("LabelSettings_is64t")
+clip_text = true
