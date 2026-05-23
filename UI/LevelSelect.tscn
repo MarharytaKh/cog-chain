@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://1fhinqkqxrut" path="res://UI/LevelSelect.cs" id="1_4tclt"]
 [ext_resource type="Texture2D" uid="uid://daaoavwpolh6j" path="res://UI/button.png" id="2_deyjv"]
+[ext_resource type="Texture2D" uid="uid://b8keircnjeny8" path="res://UI/button_2.png" id="2_pjb2w"]
 [ext_resource type="Texture2D" uid="uid://634qjxw3at45" path="res://UI/button_pressed.png" id="3_fjtf3"]
 [ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="4_fjtf3"]
+[ext_resource type="Texture2D" uid="uid://d2j637wam76or" path="res://UI/button_pressed2.png" id="4_mx4wy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pjb2w"]
 font = ExtResource("4_fjtf3")
@@ -12,9 +14,12 @@ font_color = Color(0.93756247, 0.9142811, 0.7310875, 1)
 
 [node name="LevelSelect" type="CanvasLayer" unique_id=1417067228]
 script = ExtResource("1_4tclt")
+ButtonTexture = ExtResource("2_pjb2w")
 ButtonFont = ExtResource("4_fjtf3")
 ButtonFontSize = 40
-ButtonSize = Vector2(400, 120)
+ButtonSize = Vector2(600, 130)
+ButtonTextureHover = ExtResource("4_mx4wy")
+ButtonTexturePressed = ExtResource("4_mx4wy")
 
 [node name="Panel" type="Panel" parent="." unique_id=464918426]
 

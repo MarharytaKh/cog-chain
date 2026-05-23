@@ -6,6 +6,8 @@ public partial class LevelSelect : CanvasLayer
 	[Export] public FontFile ButtonFont;
 	[Export] public int ButtonFontSize = 24;
 	[Export] public Vector2 ButtonSize = new Vector2(160, 80);
+	[Export] public Texture2D ButtonTextureHover;
+[Export] public Texture2D ButtonTexturePressed;
 
 	public override void _Ready()
 	{
@@ -41,6 +43,10 @@ if (backLabel != null) backLabel.Text = Tr("BACK");
 
 			if (ButtonTexture != null)
 				btn.TextureNormal = ButtonTexture;
+				if (ButtonTextureHover != null)
+	btn.TextureHover = ButtonTextureHover;
+if (ButtonTexturePressed != null)
+	btn.TexturePressed = ButtonTexturePressed;
 
 			var label = new Label();
 			label.Text = $"{Tr("LEVEL_NUM")} {i + 1}";
