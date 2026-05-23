@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c0el3ltuhy5fn"]
 
 [ext_resource type="Script" uid="uid://cbd6nhjcuudb4" path="res://UI/SettingsScreen.cs" id="1_mu00t"]
+[ext_resource type="Texture2D" uid="uid://djc80vumw2pb4" path="res://UI/14ea0727a5a95c688f9c03b20f793589.jpg" id="2_r04t6"]
 [ext_resource type="Texture2D" uid="uid://daaoavwpolh6j" path="res://UI/button.png" id="2_tfm82"]
 [ext_resource type="Texture2D" uid="uid://ckuv8641dtlk6" path="res://UI/panel.png" id="2_ujqhx"]
 [ext_resource type="Texture2D" uid="uid://634qjxw3at45" path="res://UI/button_pressed.png" id="3_ujqhx"]
@@ -29,6 +30,36 @@ font_size = 93
 
 [node name="SettingsScreen" type="CanvasLayer" unique_id=1206782945]
 script = ExtResource("1_mu00t")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=908261376]
+clip_contents = true
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2032.0
+offset_top = 1101.9999
+offset_right = 2032.0
+offset_bottom = 1102.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.1501696
+scale = Vector2(1.0089937, 1.0441599)
+texture = ExtResource("2_r04t6")
+
+[node name="Panel" type="Panel" parent="." unique_id=1890521679]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1034.0
+offset_top = -554.0
+offset_right = -936.0704
+offset_bottom = -459.64124
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(21.05165, 11.9255)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1736098937]
 offset_left = 759.0

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://634qjxw3at45" path="res://UI/button_pressed.png" id="3_fjtf3"]
 [ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="4_fjtf3"]
 [ext_resource type="Texture2D" uid="uid://d2j637wam76or" path="res://UI/button_pressed2.png" id="4_mx4wy"]
+[ext_resource type="Texture2D" uid="uid://djc80vumw2pb4" path="res://UI/14ea0727a5a95c688f9c03b20f793589.jpg" id="5_bikyt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pjb2w"]
 font = ExtResource("4_fjtf3")
@@ -17,9 +18,31 @@ script = ExtResource("1_4tclt")
 ButtonTexture = ExtResource("2_pjb2w")
 ButtonFont = ExtResource("4_fjtf3")
 ButtonFontSize = 40
-ButtonSize = Vector2(600, 130)
+ButtonSize = Vector2(800, 170)
 ButtonTextureHover = ExtResource("4_mx4wy")
 ButtonTexturePressed = ExtResource("4_mx4wy")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1412878312]
+clip_contents = true
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2032.0
+offset_top = 1101.9999
+offset_right = 2032.0
+offset_bottom = 1102.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.1501696
+scale = Vector2(1.0089937, 1.0441599)
+texture = ExtResource("5_bikyt")
+
+[node name="Panel2" type="Panel" parent="." unique_id=1275817459]
+offset_left = -68.0
+offset_top = -43.0
+offset_right = -29.24865
+offset_bottom = -3.0
+scale = Vector2(56.59425, 29.248434)
 
 [node name="Panel" type="Panel" parent="." unique_id=464918426]
 
@@ -38,10 +61,11 @@ stretch_mode = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1036674509]
 layout_mode = 0
-offset_left = 917.0
-offset_top = 30.0
-offset_right = 1929.0
-offset_bottom = 1054.0
+offset_left = 741.99994
+offset_top = 25.0
+offset_right = 1754.0
+offset_bottom = 1049.0
+scale = Vector2(1.1200024, 1)
 horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer" unique_id=1346116190]
