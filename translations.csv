@@ -23,6 +23,7 @@ USER_EXISTS,This user already exists!,Ten użytkownik już istnieje!
 LEVEL_SELECT,Level Select,Wybór Poziomu
 SETTINGS,Settings,Ustawienia
 ACHIEVEMENTS,Achievements,Osiągnięcia
+T_ACHIEVEMENTS,keep playing to unlock all the achievements,"graj dalej, aby odblokować wszystkie osiągnięcia"
 CH_LEVEL,Choose Level,Wybór poziomu
 PAUSE,Pause,Pauza
 BACK,Back to menu,Wróć do menu
@@ -42,7 +43,7 @@ ACH_NAME_NO_REMOVE,Clean Work,Czysta Robota
 ACH_DESC_NO_REMOVE,Complete a level without removing gears,Ukończ poziom bez usuwania kół
 ACH_NAME_SPEED_RUN,Lightning,Błyskawica
 ACH_DESC_SPEED_RUN,Complete a level in under 15 seconds,Ukończ poziom w czasie krótszym niż 15 sekund
-ACH_NAME_GAME_COMPLETE,Conqueror,Zdobywca
+ACH_NAME_GAME_COMPLETE,Aegon Vēzemos,Aegon Vēzemos
 ACH_DESC_GAME_COMPLETE,Complete the game,Ukończ grę
 ACH_NAME_ALL_GEARS,No Leftovers,Bez Reszty
 ACH_DESC_ALL_GEARS,Use all available gears,Użyj wszystkich dostępnych kół

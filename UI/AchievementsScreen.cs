@@ -14,12 +14,16 @@ public partial class AchievementsScreen : CanvasLayer
 		("persistent",    "ACH_NAME_PERSISTENT",    "ACH_DESC_PERSISTENT"),
 	};
 
-	[Export] public Texture2D ButtonTexture;
 	[Export] public FontFile ButtonFont;
 	[Export] public int ButtonFontSize = 24;
-	[Export] public Vector2 ButtonSize = new Vector2(400, 60);
+	[Export] public int DescFontSize = 18;
 	[Export] public Color FontColor = new Color(1, 1, 1);
 	[Export] public Color LockedColor = new Color(0.5f, 0.5f, 0.5f);
+	[Export] public Vector2 IconSize = new Vector2(64, 64);
+	[Export] public int IconMarginLeft = 60;
+	[Export] public Godot.Collections.Array<Texture2D> AchievementIcons = new();
+	[Export] public Texture2D RowTexture;
+	[Export] public Vector2 RowSize = new Vector2(0, 100);
 
 	public override void _Ready()
 	{
@@ -27,6 +31,12 @@ public partial class AchievementsScreen : CanvasLayer
 
 		var backLabel = GetNodeOrNull<Label>("Button2Label");
 		if (backLabel != null) backLabel.Text = Tr("BACK");
+
+		var nameLabel = GetNodeOrNull<Label>("Name");
+		if (nameLabel != null) nameLabel.Text = Tr("ACHIEVEMENTS");
+
+		var textLabel = GetNodeOrNull<Label>("LabelT");
+		if (textLabel != null) textLabel.Text = Tr("T_ACHIEVEMENTS");
 
 		var backBtn = GetNodeOrNull<TextureButton>("BackButton");
 		if (backBtn != null)
@@ -39,35 +49,62 @@ public partial class AchievementsScreen : CanvasLayer
 		var vbox = GetNodeOrNull<VBoxContainer>("ScrollContainer/VBoxContainer");
 		if (vbox == null) return;
 
-		foreach (var (key, nameKey, descKey) in All)
+		for (int i = 0; i < All.Length; i++)
 		{
+			var (key, nameKey, descKey) = All[i];
 			bool unlocked = SaveSystem.HasAchievement(key);
+			Color color = unlocked ? FontColor : LockedColor;
 
-			var btn = new TextureButton();
-			btn.CustomMinimumSize = ButtonSize;
-			btn.IgnoreTextureSize = true;
-			btn.StretchMode = TextureButton.StretchModeEnum.Scale;
-			btn.Disabled = !unlocked;
+			var rowBtn = new TextureButton();
+			rowBtn.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
+			rowBtn.IgnoreTextureSize = true;
+			rowBtn.StretchMode = TextureButton.StretchModeEnum.Scale;
+			rowBtn.CustomMinimumSize = RowSize;
+			if (RowTexture != null)
+				rowBtn.TextureNormal = RowTexture;
 
-			if (ButtonTexture != null)
-				btn.TextureNormal = ButtonTexture;
+			var row = new HBoxContainer();
+			row.SetAnchorsPreset(Control.LayoutPreset.FullRect);
+			rowBtn.AddChild(row);
 
-			var label = new Label();
-			label.Text = unlocked
-				? $"✅ {Tr(nameKey)} — {Tr(descKey)}"
-				: $"🔒 ???";
-			label.HorizontalAlignment = HorizontalAlignment.Center;
-			label.VerticalAlignment   = VerticalAlignment.Center;
-			label.SetAnchorsPreset(Control.LayoutPreset.FullRect);
-			label.AutowrapMode = TextServer.AutowrapMode.Word;
+			// Отступ + иконка
+			var margin = new MarginContainer();
+			margin.AddThemeConstantOverride("margin_left", IconMarginLeft);
 
-			if (ButtonFont != null)
-				label.AddThemeFontOverride("font", ButtonFont);
-			label.AddThemeFontSizeOverride("font_size", ButtonFontSize);
-			label.AddThemeColorOverride("font_color", unlocked ? FontColor : LockedColor);
+			var icon = new TextureRect();
+			icon.CustomMinimumSize = IconSize;
+			icon.ExpandMode = TextureRect.ExpandModeEnum.FitWidth;
+			icon.StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered;
+			icon.SizeFlagsHorizontal = Control.SizeFlags.ShrinkBegin;
+			icon.SizeFlagsVertical = Control.SizeFlags.ShrinkCenter;
+			if (AchievementIcons != null && i < AchievementIcons.Count && AchievementIcons[i] != null)
+				icon.Texture = AchievementIcons[i];
+			icon.Modulate = unlocked ? new Color(1, 1, 1, 1) : new Color(1, 1, 1, 0.4f);
+			margin.AddChild(icon);
+			row.AddChild(margin);
 
-			btn.AddChild(label);
-			vbox.AddChild(btn);
+			// Текст
+			var textBox = new VBoxContainer();
+			textBox.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
+			textBox.SizeFlagsVertical = Control.SizeFlags.ShrinkCenter;
+
+			var titleLabel = new Label();
+			titleLabel.Text = unlocked ? Tr(nameKey) : "???";
+			titleLabel.Modulate = color;
+			if (ButtonFont != null) titleLabel.AddThemeFontOverride("font", ButtonFont);
+			titleLabel.AddThemeFontSizeOverride("font_size", ButtonFontSize);
+			textBox.AddChild(titleLabel);
+
+			var descLabel = new Label();
+			descLabel.Text = unlocked ? Tr(descKey) : "🔒";
+			descLabel.Modulate = color;
+			descLabel.AutowrapMode = TextServer.AutowrapMode.Word;
+			if (ButtonFont != null) descLabel.AddThemeFontOverride("font", ButtonFont);
+			descLabel.AddThemeFontSizeOverride("font_size", DescFontSize);
+			textBox.AddChild(descLabel);
+
+			row.AddChild(textBox);
+			vbox.AddChild(rowBtn);
 		}
 	}
 }

@@ -27,7 +27,7 @@ script = ExtResource("1_odvge")
 ButtonTexture = ExtResource("2_5mbua")
 ButtonFont = ExtResource("4_5mbua")
 ButtonFontSize = 45
-ButtonSize = Vector2(900, 230)
+ButtonSize = Vector2(1000, 160)
 FontColor = Color(0.12005126, 0.12005126, 0.12005126, 1)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=89591076]
@@ -62,10 +62,10 @@ offset_bottom = 223.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1612538035]
 layout_mode = 0
-offset_left = 897.0
-offset_top = 80.0
-offset_right = 1922.0
-offset_bottom = 1005.0
+offset_left = 899.0
+offset_top = 82.0
+offset_right = 1917.0
+offset_bottom = 1060.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=1663303952]
 layout_mode = 2
