@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://utapyoxeo33f" path="res://UI/AchievementsScreen.cs" id="1_2xrv2"]
 [ext_resource type="Texture2D" uid="uid://daaoavwpolh6j" path="res://UI/button.png" id="1_rjtga"]
 [ext_resource type="Texture2D" uid="uid://634qjxw3at45" path="res://UI/button_pressed.png" id="2_2xrv2"]
+[ext_resource type="Texture2D" uid="uid://b8keircnjeny8" path="res://UI/button_2.png" id="2_gahii"]
 [ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="3_gahii"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5wo0u"]
@@ -12,6 +13,10 @@ font_color = Color(0.93756247, 0.9142811, 0.7310875, 1)
 
 [node name="AchievementsScreen" type="CanvasLayer" unique_id=1395238575]
 script = ExtResource("1_2xrv2")
+ButtonTexture = ExtResource("2_gahii")
+ButtonFont = ExtResource("3_gahii")
+ButtonFontSize = 45
+ButtonSize = Vector2(900, 250)
 
 [node name="BackButton" type="TextureButton" parent="." unique_id=234633578]
 offset_left = 707.0
@@ -36,10 +41,12 @@ text = "Back to menu
 label_settings = SubResource("LabelSettings_5wo0u")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1172658195]
-offset_left = 864.0
-offset_top = 8.0
-offset_right = 2011.0
-offset_bottom = 1072.0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 803.0
+offset_top = 83.0
+offset_bottom = -62.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=914074687]
 layout_mode = 2
