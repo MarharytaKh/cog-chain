@@ -1,21 +1,40 @@
 [gd_scene format=3 uid="uid://dt58t820dcnhp"]
 
 [ext_resource type="Script" uid="uid://c8oja1kvn077t" path="res://account/SavesScreen.cs" id="1_odvge"]
+[ext_resource type="Texture2D" uid="uid://d1q07t6qd0u5r" path="res://UI/cloud.png" id="2_5mbua"]
 [ext_resource type="Texture2D" uid="uid://daaoavwpolh6j" path="res://UI/button.png" id="2_6b0t5"]
-[ext_resource type="Texture2D" uid="uid://b8keircnjeny8" path="res://UI/button_2.png" id="2_gmc2d"]
 [ext_resource type="Texture2D" uid="uid://634qjxw3at45" path="res://UI/button_pressed.png" id="3_gmc2d"]
 [ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="4_5mbua"]
+[ext_resource type="Texture2D" uid="uid://8g40dw0itryc" path="res://UI/tbrender_002.png" id="4_cf84u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cf84u"]
 font = ExtResource("4_5mbua")
 font_size = 50
 font_color = Color(0.93756247, 0.9142811, 0.7310875, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_5mbua"]
+font = ExtResource("4_5mbua")
+font_size = 40
+font_color = Color(0.76481473, 0.73552084, 0.7528787, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_is64t"]
+font = ExtResource("4_5mbua")
+font_size = 93
+font_color = Color(0.91963017, 0.90976983, 0.9097284, 1)
+
 [node name="SavesScreen" type="CanvasLayer" unique_id=298655357]
 script = ExtResource("1_odvge")
-ButtonTexture = ExtResource("2_gmc2d")
+ButtonTexture = ExtResource("2_5mbua")
 ButtonFont = ExtResource("4_5mbua")
-ButtonSize = Vector2(600, 100)
+ButtonFontSize = 45
+ButtonSize = Vector2(900, 230)
+FontColor = Color(0.12005126, 0.12005126, 0.12005126, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=89591076]
+offset_right = 3365.0
+offset_bottom = 1825.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_cf84u")
 
 [node name="Panel" type="Panel" parent="." unique_id=365676834]
 offset_right = 2019.0
@@ -43,7 +62,7 @@ offset_bottom = 223.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1612538035]
 layout_mode = 0
-offset_left = 1103.0
+offset_left = 897.0
 offset_top = 80.0
 offset_right = 1922.0
 offset_bottom = 1005.0
@@ -66,3 +85,28 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Back to menu"
 label_settings = SubResource("LabelSettings_cf84u")
+
+[node name="LabelT" type="Label" parent="." unique_id=715801490]
+anchors_preset = -1
+anchor_left = 0.094000004
+anchor_top = 0.29000002
+anchor_right = 0.40100002
+anchor_bottom = 0.41700003
+offset_left = -0.8800049
+offset_top = -0.2000122
+offset_right = 0.97998047
+offset_bottom = -0.36001587
+grow_horizontal = 2
+grow_vertical = 2
+text = "your results are stored here"
+label_settings = SubResource("LabelSettings_5mbua")
+autowrap_mode = 2
+clip_text = true
+
+[node name="Name" type="Label" parent="." unique_id=1799781698]
+offset_left = 305.0
+offset_top = 175.0
+offset_right = 667.0
+offset_bottom = 269.0
+text = "Savings"
+label_settings = SubResource("LabelSettings_is64t")

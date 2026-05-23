@@ -6,6 +6,7 @@ public partial class SavesScreen : CanvasLayer
 	[Export] public FontFile ButtonFont;
 	[Export] public int ButtonFontSize = 24;
 	[Export] public Vector2 ButtonSize = new Vector2(400, 60);
+	[Export] public Color FontColor = new Color(1, 1, 1);
  
 	public override void _Ready()
 	{
@@ -14,6 +15,16 @@ public partial class SavesScreen : CanvasLayer
 			SoundManager.Instance?.PlayClick();
 			GetTree().ChangeSceneToFile("res://main.tscn");
 		};
+		
+				var backLabel = GetNodeOrNull<Label>("Panel/Label");
+if (backLabel != null) backLabel.Text = Tr("BACK");
+
+				var textLabel = GetNodeOrNull<Label>("LabelT");
+if (textLabel != null) textLabel.Text = Tr("TEXT_SAVES");
+
+				var nameLabel = GetNodeOrNull<Label>("Name");
+if (nameLabel != null) nameLabel.Text = Tr("NAME_SAVE");
+
  
 		var vbox = GetNode<VBoxContainer>("Panel/ScrollContainer/VBoxContainer");
 		if (SaveSystem.CurrentUser == null) return;
@@ -42,6 +53,8 @@ public partial class SavesScreen : CanvasLayer
 			label.VerticalAlignment   = VerticalAlignment.Center;
 			label.SetAnchorsPreset(Control.LayoutPreset.FullRect);
  
+label.AddThemeColorOverride("font_color", FontColor);
+
 			if (ButtonFont != null)
 				label.AddThemeFontOverride("font", ButtonFont);
 			label.AddThemeFontSizeOverride("font_size", ButtonFontSize);

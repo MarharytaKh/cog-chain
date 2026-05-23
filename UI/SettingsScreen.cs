@@ -67,5 +67,8 @@ public partial class SettingsScreen : CanvasLayer
 
 		var sfxLabel = GetNodeOrNull<Label>("SFX");
 		if (sfxLabel != null) sfxLabel.Text = Tr("SFX");
+		
+				var name = GetNodeOrNull<Label>("Name");
+		if (name != null) name.Text = Tr("SETTINGS");
 	}
 }

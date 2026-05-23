@@ -6,7 +6,7 @@ public partial class NotificationManager : CanvasLayer
 	[Export] public float FadeTime = 0.5f;
 
 	private Label _label;
-	private Panel _panel;
+	private TextureRect _panel;
 	private float _timer = 0f;
 	private bool _active = false;
 
@@ -17,7 +17,7 @@ public override void _Ready()
 		GD.Print(" - " + child.Name);
 	
 	_label = GetNodeOrNull<Label>("Panel/Label");
-	_panel = GetNodeOrNull<Panel>("Panel");
+   _panel = GetNodeOrNull<TextureRect>("Panel");
 	GD.Print("Panel found: " + (_panel != null));
 	GD.Print("Label found: " + (_label != null));
 	if (_panel != null)

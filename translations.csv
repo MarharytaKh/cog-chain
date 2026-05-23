@@ -25,7 +25,7 @@ SETTINGS,Settings,Ustawienia
 ACHIEVEMENTS,Achievements,Osiągnięcia
 CH_LEVEL,Choose Level,Wybór poziomu
 PAUSE,Pause,Pauza
-BACK,Back,Wróć
+BACK,Back to menu,Wróć do menu
 MUSIC,Music,Muzyka
 SFX,Sound Effects,Efekty Dźwiękowe
 LANGUAGE,Language,Język
@@ -60,3 +60,5 @@ TUT_ACTIVATE_TARGET,Make the target rotate to complete the level,Wpraw cel w ruc
 TUT_TIMER_MOVES,This is the timer and move counter. Complete the level faster and with fewer moves for more stars,To jest timer i licznik ruchów. Ukończ poziom szybciej i z mniejszą liczbą ruchów aby zdobyć więcej gwiazdek
 TUT_MOTOR,This is the motor. It drives the gears,To jest silnik. Napędza koła zębate
 TUT_TARGET,This is the target. Make it rotate to complete the level,To jest cel. Wpraw go w ruch aby ukończyć poziom
+TEXT_SAVES,your results are stored here,twoje wyniki są tutaj przechowywane
+NAME_SAVE,Saved results,Zapisane wyniki

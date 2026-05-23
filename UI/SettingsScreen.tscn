@@ -12,6 +12,11 @@ font = ExtResource("4_r04t6")
 font_size = 50
 font_color = Color(0.93756247, 0.9142811, 0.7310875, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_mu00t"]
+font = ExtResource("4_r04t6")
+font_size = 70
+font_color = Color(0.93756247, 0.9142811, 0.7310875, 1)
+
 [node name="SettingsScreen" type="CanvasLayer" unique_id=1206782945]
 script = ExtResource("1_mu00t")
 
@@ -43,24 +48,24 @@ text = "Back to menu"
 label_settings = SubResource("LabelSettings_k2bpc")
 
 [node name="MusicSlider" type="HSlider" parent="." unique_id=1079919134]
-offset_left = 1033.0
-offset_top = 210.0
-offset_right = 1499.0
-offset_bottom = 270.0
+offset_left = 1324.0
+offset_top = 220.0
+offset_right = 1790.0
+offset_bottom = 280.0
 value = 80.0
 
 [node name="SFXSlider" type="HSlider" parent="." unique_id=1714452703]
-offset_left = 1037.0
-offset_top = 369.0
-offset_right = 1503.0
-offset_bottom = 440.0
+offset_left = 1328.0
+offset_top = 379.0
+offset_right = 1794.0
+offset_bottom = 450.0
 value = 80.0
 
 [node name="LanguageButton" type="TextureButton" parent="." unique_id=959060241]
-offset_left = 1020.0
-offset_top = 603.0
-offset_right = 1510.8334
-offset_bottom = 698.0
+offset_left = 1311.0
+offset_top = 613.0
+offset_right = 1801.8334
+offset_bottom = 708.0
 texture_normal = ExtResource("5_e5w42")
 texture_pressed = ExtResource("6_u685u")
 texture_hover = ExtResource("6_u685u")
@@ -73,34 +78,49 @@ anchor_left = 0.578
 anchor_top = 0.58000004
 anchor_right = 0.708
 anchor_bottom = 0.62700003
-offset_left = 0.4399414
-offset_top = 3.5999756
-offset_right = -0.16003418
-offset_bottom = -0.16003418
+offset_left = 291.43994
+offset_top = 11.599976
+offset_right = 290.83997
+offset_bottom = 11.839966
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_k2bpc")
 
 [node name="Music" type="Label" parent="." unique_id=589167988]
-offset_left = 522.0
-offset_top = 208.0
-offset_right = 745.0
-offset_bottom = 313.0
+offset_left = 854.0
+offset_top = 223.0
+offset_right = 1077.0
+offset_bottom = 328.0
 text = "Music
 "
 label_settings = SubResource("LabelSettings_k2bpc")
 
 [node name="SFX" type="Label" parent="." unique_id=1496002181]
 anchors_preset = -1
-anchor_left = 0.257
-anchor_top = 0.34300002
-anchor_right = 0.425
-anchor_bottom = 0.39100003
-offset_left = -0.14001465
-offset_top = 0.55996704
-offset_right = 0.5
-offset_bottom = -0.2800293
+anchor_left = 0.42000002
+anchor_top = 0.36400002
+anchor_right = 0.615
+anchor_bottom = 0.4
+offset_left = -0.4000244
+offset_top = -0.120025635
+offset_right = 0.6999512
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "SFX"
 label_settings = SubResource("LabelSettings_k2bpc")
+
+[node name="Name" type="Label" parent="." unique_id=1357840421]
+anchors_preset = -1
+anchor_left = 0.102000006
+anchor_top = 0.108
+anchor_right = 0.23900001
+anchor_bottom = 0.17400001
+offset_left = 0.95999146
+offset_top = 0.3600006
+offset_right = -0.7800293
+offset_bottom = 0.07998657
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_mu00t")

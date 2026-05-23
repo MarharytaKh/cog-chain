@@ -1,30 +1,40 @@
 [gd_scene format=3 uid="uid://8ep0uxeu8d0r"]
 
 [ext_resource type="Script" uid="uid://ck2mlb4xyxe2n" path="res://NotificationManager.cs" id="1_wmasj"]
+[ext_resource type="Texture2D" uid="uid://d1q07t6qd0u5r" path="res://UI/cloud.png" id="2_eodd8"]
 [ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="2_wb0ci"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wb0ci"]
 font = ExtResource("2_wb0ci")
-font_size = 28
+font_size = 40
+font_color = Color(0, 0.16919968, 0.1721879, 1)
 
 [node name="Notification" type="CanvasLayer" unique_id=1676695824]
 script = ExtResource("1_wmasj")
 
-[node name="Panel" type="Panel" parent="." unique_id=49218558]
+[node name="Panel" type="TextureRect" parent="." unique_id=1161870420]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -533.0
-offset_top = 891.0
-offset_right = 254.0
-offset_bottom = 990.0
+offset_left = -577.0
+offset_top = 871.0
+offset_right = 294.0
+offset_bottom = 1081.0
 grow_horizontal = 2
+texture = ExtResource("2_eodd8")
 
 [node name="Label" type="Label" parent="Panel" unique_id=861409772]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 19.0
-offset_right = 757.0
-offset_bottom = 81.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.039
+anchor_top = 0.28100002
+anchor_right = 0.943
+anchor_bottom = 0.72700006
+offset_left = 0.03100586
+offset_top = -0.009971619
+offset_right = -0.35302734
+offset_bottom = 0.026992798
+grow_horizontal = 2
+grow_vertical = 2
 label_settings = SubResource("LabelSettings_wb0ci")
 horizontal_alignment = 1
