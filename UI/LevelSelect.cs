@@ -7,15 +7,14 @@ public partial class LevelSelect : CanvasLayer
 	[Export] public int ButtonFontSize = 24;
 	[Export] public Vector2 ButtonSize = new Vector2(160, 80);
 	[Export] public Texture2D ButtonTextureHover;
-[Export] public Texture2D ButtonTexturePressed;
+	[Export] public Texture2D ButtonTexturePressed;
 
 	public override void _Ready()
 	{
 		Layer = 15;
 
-var backLabel = GetNodeOrNull<Label>("Panel/Button2Label");
-if (backLabel != null) backLabel.Text = Tr("BACK");
-
+		var backLabel = GetNodeOrNull<Label>("Panel/Button2Label");
+		if (backLabel != null) backLabel.Text = Tr("BACK");
 
 		var backBtn = GetNodeOrNull<TextureButton>("Panel/BackButton");
 		if (backBtn != null)
@@ -41,22 +40,28 @@ if (backLabel != null) backLabel.Text = Tr("BACK");
 			btn.IgnoreTextureSize = true;
 			btn.StretchMode = TextureButton.StretchModeEnum.Scale;
 
-			if (ButtonTexture != null)
-				btn.TextureNormal = ButtonTexture;
-				if (ButtonTextureHover != null)
-	btn.TextureHover = ButtonTextureHover;
-if (ButtonTexturePressed != null)
-	btn.TexturePressed = ButtonTexturePressed;
+			if (ButtonTexture != null)        btn.TextureNormal  = ButtonTexture;
+			if (ButtonTextureHover != null)   btn.TextureHover   = ButtonTextureHover;
+			if (ButtonTexturePressed != null) btn.TexturePressed = ButtonTexturePressed;
+
+			var vbox = new VBoxContainer();
+			vbox.SetAnchorsPreset(Control.LayoutPreset.FullRect);
+			vbox.Alignment = BoxContainer.AlignmentMode.Center;
 
 			var label = new Label();
 			label.Text = $"{Tr("LEVEL_NUM")} {i + 1}";
 			label.HorizontalAlignment = HorizontalAlignment.Center;
-			label.VerticalAlignment = VerticalAlignment.Center;
-			label.SetAnchorsPreset(Control.LayoutPreset.FullRect);
-
-			if (ButtonFont != null)
-				label.AddThemeFontOverride("font", ButtonFont);
+			if (ButtonFont != null) label.AddThemeFontOverride("font", ButtonFont);
 			label.AddThemeFontSizeOverride("font_size", ButtonFontSize);
+
+			int bestStars = SaveSystem.GetBestStars(i);
+			var starsLabel = new Label();
+			starsLabel.Text = bestStars > 0
+				? new string('★', bestStars) + new string('☆', 5 - bestStars)
+				: "";
+			starsLabel.HorizontalAlignment = HorizontalAlignment.Center;
+			if (ButtonFont != null) starsLabel.AddThemeFontOverride("font", ButtonFont);
+			starsLabel.AddThemeFontSizeOverride("font_size", ButtonFontSize - 6);
 
 			if (!level.isUnlocked)
 			{
@@ -64,7 +69,10 @@ if (ButtonTexturePressed != null)
 				label.Text += "  🔒";
 			}
 
-			btn.AddChild(label);
+			vbox.AddChild(label);
+			vbox.AddChild(starsLabel);
+			btn.AddChild(vbox);
+
 			btn.Pressed += () =>
 			{
 				SoundManager.Instance?.PlayClick();

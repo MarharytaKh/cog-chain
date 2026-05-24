@@ -63,3 +63,8 @@ TUT_MOTOR,This is the motor. It drives the gears,To jest silnik. Napędza koła 
 TUT_TARGET,This is the target. Make it rotate to complete the level,To jest cel. Wpraw go w ruch aby ukończyć poziom
 TEXT_SAVES,your results are stored here,twoje wyniki są tutaj przechowywane
 NAME_SAVE,Saved results,Zapisane wyniki
+WEAK_PASSWORD,Password must be at least 6 characters,Hasło musi mieć co najmniej 6 znaków 
+EMAIL_IN_USE,This email is already registered,Ten email jest już zarejestrowany
+ INVALID_EMAIL,Invalid email address,Nieprawidłowy adres email
+ ONLINE_ACCOUNT_CREATED,Online account created,Konto online zostało utworzone
+ SEARCHING_ONLINE,Searching for account...,Szukam konta...
