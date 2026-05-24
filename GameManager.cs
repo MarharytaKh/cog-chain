@@ -474,27 +474,17 @@ public partial class GameManager : Node
 	}
 
 	public void CheckChainAchievement(List<Gear> gears)
+{
+	foreach (var g in gears)
 	{
-		foreach (var g in gears)
+		if (g.Children.Count >= 4)
 		{
-			int count = CountChildren(g);
-			if (count >= 4)
-			{
-				if (SaveSystem.UnlockAchievement("chain_master"))
-					ShowNotification(Tr("ACH_CHAIN_MASTER"));
-				return;
-			}
+			if (SaveSystem.UnlockAchievement("chain_master"))
+				ShowNotification(Tr("ACH_CHAIN_MASTER"));
+			return;
 		}
 	}
-
-	private int CountChildren(Gear g)
-	{
-		int count = g.Children.Count;
-		foreach (var child in g.Children)
-			count += CountChildren(child);
-		return count;
-	}
-
+}
 	private void Recalculate()
 	{
 		var gears = GetAllGears();
