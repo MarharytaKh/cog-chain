@@ -8,11 +8,23 @@
 [ext_resource type="Texture2D" uid="uid://d2j637wam76or" path="res://UI/button_pressed2.png" id="4_kek77"]
 [ext_resource type="Texture2D" uid="uid://ccbkkltt3ima3" path="res://UI/name.png" id="4_lquwl"]
 [ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://d1q07t6qd0u5r" path="res://UI/cloud.png" id="9_4c57u"]
+[ext_resource type="Texture2D" uid="uid://bcvajhqh24y33" path="res://UI/dgh.png" id="10_efxa6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4c57u"]
+font = ExtResource("5_lquwl")
+font_size = 55
+font_color = Color(0.6816124, 0.9073756, 0.7545697, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7mycd"]
 font = ExtResource("5_lquwl")
 font_size = 60
 font_color = Color(0.93756247, 0.9142811, 0.7310875, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dg77c"]
+font = ExtResource("5_lquwl")
+font_size = 40
+font_color = Color(0.1618495, 0.31099427, 0.21743315, 1)
 
 [node name="Node2D" type="Control" unique_id=2129067068]
 layout_mode = 3
@@ -21,17 +33,48 @@ script = ExtResource("1_ig7tw")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2040660906]
 layout_mode = 0
-offset_right = 3365.0
-offset_bottom = 1825.0
+offset_left = -32.0
+offset_right = 3402.9998
+offset_bottom = 1818.3333
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_0xm2m")
 
+[node name="RankingButton2" type="TextureButton" parent="." unique_id=1515226426]
+layout_mode = 0
+offset_left = 1504.0
+offset_top = 112.0
+offset_right = 2005.0
+offset_bottom = 346.0
+texture_normal = ExtResource("3_1bvp3")
+texture_pressed = ExtResource("4_7mycd")
+texture_hover = ExtResource("4_7mycd")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LoadButtonRanking" type="Label" parent="RankingButton2" unique_id=1886858068]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15200001
+anchor_top = 0.64100003
+anchor_right = 0.89000005
+anchor_bottom = 0.88000005
+offset_left = -0.15206146
+offset_top = 0.0059661865
+offset_right = 0.10992432
+offset_bottom = 0.079956055
+grow_horizontal = 2
+grow_vertical = 2
+text = "Global rank"
+label_settings = SubResource("LabelSettings_4c57u")
+autowrap_trim_flags = 0
+clip_text = true
+
 [node name="SettingsButton" type="TextureButton" parent="." unique_id=226542562]
 layout_mode = 0
-offset_left = 1596.0
-offset_top = 56.0
-offset_right = 1984.0
-offset_bottom = 149.0
+offset_left = 1551.0
+offset_top = 938.0
+offset_right = 1939.0
+offset_bottom = 1031.0
 texture_normal = ExtResource("3_5vw27")
 texture_pressed = ExtResource("4_kek77")
 texture_hover = ExtResource("4_kek77")
@@ -41,14 +84,14 @@ stretch_mode = 0
 [node name="LabelSettings" type="Label" parent="SettingsButton" unique_id=1296591599]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.11100001
+anchor_left = 0.098000005
 anchor_top = 0.194
-anchor_right = 0.91800004
-anchor_bottom = 0.84000003
-offset_left = -0.06800461
+anchor_right = 0.92800003
+anchor_bottom = 0.83900005
+offset_left = 1.9759979
 offset_top = -0.041999817
-offset_right = -0.184021
-offset_bottom = -0.12000275
+offset_right = 5.935974
+offset_bottom = 0.97299194
 grow_horizontal = 2
 grow_vertical = 2
 text = "Settings"
@@ -58,10 +101,10 @@ clip_text = true
 
 [node name="AchievementButton" type="TextureButton" parent="." unique_id=1651149641]
 layout_mode = 0
-offset_left = 165.0
-offset_top = 643.0
-offset_right = 894.0
-offset_bottom = 989.0
+offset_left = 195.0
+offset_top = 648.0
+offset_right = 869.21967
+offset_bottom = 968.0
 texture_normal = ExtResource("3_1bvp3")
 texture_pressed = ExtResource("4_7mycd")
 texture_hover = ExtResource("4_7mycd")
@@ -71,14 +114,14 @@ stretch_mode = 0
 [node name="LoadButtonAchievements" type="Label" parent="AchievementButton" unique_id=1697091789]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.20700002
-anchor_top = 0.67600006
-anchor_right = 0.813
-anchor_bottom = 0.83500004
-offset_left = 0.09698486
-offset_top = -4.8960266
-offset_right = 5.322998
-offset_bottom = 0.08999634
+anchor_left = 0.19700001
+anchor_top = 0.666
+anchor_right = 0.836
+anchor_bottom = 0.85300004
+offset_left = 0.17871094
+offset_top = -0.11999512
+offset_right = -0.30810547
+offset_bottom = 0.039978027
 grow_horizontal = 2
 grow_vertical = 2
 text = "Achievements"
@@ -88,10 +131,10 @@ clip_text = true
 
 [node name="LoadButton" type="TextureButton" parent="." unique_id=1611918752]
 layout_mode = 0
-offset_left = 166.0
-offset_top = 427.0
-offset_right = 895.9429
-offset_bottom = 768.0
+offset_left = 202.0
+offset_top = 449.0
+offset_right = 861.3032
+offset_bottom = 757.0
 texture_normal = ExtResource("3_1bvp3")
 texture_pressed = ExtResource("4_7mycd")
 texture_hover = ExtResource("4_7mycd")
@@ -101,14 +144,14 @@ stretch_mode = 0
 [node name="LoadButton2Label" type="Label" parent="LoadButton" unique_id=2058375428]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.21000001
+anchor_left = 0.202
 anchor_top = 0.666
-anchor_right = 0.67800003
-anchor_bottom = 0.84200007
-offset_left = -0.28800964
-offset_top = -0.10600281
-offset_right = 171.09872
-offset_bottom = -0.12200928
+anchor_right = 0.86600006
+anchor_bottom = 0.83900005
+offset_left = -1.1792603
+offset_top = -5.1280365
+offset_right = -0.956604
+offset_bottom = 1.5879517
 grow_horizontal = 2
 grow_vertical = 2
 text = "Load save"
@@ -118,10 +161,10 @@ clip_text = true
 
 [node name="Button" type="TextureButton" parent="." unique_id=980428896]
 layout_mode = 0
-offset_left = 167.0
-offset_top = 216.0
-offset_right = 896.9429
-offset_bottom = 557.0
+offset_left = 204.0
+offset_top = 250.0
+offset_right = 863.3032
+offset_bottom = 558.0
 texture_normal = ExtResource("3_1bvp3")
 texture_pressed = ExtResource("4_7mycd")
 texture_hover = ExtResource("4_7mycd")
@@ -131,14 +174,14 @@ stretch_mode = 0
 [node name="Button2Label" type="Label" parent="Button" unique_id=511261660]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.177
-anchor_top = 0.68
-anchor_right = 0.753
-anchor_bottom = 0.85600007
-offset_left = -1.1998901
-offset_top = -4.880005
-offset_right = 68.35303
-offset_bottom = -4.8960266
+anchor_left = 0.17
+anchor_top = 0.65900004
+anchor_right = 0.91600007
+anchor_bottom = 0.85400003
+offset_left = -0.08153534
+offset_top = 0.02796936
+offset_right = 3.078186
+offset_bottom = -0.03201294
 grow_horizontal = 2
 grow_vertical = 2
 text = "Choose Level"
@@ -154,4 +197,35 @@ offset_top = 47.0
 offset_right = 1002.66675
 offset_bottom = 399.0
 texture = ExtResource("4_lquwl")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=295121136]
+layout_mode = 0
+offset_left = 1512.0
+offset_top = 57.0
+offset_right = 2010.0
+offset_bottom = 141.0
+texture = ExtResource("9_4c57u")
+expand_mode = 1
+
+[node name="UserLabel" type="Label" parent="." unique_id=309498422]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1561.0
+offset_top = 76.0
+offset_right = 1841.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_dg77c")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=488278149]
+layout_mode = 0
+offset_left = 1853.0
+offset_top = 36.0
+offset_right = 1987.0
+offset_bottom = 170.0
+texture = ExtResource("10_efxa6")
 expand_mode = 1

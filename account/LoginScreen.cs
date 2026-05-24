@@ -10,6 +10,9 @@ public partial class LoginScreen : CanvasLayer
 	private TextureRect _emailLabel;
 	private Label _errorLabel;
 
+	private const int MaxUsernameLength = 11;
+	private const int MinUsernameLength = 3;
+	
 	public override void _Ready()
 	{
 		SaveSystem.Load();
@@ -99,6 +102,17 @@ public partial class LoginScreen : CanvasLayer
 		if (!email.Contains("@"))
 		{
 			_errorLabel.Text = Tr("INVALID_EMAIL");
+			return;
+		}
+		   if (username.Length < MinUsernameLength)
+		{
+			_errorLabel.Text = Tr("USERNAME_TOO_SHORT");
+			return;
+		}
+ 
+		if (username.Length > MaxUsernameLength)
+		{
+			_errorLabel.Text = Tr("USERNAME_TOO_LONG");
 			return;
 		}
 

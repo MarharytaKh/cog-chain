@@ -32,6 +32,10 @@ public partial class MainMenu : Control
 				var newLabel = GetNodeOrNull<Label>("Button/Button2Label");
 if (newLabel != null) newLabel.Text = Tr("CH_LEVEL");
 
+var userLabel = GetNodeOrNull<Label>("UserLabel");
+if (userLabel != null)
+	userLabel.Text = SaveSystem.CurrentUser?.Username ?? "";
+
 		var loadLabel = GetNodeOrNull<Label>("LoadButton/LoadButton2Label");
 if (loadLabel != null) loadLabel.Text = Tr("L_SAVE");
 
