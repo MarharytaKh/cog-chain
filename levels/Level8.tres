@@ -7,7 +7,6 @@
 
 [resource]
 script = ExtResource("1_ov4wn")
-isUnlocked = false
 levelScene = ExtResource("1_njbac")
 availableGearTypes = Array[Object]([ExtResource("1_5wdjc"), ExtResource("2_k6i13")])
 availableGearCounts = PackedInt32Array(7, 12)

@@ -30,6 +30,7 @@ public override void _Ready()
 		_label.Text = message;
 		_timer = 0f;
 		_active = true;
+		_panel.Visible = true;
 		_panel.Modulate = new Color(1, 1, 1, 1);
 	}
 
@@ -42,7 +43,7 @@ public override void _Ready()
 		{
 			float fade = 1f - (_timer - Duration) / FadeTime;
 			_panel.Modulate = new Color(1, 1, 1, Mathf.Max(fade, 0f));
-			if (fade <= 0f) _active = false;
+			if (fade <= 0f) { _active = false; _panel.Visible = false; }
 		}
 	}
 }

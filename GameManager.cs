@@ -120,13 +120,6 @@ public partial class GameManager : Node
 
 	public int CalculateStars(float time, int moves)
 	{
-		var timeLimits = currentLevel.StarTimeLimits;
-		var moveLimits = currentLevel.StarMoveLimits;
-
-		for (int i = 4; i >= 0; i--)
-			if (time <= timeLimits[i] && moves <= moveLimits[i])
-				return i + 1;
-
 		return 0;
 	}
 
@@ -200,7 +193,7 @@ public partial class GameManager : Node
 			uiManager.Show("level_complete");
 			var screen = uiManager.GetCurrentScreen();
 			if (screen is LevelCompleteScreen lcs)
-				lcs.Setup(currentLevelIndex, levels.Length, capturedTime, capturedMoves, stars);
+				lcs.Setup(currentLevelIndex, levels.Length, capturedTime, capturedMoves);
 			else
 				GD.PrintErr($"screen type={screen?.GetType().Name}");
 		};
@@ -438,23 +431,6 @@ public partial class GameManager : Node
 			gear.initialBasis = gear.GlobalBasis;
 		}
 
-		float distToMotor2 = targetPos.DistanceTo(motor.GlobalPosition);
-		if (Mathf.Abs(distToMotor2 - (newRadius + motor.Radius)) < 0.2f)
-			gear.SnapPhaseWithMotor(motor);
-		else
-		{
-			foreach (var g in GetAllGears())
-			{
-				if (g == gear) continue;
-				float dist = targetPos.DistanceTo(g.GlobalPosition);
-				if (Mathf.Abs(dist - (newRadius + g.Radius)) < 0.2f)
-				{
-					gear.SnapPhaseWithGear(g);
-					break;
-				}
-			}
-		}
-
 		SelectedAxis.HasGear  = true;
 		gear.PlacedOnAxis     = SelectedAxis;
 
@@ -470,6 +446,8 @@ public partial class GameManager : Node
 		}
 		_moves++;
 		SoundManager.Instance?.PlayGearPlace();
+		// BuildGraph внутри Recalculate сам вызовет снап для всех шестерёнок
+		// сразу после назначения родителей — phaseOffset будет корректен.
 		Recalculate();
 	}
 
@@ -491,6 +469,12 @@ public partial class GameManager : Node
 		if (targets.Count == 0) return;
 		PhysicsEngine.BuildGraph(motor, gears, targets, this);
 		CheckChainAchievement(gears);
+
+		// Сразу применяем текущий motor.angle ко всем шестерням —
+		// без этого они стоят при angle=0 до следующего _Process.
+		foreach (var g in motor.Children)
+			if (IsInstanceValid(g))
+				g.UpdateRotation();
 
 		if (motor.Children.Count > 0)
 			SoundManager.Instance?.StartSpin();
