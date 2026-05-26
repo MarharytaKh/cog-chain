@@ -120,6 +120,14 @@ public partial class GameManager : Node
 
 	public int CalculateStars(float time, int moves)
 	{
+		if (currentLevel == null) return 0;
+		var timeLimits = currentLevel.StarTimeLimits;
+		var moveLimits = currentLevel.StarMoveLimits;
+
+		for (int i = 4; i >= 0; i--)
+			if (time <= timeLimits[i] && moves <= moveLimits[i])
+				return i + 1;
+
 		return 0;
 	}
 
@@ -193,7 +201,7 @@ public partial class GameManager : Node
 			uiManager.Show("level_complete");
 			var screen = uiManager.GetCurrentScreen();
 			if (screen is LevelCompleteScreen lcs)
-				lcs.Setup(currentLevelIndex, levels.Length, capturedTime, capturedMoves);
+				lcs.Setup(currentLevelIndex, levels.Length, capturedTime, capturedMoves, stars);
 			else
 				GD.PrintErr($"screen type={screen?.GetType().Name}");
 		};
@@ -446,23 +454,22 @@ public partial class GameManager : Node
 		}
 		_moves++;
 		SoundManager.Instance?.PlayGearPlace();
-		// BuildGraph внутри Recalculate сам вызовет снап для всех шестерёнок
-		// сразу после назначения родителей — phaseOffset будет корректен.
 		Recalculate();
 	}
 
 	public void CheckChainAchievement(List<Gear> gears)
-{
-	foreach (var g in gears)
 	{
-		if (g.Children.Count >= 4)
+		foreach (var g in gears)
 		{
-			if (SaveSystem.UnlockAchievement("chain_master"))
-				ShowNotification(Tr("ACH_CHAIN_MASTER"));
-			return;
+			if (g.Children.Count >= 4)
+			{
+				if (SaveSystem.UnlockAchievement("chain_master"))
+					ShowNotification(Tr("ACH_CHAIN_MASTER"));
+				return;
+			}
 		}
 	}
-}
+
 	private void Recalculate()
 	{
 		var gears = GetAllGears();
@@ -470,8 +477,6 @@ public partial class GameManager : Node
 		PhysicsEngine.BuildGraph(motor, gears, targets, this);
 		CheckChainAchievement(gears);
 
-		// Сразу применяем текущий motor.angle ко всем шестерням —
-		// без этого они стоят при angle=0 до следующего _Process.
 		foreach (var g in motor.Children)
 			if (IsInstanceValid(g))
 				g.UpdateRotation();

@@ -125,6 +125,7 @@ public static class SaveSystem
 
 	public static void SaveLevelResult(int levelIndex, float time, int moves, int stars)
 	{
+
 		if (CurrentUser == null) return;
 
 		if (!CurrentUser.LevelResults.ContainsKey(levelIndex))
@@ -145,8 +146,14 @@ public static class SaveSystem
 			if (moves < result.BestMoves) result.BestMoves = moves;
 			if (stars > result.BestStars) result.BestStars = stars;
 		}
+		int totalStars = 0;
+foreach (var lvl in CurrentUser.LevelResults.Values)
+	totalStars += lvl.BestStars;
+		GD.Print($"UpdateRanking: {CurrentUser.Username} {totalStars}");
+_ = FirebaseManager.UpdateRanking(CurrentUser.Username, totalStars);
 		_ = SyncToFirebase();
 		Save();
+		
 	}
 
 	private static async System.Threading.Tasks.Task SyncToFirebase()

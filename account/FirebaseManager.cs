@@ -174,4 +174,19 @@ public static class FirebaseManager
 		catch { }
 		return "Unknown error";
 	}
+	public static async System.Threading.Tasks.Task<bool> UpdateRanking(string username, int totalStars)
+{
+	if (string.IsNullOrEmpty(IdToken)) return false;
+	var payload = new { username, totalStars };
+	var body = JsonSerializer.Serialize(payload);
+	var (ok, _) = await Put($"{DbUrl}/rankings/{LocalId}.json?auth={IdToken}", body);
+	return ok;
+}
+
+public static async System.Threading.Tasks.Task<string> GetRankings()
+{
+	var (ok, json) = await Get($"{DbUrl}/rankings.json");
+	if (!ok || json == "null") return null;
+	return json;
+}
 }
