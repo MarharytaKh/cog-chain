@@ -27,14 +27,20 @@ public partial class Target : Node3D
 		material.EmissionEnergyMultiplier = 0f;
 	}
 
-	public override void _Process(double delta)
-	{
-		float emissionTarget = ParentGear != null ? 4.0f : 0.6f;
-		emissionCurrent = Mathf.Lerp(emissionCurrent, emissionTarget, (float)delta * 1f);
-		if (material != null)
-			material.EmissionEnergyMultiplier = emissionCurrent;
+public override void _Process(double delta)
+{
+	float emissionTarget = ParentGear != null ? 4.0f : 0.6f;
+	emissionCurrent = Mathf.Lerp(emissionCurrent, emissionTarget, (float)delta * 1f);
+	if (material != null)
+		material.EmissionEnergyMultiplier = emissionCurrent;
 
-		if (ParentGear == null) return;
+	if (ParentGear == null)
+	{
+		// сбрасываем в исходное положение когда нет родителя
+		angle = 0f;
+		Transform = new Transform3D(_initialBasis, Transform.Origin);
+		return;
+	}
 
 		float ratio = (float)ParentGear.ToothCount / (float)ToothCount;
 		angle = (-ParentGear.angle * ratio);

@@ -35,12 +35,14 @@ public static class PhysicsEngine
 	{
 		foreach (var g in gears) g.Reset();
 		motor.Children.Clear();
-		foreach (var t in targets)
-		{
-			t.ParentGear = null;
-			t.Children.Clear();
-			t.Activated = false;
-		}
+foreach (var t in targets)
+{
+	t.ParentGear = null;
+	t.Children.Clear();
+	t.Activated = false;
+	t.angle = 0f; // ← добавить
+	t.Transform = new Transform3D(t._initialBasis, t.Transform.Origin); // ← и это
+}
 
 		HashSet<Gear> visited = new HashSet<Gear>();
 		Queue<Gear> queue = new Queue<Gear>();
