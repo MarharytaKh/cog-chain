@@ -54,6 +54,7 @@ public partial class GameManager : Node
 
 	private void InitLevel()
 	{
+		SoundManager.Instance?.StopSpin();
 		_time = 0f;
 		_moves = 0;
 		_removedGear = false;
@@ -115,7 +116,7 @@ public partial class GameManager : Node
 			if (node is LevelAnimation anim)
 				anim.Activate();
 
-		CompleteLevel();
+		//CompleteLevel();
 	}
 
 	public int CalculateStars(float time, int moves)

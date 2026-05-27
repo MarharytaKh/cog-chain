@@ -109,7 +109,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_pqoe8")
 
 [node name="Motor" type="Node3D" parent="." unique_id=512071066]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5736084, 0.5213284, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6309912, 0.5213284, 0)
 script = ExtResource("16_7egca")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Motor" unique_id=2064359168]
@@ -129,7 +129,7 @@ mesh = ExtResource("24_1xblf")
 surface_material_override/0 = SubResource("StandardMaterial3D_fakxe")
 
 [node name="Target" type="Node3D" parent="." unique_id=1019042494]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4393225, 0.5656318, -1.9381124)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3706574, 0.5656318, -1.9381124)
 script = ExtResource("29_7hjlk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Target" unique_id=1665711612]

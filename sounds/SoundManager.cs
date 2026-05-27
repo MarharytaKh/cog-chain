@@ -60,9 +60,17 @@ public partial class SoundManager : Node
 		if (!_spinPlayer.Playing)
 			_spinPlayer.Play();
 	}
+	
+	
+	public override void _Notification(int what)
+{
+	if (what == NotificationPredelete)
+		StopSpin();
+}
 
 	public void StopSpin()
 	{
 		_spinPlayer.Stop();
 	}
+	
 }

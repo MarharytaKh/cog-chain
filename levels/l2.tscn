@@ -125,7 +125,7 @@ shadow_enabled = true
 shadow_blur = 2.55
 
 [node name="Axis1" type="Node3D" parent="." unique_id=117273984]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0091176, 0.5560665, -0.5158032)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0680115, 0.5560665, -0.49560928)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis1" unique_id=579566491]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -140,7 +140,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_khdkw")
 
 [node name="Axis2" type="Node3D" parent="." unique_id=120611218]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6324542, 0.5560665, -1.9115467)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6324542, 0.5560665, -1.8853629)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis2" unique_id=703027125]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -170,7 +170,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_khdkw")
 
 [node name="Motor" type="Node3D" parent="." unique_id=47043294]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5213284, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.047418118, 0.5213284, 0)
 script = ExtResource("15_5spl0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Motor" unique_id=639005244]

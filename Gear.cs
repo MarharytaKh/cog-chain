@@ -26,14 +26,16 @@ public partial class Gear : Node3D
 		}
 	}
 
-	public void Reset()
-	{
-		Parent = null;
-		MotorParent = null;
-		TargetParent = null;
-		Children.Clear();
-		phaseOffset = 0f;
-	}
+public void Reset()
+{
+	Parent = null;
+	MotorParent = null;
+	TargetParent = null;
+	Children.Clear();
+	phaseOffset = 0f;
+	angle = 0f; // ← добавить это
+	Transform = new Transform3D(initialBasis, Transform.Origin); // ← и это
+}
 
 	public void SetParent(Gear parent)
 	{
