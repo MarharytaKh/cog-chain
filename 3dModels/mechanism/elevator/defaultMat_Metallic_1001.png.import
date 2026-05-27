@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhbsr87qduuad"
 path.s3tc="res://.godot/imported/defaultMat_Metallic_1001.png-cb4ca7fcabf8def31993d7348eacf1bd.s3tc.ctex"
+path.etc2="res://.godot/imported/defaultMat_Metallic_1001.png-cb4ca7fcabf8def31993d7348eacf1bd.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://3dModels/mechanism/elevator/defaultMat_Metallic_1001.png"
-dest_files=["res://.godot/imported/defaultMat_Metallic_1001.png-cb4ca7fcabf8def31993d7348eacf1bd.s3tc.ctex"]
+dest_files=["res://.godot/imported/defaultMat_Metallic_1001.png-cb4ca7fcabf8def31993d7348eacf1bd.s3tc.ctex", "res://.godot/imported/defaultMat_Metallic_1001.png-cb4ca7fcabf8def31993d7348eacf1bd.etc2.ctex"]
 
 [params]
 

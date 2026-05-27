@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://48wp0wssyg2s"
 path.s3tc="res://.godot/imported/defaultMat_Normal_OpenGL_1001.png-89dab8368870dc88e6798f79f446549b.s3tc.ctex"
+path.etc2="res://.godot/imported/defaultMat_Normal_OpenGL_1001.png-89dab8368870dc88e6798f79f446549b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://3dModels/mechanism/box/defaultMat_Normal_OpenGL_1001.png"
-dest_files=["res://.godot/imported/defaultMat_Normal_OpenGL_1001.png-89dab8368870dc88e6798f79f446549b.s3tc.ctex"]
+dest_files=["res://.godot/imported/defaultMat_Normal_OpenGL_1001.png-89dab8368870dc88e6798f79f446549b.s3tc.ctex", "res://.godot/imported/defaultMat_Normal_OpenGL_1001.png-89dab8368870dc88e6798f79f446549b.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://df76eem6x5ogw"
 path.s3tc="res://.godot/imported/defaultMat_Roughness_1001.png-b1f4f5325bde6162c38fdcefb2c138ff.s3tc.ctex"
+path.etc2="res://.godot/imported/defaultMat_Roughness_1001.png-b1f4f5325bde6162c38fdcefb2c138ff.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://3dModels/mechanism/box/defaultMat_Roughness_1001.png"
-dest_files=["res://.godot/imported/defaultMat_Roughness_1001.png-b1f4f5325bde6162c38fdcefb2c138ff.s3tc.ctex"]
+dest_files=["res://.godot/imported/defaultMat_Roughness_1001.png-b1f4f5325bde6162c38fdcefb2c138ff.s3tc.ctex", "res://.godot/imported/defaultMat_Roughness_1001.png-b1f4f5325bde6162c38fdcefb2c138ff.etc2.ctex"]
 
 [params]
 

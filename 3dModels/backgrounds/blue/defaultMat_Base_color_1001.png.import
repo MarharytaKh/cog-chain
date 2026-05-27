@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dppdr1wmrn5ww"
 path.s3tc="res://.godot/imported/defaultMat_Base_color_1001.png-e3d3b90692d6460939eb0810b39094a5.s3tc.ctex"
+path.etc2="res://.godot/imported/defaultMat_Base_color_1001.png-e3d3b90692d6460939eb0810b39094a5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://3dModels/backgrounds/blue/defaultMat_Base_color_1001.png"
-dest_files=["res://.godot/imported/defaultMat_Base_color_1001.png-e3d3b90692d6460939eb0810b39094a5.s3tc.ctex"]
+dest_files=["res://.godot/imported/defaultMat_Base_color_1001.png-e3d3b90692d6460939eb0810b39094a5.s3tc.ctex", "res://.godot/imported/defaultMat_Base_color_1001.png-e3d3b90692d6460939eb0810b39094a5.etc2.ctex"]
 
 [params]
 

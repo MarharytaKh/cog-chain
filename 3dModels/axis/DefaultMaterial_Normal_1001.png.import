@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://mk73yhl1hcq3"
 path.s3tc="res://.godot/imported/DefaultMaterial_Normal_1001.png-58863b4d59165c0830b260a44b2a8b74.s3tc.ctex"
+path.etc2="res://.godot/imported/DefaultMaterial_Normal_1001.png-58863b4d59165c0830b260a44b2a8b74.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://3dModels/axis/DefaultMaterial_Normal_1001.png"
-dest_files=["res://.godot/imported/DefaultMaterial_Normal_1001.png-58863b4d59165c0830b260a44b2a8b74.s3tc.ctex"]
+dest_files=["res://.godot/imported/DefaultMaterial_Normal_1001.png-58863b4d59165c0830b260a44b2a8b74.s3tc.ctex", "res://.godot/imported/DefaultMaterial_Normal_1001.png-58863b4d59165c0830b260a44b2a8b74.etc2.ctex"]
 
 [params]
 

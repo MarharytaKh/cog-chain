@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpa5hi0o34u0e"
 path.s3tc="res://.godot/imported/Pipes_Bundle_M_Pipes_OcclusionRoughnessMet.png-1dbfe458ddb2663da7d6de69820d6601.s3tc.ctex"
+path.etc2="res://.godot/imported/Pipes_Bundle_M_Pipes_OcclusionRoughnessMet.png-1dbfe458ddb2663da7d6de69820d6601.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://3dModels/add_items/Pipes_Bundle_M_Pipes_OcclusionRoughnessMet.png"
-dest_files=["res://.godot/imported/Pipes_Bundle_M_Pipes_OcclusionRoughnessMet.png-1dbfe458ddb2663da7d6de69820d6601.s3tc.ctex"]
+dest_files=["res://.godot/imported/Pipes_Bundle_M_Pipes_OcclusionRoughnessMet.png-1dbfe458ddb2663da7d6de69820d6601.s3tc.ctex", "res://.godot/imported/Pipes_Bundle_M_Pipes_OcclusionRoughnessMet.png-1dbfe458ddb2663da7d6de69820d6601.etc2.ctex"]
 
 [params]
 

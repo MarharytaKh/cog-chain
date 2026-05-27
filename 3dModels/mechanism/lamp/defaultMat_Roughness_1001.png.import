@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddobulsn6w5nd"
 path.s3tc="res://.godot/imported/defaultMat_Roughness_1001.png-63cfebd1c121b59cb6f489a1eba0360b.s3tc.ctex"
+path.etc2="res://.godot/imported/defaultMat_Roughness_1001.png-63cfebd1c121b59cb6f489a1eba0360b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://3dModels/mechanism/lamp/defaultMat_Roughness_1001.png"
-dest_files=["res://.godot/imported/defaultMat_Roughness_1001.png-63cfebd1c121b59cb6f489a1eba0360b.s3tc.ctex"]
+dest_files=["res://.godot/imported/defaultMat_Roughness_1001.png-63cfebd1c121b59cb6f489a1eba0360b.s3tc.ctex", "res://.godot/imported/defaultMat_Roughness_1001.png-63cfebd1c121b59cb6f489a1eba0360b.etc2.ctex"]
 
 [params]
 

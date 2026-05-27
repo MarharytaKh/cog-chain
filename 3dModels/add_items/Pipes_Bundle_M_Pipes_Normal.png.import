@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjajp7eo3jbs5"
 path.s3tc="res://.godot/imported/Pipes_Bundle_M_Pipes_Normal.png-f5bb095d0feb7684b9537f440338cb99.s3tc.ctex"
+path.etc2="res://.godot/imported/Pipes_Bundle_M_Pipes_Normal.png-f5bb095d0feb7684b9537f440338cb99.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://3dModels/add_items/Pipes_Bundle_M_Pipes_Normal.png"
-dest_files=["res://.godot/imported/Pipes_Bundle_M_Pipes_Normal.png-f5bb095d0feb7684b9537f440338cb99.s3tc.ctex"]
+dest_files=["res://.godot/imported/Pipes_Bundle_M_Pipes_Normal.png-f5bb095d0feb7684b9537f440338cb99.s3tc.ctex", "res://.godot/imported/Pipes_Bundle_M_Pipes_Normal.png-f5bb095d0feb7684b9537f440338cb99.etc2.ctex"]
 
 [params]
 

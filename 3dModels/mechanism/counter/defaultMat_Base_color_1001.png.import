@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://7uon2c38l55d"
 path.s3tc="res://.godot/imported/defaultMat_Base_color_1001.png-e9f5caf60e1722a8bf86845fd8d31e55.s3tc.ctex"
+path.etc2="res://.godot/imported/defaultMat_Base_color_1001.png-e9f5caf60e1722a8bf86845fd8d31e55.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://3dModels/mechanism/counter/defaultMat_Base_color_1001.png"
-dest_files=["res://.godot/imported/defaultMat_Base_color_1001.png-e9f5caf60e1722a8bf86845fd8d31e55.s3tc.ctex"]
+dest_files=["res://.godot/imported/defaultMat_Base_color_1001.png-e9f5caf60e1722a8bf86845fd8d31e55.s3tc.ctex", "res://.godot/imported/defaultMat_Base_color_1001.png-e9f5caf60e1722a8bf86845fd8d31e55.etc2.ctex"]
 
 [params]
 

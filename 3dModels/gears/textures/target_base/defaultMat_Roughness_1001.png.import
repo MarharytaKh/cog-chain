@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://itqsbqy2gxb3"
 path.s3tc="res://.godot/imported/defaultMat_Roughness_1001.png-910ed87cadd50981e5b01bab5cc9e373.s3tc.ctex"
+path.etc2="res://.godot/imported/defaultMat_Roughness_1001.png-910ed87cadd50981e5b01bab5cc9e373.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://3dModels/gears/textures/target_base/defaultMat_Roughness_1001.png"
-dest_files=["res://.godot/imported/defaultMat_Roughness_1001.png-910ed87cadd50981e5b01bab5cc9e373.s3tc.ctex"]
+dest_files=["res://.godot/imported/defaultMat_Roughness_1001.png-910ed87cadd50981e5b01bab5cc9e373.s3tc.ctex", "res://.godot/imported/defaultMat_Roughness_1001.png-910ed87cadd50981e5b01bab5cc9e373.etc2.ctex"]
 
 [params]
 

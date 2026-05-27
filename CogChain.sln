@@ -1,12 +1,15 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CogChain", "CogChain.csproj", "{A9D3C20A-F68F-4392-A691-C2E7A243AAFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-	Debug|Any CPU = Debug|Any CPU
-	ExportDebug|Any CPU = ExportDebug|Any CPU
-	ExportRelease|Any CPU = ExportRelease|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		ExportDebug|Any CPU = ExportDebug|Any CPU
+		ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A9D3C20A-F68F-4392-A691-C2E7A243AAFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -15,5 +18,11 @@ Global
 		{A9D3C20A-F68F-4392-A691-C2E7A243AAFA}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
 		{A9D3C20A-F68F-4392-A691-C2E7A243AAFA}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
 		{A9D3C20A-F68F-4392-A691-C2E7A243AAFA}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57830B6D-AB3A-4367-B94C-2500AEF4252C}
 	EndGlobalSection
 EndGlobal

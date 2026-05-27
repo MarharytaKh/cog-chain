@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqj54xqcv13jh"
 path.s3tc="res://.godot/imported/defaultMat_Base_color_1001.png-da911ae41523ff3c1014ab5a2de869b0.s3tc.ctex"
+path.etc2="res://.godot/imported/defaultMat_Base_color_1001.png-da911ae41523ff3c1014ab5a2de869b0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://3dModels/gears/big/defaultMat_Base_color_1001.png"
-dest_files=["res://.godot/imported/defaultMat_Base_color_1001.png-da911ae41523ff3c1014ab5a2de869b0.s3tc.ctex"]
+dest_files=["res://.godot/imported/defaultMat_Base_color_1001.png-da911ae41523ff3c1014ab5a2de869b0.s3tc.ctex", "res://.godot/imported/defaultMat_Base_color_1001.png-da911ae41523ff3c1014ab5a2de869b0.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b04ufnc0vsh4c"
 path.s3tc="res://.godot/imported/defaultMat_Emissive_1001.png-27416bd970f54044aeeac2c928b3eada.s3tc.ctex"
+path.etc2="res://.godot/imported/defaultMat_Emissive_1001.png-27416bd970f54044aeeac2c928b3eada.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://3dModels/mechanism/lamp/defaultMat_Emissive_1001.png"
-dest_files=["res://.godot/imported/defaultMat_Emissive_1001.png-27416bd970f54044aeeac2c928b3eada.s3tc.ctex"]
+dest_files=["res://.godot/imported/defaultMat_Emissive_1001.png-27416bd970f54044aeeac2c928b3eada.s3tc.ctex", "res://.godot/imported/defaultMat_Emissive_1001.png-27416bd970f54044aeeac2c928b3eada.etc2.ctex"]
 
 [params]
 

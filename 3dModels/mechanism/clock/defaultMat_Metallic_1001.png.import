@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bi6hra1fq45me"
 path.s3tc="res://.godot/imported/defaultMat_Metallic_1001.png-968bc71b6f7fd6697d9c8de2a7ffb7fe.s3tc.ctex"
+path.etc2="res://.godot/imported/defaultMat_Metallic_1001.png-968bc71b6f7fd6697d9c8de2a7ffb7fe.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://3dModels/mechanism/clock/defaultMat_Metallic_1001.png"
-dest_files=["res://.godot/imported/defaultMat_Metallic_1001.png-968bc71b6f7fd6697d9c8de2a7ffb7fe.s3tc.ctex"]
+dest_files=["res://.godot/imported/defaultMat_Metallic_1001.png-968bc71b6f7fd6697d9c8de2a7ffb7fe.s3tc.ctex", "res://.godot/imported/defaultMat_Metallic_1001.png-968bc71b6f7fd6697d9c8de2a7ffb7fe.etc2.ctex"]
 
 [params]
 

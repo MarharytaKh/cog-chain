@@ -7,9 +7,15 @@ public partial class RankingScene : CanvasLayer
 {
 	[Export] public FontFile ButtonFont;
 	[Export] public int FontSize = 24;
-	[Export] public Color FontColor = new Color(1, 1, 1);
+	[Export] public Color FontColor = new Color(1f, 1f, 1f);
+	[Export] public Color CurrentUserColor = new Color(1f, 0.85f, 0.2f);
+	[Export] public Color GoldColor = new Color(1f, 0.84f, 0f);
+	[Export] public Color SilverColor = new Color(0.75f, 0.75f, 0.75f);
+	[Export] public Color BronzeColor = new Color(0.8f, 0.5f, 0.2f);
 	[Export] public Texture2D RowTexture;
+	[Export] public Texture2D TopRowTexture;
 	[Export] public Vector2 RowSize = new Vector2(0, 70);
+	[Export] public int MaxEntries = 50;
 
 	public override void _Ready()
 	{
@@ -53,7 +59,6 @@ public partial class RankingScene : CanvasLayer
 				return;
 			}
 
-			// Парсим и сортируем
 			var entries = new List<(string username, int stars)>();
 			using var doc = JsonDocument.Parse(json);
 			foreach (var item in doc.RootElement.EnumerateObject())
@@ -69,31 +74,47 @@ public partial class RankingScene : CanvasLayer
 
 			entries.Sort((a, b) => b.stars.CompareTo(a.stars));
 
-			// Отображаем
-			for (int i = 0; i < entries.Count; i++)
+			for (int i = 0; i < Mathf.Min(entries.Count, MaxEntries); i++)
 			{
 				var (username, stars) = entries[i];
 				bool isCurrentUser = username == SaveSystem.CurrentUser?.Username;
+				bool isTop3 = i < 3;
 
 				var row = new TextureButton();
 				row.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
 				row.IgnoreTextureSize = true;
 				row.StretchMode = TextureButton.StretchModeEnum.Scale;
 				row.CustomMinimumSize = RowSize;
-				if (RowTexture != null) row.TextureNormal = RowTexture;
+
+				if (isTop3 && TopRowTexture != null)
+					row.TextureNormal = TopRowTexture;
+				else if (RowTexture != null)
+					row.TextureNormal = RowTexture;
+
+				string medal = i switch {
+					0 => "🥇 ",
+					1 => "🥈 ",
+					2 => "🥉 ",
+					_ => $"#{i + 1}  "
+				};
 
 				var label = new Label();
-				label.Text = $"#{i + 1}   {username}   ★ {stars}";
+				label.Text = $"{medal} {username}   ★ {stars}";
 				label.HorizontalAlignment = HorizontalAlignment.Center;
 				label.VerticalAlignment = VerticalAlignment.Center;
 				label.SetAnchorsPreset(Control.LayoutPreset.FullRect);
+
 				if (ButtonFont != null) label.AddThemeFontOverride("font", ButtonFont);
 				label.AddThemeFontSizeOverride("font_size", FontSize);
 
-				// Подсвечиваем текущего игрока
-				var color = isCurrentUser ? new Color(1, 0.85f, 0.2f) : FontColor;
-				label.AddThemeColorOverride("font_color", color);
+				Color color;
+				if (isCurrentUser)      color = CurrentUserColor;
+				else if (i == 0)        color = GoldColor;
+				else if (i == 1)        color = SilverColor;
+				else if (i == 2)        color = BronzeColor;
+				else                    color = FontColor;
 
+				label.AddThemeColorOverride("font_color", color);
 				row.AddChild(label);
 				vbox.AddChild(row);
 			}

@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bmglt0fxl3f61" path="res://UI/hmgvhg.png" id="2_6huau"]
 [ext_resource type="Texture2D" uid="uid://daaoavwpolh6j" path="res://UI/button.png" id="2_luj5j"]
 [ext_resource type="Texture2D" uid="uid://634qjxw3at45" path="res://UI/button_pressed.png" id="3_6huau"]
+[ext_resource type="Texture2D" uid="uid://d1q07t6qd0u5r" path="res://UI/cloud.png" id="4_d5ypn"]
+[ext_resource type="Texture2D" uid="uid://cpmdhuqrum2fe" path="res://UI/cloud_gray.png" id="4_ddc4t"]
 [ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="4_fe7jo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ddc4t"]
@@ -24,6 +26,17 @@ font_color = Color(0.76481473, 0.73552084, 0.7528787, 1)
 
 [node name="RankingScene" type="CanvasLayer" unique_id=623138225]
 script = ExtResource("1_6huau")
+ButtonFont = ExtResource("4_fe7jo")
+FontSize = 45
+FontColor = Color(0.40268502, 0.37327692, 0.31974235, 1)
+CurrentUserColor = Color(0.5096905, 0.6612004, 0, 1)
+GoldColor = Color(0.7212048, 0.46523857, 0.12855461, 1)
+SilverColor = Color(0.3440756, 0.34407577, 0.3440759, 1)
+BronzeColor = Color(0.771726, 0.38370624, 0.11192242, 1)
+RowTexture = ExtResource("4_d5ypn")
+TopRowTexture = ExtResource("4_ddc4t")
+RowSize = Vector2(0, 120)
+MaxEntries = 10
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1261718993]
 clip_contents = true
@@ -41,10 +54,11 @@ scale = Vector2(1.0089937, 1.0441599)
 texture = ExtResource("1_my22f")
 
 [node name="TextureRect3" type="TextureRect" parent="." unique_id=1956051225]
-offset_left = -15.0
-offset_top = 123.0
-offset_right = 707.0
-offset_bottom = 845.0
+offset_left = -102.00001
+offset_top = 158.0
+offset_right = 1126.0
+offset_bottom = 1347.1666
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_6huau")
 expand_mode = 1
 
@@ -84,12 +98,13 @@ label_settings = SubResource("LabelSettings_ddc4t")
 anchors_preset = -1
 anchor_left = 0.393
 anchor_top = 0.19600001
-anchor_right = 0.84900004
-anchor_bottom = 0.91700006
-offset_left = 0.14001465
-offset_top = 0.31999207
-offset_right = 0.019897461
-offset_bottom = -0.3600464
+anchor_right = 0.90700006
+anchor_bottom = 0.94100004
+offset_left = -51.860046
+offset_top = 2.319992
+offset_right = -52.140137
+offset_bottom = 1.7199707
+scale = Vector2(1.12, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=124365487]
 layout_mode = 2

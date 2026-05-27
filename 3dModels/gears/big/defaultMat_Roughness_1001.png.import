@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://pci1820iryge"
 path.s3tc="res://.godot/imported/defaultMat_Roughness_1001.png-7a94315cac238aef5b2a28b857960c0a.s3tc.ctex"
+path.etc2="res://.godot/imported/defaultMat_Roughness_1001.png-7a94315cac238aef5b2a28b857960c0a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://3dModels/gears/big/defaultMat_Roughness_1001.png"
-dest_files=["res://.godot/imported/defaultMat_Roughness_1001.png-7a94315cac238aef5b2a28b857960c0a.s3tc.ctex"]
+dest_files=["res://.godot/imported/defaultMat_Roughness_1001.png-7a94315cac238aef5b2a28b857960c0a.s3tc.ctex", "res://.godot/imported/defaultMat_Roughness_1001.png-7a94315cac238aef5b2a28b857960c0a.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c816fyquc5ibg"
 path.s3tc="res://.godot/imported/defaultMat.001_Height_1001.png-ea3f0b101e5e1a0b07db2adfb44c6c8d.s3tc.ctex"
+path.etc2="res://.godot/imported/defaultMat.001_Height_1001.png-ea3f0b101e5e1a0b07db2adfb44c6c8d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://3dModels/gears/textures/defaultMat.001_Height_1001.png"
-dest_files=["res://.godot/imported/defaultMat.001_Height_1001.png-ea3f0b101e5e1a0b07db2adfb44c6c8d.s3tc.ctex"]
+dest_files=["res://.godot/imported/defaultMat.001_Height_1001.png-ea3f0b101e5e1a0b07db2adfb44c6c8d.s3tc.ctex", "res://.godot/imported/defaultMat.001_Height_1001.png-ea3f0b101e5e1a0b07db2adfb44c6c8d.etc2.ctex"]
 
 [params]
 

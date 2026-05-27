@@ -13,7 +13,7 @@ config_version=5
 config/name="CogChain"
 run/main_scene="uid://bknc8og6t775q"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://sbv7u2qiip6i"
 
 [audio]
 
@@ -48,3 +48,4 @@ locale/translations=PackedStringArray("res://Translations.en.translation", "res:
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

@@ -41,10 +41,10 @@ texture = ExtResource("2_0xm2m")
 
 [node name="RankingButton2" type="TextureButton" parent="." unique_id=1515226426]
 layout_mode = 0
-offset_left = 1504.0
+offset_left = 1454.0
 offset_top = 112.0
 offset_right = 2005.0
-offset_bottom = 346.0
+offset_bottom = 349.0
 texture_normal = ExtResource("3_1bvp3")
 texture_pressed = ExtResource("4_7mycd")
 texture_hover = ExtResource("4_7mycd")
@@ -54,14 +54,14 @@ stretch_mode = 0
 [node name="LoadButtonRanking" type="Label" parent="RankingButton2" unique_id=1886858068]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.15200001
+anchor_left = 0.1
 anchor_top = 0.64100003
-anchor_right = 0.89000005
-anchor_bottom = 0.88000005
-offset_left = -0.15206146
-offset_top = 0.0059661865
-offset_right = 0.10992432
-offset_bottom = 0.079956055
+anchor_right = 0.90200007
+anchor_bottom = 0.88500005
+offset_left = -0.09995651
+offset_top = 1.0829926
+offset_right = -0.10202026
+offset_bottom = -0.028015137
 grow_horizontal = 2
 grow_vertical = 2
 text = "Global rank"
@@ -201,10 +201,10 @@ expand_mode = 1
 
 [node name="TextureRect4" type="TextureRect" parent="." unique_id=295121136]
 layout_mode = 0
-offset_left = 1512.0
-offset_top = 57.0
-offset_right = 2010.0
-offset_bottom = 141.0
+offset_left = 1499.0
+offset_top = 60.0
+offset_right = 1997.0
+offset_bottom = 144.0
 texture = ExtResource("9_4c57u")
 expand_mode = 1
 
@@ -213,19 +213,19 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1561.0
-offset_top = 76.0
-offset_right = 1841.0
-offset_bottom = 122.0
+offset_left = 1546.0
+offset_top = 81.0
+offset_right = 1826.0
+offset_bottom = 127.0
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_dg77c")
 
 [node name="TextureRect3" type="TextureRect" parent="." unique_id=488278149]
 layout_mode = 0
-offset_left = 1853.0
-offset_top = 36.0
-offset_right = 1987.0
-offset_bottom = 170.0
+offset_left = 1820.0
+offset_top = 26.0
+offset_right = 1968.0
+offset_bottom = 174.0
 texture = ExtResource("10_efxa6")
 expand_mode = 1
