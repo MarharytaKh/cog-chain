@@ -60,16 +60,19 @@ public partial class AchievementsScreen : CanvasLayer
 			rowBtn.IgnoreTextureSize = true;
 			rowBtn.StretchMode = TextureButton.StretchModeEnum.Scale;
 			rowBtn.CustomMinimumSize = RowSize;
+			rowBtn.MouseFilter = Control.MouseFilterEnum.Pass;
 			if (RowTexture != null)
 				rowBtn.TextureNormal = RowTexture;
 
 			var row = new HBoxContainer();
 			row.SetAnchorsPreset(Control.LayoutPreset.FullRect);
+			row.MouseFilter = Control.MouseFilterEnum.Pass;
 			rowBtn.AddChild(row);
 
 			// Отступ + иконка
 			var margin = new MarginContainer();
 			margin.AddThemeConstantOverride("margin_left", IconMarginLeft);
+			margin.MouseFilter = Control.MouseFilterEnum.Pass;
 
 			var icon = new TextureRect();
 			icon.CustomMinimumSize = IconSize;
@@ -77,6 +80,7 @@ public partial class AchievementsScreen : CanvasLayer
 			icon.StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered;
 			icon.SizeFlagsHorizontal = Control.SizeFlags.ShrinkBegin;
 			icon.SizeFlagsVertical = Control.SizeFlags.ShrinkCenter;
+			icon.MouseFilter = Control.MouseFilterEnum.Pass;
 			if (AchievementIcons != null && i < AchievementIcons.Count && AchievementIcons[i] != null)
 				icon.Texture = AchievementIcons[i];
 			icon.Modulate = unlocked ? new Color(1, 1, 1, 1) : new Color(1, 1, 1, 0.4f);
@@ -87,10 +91,12 @@ public partial class AchievementsScreen : CanvasLayer
 			var textBox = new VBoxContainer();
 			textBox.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
 			textBox.SizeFlagsVertical = Control.SizeFlags.ShrinkCenter;
+			textBox.MouseFilter = Control.MouseFilterEnum.Pass;
 
 			var titleLabel = new Label();
 			titleLabel.Text = unlocked ? Tr(nameKey) : "???";
 			titleLabel.Modulate = color;
+			titleLabel.MouseFilter = Control.MouseFilterEnum.Pass;
 			if (ButtonFont != null) titleLabel.AddThemeFontOverride("font", ButtonFont);
 			titleLabel.AddThemeFontSizeOverride("font_size", ButtonFontSize);
 			textBox.AddChild(titleLabel);
@@ -99,6 +105,7 @@ public partial class AchievementsScreen : CanvasLayer
 			descLabel.Text = unlocked ? Tr(descKey) : "🔒";
 			descLabel.Modulate = color;
 			descLabel.AutowrapMode = TextServer.AutowrapMode.Word;
+			descLabel.MouseFilter = Control.MouseFilterEnum.Pass;
 			if (ButtonFont != null) descLabel.AddThemeFontOverride("font", ButtonFont);
 			descLabel.AddThemeFontSizeOverride("font_size", DescFontSize);
 			textBox.AddChild(descLabel);

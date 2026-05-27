@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="CogChain"
-run/main_scene="uid://bknc8og6t775q"
+run/main_scene="uid://c5ux2ylhvlr8"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
+run/max_fps=60
 config/icon="uid://sbv7u2qiip6i"
 
 [audio]
@@ -38,7 +39,7 @@ project/assembly_name="CogChain"
 [internationalization]
 
 locale/translation_remaps={}
-locale/translations=PackedStringArray("res://Translations.en.translation", "res://Translations.pl.translation")
+locale/translations=PackedStringArray("res://translations.en.translation", "res://translations.pl.translation")
 
 [physics]
 

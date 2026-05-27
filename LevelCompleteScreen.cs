@@ -10,24 +10,43 @@ public partial class LevelCompleteScreen : CanvasLayer
 	public void Setup(int currentIndex, int totalLevels, float time, int moves, int stars)
 	{
 		var nextBtn = GetNodeOrNull<TextureButton>("Panel/nextButton");
-		if (nextBtn != null)
+if (nextBtn != null)
+{
+	if (currentIndex + 1 < totalLevels)
+	{
+		nextBtn.Visible = true;
+		nextBtn.Pressed += () =>
 		{
-			nextBtn.Visible = currentIndex + 1 < totalLevels;
-			nextBtn.Pressed += () =>
-			{
-				SoundManager.Instance?.PlayClick();
-				QueueFree();
-				GetTree().ChangeSceneToFile("res://UI/LevelSelect.tscn");
-			};
-		}
+			SoundManager.Instance?.PlayClick();
+			QueueFree();
+			GetTree().ChangeSceneToFile("res://UI/LevelSelect.tscn");
+		};
+	}
+	else
+	{
+		// Последний уровень — показываем кнопку но ведём в главное меню
+		nextBtn.Visible = true;
+		var nextLbl = nextBtn.GetNodeOrNull<Label>("Button2Label");
+		if (nextLbl != null) nextLbl.Text = Tr("MAIN_MENU");
+		nextBtn.Pressed += () =>
+		{
+			SoundManager.Instance?.PlayClick();
+			QueueFree();
+			GetTree().ChangeSceneToFile("res://main.tscn");
+		};
+	}
+}
 
 		var levelsBtn = GetNodeOrNull<TextureButton>("Panel/LevelsButton");
-		if (levelsBtn != null)
-			levelsBtn.Pressed += () =>
-			{
-				SoundManager.Instance?.PlayClick();
-				GetTree().ChangeSceneToFile("res://UI/LevelSelect.tscn");
-			};
+if (levelsBtn != null)
+{
+	levelsBtn.Visible = true;
+	levelsBtn.Pressed += () =>
+	{
+		SoundManager.Instance?.PlayClick();
+		GetTree().ChangeSceneToFile("res://UI/LevelSelect.tscn");
+	};
+}
 
 		var restartBtn = GetNodeOrNull<TextureButton>("Panel/RestartButton");
 		if (restartBtn != null)

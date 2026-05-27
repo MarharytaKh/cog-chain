@@ -151,7 +151,7 @@ near = 0.059
 far = 3879.1
 
 [node name="Axis1" type="Node3D" parent="." unique_id=2035362910]
-transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 3.6764176, 0.5560665, -5.133633)
+transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 3.6764176, 0.5560665, -5.0953555)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis1" unique_id=425443292]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -181,7 +181,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_yejuq")
 
 [node name="Axis3" type="Node3D" parent="." unique_id=920169698]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -5.6226273, 0.5560665, -1.8099556)
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -5.565218, 0.5560665, -1.8673418)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis3" unique_id=805714266]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -211,7 +211,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_yejuq")
 
 [node name="Target" type="Node3D" parent="." unique_id=93763116]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -7.1210876, 0.6187157, -5.204163)
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -7.426936, 0.6187157, -5.2993994)
 script = ExtResource("32_vpq7h")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Target" unique_id=1571289918]
@@ -231,7 +231,7 @@ mesh = ExtResource("19_7abgu")
 surface_material_override/0 = SubResource("StandardMaterial3D_qpd50")
 
 [node name="Axis5" type="Node3D" parent="." unique_id=1389237850]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -7.5192575, 0.5560665, -2.725631)
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -7.4617267, 0.5560665, -2.744761)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis5" unique_id=595447834]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -291,7 +291,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_yejuq")
 
 [node name="Axis9" type="Node3D" parent="." unique_id=490418782]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, 2.3354435, 0.5560665, 0.97977257)
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, 2.3161926, 0.5560665, 0.9415293)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis9" unique_id=688693554]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -426,7 +426,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_yejuq")
 
 [node name="Axis18" type="Node3D" parent="." unique_id=1502896687]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -2.8533392, 0.5560665, -5.572026)
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -2.8533392, 0.5560665, -5.6294413)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis18" unique_id=303036808]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -441,7 +441,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_yejuq")
 
 [node name="Axis19" type="Node3D" parent="." unique_id=518028841]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -4.700853, 0.5560665, -4.4330235)
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -4.3001995, 0.5560665, -5.0836887)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis19" unique_id=1126478949]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)

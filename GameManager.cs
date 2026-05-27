@@ -42,6 +42,9 @@ public partial class GameManager : Node
 
 	public override void _Ready()
 	{
+		SettingsManager.Load();
+SettingsManager.Apply();
+		
 		AddToGroup("GameManager");
 		GetTree().SceneChanged += OnSceneChanged;
 		CallDeferred(nameof(InitLevel));
@@ -116,7 +119,7 @@ public partial class GameManager : Node
 			if (node is LevelAnimation anim)
 				anim.Activate();
 
-		//CompleteLevel();
+		CompleteLevel();
 	}
 
 	public int CalculateStars(float time, int moves)

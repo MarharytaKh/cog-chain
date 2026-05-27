@@ -43,6 +43,7 @@ if (nameLabel != null) nameLabel.Text = Tr("NAME_SAVE");
 			btn.CustomMinimumSize = ButtonSize;
 			btn.IgnoreTextureSize = true;
 			btn.StretchMode = TextureButton.StretchModeEnum.Scale;
+			btn.MouseFilter = Control.MouseFilterEnum.Pass;
  
 			if (ButtonTexture != null)
 				btn.TextureNormal = ButtonTexture;
@@ -52,6 +53,7 @@ if (nameLabel != null) nameLabel.Text = Tr("NAME_SAVE");
 			label.HorizontalAlignment = HorizontalAlignment.Center;
 			label.VerticalAlignment   = VerticalAlignment.Center;
 			label.SetAnchorsPreset(Control.LayoutPreset.FullRect);
+			label.MouseFilter = Control.MouseFilterEnum.Pass;
  
 label.AddThemeColorOverride("font_color", FontColor);
 

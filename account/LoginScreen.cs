@@ -16,7 +16,8 @@ public partial class LoginScreen : CanvasLayer
 	public override void _Ready()
 	{
 		SaveSystem.Load();
-
+SettingsManager.Load();
+SettingsManager.Apply();
 		_usernameInput = GetNode<LineEdit>("UsernameInput");
 		_passwordInput = GetNode<LineEdit>("PasswordInput");
 		_emailInput    = GetNodeOrNull<LineEdit>("EmailInput");

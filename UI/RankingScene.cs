@@ -38,6 +38,7 @@ public partial class RankingScene : CanvasLayer
 		var loadingLabel = new Label();
 		loadingLabel.Text = Tr("LOADING");
 		loadingLabel.HorizontalAlignment = HorizontalAlignment.Center;
+		loadingLabel.MouseFilter = Control.MouseFilterEnum.Pass;
 		vbox.AddChild(loadingLabel);
 
 		_ = LoadRanking(vbox, loadingLabel);
@@ -55,6 +56,7 @@ public partial class RankingScene : CanvasLayer
 				var empty = new Label();
 				empty.Text = Tr("NO_RANKING_DATA");
 				empty.HorizontalAlignment = HorizontalAlignment.Center;
+				empty.MouseFilter = Control.MouseFilterEnum.Pass;
 				vbox.AddChild(empty);
 				return;
 			}
@@ -85,6 +87,7 @@ public partial class RankingScene : CanvasLayer
 				row.IgnoreTextureSize = true;
 				row.StretchMode = TextureButton.StretchModeEnum.Scale;
 				row.CustomMinimumSize = RowSize;
+				row.MouseFilter = Control.MouseFilterEnum.Pass;
 
 				if (isTop3 && TopRowTexture != null)
 					row.TextureNormal = TopRowTexture;
@@ -103,6 +106,7 @@ public partial class RankingScene : CanvasLayer
 				label.HorizontalAlignment = HorizontalAlignment.Center;
 				label.VerticalAlignment = VerticalAlignment.Center;
 				label.SetAnchorsPreset(Control.LayoutPreset.FullRect);
+				label.MouseFilter = Control.MouseFilterEnum.Pass;
 
 				if (ButtonFont != null) label.AddThemeFontOverride("font", ButtonFont);
 				label.AddThemeFontSizeOverride("font_size", FontSize);

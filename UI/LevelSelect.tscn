@@ -60,12 +60,18 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1036674509]
-layout_mode = 0
-offset_left = 741.99994
-offset_top = 25.0
-offset_right = 1754.0
-offset_bottom = 1049.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 840.99994
+offset_top = 46.0
+offset_right = 1771.3552
+offset_bottom = 1065.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.1200024, 1)
+mouse_filter = 0
 horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer" unique_id=1346116190]

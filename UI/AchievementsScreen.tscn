@@ -92,10 +92,12 @@ offset_left = -0.6600342
 offset_top = -23.120003
 offset_right = -40.640137
 offset_bottom = 0.35998535
+mouse_filter = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=914074687]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 
 [node name="Name" type="Label" parent="." unique_id=1587754638]
 anchors_preset = -1

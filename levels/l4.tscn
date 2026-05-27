@@ -121,7 +121,7 @@ current = true
 fov = 38.8
 
 [node name="Axis1" type="Node3D" parent="." unique_id=1827614293]
-transform = Transform3D(-0.004817034, 0, 0.9999884, 0, 1, 0, -0.9999884, 0, -0.004817034, -1.0636697, 0.556, -1.2341098)
+transform = Transform3D(-0.004817034, 0, 0.9999884, 0, 1, 0, -0.9999884, 0, -0.004817034, -0.67581916, 0.556, -1.084142)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis1" unique_id=957695171]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -136,7 +136,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_6mx2r")
 
 [node name="Axis2" type="Node3D" parent="." unique_id=1445588529]
-transform = Transform3D(-0.004817034, 0, 0.9999884, 0, 1, 0, -0.9999884, 0, -0.004817034, -1.8741801, 0.556, 0.63156533)
+transform = Transform3D(-0.004817034, 0, 0.9999884, 0, 1, 0, -0.9999884, 0, -0.004817034, -1.8814244, 0.556, 0.55257785)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis2" unique_id=1318174301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -151,7 +151,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_6mx2r")
 
 [node name="Axis3" type="Node3D" parent="." unique_id=1794511937]
-transform = Transform3D(-0.004817034, 0, 0.9999884, 0, 1, 0, -0.9999884, 0, -0.004817034, -6.7505875, 0.556, -0.1796968)
+transform = Transform3D(-0.004817034, 0, 0.9999884, 0, 1, 0, -0.9999884, 0, -0.004817034, -6.69748, 0.556, -0.1796968)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis3" unique_id=944933676]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -166,7 +166,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_6mx2r")
 
 [node name="Axis4" type="Node3D" parent="." unique_id=832711158]
-transform = Transform3D(-0.004817034, 0, 0.9999884, 0, 1, 0, -0.9999884, 0, -0.004817034, -4.462737, 0.556, -1.3023028)
+transform = Transform3D(-0.004817034, 0, 0.9999884, 0, 1, 0, -0.9999884, 0, -0.004817034, -4.42192, 0.556, -1.3539364)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis4" unique_id=607944173]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -226,7 +226,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_6mx2r")
 
 [node name="Axis8" type="Node3D" parent="." unique_id=827983439]
-transform = Transform3D(-0.004817034, 0, 0.9999884, 0, 1, 0, -0.9999884, 0, -0.004817034, -0.9357424, 0.556, -4.706769)
+transform = Transform3D(-0.004817034, 0, 0.9999884, 0, 1, 0, -0.9999884, 0, -0.004817034, -0.86319983, 0.556, -4.362501)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis8" unique_id=396349558]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, -0.039069176)
@@ -241,7 +241,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_6mx2r")
 
 [node name="Axis9" type="Node3D" parent="." unique_id=1668937640]
-transform = Transform3D(-0.004817034, 0, 0.9999884, 0, 1, 0, -0.9999884, 0, -0.004817034, -3.4132504, 0.5560665, 0.4047563)
+transform = Transform3D(-0.004817034, 0, 0.99998844, 0, 1, 0, -0.99998844, 0, -0.004817034, -3.3994236, 0.5560665, 0.3679912)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis9" unique_id=1280893607]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -276,7 +276,7 @@ mesh = ExtResource("20_fb1wr")
 surface_material_override/0 = SubResource("StandardMaterial3D_m6yxo")
 
 [node name="Target" type="Node3D" parent="." unique_id=40864290]
-transform = Transform3D(-0.004817034, 0, 0.9999884, 0, 1, 0, -0.9999884, 0, -0.004817034, 0.4886589, 0.5323848, -3.2677557)
+transform = Transform3D(-0.004817034, 0, 0.9999884, 0, 1, 0, -0.9999884, 0, -0.004817034, 0.7990339, 0.5323848, -3.1536264)
 script = ExtResource("25_ryfvn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Target" unique_id=1902935378]

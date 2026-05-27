@@ -236,7 +236,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_o4t1k")
 
 [node name="Axis3" type="Node3D" parent="." unique_id=1377476087]
-transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 5.7403235, 0.5560665, -0.3001473)
+transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 5.5909595, 0.5560665, -0.27048135)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis3" unique_id=1241054580]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -251,7 +251,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_o4t1k")
 
 [node name="Axis4" type="Node3D" parent="." unique_id=1719323970]
-transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 1.8622441, 0.5560665, -4.5409203)
+transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 1.9133162, 0.5560665, -4.547432)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis4" unique_id=1162792971]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -266,7 +266,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_o4t1k")
 
 [node name="Axis5" type="Node3D" parent="." unique_id=1484494760]
-transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 1.2191286, 0.5560665, -6.4856606)
+transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 1.2584171, 0.5560665, -6.4841785)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis5" unique_id=1897334958]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -281,7 +281,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_o4t1k")
 
 [node name="Axis6" type="Node3D" parent="." unique_id=65732931]
-transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, -0.84914565, 0.5560665, -6.57902)
+transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, -0.84118336, 0.5560665, -6.607513)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis6" unique_id=319984327]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -296,7 +296,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_o4t1k")
 
 [node name="Axis7" type="Node3D" parent="." unique_id=1509318943]
-transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, -2.1167073, 0.5560665, -5.6401396)
+transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, -2.071896, 0.5560665, -5.6282706)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis7" unique_id=1990346754]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -326,7 +326,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_o4t1k")
 
 [node name="Axis9" type="Node3D" parent="." unique_id=1536016601]
-transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 3.9038043, 0.5560665, 0.73896)
+transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 3.8172846, 0.5560665, 0.76861835)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis9" unique_id=1245535554]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -371,7 +371,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_o4t1k")
 
 [node name="Axis12" type="Node3D" parent="." unique_id=1379803401]
-transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 2.4488447, 0.5560665, -0.7733216)
+transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 2.4324987, 0.5560665, -0.77276313)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis12" unique_id=38993924]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -386,7 +386,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_o4t1k")
 
 [node name="Axis13" type="Node3D" parent="." unique_id=618339574]
-transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 1.9536593, 0.5560665, 1.4715408)
+transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, 1.9240143, 0.5560665, 1.4449743)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis13" unique_id=1820514623]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -431,7 +431,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_o4t1k")
 
 [node name="Axis16" type="Node3D" parent="." unique_id=1663667755]
-transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, -3.1393201, 0.5560665, -0.70831656)
+transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, -2.8513293, 0.5560665, -0.7778697)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis16" unique_id=813804376]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -461,7 +461,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_o4t1k")
 
 [node name="Axis18" type="Node3D" parent="." unique_id=780381537]
-transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, -2.9803693, 0.5560665, -3.097611)
+transform = Transform3D(0.01862168, 0, 0.9998266, 0, 1, 0, -0.9998266, 0, 0.01862168, -2.8408585, 0.5560665, -2.7022254)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis18" unique_id=1486821689]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)
@@ -476,7 +476,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_o4t1k")
 
 [node name="Target" type="Node3D" parent="." unique_id=735679385]
-transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -5.235446, 0.6187157, -1.0680517)
+transform = Transform3D(0.0020246077, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.0020246077, -4.6743946, 0.55455965, -1.6083373)
 script = ExtResource("35_2hoqs")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Target" unique_id=177815507]
