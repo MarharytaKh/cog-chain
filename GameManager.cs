@@ -25,6 +25,13 @@ public partial class GameManager : Node
 	private int _restartCount = 0;
 	private int _lastRestartedLevel = -1;
 
+	// Данные для показа результатов после катсцены
+	public static int PendingLevelIndex = -1;
+	public static float PendingTime = 0;
+	public static int PendingMoves = 0;
+	public static int PendingStars = 0;
+	public static int PendingTotalLevels = 0;
+
 	public void LoadLevelByIndex(int index)
 	{
 		if (levels == null || index < 0 || index >= levels.Length) return;
@@ -43,8 +50,7 @@ public partial class GameManager : Node
 	public override void _Ready()
 	{
 		SettingsManager.Load();
-SettingsManager.Apply();
-		
+		SettingsManager.Apply();
 		AddToGroup("GameManager");
 		GetTree().SceneChanged += OnSceneChanged;
 		CallDeferred(nameof(InitLevel));
@@ -135,96 +141,113 @@ SettingsManager.Apply();
 		return 0;
 	}
 
-// Вставь этот метод в GameManager.cs вместо существующего CompleteLevel()
-
-public void CompleteLevel()
-{
-	SoundManager.Instance?.StopSpin();
-	int stars = CalculateStars(_time, _moves);
-	SaveSystem.SaveLevelResult(currentLevelIndex, _time, _moves, stars);
-	if (stars >= 1 && currentLevelIndex + 1 < levels.Length)
-		levels[currentLevelIndex + 1].isUnlocked = true;
-
-	if (currentLevelIndex == 0)
+	public void CompleteLevel()
 	{
-		if (SaveSystem.UnlockAchievement("first_level"))
-			ShowNotification(Tr("ACH_FIRST_LEVEL"), "first_level");
-	}
-	else
-	{
-		if (!_removedGear)
-			if (SaveSystem.UnlockAchievement("no_remove"))
-				ShowNotification(Tr("ACH_NO_REMOVE"), "no_remove");
+		SoundManager.Instance?.StopSpin();
+		int stars = CalculateStars(_time, _moves);
+		SaveSystem.SaveLevelResult(currentLevelIndex, _time, _moves, stars);
+		if (stars >= 1 && currentLevelIndex + 1 < levels.Length)
+			levels[currentLevelIndex + 1].isUnlocked = true;
 
-		if (_time < 15f)
-			if (SaveSystem.UnlockAchievement("speed_run"))
-				ShowNotification(Tr("ACH_SPEED_RUN"), "speed_run");
-
-		if (SaveSystem.CurrentUser != null)
+		if (currentLevelIndex == 0)
 		{
-			bool allDone = true;
-			for (int i = 0; i < levels.Length; i++)
-				if (!SaveSystem.CurrentUser.LevelResults.ContainsKey(i))
-					{ allDone = false; break; }
-			if (allDone)
-				if (SaveSystem.UnlockAchievement("game_complete"))
-					ShowNotification(Tr("ACH_GAME_COMPLETE"), "game_complete");
+			if (SaveSystem.UnlockAchievement("first_level"))
+				ShowNotification(Tr("ACH_FIRST_LEVEL"), "first_level");
 		}
-
-		bool allUsed = true;
-		for (int i = 0; i < remainingGearCounts.Length; i++)
-			if (remainingGearCounts[i] > 0) { allUsed = false; break; }
-		if (allUsed)
-			if (SaveSystem.UnlockAchievement("all_gears"))
-				ShowNotification(Tr("ACH_ALL_GEARS"), "all_gears");
-
-		if (stars == 5)
-			if (SaveSystem.UnlockAchievement("five_stars"))
-				ShowNotification(Tr("ACH_FIVE_STARS"), "five_stars");
-
-		if (SaveSystem.CurrentUser != null)
+		else
 		{
-			bool allMax = true;
-			for (int i = 0; i < levels.Length; i++)
+			if (!_removedGear)
+				if (SaveSystem.UnlockAchievement("no_remove"))
+					ShowNotification(Tr("ACH_NO_REMOVE"), "no_remove");
+
+			if (_time < 15f)
+				if (SaveSystem.UnlockAchievement("speed_run"))
+					ShowNotification(Tr("ACH_SPEED_RUN"), "speed_run");
+
+			if (SaveSystem.CurrentUser != null)
 			{
-				if (!SaveSystem.CurrentUser.LevelResults.ContainsKey(i) ||
-					SaveSystem.CurrentUser.LevelResults[i].BestStars < 5)
-					{ allMax = false; break; }
+				bool allDone = true;
+				for (int i = 0; i < levels.Length; i++)
+					if (!SaveSystem.CurrentUser.LevelResults.ContainsKey(i))
+						{ allDone = false; break; }
+				if (allDone)
+					if (SaveSystem.UnlockAchievement("game_complete"))
+						ShowNotification(Tr("ACH_GAME_COMPLETE"), "game_complete");
 			}
-			if (allMax)
-				if (SaveSystem.UnlockAchievement("all_stars"))
-					ShowNotification(Tr("ACH_ALL_STARS"), "all_stars");
+
+			bool allUsed = true;
+			for (int i = 0; i < remainingGearCounts.Length; i++)
+				if (remainingGearCounts[i] > 0) { allUsed = false; break; }
+			if (allUsed)
+				if (SaveSystem.UnlockAchievement("all_gears"))
+					ShowNotification(Tr("ACH_ALL_GEARS"), "all_gears");
+
+			if (stars == 5)
+				if (SaveSystem.UnlockAchievement("five_stars"))
+					ShowNotification(Tr("ACH_FIVE_STARS"), "five_stars");
+
+			if (SaveSystem.CurrentUser != null)
+			{
+				bool allMax = true;
+				for (int i = 0; i < levels.Length; i++)
+				{
+					if (!SaveSystem.CurrentUser.LevelResults.ContainsKey(i) ||
+						SaveSystem.CurrentUser.LevelResults[i].BestStars < 5)
+						{ allMax = false; break; }
+				}
+				if (allMax)
+					if (SaveSystem.UnlockAchievement("all_stars"))
+						ShowNotification(Tr("ACH_ALL_STARS"), "all_stars");
+			}
 		}
+
+		float capturedTime  = _time;
+		int   capturedMoves = _moves;
+
+		// После 11го уровня (индекс 10) — сначала результаты, потом катсцена через кнопку
+		if (currentLevelIndex == 10)
+		{
+			PendingLevelIndex   = currentLevelIndex;
+			PendingTime         = capturedTime;
+			PendingMoves        = capturedMoves;
+			PendingStars        = stars;
+			PendingTotalLevels  = levels.Length;
+
+			var cutsceneUiManager = GetNodeOrNull<UIManager>("/root/UIManager");
+			if (cutsceneUiManager == null) return;
+			cutsceneUiManager.Show("level_complete");
+			var screen = cutsceneUiManager.GetCurrentScreen();
+			if (screen is LevelCompleteScreen lcs)
+				lcs.SetupWithCutscene(currentLevelIndex, levels.Length, capturedTime, capturedMoves, stars);
+			return;
+		}
+
+		var timer = GetTree().CreateTimer(2.0f);
+		timer.Timeout += () =>
+		{
+			var uiManager = GetNodeOrNull<UIManager>("/root/UIManager");
+			if (uiManager == null) return;
+			if (levels == null) return;
+			uiManager.Show("level_complete");
+			var screen = uiManager.GetCurrentScreen();
+			if (screen is LevelCompleteScreen lcs)
+				lcs.Setup(currentLevelIndex, levels.Length, capturedTime, capturedMoves, stars);
+			else
+				GD.PrintErr($"screen type={screen?.GetType().Name}");
+		};
 	}
 
-	float capturedTime  = _time;
-	int   capturedMoves = _moves;
-
-	// После 7го уровня (индекс 6) — показываем катсцену
-	if (currentLevelIndex == 10)
+	public void ShowPendingResults()
 	{
-	var uiManager = GetNodeOrNull<UIManager>("/root/UIManager");
-	uiManager?.Hide();
-	SoundManager.Instance?.StopMusic();
-	var cutsceneTimer = GetTree().CreateTimer(2.5f);
-	cutsceneTimer.Timeout += () => GetTree().ChangeSceneToFile("res://Intro2.tscn");
-	return;
-	}
-
-	var timer = GetTree().CreateTimer(2.0f);
-	timer.Timeout += () =>
-	{
+		if (PendingLevelIndex < 0) return;
 		var uiManager = GetNodeOrNull<UIManager>("/root/UIManager");
 		if (uiManager == null) return;
-		if (levels == null) return;
 		uiManager.Show("level_complete");
 		var screen = uiManager.GetCurrentScreen();
 		if (screen is LevelCompleteScreen lcs)
-			lcs.Setup(currentLevelIndex, levels.Length, capturedTime, capturedMoves, stars);
-		else
-			GD.PrintErr($"screen type={screen?.GetType().Name}");
-	};
-}
+			lcs.Setup(PendingLevelIndex, PendingTotalLevels, PendingTime, PendingMoves, PendingStars);
+		PendingLevelIndex = -1;
+	}
 
 	public void RestartLevel()
 	{
@@ -234,7 +257,7 @@ public void CompleteLevel()
 			_lastRestartedLevel = currentLevelIndex;
 		}
 		_restartCount++;
-		if (_restartCount >= 3)
+		if (_restartCount >= 3 && currentLevelIndex != 0)
 			if (SaveSystem.UnlockAchievement("persistent"))
 				ShowNotification(Tr("ACH_PERSISTENT"), "persistent");
 

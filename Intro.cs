@@ -11,6 +11,13 @@ public partial class Intro : Control
 		video.Finished += () =>
 		{
 			SoundManager.Instance?.StartMusic();
+			// Если есть ожидающие результаты — показываем их
+			if (GameManager.PendingLevelIndex >= 0)
+			{
+				var gm = GetTree().GetFirstNodeInGroup("GameManager") as GameManager;
+				gm?.ShowPendingResults();
+				return;
+			}
 			GetTree().ChangeSceneToFile(NextScene);
 		};
 		video.Play();
@@ -21,6 +28,12 @@ public partial class Intro : Control
 		if (@event is InputEventScreenTouch || @event is InputEventMouseButton)
 		{
 			SoundManager.Instance?.StartMusic();
+			if (GameManager.PendingLevelIndex >= 0)
+			{
+				var gm = GetTree().GetFirstNodeInGroup("GameManager") as GameManager;
+				gm?.ShowPendingResults();
+				return;
+			}
 			GetTree().ChangeSceneToFile(NextScene);
 		}
 	}
