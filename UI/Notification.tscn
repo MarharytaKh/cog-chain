@@ -2,7 +2,16 @@
 
 [ext_resource type="Script" uid="uid://ck2mlb4xyxe2n" path="res://NotificationManager.cs" id="1_wmasj"]
 [ext_resource type="Texture2D" uid="uid://d1q07t6qd0u5r" path="res://UI/cloud.png" id="2_eodd8"]
+[ext_resource type="Texture2D" uid="uid://cjvydy5sd6oij" path="res://UI/ach1.png" id="2_l178k"]
 [ext_resource type="FontFile" uid="uid://kil1ipa0b4bb" path="res://fonts/FhaModernizedIdealClassicnc-lzVX.ttf" id="2_wb0ci"]
+[ext_resource type="Texture2D" uid="uid://1nuk4vg4m5dj" path="res://UI/ach2.png" id="3_l5sjv"]
+[ext_resource type="Texture2D" uid="uid://c0wd5tlo0o5aa" path="res://UI/ach3.png" id="4_uhlc6"]
+[ext_resource type="Texture2D" uid="uid://mopwdnxu3tmu" path="res://UI/ach4.png" id="5_gdhk1"]
+[ext_resource type="Texture2D" uid="uid://dyiotmd13yq0j" path="res://UI/ach5.png" id="6_ejdbr"]
+[ext_resource type="Texture2D" uid="uid://cydqjcakb4g6a" path="res://UI/ach6.png" id="7_ekmt2"]
+[ext_resource type="Texture2D" uid="uid://d10ea0jo4qj7c" path="res://UI/ach7.png" id="8_lkant"]
+[ext_resource type="Texture2D" uid="uid://bpbb2cqgbx047" path="res://UI/ach8.png" id="9_m17ea"]
+[ext_resource type="Texture2D" uid="uid://q3r75v1itpeh" path="res://UI/ach9.png" id="10_jj4mw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wb0ci"]
 font = ExtResource("2_wb0ci")
@@ -11,6 +20,7 @@ font_color = Color(0, 0.16919968, 0.1721879, 1)
 
 [node name="Notification" type="CanvasLayer" unique_id=1676695824]
 script = ExtResource("1_wmasj")
+AchievementIcons = Array[Texture2D]([ExtResource("2_l178k"), ExtResource("3_l5sjv"), ExtResource("4_uhlc6"), ExtResource("5_gdhk1"), ExtResource("6_ejdbr"), ExtResource("7_ekmt2"), ExtResource("8_lkant"), ExtResource("9_m17ea"), ExtResource("10_jj4mw")])
 
 [node name="Panel" type="TextureRect" parent="." unique_id=1161870420]
 anchors_preset = 5
@@ -26,15 +36,30 @@ texture = ExtResource("2_eodd8")
 [node name="Label" type="Label" parent="Panel" unique_id=861409772]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.039
-anchor_top = 0.363
+anchor_left = 0.24900001
+anchor_top = 0.36800003
 anchor_right = 0.943
-anchor_bottom = 0.64400005
-offset_left = 0.03100586
-offset_top = 0.030029297
+anchor_bottom = 0.768
+offset_left = 0.12098694
+offset_top = 0.08002472
 offset_right = -0.35302734
-offset_bottom = 0.02002716
+offset_bottom = 0.08003235
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_wb0ci")
 horizontal_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Panel" unique_id=1226762529]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09200001
+anchor_top = 0.20500001
+anchor_right = 0.23700002
+anchor_bottom = 0.82600003
+offset_left = -0.13200378
+offset_top = 0.049999237
+offset_right = -0.4270172
+offset_bottom = 0.05999756
+expand_mode = 1
+stretch_mode = 5

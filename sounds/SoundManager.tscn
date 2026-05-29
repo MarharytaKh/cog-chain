@@ -2,15 +2,31 @@
 
 [ext_resource type="Script" uid="uid://c0g2imjjkas2j" path="res://sounds/SoundManager.cs" id="1_bhhab"]
 [ext_resource type="AudioStream" uid="uid://chupifj456ysn" path="res://sounds/sfx/Chopping and Mining/mine 5.wav" id="2_oou6t"]
-[ext_resource type="AudioStream" uid="uid://ccva71gvquauc" path="res://sounds/music/bsck_music.ogg" id="3_5k6c8"]
+[ext_resource type="AudioStream" uid="uid://b4lrlem8gey2c" path="res://sounds/music/Video Project 18.wav" id="3_eq2cf"]
 [ext_resource type="AudioStream" uid="uid://din8xctoiajw8" path="res://sounds/sfx/Attacks/Sword Attacks Hits and Blocks/Sword Parry 3.wav" id="4_5k6c8"]
 [ext_resource type="AudioStream" uid="uid://b3u5trmp2a2sh" path="res://sounds/sfx/Attacks/Sword Attacks Hits and Blocks/Sword Parry 2.wav" id="5_eq2cf"]
 [ext_resource type="AudioStream" uid="uid://cum83nsldl7jn" path="res://sounds/sfx/freesound_community-running-gear-6403.ogg" id="6_5k6c8"]
+[ext_resource type="AudioStream" uid="uid://c7yq6onc7l132" path="res://sounds/sfx/achievement.ogg" id="7_eq2cf"]
+[ext_resource type="AudioStream" uid="uid://bpxrueqhejlg" path="res://sounds/sfx/Doors Gates and Chests/Door Open 2.wav" id="8_oftwo"]
+[ext_resource type="AudioStream" uid="uid://b0e4ot5iia1as" path="res://sounds/sfx/switch-living-room-light-switch-turning-on-and-off_z1kmqond.wav" id="9_aht5l"]
+[ext_resource type="AudioStream" uid="uid://dbyc3kc3o17su" path="res://sounds/sfx/chasy_005.mp3" id="10_trg1h"]
+[ext_resource type="AudioStream" uid="uid://dtxyg7dvkv8cb" path="res://sounds/sfx/Doors Gates and Chests/Gate Open.wav" id="11_f0mfp"]
+[ext_resource type="AudioStream" uid="uid://cndma0anacqas" path="res://sounds/sfx/00ec6984e56091b.mp3" id="12_t28ep"]
+[ext_resource type="AudioStream" uid="uid://din3l3bpea05p" path="res://sounds/sfx/21.wav" id="13_aht5l"]
+[ext_resource type="AudioStream" uid="uid://nvg2uy7ata1j" path="res://sounds/sfx/opening-metal-bolt-lock_mka92beu.wav" id="13_di6qe"]
 
 [node name="SoundManager" type="Node2D" unique_id=32109600]
 script = ExtResource("1_bhhab")
 ButtonClick = ExtResource("2_oou6t")
-BackgroundMusic = ExtResource("3_5k6c8")
+BackgroundMusic = ExtResource("3_eq2cf")
 GearPlace = ExtResource("4_5k6c8")
 GearRemove = ExtResource("5_eq2cf")
 GearSpin = ExtResource("6_5k6c8")
+AchievementSound = ExtResource("7_eq2cf")
+DoorSound = ExtResource("8_oftwo")
+LampSound = ExtResource("9_aht5l")
+ClockHandSound = ExtResource("10_trg1h")
+KeySound = ExtResource("11_f0mfp")
+LiftSound = ExtResource("12_t28ep")
+ArrowSound = ExtResource("13_aht5l")
+RotateSound = ExtResource("13_di6qe")

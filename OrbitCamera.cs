@@ -7,13 +7,14 @@ public partial class OrbitCamera : Node3D
 	[Export] public float RotateSpeed = 0.3f;
 	[Export] public float MinPitch = -10f;
 	[Export] public float MaxPitch = 60f;
-	[Export] public float MinYaw = -60f;  // лимит влево в градусах
-	[Export] public float MaxYaw = 60f;   // лимит вправо в градусах
+	[Export] public float MinYaw = -60f;
+	[Export] public float MaxYaw = 60f;
 
 	private float _yaw = 0f;
 	private float _pitch = 20f;
 	private Vector2 _lastTouch = Vector2.Zero;
 	private bool _touching = false;
+	private int _touchIndex = -1;
 
 	public override void _Ready()
 	{
@@ -24,21 +25,27 @@ public partial class OrbitCamera : Node3D
 	{
 		if (@event is InputEventScreenTouch touch)
 		{
-			_touching = touch.Pressed;
-			if (touch.Pressed)
+			if (touch.Pressed && _touchIndex == -1)
+			{
+				_touchIndex = touch.Index;
+				_touching = true;
 				_lastTouch = touch.Position;
+			}
+			else if (!touch.Pressed && touch.Index == _touchIndex)
+			{
+				_touching = false;
+				_touchIndex = -1;
+			}
 		}
 
-		if (@event is InputEventScreenDrag drag && _touching)
+		if (@event is InputEventScreenDrag drag && _touching && drag.Index == _touchIndex)
 		{
 			Vector2 delta = drag.Position - _lastTouch;
 			_lastTouch = drag.Position;
-
 			_yaw -= delta.X * RotateSpeed;
-			_yaw = Mathf.Clamp(_yaw, MinYaw, MaxYaw); // ← добавили
+			_yaw = Mathf.Clamp(_yaw, MinYaw, MaxYaw);
 			_pitch -= delta.Y * RotateSpeed;
 			_pitch = Mathf.Clamp(_pitch, MinPitch, MaxPitch);
-
 			UpdateCamera();
 		}
 
@@ -52,10 +59,9 @@ public partial class OrbitCamera : Node3D
 		if (@event is InputEventMouseMotion mm && _touching)
 		{
 			_yaw -= mm.Relative.X * RotateSpeed;
-			_yaw = Mathf.Clamp(_yaw, MinYaw, MaxYaw); // ← добавили
+			_yaw = Mathf.Clamp(_yaw, MinYaw, MaxYaw);
 			_pitch += mm.Relative.Y * RotateSpeed;
 			_pitch = Mathf.Clamp(_pitch, MinPitch, MaxPitch);
-
 			UpdateCamera();
 		}
 	}
@@ -64,13 +70,11 @@ public partial class OrbitCamera : Node3D
 	{
 		float yawRad = Mathf.DegToRad(_yaw);
 		float pitchRad = Mathf.DegToRad(_pitch);
-
 		Vector3 offset = new Vector3(
 			Distance * Mathf.Cos(pitchRad) * Mathf.Sin(yawRad),
 			Distance * Mathf.Sin(pitchRad),
 			Distance * Mathf.Cos(pitchRad) * Mathf.Cos(yawRad)
 		);
-
 		GlobalPosition = Target + offset;
 		LookAt(Target, Vector3.Up);
 	}

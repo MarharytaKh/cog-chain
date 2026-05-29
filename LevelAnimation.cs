@@ -62,7 +62,7 @@ public void Activate()
 	_currentStep++;
 	_activated = true;
 	_timer = 0f;
-
+	SoundManager.Instance?.PlayAnimation(Type);
 	if (Type == AnimationType.Door)
 		_currentTargetAngle = TargetAngle * ((float)_currentStep / TotalSteps);
 }

@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://bnv5edwilpr2w" path="res://gear_configs/SmallGear.tres" id="2_mitya"]
 [ext_resource type="Resource" uid="uid://brxb7k44s8wxa" path="res://gear_configs/BigGear.tres" id="3_m8inf"]
 [ext_resource type="Resource" uid="uid://cx6jlfmycf034" path="res://gear_configs/UniversalGear.tres" id="4_vo6wp"]
-[ext_resource type="PackedScene" uid="uid://1732doix44mt" path="res://levels/l2.tscn" id="5_ior64"]
+[ext_resource type="PackedScene" uid="uid://bfp7cxgo1idw" path="res://levels/l18.tscn" id="5_ior64"]
 
 [resource]
 script = ExtResource("1_bplcr")

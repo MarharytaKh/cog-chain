@@ -107,7 +107,7 @@ SettingsManager.Apply();
 		SetupLevel();
 	}
 
-	public void ShowNotification(string msg) => _notify?.Show(msg);
+	public void ShowNotification(string msg, string key = "") => _notify?.Show(msg, key);
 
 	public void OnTargetActivated()
 	{
@@ -135,27 +135,30 @@ SettingsManager.Apply();
 		return 0;
 	}
 
-	public void CompleteLevel()
+// Вставь этот метод в GameManager.cs вместо существующего CompleteLevel()
+
+public void CompleteLevel()
+{
+	SoundManager.Instance?.StopSpin();
+	int stars = CalculateStars(_time, _moves);
+	SaveSystem.SaveLevelResult(currentLevelIndex, _time, _moves, stars);
+	if (stars >= 1 && currentLevelIndex + 1 < levels.Length)
+		levels[currentLevelIndex + 1].isUnlocked = true;
+
+	if (currentLevelIndex == 0)
 	{
-		SoundManager.Instance?.StopSpin();
-
-		int stars = CalculateStars(_time, _moves);
-		SaveSystem.SaveLevelResult(currentLevelIndex, _time, _moves, stars);
-
-		if (stars >= 1 && currentLevelIndex + 1 < levels.Length)
-			levels[currentLevelIndex + 1].isUnlocked = true;
-
-		if (currentLevelIndex == 0)
-			if (SaveSystem.UnlockAchievement("first_level"))
-				ShowNotification(Tr("ACH_FIRST_LEVEL"));
-
+		if (SaveSystem.UnlockAchievement("first_level"))
+			ShowNotification(Tr("ACH_FIRST_LEVEL"), "first_level");
+	}
+	else
+	{
 		if (!_removedGear)
 			if (SaveSystem.UnlockAchievement("no_remove"))
-				ShowNotification(Tr("ACH_NO_REMOVE"));
+				ShowNotification(Tr("ACH_NO_REMOVE"), "no_remove");
 
 		if (_time < 15f)
 			if (SaveSystem.UnlockAchievement("speed_run"))
-				ShowNotification(Tr("ACH_SPEED_RUN"));
+				ShowNotification(Tr("ACH_SPEED_RUN"), "speed_run");
 
 		if (SaveSystem.CurrentUser != null)
 		{
@@ -165,7 +168,7 @@ SettingsManager.Apply();
 					{ allDone = false; break; }
 			if (allDone)
 				if (SaveSystem.UnlockAchievement("game_complete"))
-					ShowNotification(Tr("ACH_GAME_COMPLETE"));
+					ShowNotification(Tr("ACH_GAME_COMPLETE"), "game_complete");
 		}
 
 		bool allUsed = true;
@@ -173,11 +176,11 @@ SettingsManager.Apply();
 			if (remainingGearCounts[i] > 0) { allUsed = false; break; }
 		if (allUsed)
 			if (SaveSystem.UnlockAchievement("all_gears"))
-				ShowNotification(Tr("ACH_ALL_GEARS"));
+				ShowNotification(Tr("ACH_ALL_GEARS"), "all_gears");
 
 		if (stars == 5)
 			if (SaveSystem.UnlockAchievement("five_stars"))
-				ShowNotification(Tr("ACH_FIVE_STARS"));
+				ShowNotification(Tr("ACH_FIVE_STARS"), "five_stars");
 
 		if (SaveSystem.CurrentUser != null)
 		{
@@ -190,26 +193,38 @@ SettingsManager.Apply();
 			}
 			if (allMax)
 				if (SaveSystem.UnlockAchievement("all_stars"))
-					ShowNotification(Tr("ACH_ALL_STARS"));
+					ShowNotification(Tr("ACH_ALL_STARS"), "all_stars");
 		}
-
-		float capturedTime  = _time;
-		int   capturedMoves = _moves;
-
-		var timer = GetTree().CreateTimer(2.0f);
-		timer.Timeout += () =>
-		{
-			var uiManager = GetNodeOrNull<UIManager>("/root/UIManager");
-			if (uiManager == null) return;
-			if (levels == null) return;
-			uiManager.Show("level_complete");
-			var screen = uiManager.GetCurrentScreen();
-			if (screen is LevelCompleteScreen lcs)
-				lcs.Setup(currentLevelIndex, levels.Length, capturedTime, capturedMoves, stars);
-			else
-				GD.PrintErr($"screen type={screen?.GetType().Name}");
-		};
 	}
+
+	float capturedTime  = _time;
+	int   capturedMoves = _moves;
+
+	// После 7го уровня (индекс 6) — показываем катсцену
+	if (currentLevelIndex == 10)
+	{
+	var uiManager = GetNodeOrNull<UIManager>("/root/UIManager");
+	uiManager?.Hide();
+	SoundManager.Instance?.StopMusic();
+	var cutsceneTimer = GetTree().CreateTimer(2.5f);
+	cutsceneTimer.Timeout += () => GetTree().ChangeSceneToFile("res://Intro2.tscn");
+	return;
+	}
+
+	var timer = GetTree().CreateTimer(2.0f);
+	timer.Timeout += () =>
+	{
+		var uiManager = GetNodeOrNull<UIManager>("/root/UIManager");
+		if (uiManager == null) return;
+		if (levels == null) return;
+		uiManager.Show("level_complete");
+		var screen = uiManager.GetCurrentScreen();
+		if (screen is LevelCompleteScreen lcs)
+			lcs.Setup(currentLevelIndex, levels.Length, capturedTime, capturedMoves, stars);
+		else
+			GD.PrintErr($"screen type={screen?.GetType().Name}");
+	};
+}
 
 	public void RestartLevel()
 	{
@@ -221,7 +236,7 @@ SettingsManager.Apply();
 		_restartCount++;
 		if (_restartCount >= 3)
 			if (SaveSystem.UnlockAchievement("persistent"))
-				ShowNotification(Tr("ACH_PERSISTENT"));
+				ShowNotification(Tr("ACH_PERSISTENT"), "persistent");
 
 		var scene = levels[currentLevelIndex].levelScene;
 		if (scene != null)
@@ -468,7 +483,7 @@ SettingsManager.Apply();
 			if (g.Children.Count >= 4)
 			{
 				if (SaveSystem.UnlockAchievement("chain_master"))
-					ShowNotification(Tr("ACH_CHAIN_MASTER"));
+					ShowNotification(Tr("ACH_CHAIN_MASTER"), "chain_master");
 				return;
 			}
 		}

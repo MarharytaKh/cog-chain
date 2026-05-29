@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c0g11nperhwjy"]
+
+[ext_resource type="Script" uid="uid://bndf6bhg36doj" path="res://Intro.cs" id="1_5fgoc"]
+[ext_resource type="VideoStream" uid="uid://dy6v6k3s1i4ww" path="res://video/Video-Project-17.ogv" id="2_5fgoc"]
+
+[node name="Intro2" type="Control" unique_id=1128006080]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5fgoc")
+NextScene = "res://UI/LevelSelect.tscn"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1509623556]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -99.0
+offset_right = 2181.0
+offset_bottom = 1185.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_5fgoc")
+expand = true

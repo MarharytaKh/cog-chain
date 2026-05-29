@@ -30,6 +30,7 @@ SoundManager="*uid://rttc0h3vyvt1"
 
 window/size/viewport_width=2020
 window/size/viewport_height=1080
+window/size/mode=1
 window/stretch/mode="canvas_items"
 
 [dotnet]
