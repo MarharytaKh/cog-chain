@@ -329,7 +329,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_c1deg")
 [node name="DirectionalLight3D3" type="DirectionalLight3D" parent="." unique_id=1378309438]
 transform = Transform3D(0.95474184, 0.2350525, -0.1822591, 0.14664748, 0.16111581, 0.9759796, 0.25877127, -0.9585364, 0.11935416, -16.183357, 11.663827, -8.2856455)
 light_color = Color(0.8692503, 0.7211458, 0.7125641, 1)
-light_energy = 0.845
+light_energy = 1.19
 light_angular_distance = 5.55
 shadow_enabled = true
 shadow_bias = 0.0
@@ -345,9 +345,9 @@ environment = SubResource("Environment_cne80")
 transform = Transform3D(0.5856745, -0.3988065, 0.7056478, -0.81050533, -0.27938527, 0.51480585, -0.008160347, -0.8734399, -0.4868636, -5.518976, 3.811511, -11.17101)
 light_color = Color(0.9096475, 0.7473422, 0.60706705, 1)
 light_energy = 16.0
-light_indirect_energy = 3.944
+light_indirect_energy = 4.834
 light_volumetric_fog_energy = 5.22
-light_specular = 3.563
+light_specular = 7.013
 shadow_enabled = true
 shadow_bias = 0.095
 shadow_transmittance_bias = 5.225
@@ -355,13 +355,13 @@ shadow_blur = 3.417
 distance_fade_begin = 359.76
 distance_fade_shadow = 54.9
 distance_fade_length = 97.4
-omni_range = 14.166
+omni_range = 14.311
 omni_attenuation = 1.788
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1133751218]
 transform = Transform3D(0.3888296, -0.9128589, 0.12449998, 0.6679972, 0.3724014, 0.64428025, -0.6345009, -0.16734958, 0.7545878, -0.06700921, 5.9391747, 9.118798)
 light_color = Color(0.59380585, 0.68058807, 0.6988075, 1)
-light_energy = 1.894
+light_energy = 2.079
 light_volumetric_fog_energy = 1.446
 light_size = 0.385
 spot_range = 20.16

@@ -125,7 +125,7 @@ public partial class GameManager : Node
 			if (node is LevelAnimation anim)
 				anim.Activate();
 
-		CompleteLevel();
+		//CompleteLevel();
 	}
 
 	public int CalculateStars(float time, int moves)

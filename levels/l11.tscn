@@ -21,8 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://itqsbqy2gxb3" path="res://3dModels/gears/textures/target_base/defaultMat_Roughness_1001.png" id="19_3dera"]
 [ext_resource type="Script" uid="uid://cbjf6ejbgq52x" path="res://Motor.cs" id="20_l3b53"]
 [ext_resource type="ArrayMesh" uid="uid://ca40rvewmsod0" path="res://3dModels/backgrounds/tlo.obj" id="21_hyaqc"]
-[ext_resource type="Texture2D" uid="uid://780tomehkoyf" path="res://3dModels/backgrounds/blue_rust/defaultMat_Base_color_1001.png" id="22_1vepp"]
-[ext_resource type="Texture2D" uid="uid://bevfm752uwuxq" path="res://3dModels/backgrounds/blue_rust/defaultMat_Normal_OpenGL_1001.png" id="23_hc82w"]
 [ext_resource type="PackedScene" uid="uid://8ep0uxeu8d0r" path="res://UI/Notification.tscn" id="24_urt8b"]
 [ext_resource type="Script" uid="uid://dh4qyv8haw6ta" path="res://LevelAnimation.cs" id="25_xi31i"]
 [ext_resource type="ArrayMesh" uid="uid://dd46fxxqqeayr" path="res://3dModels/mechanism/lamp.obj" id="26_anavk"]
@@ -30,7 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://b04ufnc0vsh4c" path="res://3dModels/mechanism/lamp/defaultMat_Emissive_1001.png" id="28_adtva"]
 [ext_resource type="Texture2D" uid="uid://cfyuht8cjb34r" path="res://3dModels/mechanism/lamp/defaultMat_Metallic_1001.png" id="29_tbu8u"]
 [ext_resource type="Texture2D" uid="uid://xpoltg0gfr4t" path="res://3dModels/mechanism/lamp/defaultMat_Normal_OpenGL_1001.png" id="30_5sua6"]
+[ext_resource type="Texture2D" uid="uid://5unus47cow6p" path="res://3dModels/backgrounds/pink/defaultMat_Base_color_1001.png" id="30_xi31i"]
 [ext_resource type="Texture2D" uid="uid://ddobulsn6w5nd" path="res://3dModels/mechanism/lamp/defaultMat_Roughness_1001.png" id="31_328fs"]
+[ext_resource type="Texture2D" uid="uid://63a30k2flsgv" path="res://3dModels/backgrounds/blue/defaultMat_Normal_OpenGL_1001.png" id="31_anavk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usbd2"]
 albedo_texture = ExtResource("2_urt8b")
@@ -116,12 +116,6 @@ heightmap_enabled = true
 heightmap_scale = 0.005
 heightmap_texture = ExtResource("17_4egui")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyaf6"]
-albedo_texture = ExtResource("22_1vepp")
-normal_enabled = true
-normal_texture = ExtResource("23_hc82w")
-subsurf_scatter_enabled = true
-
 [sub_resource type="Environment" id="Environment_urt8b"]
 background_mode = 2
 background_energy_multiplier = 1.06
@@ -139,6 +133,12 @@ emission_energy_multiplier = 0.16
 emission_texture = ExtResource("28_adtva")
 normal_enabled = true
 normal_texture = ExtResource("30_5sua6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frt5v"]
+albedo_texture = ExtResource("30_xi31i")
+normal_enabled = true
+normal_texture = ExtResource("31_anavk")
+subsurf_scatter_enabled = true
 
 [node name="Main" type="Node3D" unique_id=490015857]
 
@@ -563,11 +563,6 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.37430233, 0)
 mesh = ExtResource("15_328fs")
 surface_material_override/0 = SubResource("StandardMaterial3D_rgt2c")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1352620026]
-transform = Transform3D(3.6171904, 0, 0, 0, -1.5291484e-07, 3, 0, -3.4982839, -1.3113416e-07, -1.4437743, -0.15450096, -1.2380989)
-mesh = ExtResource("21_hyaqc")
-surface_material_override/0 = SubResource("StandardMaterial3D_oyaf6")
-
 [node name="Notification" parent="." unique_id=1676695824 instance=ExtResource("24_urt8b")]
 
 [node name="DirectionalLight3D3" type="DirectionalLight3D" parent="." unique_id=952288193]
@@ -628,3 +623,8 @@ omni_attenuation = 0.905
 transform = Transform3D(1, -2.3283064e-09, 0, -2.561137e-09, 0.99999994, -1.4901161e-08, -9.313226e-10, 0, 1, 0, 0, 0)
 mesh = ExtResource("26_anavk")
 surface_material_override/0 = SubResource("StandardMaterial3D_txbj3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=81436824]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 3, 0, -3, -1.3113416e-07, -3.0873992, 0, -2.4928606)
+mesh = ExtResource("21_hyaqc")
+surface_material_override/0 = SubResource("StandardMaterial3D_frt5v")

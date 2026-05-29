@@ -142,7 +142,7 @@ ambient_light_energy = 0.4
 [node name="Main" type="Node3D" unique_id=508978450]
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=567452471]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.73364997, 0, 4.29751, 8.355863)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.73364997, 0, 0, 0)
 script = ExtResource("1_oo21c")
 Target = Vector3(0, 3, 0)
 MinPitch = 0.0
@@ -841,7 +841,7 @@ shadow_blur = 4.235
 [node name="DirectionalLight3D4" type="SpotLight3D" parent="." unique_id=559327085]
 transform = Transform3D(0.67695475, -0.12843552, 0.72473216, 0.34211636, 0.9267304, -0.1553293, -0.65168154, 0.3530936, 0.6712944, 19.899021, -2.6049166, 14.538588)
 light_color = Color(0.87285364, 0.9197749, 0.8898488, 1)
-light_energy = 10.126
+light_energy = 0.039
 light_indirect_energy = 4.845
 light_size = 5.55
 light_specular = 9.509

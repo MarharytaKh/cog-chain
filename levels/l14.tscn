@@ -301,7 +301,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32250977, 0)
 shape = SubResource("CylinderShape3D_a3vgf")
 
 [node name="Axis7" type="Node3D" parent="." unique_id=1472530752]
-transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, -4.376228, 4.5589957, 5.5809674)
+transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, -4.376228, 4.6371107, 5.5849586)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Axis7" unique_id=1303014534]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1344577, 0)

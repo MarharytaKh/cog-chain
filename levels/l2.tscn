@@ -243,7 +243,7 @@ RotateSpeed = 1.0
 [node name="DirectionalLight3D3" type="DirectionalLight3D" parent="." unique_id=508104996]
 transform = Transform3D(0.95474184, 0.23505248, -0.18225905, 0.14664748, 0.1611158, 0.97597957, 0.25877127, -0.9585363, 0.11935413, -18.135223, 11.663827, -8.2856455)
 light_color = Color(0.8692503, 0.7211458, 0.7125641, 1)
-light_energy = 0.845
+light_energy = 1.765
 light_angular_distance = 5.55
 shadow_enabled = true
 shadow_bias = 0.0
