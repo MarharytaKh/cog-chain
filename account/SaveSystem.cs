@@ -151,8 +151,9 @@ foreach (var lvl in CurrentUser.LevelResults.Values)
 	totalStars += lvl.BestStars;
 		GD.Print($"UpdateRanking: {CurrentUser.Username} {totalStars}");
 _ = FirebaseManager.UpdateRanking(CurrentUser.Username, totalStars);
+Save();
 		_ = SyncToFirebase();
-		Save();
+		
 		
 	}
 
@@ -161,6 +162,7 @@ _ = FirebaseManager.UpdateRanking(CurrentUser.Username, totalStars);
 		try
 		{
 			if (!string.IsNullOrEmpty(FirebaseManager.IdToken) && CurrentUser != null)
+			
 				await FirebaseManager.SaveUserData(CurrentUser);
 		}
 		catch { }

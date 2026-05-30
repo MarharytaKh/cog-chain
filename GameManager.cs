@@ -178,9 +178,14 @@ if (levelLabel != null)
 						ShowNotification(Tr("ACH_GAME_COMPLETE"), "game_complete");
 			}
 
-			bool allUsed = true;
-			for (int i = 0; i < remainingGearCounts.Length; i++)
-				if (remainingGearCounts[i] > 0) { allUsed = false; break; }
+bool allUsed = remainingGearCounts != null && remainingGearCounts.Length > 0;
+GD.Print($"allUsed check: counts={remainingGearCounts?.Length}, allUsed={allUsed}");
+for (int i = 0; i < remainingGearCounts.Length; i++)
+{
+	GD.Print($"  gear[{i}] remaining={remainingGearCounts[i]}");
+	if (remainingGearCounts[i] > 0) { allUsed = false; break; }
+}
+GD.Print($"allUsed final: {allUsed}");
 			if (allUsed)
 				if (SaveSystem.UnlockAchievement("all_gears"))
 					ShowNotification(Tr("ACH_ALL_GEARS"), "all_gears");

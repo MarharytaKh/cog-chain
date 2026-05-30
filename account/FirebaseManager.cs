@@ -13,8 +13,6 @@ public static class FirebaseManager
 	public static string IdToken = "";
 	public static string LocalId = "";
 
-	// ─── AUTH ─────────────────────────────────────────────────────────────────
-
 	public static async System.Threading.Tasks.Task<(bool ok, string error)> Register(string email, string password)
 	{
 		var body = JsonSerializer.Serialize(new { email, password, returnSecureToken = true });
@@ -33,8 +31,6 @@ public static class FirebaseManager
 		return (true, "");
 	}
 
-	// ─── NICKNAMES ────────────────────────────────────────────────────────────
-
 	public static async System.Threading.Tasks.Task<bool> SaveNickname(string username, string email)
 	{
 		var body = JsonSerializer.Serialize(email);
@@ -49,8 +45,6 @@ public static class FirebaseManager
 		return json.Trim('"');
 	}
 
-	// ─── DATABASE ─────────────────────────────────────────────────────────────
-
 	public static async System.Threading.Tasks.Task<bool> SaveUserData(UserData data)
 	{
 		if (string.IsNullOrEmpty(IdToken) || string.IsNullOrEmpty(LocalId)) return false;
@@ -58,7 +52,9 @@ public static class FirebaseManager
 		var levels = new Dictionary<string, object>();
 		foreach (var lvl in data.LevelResults)
 		{
-			levels[lvl.Key.ToString()] = new {
+			// Prefix keys with "lvl_" to prevent Firebase from converting
+			// sequential integer keys into a JSON array on read-back.
+			levels["lvl_" + lvl.Key.ToString()] = new {
 				completed = lvl.Value.Completed,
 				bestTime  = lvl.Value.BestTime,
 				bestMoves = lvl.Value.BestMoves,
@@ -66,7 +62,6 @@ public static class FirebaseManager
 			};
 		}
 
-		// Если нет уровней — добавляем placeholder чтобы Firebase не создал массив []
 		if (levels.Count == 0)
 			levels["_"] = new { placeholder = true };
 
@@ -77,6 +72,7 @@ public static class FirebaseManager
 		};
 
 		var body = JsonSerializer.Serialize(payload);
+		GD.Print("Firebase payload: " + body);
 		var (ok, _) = await Put($"{DbUrl}/users/{LocalId}.json?auth={IdToken}", body);
 		return ok;
 	}
@@ -107,17 +103,48 @@ public static class FirebaseManager
 
 			if (root.TryGetProperty("levels", out var levelsEl))
 			{
-				foreach (var lvl in levelsEl.EnumerateObject())
+				if (levelsEl.ValueKind == JsonValueKind.Object)
 				{
-					if (lvl.Name == "_") continue; // пропускаем placeholder
-					if (!int.TryParse(lvl.Name, out int idx)) continue;
-					data.LevelResults[idx] = new LevelResult
+					// Normal case: keys are strings (either "lvl_0" prefixed or plain "0")
+					foreach (var lvl in levelsEl.EnumerateObject())
 					{
-						Completed = lvl.Value.GetProperty("completed").GetBoolean(),
-						BestTime  = lvl.Value.GetProperty("bestTime").GetSingle(),
-						BestMoves = lvl.Value.GetProperty("bestMoves").GetInt32(),
-						BestStars = lvl.Value.TryGetProperty("bestStars", out var bs) ? bs.GetInt32() : 0
-					};
+						if (lvl.Name == "_") continue;
+
+						// Support both prefixed ("lvl_0") and legacy plain ("0") keys
+						string keyName = lvl.Name.StartsWith("lvl_")
+							? lvl.Name.Substring(4)
+							: lvl.Name;
+
+						if (!int.TryParse(keyName, out int idx)) continue;
+
+						data.LevelResults[idx] = new LevelResult
+						{
+							Completed = lvl.Value.GetProperty("completed").GetBoolean(),
+							BestTime  = lvl.Value.GetProperty("bestTime").GetSingle(),
+							BestMoves = lvl.Value.GetProperty("bestMoves").GetInt32(),
+							BestStars = lvl.Value.TryGetProperty("bestStars", out var bs) ? bs.GetInt32() : 0
+						};
+					}
+				}
+				else if (levelsEl.ValueKind == JsonValueKind.Array)
+				{
+					// Fallback: Firebase coerced sequential integer keys into an array.
+					// This can happen with legacy data saved before the "lvl_" prefix fix.
+					int idx = 0;
+					foreach (var lvl in levelsEl.EnumerateArray())
+					{
+						if (lvl.ValueKind != JsonValueKind.Null)
+						{
+							data.LevelResults[idx] = new LevelResult
+							{
+								Completed = lvl.GetProperty("completed").GetBoolean(),
+								BestTime  = lvl.GetProperty("bestTime").GetSingle(),
+								BestMoves = lvl.GetProperty("bestMoves").GetInt32(),
+								BestStars = lvl.TryGetProperty("bestStars", out var bs) ? bs.GetInt32() : 0
+							};
+						}
+						idx++;
+					}
 				}
 			}
 		}
@@ -128,8 +155,6 @@ public static class FirebaseManager
 
 		return data;
 	}
-
-	// ─── HTTP helpers ─────────────────────────────────────────────────────────
 
 	private static async System.Threading.Tasks.Task<(bool, string)> Post(string url, string body)
 	{
