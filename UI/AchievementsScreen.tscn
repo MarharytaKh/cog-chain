@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://cydqjcakb4g6a" path="res://UI/ach6.png" id="8_eqim4"]
 [ext_resource type="Texture2D" uid="uid://d10ea0jo4qj7c" path="res://UI/ach7.png" id="9_ccpr8"]
 [ext_resource type="Texture2D" uid="uid://bpbb2cqgbx047" path="res://UI/ach8.png" id="10_jv8r5"]
-[ext_resource type="Texture2D" uid="uid://q3r75v1itpeh" path="res://UI/ach9.png" id="11_1caqr"]
 [ext_resource type="Texture2D" uid="uid://8g40dw0itryc" path="res://UI/tbrender_002.png" id="13_uk7t0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5wo0u"]
@@ -40,7 +39,7 @@ FontColor = Color(0.1783382, 0.15559396, 0.14335412, 1)
 LockedColor = Color(0.28238943, 0.23495656, 0.22419149, 1)
 IconSize = Vector2(100, 100)
 IconMarginLeft = 100
-AchievementIcons = Array[Texture2D]([ExtResource("3_5wo0u"), ExtResource("4_l57cy"), ExtResource("5_3c1rs"), ExtResource("6_24tc3"), ExtResource("7_uk7t0"), ExtResource("8_eqim4"), ExtResource("9_ccpr8"), ExtResource("10_jv8r5"), ExtResource("11_1caqr")])
+AchievementIcons = Array[Texture2D]([ExtResource("3_5wo0u"), ExtResource("4_l57cy"), ExtResource("5_3c1rs"), ExtResource("6_24tc3"), ExtResource("7_uk7t0"), ExtResource("8_eqim4"), ExtResource("9_ccpr8"), ExtResource("10_jv8r5")])
 RowTexture = ExtResource("4_5wo0u")
 RowSize = Vector2(60, 160)
 
@@ -97,7 +96,6 @@ mouse_filter = 0
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=914074687]
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_filter = 1
 
 [node name="Name" type="Label" parent="." unique_id=1587754638]
 anchors_preset = -1

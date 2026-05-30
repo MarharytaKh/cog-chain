@@ -11,7 +11,6 @@ public partial class AchievementsScreen : CanvasLayer
 		("all_gears",     "ACH_NAME_ALL_GEARS",     "ACH_DESC_ALL_GEARS"),
 		("five_stars",    "ACH_NAME_FIVE_STARS",    "ACH_DESC_FIVE_STARS"),
 		("all_stars",     "ACH_NAME_ALL_STARS",     "ACH_DESC_ALL_STARS"),
-		("persistent",    "ACH_NAME_PERSISTENT",    "ACH_DESC_PERSISTENT"),
 	};
 
 	[Export] public FontFile ButtonFont;

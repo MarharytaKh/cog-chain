@@ -260,9 +260,6 @@ if (levelLabel != null)
 			_lastRestartedLevel = currentLevelIndex;
 		}
 		_restartCount++;
-		if (_restartCount >= 3 && currentLevelIndex != 0)
-			if (SaveSystem.UnlockAchievement("persistent"))
-				ShowNotification(Tr("ACH_PERSISTENT"), "persistent");
 
 		var scene = levels[currentLevelIndex].levelScene;
 		if (scene != null)
@@ -506,7 +503,7 @@ if (levelLabel != null)
 	{
 		foreach (var g in gears)
 		{
-			if (g.Children.Count >= 4)
+			if (g.Children.Count >= 3)
 			{
 				if (SaveSystem.UnlockAchievement("chain_master"))
 					ShowNotification(Tr("ACH_CHAIN_MASTER"), "chain_master");
