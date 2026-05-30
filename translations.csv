@@ -75,3 +75,4 @@ ENTER_EMAIL,Enter email,Wpisz adres e-mail
 USERNAME_TOO_SHORT,Username is too short,Nazwa użytkownika jest zbyt krótka
 USERNAME_TOO_LONG,Username is too long,Nazwa użytkownika jest zbyt długa
 CREATING_ACCOUNT,creating account...,tworzenie konta...
+LOGOUT,Sign out,Wyloguj się

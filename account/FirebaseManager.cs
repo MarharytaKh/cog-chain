@@ -35,7 +35,6 @@ public static class FirebaseManager
 
 	// ─── NICKNAMES ────────────────────────────────────────────────────────────
 
-	// Сохранить никнейм → email (при регистрации)
 	public static async System.Threading.Tasks.Task<bool> SaveNickname(string username, string email)
 	{
 		var body = JsonSerializer.Serialize(email);
@@ -43,7 +42,6 @@ public static class FirebaseManager
 		return ok;
 	}
 
-	// Найти email по никнейму (при входе)
 	public static async System.Threading.Tasks.Task<string> FindEmailByNickname(string username)
 	{
 		var (ok, json) = await Get($"{DbUrl}/nicknames/{username}.json");
@@ -67,6 +65,10 @@ public static class FirebaseManager
 				bestStars = lvl.Value.BestStars
 			};
 		}
+
+		// Если нет уровней — добавляем placeholder чтобы Firebase не создал массив []
+		if (levels.Count == 0)
+			levels["_"] = new { placeholder = true };
 
 		var payload = new {
 			username     = data.Username,
@@ -107,6 +109,7 @@ public static class FirebaseManager
 			{
 				foreach (var lvl in levelsEl.EnumerateObject())
 				{
+					if (lvl.Name == "_") continue; // пропускаем placeholder
 					if (!int.TryParse(lvl.Name, out int idx)) continue;
 					data.LevelResults[idx] = new LevelResult
 					{
@@ -174,19 +177,20 @@ public static class FirebaseManager
 		catch { }
 		return "Unknown error";
 	}
-	public static async System.Threading.Tasks.Task<bool> UpdateRanking(string username, int totalStars)
-{
-	if (string.IsNullOrEmpty(IdToken)) return false;
-	var payload = new { username, totalStars };
-	var body = JsonSerializer.Serialize(payload);
-	var (ok, _) = await Put($"{DbUrl}/rankings/{LocalId}.json?auth={IdToken}", body);
-	return ok;
-}
 
-public static async System.Threading.Tasks.Task<string> GetRankings()
-{
-	var (ok, json) = await Get($"{DbUrl}/rankings.json");
-	if (!ok || json == "null") return null;
-	return json;
-}
+	public static async System.Threading.Tasks.Task<bool> UpdateRanking(string username, int totalStars)
+	{
+		if (string.IsNullOrEmpty(IdToken)) return false;
+		var payload = new { username, totalStars };
+		var body = JsonSerializer.Serialize(payload);
+		var (ok, _) = await Put($"{DbUrl}/rankings/{LocalId}.json?auth={IdToken}", body);
+		return ok;
+	}
+
+	public static async System.Threading.Tasks.Task<string> GetRankings()
+	{
+		var (ok, json) = await Get($"{DbUrl}/rankings.json");
+		if (!ok || json == "null") return null;
+		return json;
+	}
 }

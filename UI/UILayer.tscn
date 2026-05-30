@@ -34,6 +34,11 @@ font = ExtResource("6_xg5xq")
 font_size = 80
 font_color = Color(0.93756247, 0.9142811, 0.7310875, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_6fxsv"]
+font = ExtResource("6_xg5xq")
+font_size = 80
+font_color = Color(0.836829, 0.9608883, 0.9445296, 1)
+
 [node name="Node2D" type="CanvasLayer" unique_id=1623673965]
 script = ExtResource("1_qqi7y")
 
@@ -162,18 +167,18 @@ texture = ExtResource("3_8gqnd")
 
 [node name="MovesLabel" type="Label" parent="UI/Panel" unique_id=1499943556]
 layout_mode = 0
-offset_left = -830.0001
-offset_top = 168.33333
-offset_right = -561.66675
-offset_bottom = 250.0
+offset_left = -796.6668
+offset_top = 156.66667
+offset_right = -528.33344
+offset_bottom = 238.33334
 label_settings = SubResource("LabelSettings_hann7")
 
 [node name="TimeLabel" type="Label" parent="UI/Panel" unique_id=2114641859]
 layout_mode = 0
-offset_left = -376.6669
-offset_top = 166.66666
-offset_right = -71.6669
-offset_bottom = 254.99997
+offset_left = -361.66693
+offset_top = 161.66666
+offset_right = -56.66693
+offset_bottom = 249.99997
 label_settings = SubResource("LabelSettings_w33fx")
 
 [node name="PauseButton" type="TextureButton" parent="UI/Panel" unique_id=1108090380]
@@ -190,10 +195,17 @@ stretch_mode = 0
 
 [node name="Button2Label" type="Label" parent="UI/Panel" unique_id=1276157727]
 layout_mode = 0
-offset_left = -2110.0002
-offset_top = 148.33333
-offset_right = -1778.0002
-offset_bottom = 271.3333
-text = "Pause
-"
+offset_left = -2096.667
+offset_top = 130.0
+offset_right = -1873.667
+offset_bottom = 232.0
+text = "Pause"
 label_settings = SubResource("LabelSettings_oi31v")
+
+[node name="LevelLabel" type="Label" parent="UI/Panel" unique_id=2097812541]
+layout_mode = 0
+offset_left = -1413.3335
+offset_top = 146.66666
+offset_right = -1130.3335
+offset_bottom = 248.66666
+label_settings = SubResource("LabelSettings_6fxsv")

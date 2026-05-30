@@ -33,6 +33,26 @@ public partial class MainMenu : Control
 			SoundManager.Instance?.PlayClick();
 			GetTree().ChangeSceneToFile("res://UI/SettingsScreen.tscn");
 		};
+		var logoutBtn = GetNodeOrNull<TextureButton>("LogoutButton");
+		if (logoutBtn != null)
+		logoutBtn.Pressed += () =>
+{
+	SoundManager.Instance?.PlayClick();
+	FirebaseManager.IdToken = "";
+	FirebaseManager.LocalId = "";
+	SaveSystem.Logout();
+	// Сбрасываем уровни
+	var gm = GetTree().GetFirstNodeInGroup("GameManager") as GameManager;
+	if (gm?.levels != null)
+	{
+		gm.levels[0].isUnlocked = true;
+		for (int i = 1; i < gm.levels.Length; i++)
+			gm.levels[i].isUnlocked = false;
+	}
+	GetTree().ChangeSceneToFile("res://account/LoginScreen.tscn");
+};
+		var logoutLabel = GetNodeOrNull<Label>("LogoutButton/LogoutButtonLabel");
+		if (logoutLabel != null) logoutLabel.Text = Tr("LOGOUT");
 
 		var rankLabel = GetNodeOrNull<Label>("RankingButton2/LoadButtonRanking");
 		if (rankLabel != null) rankLabel.Text = Tr("RANKING");

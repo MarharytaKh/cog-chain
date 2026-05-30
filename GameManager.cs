@@ -108,8 +108,11 @@ public partial class GameManager : Node
 		if (uiManager == null) { GD.PrintErr("UIManager не найден!"); return; }
 
 		uiManager.Show("hud");
-		uiInstance = uiManager.GetCurrentScreen();
 
+		uiInstance = uiManager.GetCurrentScreen();
+		var levelLabel = uiInstance?.GetNodeOrNull<Label>("UI/Panel/LevelLabel");
+if (levelLabel != null)
+	levelLabel.Text = $"{Tr("LEVEL_NUM")} {currentLevelIndex + 1}";
 		SetupLevel();
 	}
 
@@ -125,7 +128,7 @@ public partial class GameManager : Node
 			if (node is LevelAnimation anim)
 				anim.Activate();
 
-		//CompleteLevel();
+		CompleteLevel();
 	}
 
 	public int CalculateStars(float time, int moves)

@@ -26,6 +26,11 @@ font = ExtResource("5_lquwl")
 font_size = 40
 font_color = Color(0.1618495, 0.31099427, 0.21743315, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_efxa6"]
+font = ExtResource("5_lquwl")
+font_size = 20
+font_color = Color(0.95160466, 0.94523543, 0.9488445, 1)
+
 [node name="Node2D" type="Control" unique_id=2129067068]
 layout_mode = 3
 anchors_preset = 0
@@ -229,3 +234,20 @@ offset_right = 1968.0
 offset_bottom = 174.0
 texture = ExtResource("10_efxa6")
 expand_mode = 1
+
+[node name="LogoutButton" type="TextureButton" parent="." unique_id=1548594782]
+layout_mode = 0
+offset_left = 1558.0
+offset_top = 143.0
+offset_right = 1829.0
+offset_bottom = 182.0
+
+[node name="LogoutButtonLabel" type="Label" parent="LogoutButton" unique_id=2083024829]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 1.0
+offset_right = 136.0
+offset_bottom = 27.0
+scale = Vector2(1.7466265, 1.3924632)
+text = "Sign out"
+label_settings = SubResource("LabelSettings_efxa6")
