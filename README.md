@@ -22,3 +22,6 @@ Accounts with local save data and optional Firebase sync across devices
 9 achievements to unlock
 Music and SFX volume controls
 English and Polish language support
+
+No generative AI was used
+Most of the models and textures were created by me; some were taken from open sources with permission to use them. I do not claim authorship of them.
