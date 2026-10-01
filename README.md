@@ -1,4 +1,5 @@
 A downloadable puzzle for Windows and Android
+https://marharyta0006.itch.io/cogchain
 
 The city's clocks have stopped.
  So have the doors, the lamps, the old mechanisms nobody remembers how to fix. In CogChain you figure it out the old way: place a gear, connect another, spin the motor and see what moves.
